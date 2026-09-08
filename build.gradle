@@ -1,0 +1,4 @@
+// build.gradle raiz — só declara os plugins, sem aplicar (apply false)
+plugins {
+    id("com.android.application") version "8.7.0" apply false
+}

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string-array name="otherLabels">
+    <item msgid="8287841928119937597">"组织"</item>
+    <item msgid="7196592230748086755">"备注"</item>
+  </string-array>
+    <string msgid="695145166039381504" name="actionCall">"呼叫<ns1:g id="TYPE">%s</ns1:g>"</string>
+    <string msgid="31079429748650300" name="actionChat">"使用<ns1:g id="TYPE">%s</ns1:g>聊天"</string>
+    <string msgid="3870371552333656807" name="actionEmail">"发送电子邮件至<ns1:g id="TYPE">%s</ns1:g>"</string>
+    <string msgid="6028930669817038600" name="actionIncomingCall">"来电"</string>
+    <string msgid="1977955782051732775" name="actionMap">"查看<ns1:g id="TYPE">%s</ns1:g>地址"</string>
+    <string msgid="6399049224844880108" name="actionText">"发送信息至<ns1:g id="TYPE">%s</ns1:g>"</string>
+    <string msgid="1594679312161537678" name="addPicture">"添加图标"</string>
+    <string msgid="7986472669444326576" name="add_contact_dlg_message_fmt">"将“<ns1:g id="EMAIL">%s</ns1:g>”添加到联系人？"</string>
+    <string msgid="2789046541229846116" name="add_contact_dlg_title">"添加联系人"</string>
+    <string msgid="7754115197545456663" name="add_more_items">"添加更多项"</string>
+    <string msgid="8820530304406066714" name="attachToContact">"联系人图标"</string>
+    <string msgid="3197312117049874778" name="callAgain">"重新呼叫"</string>
+    <string msgid="5498224409038809224" name="callBack">"回电"</string>
+    <string msgid="5340227785196217938" name="callDetailTitle">"通话详情"</string>
+    <string msgid="8157706382818184268" name="callDetailsDurationFormat">"<ns1:g id="MINUTES">%s</ns1:g> 分 <ns1:g id="SECONDS">%s</ns1:g> 秒"</string>
+    <string msgid="3941950339482985532" name="call_duration">"持续时间"</string>
+    <string msgid="5805575214626630975" name="call_time">"时间"</string>
+    <string msgid="3213526349444862087" name="call_type">"类型"</string>
+    <string msgid="8740102129968688060" name="contactCreatedToast">"已创建联系人。"</string>
+    <string msgid="7152589189385441091" name="contactSavedToast">"联系人已保存。"</string>
+    <string msgid="8417039765586853670" name="contactsFavoritesLabel">"收藏"</string>
+    <string msgid="7666609097606552806" name="contactsIconLabel">"联系人"</string>
+    <string msgid="8661624236494819731" name="contactsList">"联系人"</string>
+    <string msgid="7248276704957313698" name="contactsSyncPlug"><font fgcolor="#ffffffff">"同步您的 Google 联系人！"</font>" "\n"将您的联系人同步到您的手机，然后您在任何地方都可以与他们联系。"</string>
+    <string msgid="1081475101983255212" name="customLabelPickerTitle">"自定义标签名称"</string>
+    <string msgid="2906207446040994658" name="datetime_relative">"<ns1:g id="DATETIME">%1$s</ns1:g> (<ns1:g id="RELATIVE">%2$s</ns1:g>)"</string>
+    <string msgid="9099988849649827972" name="default_ringtone">"默认"</string>
+    <string msgid="811706994761610640" name="deleteConfirmation">"将会删除此联系人。"</string>
+    <string msgid="6394309508930335204" name="deleteConfirmation_title">"删除"</string>
+    <string msgid="9163373178772231307" name="detailIncomingCallsGoToVoicemail">"直接发送到语音信箱"</string>
+    <string msgid="4052108748982701775" name="detailsRingtone">"设为<ns1:g id="RINGTONE_NAME">%s</ns1:g>"</string>
+    <string msgid="5824490365898349041" name="dialerDialpadHintText">"拨号以添加通话"</string>
+    <string msgid="7228520966699542850" name="dialerIconLabel">"拨号器"</string>
+    <string msgid="5401660096579787344" name="dialerKeyboardHintText">"使用键盘拨号"</string>
+    <string msgid="4205688819890074468" name="dialer_addAnotherCall">"添加通话"</string>
+    <string msgid="3719386377550913067" name="dialer_returnToInCallScreen">"返回正在进行的通话"</string>
+    <string msgid="1707548397435075040" name="dialer_useDtmfDialpad">"使用按键式数字键盘"</string>
+    <string msgid="2947202828256214947" name="editContactDescription">"编辑联系人"</string>
+    <string msgid="7678695190666836093" name="editContact_title_edit">"编辑联系人"</string>
+    <string msgid="9125600232291405757" name="editContact_title_insert">"新建联系人"</string>
+    <string msgid="8389931313045344406" name="emailLabelsGroup">"电子邮件"</string>
+    <string msgid="475272869218091715" name="errorDialogTitle">"无图片"</string>
+    <string msgid="5922864781066136340" name="fail_reason_io_error">"I/O 错误"</string>
+    <string msgid="3808734131680935043" name="fail_reason_no_vcard_entry">"未找到与所选内容对应的有效 VCard 条目"</string>
+    <string msgid="1489638537002538332" name="fail_reason_no_vcard_file">"未在 SD 卡上找到 VCard 文件"</string>
+    <string msgid="2129476089250836277" name="fail_reason_vcard_parse_error">"解析 VCard 失败"</string>
+    <string msgid="5007070838253932139" name="favoritesFrquentSeparator">"经常呼叫"</string>
+    <string msgid="7154768136473953056" name="frequentList">"频繁"</string>
+    <string msgid="5414421120553765775" name="ghostData_company">"公司"</string>
+    <string msgid="6184537075551565919" name="ghostData_email">"电子邮件地址"</string>
+    <string msgid="7737174936595812794" name="ghostData_im">"即时通讯帐号"</string>
+    <string msgid="6490954238641157585" name="ghostData_name">"姓名"</string>
+    <string msgid="3044201271296187724" name="ghostData_notes">"我的备注"</string>
+    <string msgid="6963153888271466620" name="ghostData_phone">"电话号码"</string>
+    <string msgid="7852749081984070902" name="ghostData_phonetic_name">"姓名拼音"</string>
+    <string msgid="652611650594951897" name="ghostData_postal">"邮政地址"</string>
+    <string msgid="7662602222400641187" name="ghostData_title">"职位"</string>
+    <string msgid="6661950109828194595" name="groupEmpty">"“<ns1:g id="GROUPNAME">%s</ns1:g>”群组为空。"</string>
+    <string msgid="5696566165170977126" name="groupNameMyContacts">"我的联系人"</string>
+    <string msgid="6981588604041120497" name="groupNameWithPhones">"具有手机号码的联系人"</string>
+    <string msgid="229583643365836321" name="header_actions">"操作"</string>
+    <string msgid="3898238486262614027" name="imLabelsGroup">"即时消息"</string>
+    <string msgid="3045126336951684285" name="imei">"IMEI"</string>
+    <string msgid="8383900146531125319" name="importFromSim">"导入联系人"</string>
+    <string msgid="2788222288962542415" name="import_all_vcard_string">"导入所有 VCard 文件"</string>
+    <string msgid="8854793070007530689" name="import_from_sdcard">"SD 卡"</string>
+    <string msgid="3362158539070179154" name="import_from_sim">"SIM 卡"</string>
+    <string msgid="4618119296910253689" name="import_one_vcard_string">"导入一个 VCard 文件"</string>
+    <string msgid="2466665710812588738" name="importing_vcard_message">"正在导入 VCard 数据"</string>
+    <string msgid="4709878105452681987" name="insertContactDescription">"创建联系人"</string>
+    <string msgid="5816991830260044593" name="invalidContactMessage">"联系人不存在。"</string>
+    <string msgid="8337354953278341042" name="label_notes">"备注"</string>
+    <string msgid="2288082649573927286" name="label_phonetic_name">"拼音"</string>
+    <string msgid="8833166825330686244" name="label_ringtone">"铃声"</string>
+    <string msgid="140610573639849799" name="launcherDialer">"拨号"</string>
+    <string msgid="7115321894439629408" name="listSeparatorCallNumber">"拨打电话"</string>
+    <string msgid="2999167270900823334" name="listSeparatorCallNumber_edit">"电话号码"</string>
+    <string msgid="7076401301758190804" name="listSeparatorMapAddress">"地图地址"</string>
+    <string msgid="298711187672067985" name="listSeparatorMapAddress_edit">"邮政地址"</string>
+    <string msgid="858454837482243176" name="listSeparatorMore_edit">"更多"</string>
+    <string msgid="7514083358440762504" name="listSeparatorOrganizations">"组织"</string>
+    <string msgid="7844959649638482329" name="listSeparatorOtherInformation">"其他信息"</string>
+    <string msgid="1326921768011367750" name="listSeparatorOtherInformation_edit">"其他选项"</string>
+    <string msgid="5395590830304525721" name="listSeparatorSendEmail">"发送电子邮件"</string>
+    <string msgid="6859593624213634454" name="listSeparatorSendEmail_edit">"电子邮件地址"</string>
+    <string msgid="2209260633185984105" name="listSeparatorSendIm">"发送即时消息"</string>
+    <string msgid="3793290685553377986" name="listSeparatorSendIm_edit">"聊天地址"</string>
+    <string msgid="2480944736714739967" name="listSeparatorSendSmsMms">"发送短信/彩信"</string>
+    <string msgid="4789010460767506206" name="liveFolderAll">"所有联系人"</string>
+    <string msgid="3100957542927222282" name="liveFolderFavorites">"已加星标的联系人"</string>
+    <string msgid="3739376066610926780" name="liveFolderPhone">"具有手机号码的联系人"</string>
+    <string msgid="1552523730090319259" name="liveFolder_all_label">"所有联系人"</string>
+    <string msgid="2674341514070517105" name="liveFolder_favorites_label">"已加星标"</string>
+    <string msgid="1709786878793436245" name="liveFolder_phones_label">"手机"</string>
+    <string msgid="6106836852570790250" name="menu_addItem">"详细信息"</string>
+    <string msgid="2908478235715404876" name="menu_addStar">"添加到收藏"</string>
+    <string msgid="7359207953236681606" name="menu_call">"呼叫"</string>
+    <string msgid="5142851348489387516" name="menu_callNumber">"呼叫<ns1:g id="NAME">%s</ns1:g>"</string>
+    <string msgid="1916555454274101750" name="menu_deleteContact">"删除联系人"</string>
+    <string msgid="4603480747214476335" name="menu_displayGroup">"显示群组"</string>
+    <string msgid="2174577548513895144" name="menu_doNotSave">"还原"</string>
+    <string msgid="796017761764190697" name="menu_done">"完成"</string>
+    <string msgid="3452858480713561396" name="menu_editContact">"编辑联系人"</string>
+    <string msgid="4838759253316649534" name="menu_makeDefaultNumber">"设置默认号码"</string>
+    <string msgid="1209922412763274638" name="menu_newContact">"新建联系人"</string>
+    <string msgid="5844227078364227030" name="menu_removeStar">"从收藏删除"</string>
+    <string msgid="9147752853603483719" name="menu_search">"搜索"</string>
+    <string msgid="7293508859242926187" name="menu_sendEmail">"发送电子邮件"</string>
+    <string msgid="5917289601666766617" name="menu_sendSMS">"发送短信/彩信"</string>
+    <string msgid="455561537582270625" name="menu_sendTextMessage">"发送短信"</string>
+    <string msgid="309973637178814132" name="menu_showBarcode">"显示条形码"</string>
+    <string msgid="1814744325763202024" name="menu_viewAddress">"地图地址"</string>
+    <string msgid="2795575601596468581" name="menu_viewContact">"查看联系人"</string>
+    <string msgid="8579310973261953559" name="noContacts">"无联系人。"</string>
+    <string msgid="2249195687463896364" name="noContactsHelpText">"您没有任何联系人。"\n\n"要添加联系人，请按 "<font fgcolor="#ffffffff"><b>"MENU"</b></font>" 并选择："\n" "\n<li><font fgcolor="#ffffffff"><b>"新建联系人"</b></font>"以从头开始创建新联系人 "\n</li>" "\n<li><font fgcolor="#ffffffff"><b>"导入联系人"</b></font>"以从您的 SIM 卡添加联系人"\n</li></string>
+    <string msgid="4927701496550314555" name="noContactsHelpTextWithSync">"您没有任何联系人。"\n\n"要添加联系人，请按 "<font fgcolor="#ffffffff"><b>"MENU"</b></font>" 并选择："\n" "\n<li><font fgcolor="#ffffffff"><b>"编辑同步群组"</b></font>"以从新的或现有的 Google 帐户添加"\n</li>" "\n<li><font fgcolor="#ffffffff"><b>"新建联系人"</b></font>"以从头开始创建新联系人"\n</li>" "\n<li><font fgcolor="#ffffffff"><b>"导入联系人"</b></font>"以从您的 SIM 卡添加联系人"\n</li></string>
+    <string msgid="1605457050218824269" name="noContactsWithPhoneNumbers">"无具有手机号码的联系人。"</string>
+    <string msgid="812766386743315815" name="noFavorites">"无收藏。"</string>
+    <string msgid="7791906118138538259" name="no_sdcard_message">"未检测到 SD 卡"</string>
+    <string msgid="6455416795090113715" name="no_sdcard_title">"无 SD 卡"</string>
+    <string msgid="6584626043193000238" name="otherLabelsGroup">"其他"</string>
+    <string msgid="4864313342828942922" name="payphone">"投币式公用电话"</string>
+    <string msgid="6468091477851199285" name="phoneLabelsGroup">"手机"</string>
+    <string msgid="431331662154342581" name="photoPickerNotFoundText">"手机上没有图片。"</string>
+    <string msgid="7750705279843568147" name="pickerNewContactHeader">"新建联系人"</string>
+    <string msgid="1618078212734693682" name="postalLabelsGroup">"邮政地址"</string>
+    <string msgid="6374339738119166953" name="private_num">"私人号码"</string>
+    <string msgid="3066834102042012868" name="reading_vcard_contacts">"第 <ns1:g id="CURRENT_NUMBER">%s</ns1:g> 个，共 <ns1:g id="TOTAL_NUMBER">%s</ns1:g> 个联系人"</string>
+    <string msgid="780588344175743735" name="reading_vcard_failed_message">"无法读取 VCard 数据"\n"失败原因：“<ns1:g id="FAIL_REASON">%s</ns1:g>”"</string>
+    <string msgid="5042366466147724748" name="reading_vcard_failed_title">"读取 VCard 数据失败"</string>
+    <string msgid="34180143726972661" name="reading_vcard_files">"第 <ns1:g id="CURRENT_NUMBER">%s</ns1:g> 个，共 <ns1:g id="TOTAL_NUMBER">%s</ns1:g> 个文件"</string>
+    <string msgid="7470486051482460267" name="reading_vcard_message">"正在读取 VCard 文件"</string>
+    <string msgid="430154704397375160" name="reading_vcard_title">"正在读取 VCard"</string>
+    <string msgid="1419116422359067949" name="recentCallsIconLabel">"通话记录"</string>
+    <string msgid="1429899535546487008" name="recentCalls_addToContact">"添加到联系人"</string>
+    <string msgid="1756372533999226126" name="recentCalls_callNumber">"呼叫<ns1:g id="NAME">%s</ns1:g>"</string>
+    <string msgid="6352364392762163704" name="recentCalls_deleteAll">"清除通话记录"</string>
+    <string msgid="7756171675833267857" name="recentCalls_editNumberBeforeCall">"在呼叫前编辑号码"</string>
+    <string msgid="247053222448663107" name="recentCalls_empty">"通话记录为空。"</string>
+    <string msgid="401662244636511330" name="recentCalls_removeFromRecentList">"从通话记录中删除"</string>
+    <string msgid="3041230993155966350" name="removePicture">"删除图标"</string>
+    <string msgid="8171961914203617813" name="returnCall">"返回呼叫"</string>
+    <string msgid="7317823545379736528" name="ringtone_spinner">"铃声：<ns1:g id="RINGTONE">%1$s</ns1:g>"</string>
+    <string msgid="925361244069058117" name="scanning_sdcard_failed_message">"扫描 SD 卡失败"</string>
+    <string msgid="2788276113399585924" name="scanning_sdcard_failed_title">"扫描 SD 卡失败"</string>
+    <string msgid="8482945356247760701" name="searchHint">"搜索联系人"</string>
+    <string msgid="2467573749792455605" name="searching_vcard_message">"正在搜索 VCard 上的 VCard 数据"</string>
+    <string msgid="4158580043290687793" name="searching_vcard_title">"正在搜索 VCard"</string>
+    <string msgid="1235432026231325655" name="seclectSyncGroups_title">"选择要同步的群组"</string>
+    <string msgid="4255424123394910733" name="selectLabel">"选择标签"</string>
+    <string msgid="7955698611959835612" name="select_group_title">"群组"</string>
+    <string msgid="2443742794103731022" name="select_import_type_title">"您希望从何处导入联系人？"</string>
+    <string msgid="7028772212789057858" name="select_vcard_message">"请选择要导入的 VCard 文件"</string>
+    <string msgid="4615933643517710543" name="select_vcard_title">"选择 VCard 文件"</string>
+    <string msgid="9001686764070676353" name="send_to_voicemail_checkbox">"直接将呼叫发送到语音信箱"</string>
+    <string msgid="9124400414311776864" name="send_to_voicemail_view">"呼叫直接发送到语音信箱。"</string>
+    <string msgid="749243779392912958" name="shortcutContact">"联系人"</string>
+    <string msgid="5164410117611094297" name="showAllGroups">"所有联系人"</string>
+    <string msgid="6700035985448642408" name="simContacts_emptyLoading">"正在从 SIM 卡载入..."</string>
+    <string msgid="27341688347689769" name="simContacts_title">"SIM 卡联系人"</string>
+    <string msgid="6495527538140213440" name="starredInAndroid">"Android 中加星标的联系人"</string>
+    <string msgid="4817256136413959463" name="starredList">"已加星标"</string>
+    <string msgid="5640192862059373511" name="strequentList">"收藏"</string>
+    <string msgid="7512169081224806890" name="syncAllGroups">"同步所有联系人"</string>
+    <string msgid="9028361137161162861" name="syncGroupPreference">"编辑同步群组"</string>
+    <string msgid="7200975244804730096" name="toast_call_detail_error">"无法读取所请求呼叫的详细信息。"</string>
+    <string msgid="6502076603836088532" name="type_incoming">"来电"</string>
+    <string msgid="2720502601640509542" name="type_missed">"未接电话"</string>
+    <string msgid="343108709599392641" name="type_outgoing">"对外呼叫"</string>
+    <string msgid="740067747858270469" name="unknown">"未知"</string>
+    <string msgid="214186610887547860" name="viewContactDesription">"查看联系人"</string>
+    <string msgid="7989394521836644384" name="viewContactTitle">"联系人详情"</string>
+    <string msgid="3851469869202611441" name="voicemail">"语音信箱"</string>
+</resources>

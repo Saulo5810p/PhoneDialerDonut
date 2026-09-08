@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Tema clássico do Android 1.0 ("Theme" escuro padrão do sistema),
+  extraído literalmente de tools/lib/res/default/values/themes.xml do
+  SDK android-sdk-linux_x86-1.0_r1 — só os atributos que Phone/Contacts
+  desta portabilidade realmente usam (?android:attr/textAppearanceLarge,
+  textColorSecondary, listDivider, etc.).
+
+  Aplique "Classic.Theme" (ou os dois específicos abaixo) no
+  android:theme="" das Activities no AndroidManifest.xml — ver o .md de
+  handoff para o passo a passo completo.
+-->
+<resources>
+
+    <style name="Classic.Theme" parent="android:Theme">
+        <!-- Cores de texto (Theme escuro: texto claro sobre fundo escuro) -->
+        <item name="android:textColorPrimary">@color/primary_text_dark</item>
+        <item name="android:textColorSecondary">@color/secondary_text_dark</item>
+        <item name="android:textColorPrimaryInverse">@color/primary_text_light</item>
+        <item name="android:textColorSecondaryInverse">@color/secondary_text_light</item>
+        <item name="android:textColorPrimaryDisableOnly">@color/primary_text_dark_disable_only</item>
+        <item name="android:textColorPrimaryNoDisable">@color/primary_text_dark_nodisable</item>
+        <item name="android:textColorSecondaryNoDisable">@color/secondary_text_dark_nodisable</item>
+        <item name="android:textColorPrimaryInverseNoDisable">@color/primary_text_light_nodisable</item>
+        <item name="android:textColorSecondaryInverseNoDisable">@color/secondary_text_light_nodisable</item>
+        <item name="android:textColorHint">@color/hint_foreground_dark</item>
+        <item name="android:textColorHintInverse">@color/hint_foreground_light</item>
+
+        <!-- Text appearances -->
+        <item name="android:textAppearance">@style/Classic.TextAppearance</item>
+        <item name="android:textAppearanceLarge">@style/Classic.TextAppearance.Large</item>
+        <item name="android:textAppearanceMedium">@style/Classic.TextAppearance.Medium</item>
+        <item name="android:textAppearanceSmall">@style/Classic.TextAppearance.Small</item>
+        <item name="android:textAppearanceLargeInverse">@style/Classic.TextAppearance.Large.Inverse</item>
+        <item name="android:textAppearanceSmallInverse">@style/Classic.TextAppearance.Small.Inverse</item>
+
+        <!-- Botões e widgets -->
+        <item name="android:buttonStyleSmall">@style/Classic.Widget.Button.Small</item>
+        <item name="android:imageWellStyle">@style/Classic.Widget.ImageWell</item>
+        <item name="android:listSeparatorTextViewStyle">@style/Classic.Widget.TextView.ListSeparator</item>
+        <item name="android:starStyle">@style/Classic.Widget.CompoundButton.Star</item>
+
+        <!-- Listas -->
+        <item name="android:listPreferredItemHeight">64px</item>
+        <item name="android:listDivider">@drawable/divider_horizontal_dark</item>
+        <item name="android:scrollbarSize">10dip</item>
+
+        <!-- Fundo de janela: cinza-escuro sólido clássico (#ff191919) -->
+        <item name="android:windowBackground">@drawable/classic_screen_background_dark</item>
+        <item name="android:colorBackground">@color/background_dark</item>
+        <item name="android:panelColorForeground">@color/primary_text_light</item>
+        <item name="android:panelColorBackground">@color/background_dark</item>
+    </style>
+
+    <!--
+      Variante sem título — a maioria das telas de Phone/Contacts usa a
+      própria barra de título do sistema (às vezes customizada, ver
+      TallTitleBarTheme em styles.xml local de cada módulo), então esta
+      variante fica disponível caso alguma Activity precise dela.
+    -->
+    <style name="Classic.Theme.NoTitleBar" parent="Classic.Theme">
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+</resources>

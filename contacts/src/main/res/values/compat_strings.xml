@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Strings adicionadas pela migração para APIs modernas — não fazem parte do
+  strings.xml original do Android 1.6 (que fica intocado). Mantidas num arquivo
+  separado de propósito, pra deixar claro o que é 2009 e o que é 2026.
+-->
+<resources>
+    <!-- Substitui com.android.internal.R.string.fast_scroll_alphabet (recurso de
+         sistema inacessível a apps normais). Usado pelo AlphabetIndexer da lista de
+         contatos para pular direto pra letra ao arrastar a barra lateral. -->
+    <string name="fast_scroll_alphabet_compat">ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+</resources>

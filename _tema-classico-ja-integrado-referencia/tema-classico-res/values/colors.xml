@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Cores base do tema clássico do Android 1.0, extraídas literalmente de
+  tools/lib/res/default/values/colors.xml do SDK android-sdk-linux_x86-1.0_r1.
+
+  Usam os MESMOS nomes que os arquivos color/*.xml (state lists) e
+  drawable/*.xml deste pacote já esperam via @color/... — não prefixamos
+  nada aqui de propósito, pra essas referências resolverem localmente
+  sem precisar editar cada state list individualmente.
+-->
+<resources>
+    <color name="transparent">#00000000</color>
+    <color name="black">#ff000000</color>
+    <color name="white">#ffffffff</color>
+
+    <!-- Fundos -->
+    <color name="background_dark">#ff191919</color>
+    <color name="background_light">#ffffffff</color>
+
+    <!-- "Bright foreground" (texto de alto contraste, ex. corpo em Theme escuro) -->
+    <color name="bright_foreground_dark">#ffffffff</color>
+    <color name="bright_foreground_dark_disabled">#80ffffff</color>
+    <color name="bright_foreground_dark_inverse">#ff000000</color>
+    <color name="bright_foreground_light">#ff000000</color>
+    <color name="bright_foreground_light_disabled">#80000000</color>
+
+    <!-- "Dim foreground" (texto secundário/terciário) -->
+    <color name="dim_foreground_dark">#ffbebebe</color>
+    <color name="dim_foreground_dark_disabled">#80bebebe</color>
+    <color name="dim_foreground_dark_inverse">#ff323232</color>
+    <color name="dim_foreground_dark_inverse_disabled">#80323232</color>
+    <color name="dim_foreground_light">#ff323232</color>
+    <color name="dim_foreground_light_disabled">#80323232</color>
+
+    <!-- Hint text -->
+    <color name="hint_foreground_dark">#ff808080</color>
+    <color name="hint_foreground_light">#ff808080</color>
+
+    <!--
+      Drawable-cor sólida usada como windowBackground do tema escuro
+      (definida como <drawable> no colors.xml original do SDK 1.0, mesma
+      técnica reproduzida aqui via <drawable> para poder ser referenciada
+      como @drawable/classic_screen_background_dark).
+    -->
+    <drawable name="classic_screen_background_dark">#ff191919</drawable>
+</resources>

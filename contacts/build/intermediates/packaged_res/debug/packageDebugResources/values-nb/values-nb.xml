@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string-array name="otherLabels">
+    <item msgid="8287841928119937597">"Organisasjon"</item>
+    <item msgid="7196592230748086755">"Notat"</item>
+  </string-array>
+    <string msgid="695145166039381504" name="actionCall">"Ring <ns1:g id="TYPE">%s</ns1:g>"</string>
+    <string msgid="31079429748650300" name="actionChat">"Prat over <ns1:g id="TYPE">%s</ns1:g>"</string>
+    <string msgid="3870371552333656807" name="actionEmail">"Send e-post til <ns1:g id="TYPE">%s</ns1:g>"</string>
+    <string msgid="6028930669817038600" name="actionIncomingCall">"Innkommende samtaler"</string>
+    <string msgid="1977955782051732775" name="actionMap">"Vis <ns1:g id="TYPE">%s</ns1:g>adresse"</string>
+    <string msgid="6399049224844880108" name="actionText">"Send SMS til <ns1:g id="TYPE">%s</ns1:g>"</string>
+    <string msgid="1594679312161537678" name="addPicture">"Legg til ikon"</string>
+    <string msgid="7986472669444326576" name="add_contact_dlg_message_fmt">"Legg til «<ns1:g id="EMAIL">%s</ns1:g>» som kontakt?"</string>
+    <string msgid="2789046541229846116" name="add_contact_dlg_title">"Legg til kontakt"</string>
+    <string msgid="7754115197545456663" name="add_more_items">"Legg til flere elementer"</string>
+    <string msgid="8820530304406066714" name="attachToContact">"Kontaktikon"</string>
+    <string msgid="3197312117049874778" name="callAgain">"Ring på nytt"</string>
+    <string msgid="5498224409038809224" name="callBack">"Ring tilbake"</string>
+    <string msgid="5340227785196217938" name="callDetailTitle">"Samtaleinformasjon"</string>
+    <string msgid="8157706382818184268" name="callDetailsDurationFormat">"<ns1:g id="MINUTES">%s</ns1:g> min <ns1:g id="SECONDS">%s</ns1:g> sek"</string>
+    <string msgid="6065749861423648991" name="callShortcutActivityTitle">"Velg et nummer å ringe"</string>
+    <string msgid="3941950339482985532" name="call_duration">"Varighet"</string>
+    <string msgid="5805575214626630975" name="call_time">"Tid"</string>
+    <string msgid="3213526349444862087" name="call_type">"Type"</string>
+    <string msgid="63482084706768079" name="confirm_export_message">"Ønsker du å eksportere kontaktlisten din til «<ns1:g id="VCARD_FILENAME">%s</ns1:g>»?"</string>
+    <string msgid="1693047909433122854" name="confirm_export_title">"Eksportbekreftelse"</string>
+    <string msgid="8740102129968688060" name="contactCreatedToast">"Kontakt opprettet."</string>
+    <string msgid="7152589189385441091" name="contactSavedToast">"Kontakt lagret."</string>
+    <string msgid="8417039765586853670" name="contactsFavoritesLabel">"Vanlige"</string>
+    <string msgid="7666609097606552806" name="contactsIconLabel">"Alle"</string>
+    <string msgid="8661624236494819731" name="contactsList">"Kontakter"</string>
+    <string msgid="7248276704957313698" name="contactsSyncPlug"><font fgcolor="#ffffffff">"Synkroniser Google-kontaktene dine!"</font>" "\n"Etter å ha synkronisert telefonen vil kontaktene dine bli tilgjengelig overalt."</string>
+    <string msgid="1081475101983255212" name="customLabelPickerTitle">"Egendefinert etikett"</string>
+    <string msgid="2906207446040994658" name="datetime_relative">"<ns1:g id="DATETIME">%1$s</ns1:g> (<ns1:g id="RELATIVE">%2$s</ns1:g>)"</string>
+    <string msgid="9099988849649827972" name="default_ringtone">"Standardvalg"</string>
+    <string msgid="811706994761610640" name="deleteConfirmation">"Denne kontakten vil bli slettet."</string>
+    <string msgid="6394309508930335204" name="deleteConfirmation_title">"Slett"</string>
+    <string msgid="6969435115163287801" name="description_image_button_eight">"åtte"</string>
+    <string msgid="1182465427501188413" name="description_image_button_five">"fem"</string>
+    <string msgid="3530239685642246130" name="description_image_button_four">"fire"</string>
+    <string msgid="7857248695662558323" name="description_image_button_nine">"ni"</string>
+    <string msgid="1740638037139856139" name="description_image_button_one">"en"</string>
+    <string msgid="3039765597595889230" name="description_image_button_pound">"firkant"</string>
+    <string msgid="2450357020447676481" name="description_image_button_seven">"sju"</string>
+    <string msgid="2093656269261415475" name="description_image_button_six">"seks"</string>
+    <string msgid="3365919907520767866" name="description_image_button_star">"stjerne"</string>
+    <string msgid="8709731759376015180" name="description_image_button_three">"tre"</string>
+    <string msgid="5882638439003731308" name="description_image_button_two">"to"</string>
+    <string msgid="4133108949401820710" name="description_image_button_zero">"null"</string>
+    <string msgid="9163373178772231307" name="detailIncomingCallsGoToVoicemail">"Vil bli sendt rett til telefonsvarer"</string>
+    <string msgid="4052108748982701775" name="detailsRingtone">"Sett til <ns1:g id="RINGTONE_NAME">%s</ns1:g>"</string>
+    <string msgid="5824490365898349041" name="dialerDialpadHintText">"Ring for å legge til en samtale"</string>
+    <string msgid="7228520966699542850" name="dialerIconLabel">"Telefon"</string>
+    <string msgid="5401660096579787344" name="dialerKeyboardHintText">"Bruk tastaturet for å ringe"</string>
+    <string msgid="4205688819890074468" name="dialer_addAnotherCall">"Legg til en samtale"</string>
+    <string msgid="3719386377550913067" name="dialer_returnToInCallScreen">"Gå tilbake til pågående samtale"</string>
+    <string msgid="1707548397435075040" name="dialer_useDtmfDialpad">"Bruk tonetastatur"</string>
+    <string msgid="2947202828256214947" name="editContactDescription">"Rediger kontakt"</string>
+    <string msgid="7678695190666836093" name="editContact_title_edit">"Rediger kontakt"</string>
+    <string msgid="9125600232291405757" name="editContact_title_insert">"Ny kontakt"</string>
+    <string msgid="8389931313045344406" name="emailLabelsGroup">"E-post"</string>
+    <string msgid="475272869218091715" name="errorDialogTitle">"Ingen bilder"</string>
+    <string msgid="3165097742175874384" name="export_contact_list">"Eksporter kontakter"</string>
+    <string msgid="1426451081541603512" name="exporting_contact_failed_message">"Kunne ikke eksportere kontaktlisten"\n"Feilårsak: «<ns1:g id="FAIL_REASON">%s</ns1:g>»"</string>
+    <string msgid="1455264422455075858" name="exporting_contact_failed_title">"Kunne ikke eksportere kontaktlisten"</string>
+    <string msgid="5640326540405486055" name="exporting_contact_list_message">"Eksporterer kontaktdata til «<ns1:g id="FILE_NAME">%s</ns1:g>»"</string>
+    <string msgid="560522409559101193" name="exporting_contact_list_progress">"<ns1:g id="CURRENT_NUMBER">%s</ns1:g> av <ns1:g id="TOTAL_NUMBER">%s</ns1:g> kontakter"</string>
+    <string msgid="9072240631534457415" name="exporting_contact_list_title">"Eksporterer kontaktdata"</string>
+    <string msgid="1739293936432987758" name="fail_reason_cannot_open_destination_dir">"Kan ikke åpne eller opprette målkatalogen «<ns1:g id="DIR_NAME">%s</ns1:g>»"</string>
+    <string msgid="4943708332700987376" name="fail_reason_could_not_initialize_exporter">"Kunne ikke starte eksporteringen: «<ns1:g id="EXACT_REASON">%s</ns1:g>»"</string>
+    <string msgid="4013520943128739511" name="fail_reason_could_not_open_file">"Klarte ikke å åpne «<ns1:g id="FILE_NAME">%s</ns1:g>»: <ns1:g id="EXACT_REASON">%s</ns1:g>"</string>
+    <string msgid="2151165129433831202" name="fail_reason_error_occurred_during_export">"En feil oppsto under eksportering: «<ns1:g id="EXACT_REASON">%s</ns1:g>»"</string>
+    <string msgid="5922864781066136340" name="fail_reason_io_error">"Inn/ut-feil"</string>
+    <string msgid="3808734131680935043" name="fail_reason_no_vcard_entry">"Fant ingen VCard-filer for valget ditt"</string>
+    <string msgid="1489638537002538332" name="fail_reason_no_vcard_file">"Fant ingen VCard-filer på minnekortet"</string>
+    <string msgid="7105223965196949065" name="fail_reason_too_long_filename">"Filnavnet ble for langt («<ns1:g id="FILENAME">%s</ns1:g>»)"</string>
+    <string msgid="5416992255233341607" name="fail_reason_too_many_vcard">"For mange VCard-datafiler på minnekortet"</string>
+    <string msgid="2129476089250836277" name="fail_reason_vcard_parse_error">"Klarte ikke å tolke VCard"</string>
+    <string msgid="5007070838253932139" name="favoritesFrquentSeparator">"Ofte ringt"</string>
+    <string msgid="7154768136473953056" name="frequentList">"Mest brukt"</string>
+    <string msgid="5414421120553765775" name="ghostData_company">"Firma"</string>
+    <string msgid="6184537075551565919" name="ghostData_email">"E-postadresse"</string>
+    <string msgid="7737174936595812794" name="ghostData_im">"Lynmeldingsnavn"</string>
+    <string msgid="6490954238641157585" name="ghostData_name">"For- og etternavn"</string>
+    <string msgid="3044201271296187724" name="ghostData_notes">"Mine notater"</string>
+    <string msgid="6963153888271466620" name="ghostData_phone">"Telefonnummer"</string>
+    <string msgid="7852749081984070902" name="ghostData_phonetic_name">"Fonetisk navn"</string>
+    <string msgid="652611650594951897" name="ghostData_postal">"Postadresse"</string>
+    <string msgid="7662602222400641187" name="ghostData_title">"Stilling"</string>
+    <string msgid="6661950109828194595" name="groupEmpty">"Gruppen «<ns1:g id="GROUPNAME">%s</ns1:g>» er tom."</string>
+    <string msgid="5696566165170977126" name="groupNameMyContacts">"Mine kontakter"</string>
+    <string msgid="6981588604041120497" name="groupNameWithPhones">"Kontakter med telefonnummer"</string>
+    <string msgid="229583643365836321" name="header_actions">"Handlinger"</string>
+    <string msgid="3898238486262614027" name="imLabelsGroup">"Lynmeldinger"</string>
+    <string msgid="3045126336951684285" name="imei">"IMEI"</string>
+    <string msgid="8383900146531125319" name="importFromSim">"Importer kontakter"</string>
+    <string msgid="2788222288962542415" name="import_all_vcard_string">"Importer alle VCard-filer"</string>
+    <string msgid="8854793070007530689" name="import_from_sdcard">"Minnekort"</string>
+    <string msgid="3362158539070179154" name="import_from_sim">"SIM-kort"</string>
+    <string msgid="4618119296910253689" name="import_one_vcard_string">"Importer én VCard-filer"</string>
+    <string msgid="2466665710812588738" name="importing_vcard_message">"Importerer VCard-data"</string>
+    <string msgid="4709878105452681987" name="insertContactDescription">"Opprett kontakt"</string>
+    <string msgid="5816991830260044593" name="invalidContactMessage">"Kontakten finnes ikke."</string>
+    <string msgid="8337354953278341042" name="label_notes">"Notater"</string>
+    <string msgid="2288082649573927286" name="label_phonetic_name">"Fonetisk"</string>
+    <string msgid="8833166825330686244" name="label_ringtone">"Ringetone"</string>
+    <string msgid="140610573639849799" name="launcherDialer">"Telefon"</string>
+    <string msgid="7115321894439629408" name="listSeparatorCallNumber">"Ring nummer"</string>
+    <string msgid="2999167270900823334" name="listSeparatorCallNumber_edit">"Telefonnummer"</string>
+    <string msgid="7076401301758190804" name="listSeparatorMapAddress">"Se i kart"</string>
+    <string msgid="298711187672067985" name="listSeparatorMapAddress_edit">"Postadresser"</string>
+    <string msgid="858454837482243176" name="listSeparatorMore_edit">"Mer"</string>
+    <string msgid="7514083358440762504" name="listSeparatorOrganizations">"Organisasjoner"</string>
+    <string msgid="7844959649638482329" name="listSeparatorOtherInformation">"Annen informasjon"</string>
+    <string msgid="1326921768011367750" name="listSeparatorOtherInformation_edit">"Andre alternativer"</string>
+    <string msgid="5395590830304525721" name="listSeparatorSendEmail">"Send e-post"</string>
+    <string msgid="6859593624213634454" name="listSeparatorSendEmail_edit">"E-postadresser"</string>
+    <string msgid="2209260633185984105" name="listSeparatorSendIm">"Send lynmelding"</string>
+    <string msgid="3793290685553377986" name="listSeparatorSendIm_edit">"Prateadresser"</string>
+    <string msgid="2480944736714739967" name="listSeparatorSendSmsMms">"Send SMS/MMS"</string>
+    <string msgid="4789010460767506206" name="liveFolderAll">"Alle kontakter"</string>
+    <string msgid="3100957542927222282" name="liveFolderFavorites">"Kontakter med stjerne"</string>
+    <string msgid="3739376066610926780" name="liveFolderPhone">"Kontakter med telefonnummer"</string>
+    <string msgid="1552523730090319259" name="liveFolder_all_label">"Alle kontakter"</string>
+    <string msgid="2674341514070517105" name="liveFolder_favorites_label">"Med stjerne"</string>
+    <string msgid="1709786878793436245" name="liveFolder_phones_label">"Telefoner"</string>
+    <string msgid="6106836852570790250" name="menu_addItem">"Mer informasjon"</string>
+    <string msgid="2908478235715404876" name="menu_addStar">"Legg til som favoritt"</string>
+    <string msgid="7359207953236681606" name="menu_call">"Ring"</string>
+    <string msgid="5142851348489387516" name="menu_callNumber">"Ring <ns1:g id="NAME">%s</ns1:g>"</string>
+    <string msgid="1916555454274101750" name="menu_deleteContact">"Slett kontakt"</string>
+    <string msgid="4603480747214476335" name="menu_displayGroup">"Vis gruppe"</string>
+    <string msgid="2174577548513895144" name="menu_doNotSave">"Tilbakestill"</string>
+    <string msgid="796017761764190697" name="menu_done">"Lagre"</string>
+    <string msgid="3452858480713561396" name="menu_editContact">"Rediger kontakt"</string>
+    <string msgid="4838759253316649534" name="menu_makeDefaultNumber">"Gjør til foretrukket nummer"</string>
+    <string msgid="1209922412763274638" name="menu_newContact">"Ny kontakt"</string>
+    <string msgid="5844227078364227030" name="menu_removeStar">"Fjern fra favoritter"</string>
+    <string msgid="9147752853603483719" name="menu_search">"Søk"</string>
+    <string msgid="7293508859242926187" name="menu_sendEmail">"Send e-post"</string>
+    <string msgid="5917289601666766617" name="menu_sendSMS">"Send SMS/MMS"</string>
+    <string msgid="455561537582270625" name="menu_sendTextMessage">"Send SMS-melding"</string>
+    <string msgid="309973637178814132" name="menu_showBarcode">"Vis strekkode"</string>
+    <string msgid="1814744325763202024" name="menu_viewAddress">"Se i kart"</string>
+    <string msgid="2795575601596468581" name="menu_viewContact">"Se på kontakt"</string>
+    <string msgid="3084542316620335911" name="messageShortcutActivityTitle">"Velg et nummer å sende melding til"</string>
+    <string msgid="8579310973261953559" name="noContacts">"Ingen kontakter."</string>
+    <string msgid="2249195687463896364" name="noContactsHelpText">"Du har ingen kontakter."\n\n"For å legge til kontakter, trykk "<font fgcolor="#ffffffff"><b>"menyknappen"</b></font>" og velg:"\n" "\n<li><font fgcolor="#ffffffff"><b>"Ny kontakt"</b></font>" for å lage en ny kontakt fra grunnen av"\n</li>" "\n<li><font fgcolor="#ffffffff"><b>"Importer kontakter"</b></font>" for å legge til kontakter fra SIM-kortet"\n</li></string>
+    <string msgid="4927701496550314555" name="noContactsHelpTextWithSync">"Du har ingen kontakter."\n\n"For å legge til kontakter, trykk "<font fgcolor="#ffffffff"><b>"menyknappen"</b></font>" og velg:"\n" "\n<li><font fgcolor="#ffffffff"><b>"Rediger synkroniserte grupper"</b></font>" for å legge til fra en ny eller eksisterende Google-konto"\n</li>" "\n<li><font fgcolor="#ffffffff"><b>"Ny kontakt"</b></font>" for å lage en ny kontakt fra grunnen av"\n</li>" "\n<li><font fgcolor="#ffffffff"><b>"Importer kontakter"</b></font>" for å legge til kontakter fra SIM-kortet"\n</li></string>
+    <string msgid="1605457050218824269" name="noContactsWithPhoneNumbers">"Ingen kontakter med telefonnummer."</string>
+    <string msgid="812766386743315815" name="noFavorites">"Ingen favoritter."</string>
+    <string msgid="7791906118138538259" name="no_sdcard_message">"Fant ikke noe minnekort"</string>
+    <string msgid="6455416795090113715" name="no_sdcard_title">"Mangler minnekort"</string>
+    <string msgid="6584626043193000238" name="otherLabelsGroup">"Annet"</string>
+    <string msgid="4864313342828942922" name="payphone">"Telefonkiosk"</string>
+    <string msgid="6468091477851199285" name="phoneLabelsGroup">"Telefon"</string>
+    <string msgid="431331662154342581" name="photoPickerNotFoundText">"Det er ingen bilder på telefonen."</string>
+    <string msgid="7750705279843568147" name="pickerNewContactHeader">"Opprett ny kontakt"</string>
+    <string msgid="1618078212734693682" name="postalLabelsGroup">"Postadresse"</string>
+    <string msgid="6374339738119166953" name="private_num">"Skjult nummer"</string>
+    <string msgid="3066834102042012868" name="reading_vcard_contacts">"<ns1:g id="CURRENT_NUMBER">%s</ns1:g> av <ns1:g id="TOTAL_NUMBER">%s</ns1:g> kontakter"</string>
+    <string msgid="780588344175743735" name="reading_vcard_failed_message">"Kunne ikke lese VCard-data"\n"Feilårsak: «<ns1:g id="FAIL_REASON">%s</ns1:g>»"</string>
+    <string msgid="5042366466147724748" name="reading_vcard_failed_title">"Kunne ikke lese VCard-data"</string>
+    <string msgid="34180143726972661" name="reading_vcard_files">"<ns1:g id="CURRENT_NUMBER">%s</ns1:g> av <ns1:g id="TOTAL_NUMBER">%s</ns1:g> filer"</string>
+    <string msgid="7470486051482460267" name="reading_vcard_message">"Leser VCard-fil(er)"</string>
+    <string msgid="430154704397375160" name="reading_vcard_title">"Leser VCard"</string>
+    <string msgid="1419116422359067949" name="recentCallsIconLabel">"Logg"</string>
+    <string msgid="1429899535546487008" name="recentCalls_addToContact">"Legg til kontakter"</string>
+    <string msgid="1756372533999226126" name="recentCalls_callNumber">"Ring <ns1:g id="NAME">%s</ns1:g>"</string>
+    <string msgid="6352364392762163704" name="recentCalls_deleteAll">"Nullstill anropslogg"</string>
+    <string msgid="7756171675833267857" name="recentCalls_editNumberBeforeCall">"Rediger nummer før anrop"</string>
+    <string msgid="247053222448663107" name="recentCalls_empty">"Anropsloggen er tom."</string>
+    <string msgid="401662244636511330" name="recentCalls_removeFromRecentList">"Fjern fra anropslogg"</string>
+    <string msgid="3041230993155966350" name="removePicture">"Fjern ikon"</string>
+    <string msgid="8171961914203617813" name="returnCall">"Ring tilbake"</string>
+    <string msgid="7317823545379736528" name="ringtone_spinner">"Ringetone: <ns1:g id="RINGTONE">%1$s</ns1:g>"</string>
+    <string msgid="925361244069058117" name="scanning_sdcard_failed_message">"Kunne ikke scanne minnekort"</string>
+    <string msgid="2788276113399585924" name="scanning_sdcard_failed_title">"Kunne ikke scanne minnekort"</string>
+    <string msgid="8482945356247760701" name="searchHint">"Søk i kontakter"</string>
+    <string msgid="2675223022992445813" name="search_settings_description">"Navn på kontakter"</string>
+    <string msgid="2467573749792455605" name="searching_vcard_message">"Leter etter VCard-data på minnekort"</string>
+    <string msgid="4158580043290687793" name="searching_vcard_title">"Leter etter VCard"</string>
+    <string msgid="1235432026231325655" name="seclectSyncGroups_title">"Velg grupper som skal synkroniseres"</string>
+    <string msgid="4255424123394910733" name="selectLabel">"Velg etikett"</string>
+    <string msgid="7955698611959835612" name="select_group_title">"Grupper"</string>
+    <string msgid="2443742794103731022" name="select_import_type_title">"Hvor ønsker du å hente kontakter fra?"</string>
+    <string msgid="7028772212789057858" name="select_vcard_message">"Velg en VCard-fil som skal importeres"</string>
+    <string msgid="4615933643517710543" name="select_vcard_title">"Velg VCard-fil"</string>
+    <string msgid="9001686764070676353" name="send_to_voicemail_checkbox">"Send anrop direkte til telefonsvarer."</string>
+    <string msgid="9124400414311776864" name="send_to_voicemail_view">"Anrop blir sendt direkte til telefonsvarer."</string>
+    <string msgid="6642877210643565436" name="shortcutActivityTitle">"Velg en kontaktsnarvei"</string>
+    <string msgid="749243779392912958" name="shortcutContact">"Kontakt"</string>
+    <string msgid="7165340343023469996" name="shortcutDialContact">"Ring"</string>
+    <string msgid="3025782962770298900" name="shortcutMessageContact">"Send melding"</string>
+    <string msgid="5164410117611094297" name="showAllGroups">"Alle kontakter"</string>
+    <string msgid="6700035985448642408" name="simContacts_emptyLoading">"Henter fra SIM-kort…"</string>
+    <string msgid="27341688347689769" name="simContacts_title">"Kontakter på SIM-kort"</string>
+    <string msgid="6495527538140213440" name="starredInAndroid">"Stjernemerket i Android"</string>
+    <string msgid="4817256136413959463" name="starredList">"Med stjerne"</string>
+    <string msgid="5640192862059373511" name="strequentList">"Favoritter"</string>
+    <string msgid="7512169081224806890" name="syncAllGroups">"Synkroniser alle kontakter"</string>
+    <string msgid="9028361137161162861" name="syncGroupPreference">"Rediger synkr. Grp."</string>
+    <string msgid="7200975244804730096" name="toast_call_detail_error">"Kunne ikke lese informasjon for forespurt samtale."</string>
+    <string msgid="6502076603836088532" name="type_incoming">"Innkommende samtale"</string>
+    <string msgid="2720502601640509542" name="type_missed">"Tapt anrop"</string>
+    <string msgid="343108709599392641" name="type_outgoing">"Utgående samtale"</string>
+    <string msgid="740067747858270469" name="unknown">"Ukjent"</string>
+    <string msgid="214186610887547860" name="viewContactDesription">"Se på kontakt"</string>
+    <string msgid="7989394521836644384" name="viewContactTitle">"Egenskaper for kontakt"</string>
+    <string msgid="3851469869202611441" name="voicemail">"Telefonsvarer"</string>
+</resources>

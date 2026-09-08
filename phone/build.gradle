@@ -1,0 +1,45 @@
+plugins {
+    id("com.android.application")
+}
+
+android {
+    // "namespace" gera o R.java — mantém o pacote original com.android.phone
+    // (identidade do projeto, referenciado pelo código e pelos layouts XML)
+    namespace = "com.android.phone"
+
+    compileSdk = 34
+
+    defaultConfig {
+        // applicationId customizado por decisão do Saulo — evita colisão
+        // com o pacote de sistema com.android.phone em ROMs customizadas
+        applicationId = "com.xaulinxs.donut.telefoneantigo"
+        minSdk = 23
+        targetSdk = 34
+        versionCode = 1
+        versionName = "1.6-donut-rebuild"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled = false
+        }
+    }
+
+    sourceSets {
+        named("main") {
+            manifest.srcFile("src/main/AndroidManifest.xml")
+            java.srcDirs("src/main/java")
+            res.srcDirs("src/main/res")
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    // Sem AndroidX/Material pesado por padrão — só o essencial de compat de core.
+    implementation("androidx.core:core:1.13.1")
+}

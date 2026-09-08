@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+    <color name="textColorIconOverlay">#fff</color>
+    <color name="textColorIconOverlayShadow">#000</color>
+
+    <!-- ===== Tema clássico (integrado em 2026-08-15) ===== -->
+    <color name="transparent">#00000000</color>
+    <color name="black">#ff000000</color>
+    <color name="white">#ffffffff</color>
+
+    <!-- Fundos -->
+    <color name="background_dark">#ff191919</color>
+    <color name="background_light">#ffffffff</color>
+
+    <!-- "Bright foreground" (texto de alto contraste, ex. corpo em Theme escuro) -->
+    <color name="bright_foreground_dark">#ffffffff</color>
+    <color name="bright_foreground_dark_disabled">#80ffffff</color>
+    <color name="bright_foreground_dark_inverse">#ff000000</color>
+    <color name="bright_foreground_light">#ff000000</color>
+    <color name="bright_foreground_light_disabled">#80000000</color>
+
+    <!-- "Dim foreground" (texto secundário/terciário) -->
+    <color name="dim_foreground_dark">#ffbebebe</color>
+    <color name="dim_foreground_dark_disabled">#80bebebe</color>
+    <color name="dim_foreground_dark_inverse">#ff323232</color>
+    <color name="dim_foreground_dark_inverse_disabled">#80323232</color>
+    <color name="dim_foreground_light">#ff323232</color>
+    <color name="dim_foreground_light_disabled">#80323232</color>
+
+    <!-- Hint text -->
+    <color name="hint_foreground_dark">#ff808080</color>
+    <color name="hint_foreground_light">#ff808080</color>
+
+    <drawable name="classic_screen_background_dark">#ff191919</drawable>
+</resources>

@@ -1,0 +1,1461 @@
+Warning: Unable to set daemon's environment variables to match the client because: 
+  There is no native integration with this operating environment.
+  If the daemon was started with a significantly different environment from the client, and your build 
+  relies on environment variables, you may experience unexpected behavior.
+
+> Configure project :contacts
+WARNING: The option setting 'android.aapt2FromMavenOverride=/data/data/com.termux/files/usr/bin/aapt2' is experimental.
+
+> Task :contacts:preBuild UP-TO-DATE
+> Task :contacts:preDebugBuild UP-TO-DATE
+> Task :contacts:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :contacts:javaPreCompileDebug UP-TO-DATE
+> Task :contacts:checkDebugAarMetadata UP-TO-DATE
+> Task :contacts:generateDebugResValues UP-TO-DATE
+> Task :contacts:mapDebugSourceSetPaths UP-TO-DATE
+> Task :contacts:generateDebugResources UP-TO-DATE
+> Task :contacts:mergeDebugResources UP-TO-DATE
+> Task :contacts:packageDebugResources UP-TO-DATE
+> Task :contacts:parseDebugLocalResources UP-TO-DATE
+> Task :contacts:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :contacts:extractDeepLinksDebug UP-TO-DATE
+> Task :contacts:processDebugMainManifest UP-TO-DATE
+> Task :contacts:processDebugManifest UP-TO-DATE
+> Task :contacts:processDebugManifestForPackage UP-TO-DATE
+> Task :contacts:processDebugResources UP-TO-DATE
+
+> Task :contacts:compileDebugJavaWithJavac
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/DialtactsActivity.java:29: error: cannot find symbol
+import android.provider.ContactsContract.Intents.UI;
+                                                ^
+  symbol:   class UI
+  location: class Intents
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:55: error: cannot find symbol
+import android.provider.ContactsContract.Intents.UI;
+                                                ^
+  symbol:   class UI
+  location: class Intents
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:30: error: package android.syncml.pim does not exist
+import android.syncml.pim.VBuilder;
+                         ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:31: error: package android.syncml.pim does not exist
+import android.syncml.pim.VBuilderCollection;
+                         ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:32: error: package android.syncml.pim does not exist
+import android.syncml.pim.VParser;
+                         ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:33: error: package android.syncml.pim.vcard does not exist
+import android.syncml.pim.vcard.VCardDataBuilder;
+                               ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:34: error: package android.syncml.pim.vcard does not exist
+import android.syncml.pim.vcard.VCardEntryCounter;
+                               ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:35: error: package android.syncml.pim.vcard does not exist
+import android.syncml.pim.vcard.VCardException;
+                               ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:36: error: package android.syncml.pim.vcard does not exist
+import android.syncml.pim.vcard.VCardNestedException;
+                               ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:37: error: package android.syncml.pim.vcard does not exist
+import android.syncml.pim.vcard.VCardParser_V21;
+                               ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:38: error: package android.syncml.pim.vcard does not exist
+import android.syncml.pim.vcard.VCardParser_V30;
+                               ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:39: error: package android.syncml.pim.vcard does not exist
+import android.syncml.pim.vcard.VCardSourceDetector;
+                               ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:40: error: package android.syncml.pim.vcard does not exist
+import android.syncml.pim.vcard.VCardVersionException;
+                               ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:133: error: cannot find symbol
+        private VCardParser_V21 mVCardParser;
+                ^
+  symbol:   class VCardParser_V21
+  location: class ImportVCardActivity.VCardReadThread
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:250: error: cannot find symbol
+                VCardSourceDetector detector) {
+                ^
+  symbol:   class VCardSourceDetector
+  location: class ImportVCardActivity.VCardReadThread
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:288: error: cannot find symbol
+        private boolean readOneVCard(String canonicalPath, String charset, VBuilder builder,
+                                                                           ^
+  symbol:   class VBuilder
+  location: class ImportVCardActivity.VCardReadThread
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:289: error: cannot find symbol
+                VCardSourceDetector detector, boolean throwNestedException)
+                ^
+  symbol:   class VCardSourceDetector
+  location: class ImportVCardActivity.VCardReadThread
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:290: error: cannot find symbol
+                throws VCardNestedException {
+                       ^
+  symbol:   class VCardNestedException
+  location: class ImportVCardActivity.VCardReadThread
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/SpecialCharSequenceMgr.java:31: error: cannot find symbol
+import android.provider.Telephony.Intents;
+                                 ^
+  symbol:   class Intents
+  location: class Telephony
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactEntryAdapter.java:194: error: cannot find symbol
+        c = resolver.query(Im.CONTENT_URI,
+                             ^
+  symbol:   variable CONTENT_URI
+  location: class Im
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:218: error: constant expression required
+            case R.id.photoImage: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:223: error: constant expression required
+            case R.id.checkable: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:234: error: constant expression required
+            case R.id.entry_ringtone: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:240: error: constant expression required
+            case R.id.separator: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:247: error: constant expression required
+            case R.id.saveButton:
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:251: error: constant expression required
+            case R.id.discardButton:
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:255: error: constant expression required
+            case R.id.delete: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:269: error: constant expression required
+            case R.id.label: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:653: error: cannot find symbol
+                        Im.CONTENT_URI, nextType);
+                          ^
+  symbol:   variable CONTENT_URI
+  location: class Im
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:667: error: cannot find symbol
+                        Organization.CONTENT_URI, nextType);
+                                    ^
+  symbol:   variable CONTENT_URI
+  location: class Organization
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:910: error: cannot find symbol
+                java.io.OutputStream os = Contacts.openContactPhotoOutputStream(
+                                                  ^
+  symbol:   method openContactPhotoOutputStream(ContentResolver,Uri,boolean)
+  location: class Contacts
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:1173: error: cannot find symbol
+        Cursor organizationsCursor = mResolver.query(Organization.CONTENT_URI,
+                                                                 ^
+  symbol:   variable CONTENT_URI
+  location: class Organization
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:1184: error: cannot find symbol
+                Uri uri = ContentUris.withAppendedId(Organization.CONTENT_URI, id);
+                                                                 ^
+  symbol:   variable CONTENT_URI
+  location: class Organization
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:1284: error: cannot find symbol
+                        Uri uri = ContentUris.withAppendedId(Im.CONTENT_URI, id);
+                                                               ^
+  symbol:   variable CONTENT_URI
+  location: class Im
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:1311: error: incompatible types: String cannot be converted to Uri
+            entry = EditEntry.newPhoneEntry(this, Phone.CONTENT_URI.toString(),
+                                                                            ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:1317: error: incompatible types: String cannot be converted to Uri
+            entry = EditEntry.newEmailEntry(this, Email.CONTENT_URI.toString(),
+                                                                            ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:1503: error: cannot find symbol
+                        imHandle.toString(), Im.CONTENT_URI, 0);
+                                               ^
+  symbol:   variable CONTENT_URI
+  location: class Im
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:1506: error: cannot find symbol
+                        Im.CONTENT_URI, 0);
+                          ^
+  symbol:   variable CONTENT_URI
+  location: class Im
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:2137: error: cannot find symbol
+            entry.contentDirectory = Organization.CONTENT_URI.toString();
+                                                 ^
+  symbol:   variable CONTENT_URI
+  location: class Organization
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:2304: error: cannot find symbol
+            entry.contentDirectory = Im.CONTENT_URI.toString();
+                                       ^
+  symbol:   variable CONTENT_URI
+  location: class Im
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/DialtactsActivity.java:84: error: cannot find symbol
+        if (intent.getAction().equals(UI.FILTER_CONTACTS_ACTION)
+                                      ^
+  symbol:   variable UI
+  location: class DialtactsActivity
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/DialtactsActivity.java:136: error: cannot find symbol
+        Intent intent = new Intent(UI.LIST_DEFAULT);
+                                   ^
+  symbol:   variable UI
+  location: class DialtactsActivity
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/DialtactsActivity.java:146: error: cannot find symbol
+        Intent intent = new Intent(UI.LIST_STREQUENT_ACTION);
+                                   ^
+  symbol:   variable UI
+  location: class DialtactsActivity
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/DialtactsActivity.java:232: error: cannot find symbol
+        if (action.equals(UI.FILTER_CONTACTS_ACTION)) {
+                          ^
+  symbol:   variable UI
+  location: class DialtactsActivity
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/DialtactsActivity.java:279: error: cannot find symbol
+        String filter = intent.getStringExtra(UI.FILTER_TEXT_EXTRA_KEY);
+                                              ^
+  symbol:   variable UI
+  location: class DialtactsActivity
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/VCardExporter.java:738: error: cannot find symbol
+            cursor = mContentResolver.query(Organization.CONTENT_URI,
+                                                        ^
+  symbol:   variable CONTENT_URI
+  location: class Organization
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:542: error: constant expression required
+            case R.id.digits:
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:554: error: constant expression required
+            case R.id.one: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:559: error: constant expression required
+            case R.id.two: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:564: error: constant expression required
+            case R.id.three: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:569: error: constant expression required
+            case R.id.four: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:574: error: constant expression required
+            case R.id.five: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:579: error: constant expression required
+            case R.id.six: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:584: error: constant expression required
+            case R.id.seven: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:589: error: constant expression required
+            case R.id.eight: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:594: error: constant expression required
+            case R.id.nine: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:599: error: constant expression required
+            case R.id.zero: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:604: error: constant expression required
+            case R.id.pound: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:609: error: constant expression required
+            case R.id.star: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:614: error: constant expression required
+            case R.id.backspace: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:618: error: constant expression required
+            case R.id.digits: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:629: error: constant expression required
+            case R.id.backspace: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:633: error: constant expression required
+            case R.id.one: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:640: error: constant expression required
+            case R.id.zero: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:649: error: cannot find symbol
+        Intent intent = new Intent(Intent.ACTION_CALL_PRIVILEGED,
+                                         ^
+  symbol:   variable ACTION_CALL_PRIVILEGED
+  location: class Intent
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:664: error: cannot find symbol
+        Intent intent = new Intent(Intent.ACTION_CALL_PRIVILEGED,
+                                         ^
+  symbol:   variable ACTION_CALL_PRIVILEGED
+  location: class Intent
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:372: error: cannot find symbol
+        String title = intent.getStringExtra(Contacts.Intents.UI.TITLE_EXTRA_KEY);
+                                                     ^
+  symbol:   variable Intents
+  location: class Contacts
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:382: error: package UI does not exist
+        if (UI.LIST_DEFAULT.equals(action)) {
+              ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:386: error: package UI does not exist
+        } else if (UI.LIST_GROUP_ACTION.equals(action)) {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:388: error: cannot find symbol
+            String groupName = intent.getStringExtra(UI.GROUP_NAME_EXTRA_KEY);
+                                                     ^
+  symbol:   variable UI
+  location: class ContactsListActivity
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:394: error: package UI does not exist
+        } else if (UI.LIST_ALL_CONTACTS_ACTION.equals(action)) {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:396: error: package UI does not exist
+        } else if (UI.LIST_STARRED_ACTION.equals(action)) {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:398: error: package UI does not exist
+        } else if (UI.LIST_FREQUENT_ACTION.equals(action)) {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:400: error: package UI does not exist
+        } else if (UI.LIST_STREQUENT_ACTION.equals(action)) {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:402: error: package UI does not exist
+        } else if (UI.LIST_CONTACTS_WITH_PHONES_ACTION.equals(action)) {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:445: error: cannot find symbol
+                    Intent newIntent = new Intent(Intent.ACTION_CALL_PRIVILEGED,
+                                                        ^
+  symbol:   variable ACTION_CALL_PRIVILEGED
+  location: class Intent
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:474: error: cannot find symbol
+                newIntent = new Intent(Intent.ACTION_CALL_PRIVILEGED, intent.getData());
+                                             ^
+  symbol:   variable ACTION_CALL_PRIVILEGED
+  location: class Intent
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:482: error: cannot find symbol
+            Intent newIntent = new Intent(Intent.ACTION_CALL_PRIVILEGED, intent.getData());
+                                                ^
+  symbol:   variable ACTION_CALL_PRIVILEGED
+  location: class Intent
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:545: error: cannot find symbol
+                if (Groups.GROUP_MY_CONTACTS.equals(mDisplayInfo)) {
+                          ^
+  symbol:   variable GROUP_MY_CONTACTS
+  location: class Groups
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:664: error: cannot find symbol
+                buildSystemGroupUris(Groups.GROUP_MY_CONTACTS);
+                                           ^
+  symbol:   variable GROUP_MY_CONTACTS
+  location: class Groups
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:665: error: cannot find symbol
+                mDisplayInfo = Groups.GROUP_MY_CONTACTS;
+                                     ^
+  symbol:   variable GROUP_MY_CONTACTS
+  location: class Groups
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:737: error: cannot find symbol
+        icicle.putParcelable(LIST_STATE_KEY, mList.onSaveInstanceState());
+                                             ^
+  symbol:   variable mList
+  location: class ContactsListActivity
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:738: error: cannot find symbol
+        icicle.putBoolean(FOCUS_KEY, mList.hasFocus());
+                                     ^
+  symbol:   variable mList
+  location: class ContactsListActivity
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:829: error: cannot find symbol
+                    mDisplayInfo = Groups.GROUP_MY_CONTACTS;
+                                         ^
+  symbol:   variable GROUP_MY_CONTACTS
+  location: class Groups
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:961: error: cannot find symbol
+            Intent intent = new Intent(Intent.ACTION_CALL_PRIVILEGED,
+                                             ^
+  symbol:   variable ACTION_CALL_PRIVILEGED
+  location: class Intent
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1067: error: cannot find symbol
+        inputMethodManager.hideSoftInputFromWindow(mList.getWindowToken(), 0);
+                                                   ^
+  symbol:   variable mList
+  location: class ContactsListActivity
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1140: error: cannot find symbol
+                final Bitmap icon = ContactsContract.Contacts.openContactPhotoInputStream_COMPAT(this, uri, 0, null);
+                                                             ^
+  symbol:   method openContactPhotoInputStream_COMPAT(ContactsListActivity,Uri,int,<null>)
+  location: class Contacts
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1195: error: cannot find symbol
+        Bitmap photo = ContactsContract.Contacts.openContactPhotoInputStream_COMPAT(this, personUri, 0, null);
+                                                ^
+  symbol:   method openContactPhotoInputStream_COMPAT(ContactsListActivity,Uri,int,<null>)
+  location: class Contacts
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1504: error: cannot find symbol
+                Intent intent = new Intent(Intent.ACTION_CALL_PRIVILEGED, uri);
+                                                 ^
+  symbol:   variable ACTION_CALL_PRIVILEGED
+  location: class Intent
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1565: error: cannot find symbol
+                        && !Groups.GROUP_MY_CONTACTS.equals(systemId)) {
+                                  ^
+  symbol:   variable GROUP_MY_CONTACTS
+  location: class Groups
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1569: error: cannot find symbol
+                    if (Groups.GROUP_ANDROID_STARRED.equals(name)) {
+                              ^
+  symbol:   variable GROUP_ANDROID_STARRED
+  location: class Groups
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1581: error: cannot find symbol
+                            && Groups.GROUP_MY_CONTACTS.equals(mDisplayInfo)) {
+                                     ^
+  symbol:   variable GROUP_MY_CONTACTS
+  location: class Groups
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1618: error: cannot find symbol
+                    activity.mList.onRestoreInstanceState(activity.mListState);
+                            ^
+  symbol:   variable mList
+  location: variable activity of type ContactsListActivity
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1620: error: cannot find symbol
+                        activity.mList.requestFocus();
+                                ^
+  symbol:   variable mList
+  location: variable activity of type ContactsListActivity
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1661: error: cannot find symbol
+                    mLocalizedLabels = EditContactActivity.getLabelsForKind(mContext,
+                                                                            ^
+  symbol:   variable mContext
+  location: class ContactsListActivity.ContactItemListAdapter
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1665: error: cannot find symbol
+                    mLocalizedLabels = EditContactActivity.getLabelsForKind(mContext,
+                                                                            ^
+  symbol:   variable mContext
+  location: class ContactsListActivity.ContactItemListAdapter
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1734: error: cannot find symbol
+            if (!mDataValid) {
+                 ^
+  symbol:   variable mDataValid
+  location: class ContactsListActivity.ContactItemListAdapter
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1742: error: cannot find symbol
+                        (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE); 
+                                         ^
+  symbol:   variable mContext
+  location: class ContactsListActivity.ContactItemListAdapter
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1748: error: cannot find symbol
+            if (!mCursor.moveToPosition(getRealPosition(position))) {
+                 ^
+  symbol:   variable mCursor
+  location: class ContactsListActivity.ContactItemListAdapter
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1754: error: cannot find symbol
+                v = newView(mContext, mCursor, parent);
+                            ^
+  symbol:   variable mContext
+  location: class ContactsListActivity.ContactItemListAdapter
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+100 errors
+
+> Task :contacts:compileDebugJavaWithJavac FAILED
+
+[Incubating] Problems report is available at: file:///data/data/com.termux/files/home/app-project-android-1.6/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':contacts:compileDebugJavaWithJavac' (registered by plugin 'com.android.internal.application').
+> Compilation failed; see the compiler output below.
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:218: error: constant expression required
+              case R.id.photoImage: {
+                       ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:223: error: constant expression required
+              case R.id.checkable: {
+                       ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:234: error: constant expression required
+              case R.id.entry_ringtone: {
+                       ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:240: error: constant expression required
+              case R.id.separator: {
+                       ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:247: error: constant expression required
+              case R.id.saveButton:
+                       ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:251: error: constant expression required
+              case R.id.discardButton:
+                       ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:255: error: constant expression required
+              case R.id.delete: {
+                       ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:269: error: constant expression required
+              case R.id.label: {
+                       ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:542: error: constant expression required
+              case R.id.digits:
+                       ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:554: error: constant expression required
+              case R.id.one: {
+                       ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:559: error: constant expression required
+              case R.id.two: {
+                       ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:564: error: constant expression required
+              case R.id.three: {
+                       ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:569: error: constant expression required
+              case R.id.four: {
+                       ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:574: error: constant expression required
+              case R.id.five: {
+                       ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:579: error: constant expression required
+              case R.id.six: {
+                       ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:584: error: constant expression required
+              case R.id.seven: {
+                       ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:589: error: constant expression required
+              case R.id.eight: {
+                       ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:594: error: constant expression required
+              case R.id.nine: {
+                       ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:599: error: constant expression required
+              case R.id.zero: {
+                       ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:604: error: constant expression required
+              case R.id.pound: {
+                       ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:609: error: constant expression required
+              case R.id.star: {
+                       ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:614: error: constant expression required
+              case R.id.backspace: {
+                       ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:618: error: constant expression required
+              case R.id.digits: {
+                       ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:629: error: constant expression required
+              case R.id.backspace: {
+                       ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:633: error: constant expression required
+              case R.id.one: {
+                       ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:640: error: constant expression required
+              case R.id.zero: {
+                       ^
+  Note: Recompile with -Xlint:deprecation for details.
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:1311: error: incompatible types: String cannot be converted to Uri
+              entry = EditEntry.newPhoneEntry(this, Phone.CONTENT_URI.toString(),
+                                                                              ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:1317: error: incompatible types: String cannot be converted to Uri
+              entry = EditEntry.newEmailEntry(this, Email.CONTENT_URI.toString(),
+                                                                              ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/DialtactsActivity.java:29: error: cannot find symbol
+  import android.provider.ContactsContract.Intents.UI;
+                                                  ^
+    symbol:   class UI
+    location: class Intents
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:55: error: cannot find symbol
+  import android.provider.ContactsContract.Intents.UI;
+                                                  ^
+    symbol:   class UI
+    location: class Intents
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:133: error: cannot find symbol
+          private VCardParser_V21 mVCardParser;
+                  ^
+    symbol:   class VCardParser_V21
+    location: class ImportVCardActivity.VCardReadThread
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:250: error: cannot find symbol
+                  VCardSourceDetector detector) {
+                  ^
+    symbol:   class VCardSourceDetector
+    location: class ImportVCardActivity.VCardReadThread
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:288: error: cannot find symbol
+          private boolean readOneVCard(String canonicalPath, String charset, VBuilder builder,
+                                                                             ^
+    symbol:   class VBuilder
+    location: class ImportVCardActivity.VCardReadThread
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:289: error: cannot find symbol
+                  VCardSourceDetector detector, boolean throwNestedException)
+                  ^
+    symbol:   class VCardSourceDetector
+    location: class ImportVCardActivity.VCardReadThread
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:290: error: cannot find symbol
+                  throws VCardNestedException {
+                         ^
+    symbol:   class VCardNestedException
+    location: class ImportVCardActivity.VCardReadThread
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/SpecialCharSequenceMgr.java:31: error: cannot find symbol
+  import android.provider.Telephony.Intents;
+                                   ^
+    symbol:   class Intents
+    location: class Telephony
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactEntryAdapter.java:194: error: cannot find symbol
+          c = resolver.query(Im.CONTENT_URI,
+                               ^
+    symbol:   variable CONTENT_URI
+    location: class Im
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:653: error: cannot find symbol
+                          Im.CONTENT_URI, nextType);
+                            ^
+    symbol:   variable CONTENT_URI
+    location: class Im
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:667: error: cannot find symbol
+                          Organization.CONTENT_URI, nextType);
+                                      ^
+    symbol:   variable CONTENT_URI
+    location: class Organization
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:1173: error: cannot find symbol
+          Cursor organizationsCursor = mResolver.query(Organization.CONTENT_URI,
+                                                                   ^
+    symbol:   variable CONTENT_URI
+    location: class Organization
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:1184: error: cannot find symbol
+                  Uri uri = ContentUris.withAppendedId(Organization.CONTENT_URI, id);
+                                                                   ^
+    symbol:   variable CONTENT_URI
+    location: class Organization
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:1284: error: cannot find symbol
+                          Uri uri = ContentUris.withAppendedId(Im.CONTENT_URI, id);
+                                                                 ^
+    symbol:   variable CONTENT_URI
+    location: class Im
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:1503: error: cannot find symbol
+                          imHandle.toString(), Im.CONTENT_URI, 0);
+                                                 ^
+    symbol:   variable CONTENT_URI
+    location: class Im
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:1506: error: cannot find symbol
+                          Im.CONTENT_URI, 0);
+                            ^
+    symbol:   variable CONTENT_URI
+    location: class Im
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:2137: error: cannot find symbol
+              entry.contentDirectory = Organization.CONTENT_URI.toString();
+                                                   ^
+    symbol:   variable CONTENT_URI
+    location: class Organization
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:2304: error: cannot find symbol
+              entry.contentDirectory = Im.CONTENT_URI.toString();
+                                         ^
+    symbol:   variable CONTENT_URI
+    location: class Im
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/DialtactsActivity.java:84: error: cannot find symbol
+          if (intent.getAction().equals(UI.FILTER_CONTACTS_ACTION)
+                                        ^
+    symbol:   variable UI
+    location: class DialtactsActivity
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/DialtactsActivity.java:136: error: cannot find symbol
+          Intent intent = new Intent(UI.LIST_DEFAULT);
+                                     ^
+    symbol:   variable UI
+    location: class DialtactsActivity
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/DialtactsActivity.java:146: error: cannot find symbol
+          Intent intent = new Intent(UI.LIST_STREQUENT_ACTION);
+                                     ^
+    symbol:   variable UI
+    location: class DialtactsActivity
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/DialtactsActivity.java:232: error: cannot find symbol
+          if (action.equals(UI.FILTER_CONTACTS_ACTION)) {
+                            ^
+    symbol:   variable UI
+    location: class DialtactsActivity
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/DialtactsActivity.java:279: error: cannot find symbol
+          String filter = intent.getStringExtra(UI.FILTER_TEXT_EXTRA_KEY);
+                                                ^
+    symbol:   variable UI
+    location: class DialtactsActivity
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/VCardExporter.java:738: error: cannot find symbol
+              cursor = mContentResolver.query(Organization.CONTENT_URI,
+                                                          ^
+    symbol:   variable CONTENT_URI
+    location: class Organization
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:649: error: cannot find symbol
+          Intent intent = new Intent(Intent.ACTION_CALL_PRIVILEGED,
+                                           ^
+    symbol:   variable ACTION_CALL_PRIVILEGED
+    location: class Intent
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:664: error: cannot find symbol
+          Intent intent = new Intent(Intent.ACTION_CALL_PRIVILEGED,
+                                           ^
+    symbol:   variable ACTION_CALL_PRIVILEGED
+    location: class Intent
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:372: error: cannot find symbol
+          String title = intent.getStringExtra(Contacts.Intents.UI.TITLE_EXTRA_KEY);
+                                                       ^
+    symbol:   variable Intents
+    location: class Contacts
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:388: error: cannot find symbol
+              String groupName = intent.getStringExtra(UI.GROUP_NAME_EXTRA_KEY);
+                                                       ^
+    symbol:   variable UI
+    location: class ContactsListActivity
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:445: error: cannot find symbol
+                      Intent newIntent = new Intent(Intent.ACTION_CALL_PRIVILEGED,
+                                                          ^
+    symbol:   variable ACTION_CALL_PRIVILEGED
+    location: class Intent
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:474: error: cannot find symbol
+                  newIntent = new Intent(Intent.ACTION_CALL_PRIVILEGED, intent.getData());
+                                               ^
+    symbol:   variable ACTION_CALL_PRIVILEGED
+    location: class Intent
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:482: error: cannot find symbol
+              Intent newIntent = new Intent(Intent.ACTION_CALL_PRIVILEGED, intent.getData());
+                                                  ^
+    symbol:   variable ACTION_CALL_PRIVILEGED
+    location: class Intent
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:545: error: cannot find symbol
+                  if (Groups.GROUP_MY_CONTACTS.equals(mDisplayInfo)) {
+                            ^
+    symbol:   variable GROUP_MY_CONTACTS
+    location: class Groups
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:664: error: cannot find symbol
+                  buildSystemGroupUris(Groups.GROUP_MY_CONTACTS);
+                                             ^
+    symbol:   variable GROUP_MY_CONTACTS
+    location: class Groups
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:665: error: cannot find symbol
+                  mDisplayInfo = Groups.GROUP_MY_CONTACTS;
+                                       ^
+    symbol:   variable GROUP_MY_CONTACTS
+    location: class Groups
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:737: error: cannot find symbol
+          icicle.putParcelable(LIST_STATE_KEY, mList.onSaveInstanceState());
+                                               ^
+    symbol:   variable mList
+    location: class ContactsListActivity
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:738: error: cannot find symbol
+          icicle.putBoolean(FOCUS_KEY, mList.hasFocus());
+                                       ^
+    symbol:   variable mList
+    location: class ContactsListActivity
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:829: error: cannot find symbol
+                      mDisplayInfo = Groups.GROUP_MY_CONTACTS;
+                                           ^
+    symbol:   variable GROUP_MY_CONTACTS
+    location: class Groups
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:961: error: cannot find symbol
+              Intent intent = new Intent(Intent.ACTION_CALL_PRIVILEGED,
+                                               ^
+    symbol:   variable ACTION_CALL_PRIVILEGED
+    location: class Intent
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1067: error: cannot find symbol
+          inputMethodManager.hideSoftInputFromWindow(mList.getWindowToken(), 0);
+                                                     ^
+    symbol:   variable mList
+    location: class ContactsListActivity
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1504: error: cannot find symbol
+                  Intent intent = new Intent(Intent.ACTION_CALL_PRIVILEGED, uri);
+                                                   ^
+    symbol:   variable ACTION_CALL_PRIVILEGED
+    location: class Intent
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1565: error: cannot find symbol
+                          && !Groups.GROUP_MY_CONTACTS.equals(systemId)) {
+                                    ^
+    symbol:   variable GROUP_MY_CONTACTS
+    location: class Groups
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1569: error: cannot find symbol
+                      if (Groups.GROUP_ANDROID_STARRED.equals(name)) {
+                                ^
+    symbol:   variable GROUP_ANDROID_STARRED
+    location: class Groups
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1581: error: cannot find symbol
+                              && Groups.GROUP_MY_CONTACTS.equals(mDisplayInfo)) {
+                                       ^
+    symbol:   variable GROUP_MY_CONTACTS
+    location: class Groups
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1618: error: cannot find symbol
+                      activity.mList.onRestoreInstanceState(activity.mListState);
+                              ^
+    symbol:   variable mList
+    location: variable activity of type ContactsListActivity
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1620: error: cannot find symbol
+                          activity.mList.requestFocus();
+                                  ^
+    symbol:   variable mList
+    location: variable activity of type ContactsListActivity
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1661: error: cannot find symbol
+                      mLocalizedLabels = EditContactActivity.getLabelsForKind(mContext,
+                                                                              ^
+    symbol:   variable mContext
+    location: class ContactsListActivity.ContactItemListAdapter
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1665: error: cannot find symbol
+                      mLocalizedLabels = EditContactActivity.getLabelsForKind(mContext,
+                                                                              ^
+    symbol:   variable mContext
+    location: class ContactsListActivity.ContactItemListAdapter
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1734: error: cannot find symbol
+              if (!mDataValid) {
+                   ^
+    symbol:   variable mDataValid
+    location: class ContactsListActivity.ContactItemListAdapter
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1742: error: cannot find symbol
+                          (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE); 
+                                           ^
+    symbol:   variable mContext
+    location: class ContactsListActivity.ContactItemListAdapter
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1748: error: cannot find symbol
+              if (!mCursor.moveToPosition(getRealPosition(position))) {
+                   ^
+    symbol:   variable mCursor
+    location: class ContactsListActivity.ContactItemListAdapter
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1754: error: cannot find symbol
+                  v = newView(mContext, mCursor, parent);
+                              ^
+    symbol:   variable mContext
+    location: class ContactsListActivity.ContactItemListAdapter
+  Note: Some input files use or override a deprecated API.
+  Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:910: error: cannot find symbol
+                  java.io.OutputStream os = Contacts.openContactPhotoOutputStream(
+                                                    ^
+    symbol:   method openContactPhotoOutputStream(ContentResolver,Uri,boolean)
+    location: class Contacts
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1140: error: cannot find symbol
+                  final Bitmap icon = ContactsContract.Contacts.openContactPhotoInputStream_COMPAT(this, uri, 0, null);
+                                                               ^
+    symbol:   method openContactPhotoInputStream_COMPAT(ContactsListActivity,Uri,int,<null>)
+    location: class Contacts
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1195: error: cannot find symbol
+          Bitmap photo = ContactsContract.Contacts.openContactPhotoInputStream_COMPAT(this, personUri, 0, null);
+                                                  ^
+    symbol:   method openContactPhotoInputStream_COMPAT(ContactsListActivity,Uri,int,<null>)
+    location: class Contacts
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:30: error: package android.syncml.pim does not exist
+  import android.syncml.pim.VBuilder;
+                           ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:31: error: package android.syncml.pim does not exist
+  import android.syncml.pim.VBuilderCollection;
+                           ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:32: error: package android.syncml.pim does not exist
+  import android.syncml.pim.VParser;
+                           ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:33: error: package android.syncml.pim.vcard does not exist
+  import android.syncml.pim.vcard.VCardDataBuilder;
+                                 ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:34: error: package android.syncml.pim.vcard does not exist
+  import android.syncml.pim.vcard.VCardEntryCounter;
+                                 ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:35: error: package android.syncml.pim.vcard does not exist
+  import android.syncml.pim.vcard.VCardException;
+                                 ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:36: error: package android.syncml.pim.vcard does not exist
+  import android.syncml.pim.vcard.VCardNestedException;
+                                 ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:37: error: package android.syncml.pim.vcard does not exist
+  import android.syncml.pim.vcard.VCardParser_V21;
+                                 ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:38: error: package android.syncml.pim.vcard does not exist
+  import android.syncml.pim.vcard.VCardParser_V30;
+                                 ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:39: error: package android.syncml.pim.vcard does not exist
+  import android.syncml.pim.vcard.VCardSourceDetector;
+                                 ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:40: error: package android.syncml.pim.vcard does not exist
+  import android.syncml.pim.vcard.VCardVersionException;
+                                 ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:382: error: package UI does not exist
+          if (UI.LIST_DEFAULT.equals(action)) {
+                ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:386: error: package UI does not exist
+          } else if (UI.LIST_GROUP_ACTION.equals(action)) {
+                       ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:394: error: package UI does not exist
+          } else if (UI.LIST_ALL_CONTACTS_ACTION.equals(action)) {
+                       ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:396: error: package UI does not exist
+          } else if (UI.LIST_STARRED_ACTION.equals(action)) {
+                       ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:398: error: package UI does not exist
+          } else if (UI.LIST_FREQUENT_ACTION.equals(action)) {
+                       ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:400: error: package UI does not exist
+          } else if (UI.LIST_STREQUENT_ACTION.equals(action)) {
+                       ^
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:402: error: package UI does not exist
+          } else if (UI.LIST_CONTACTS_WITH_PHONES_ACTION.equals(action)) {
+                       ^
+  100 errors
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+* Exception is:
+org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':contacts:compileDebugJavaWithJavac' (registered by plugin 'com.android.internal.application').
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.lambda$executeIfValid$1(ExecuteActionsTaskExecuter.java:135)
+	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:288)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:133)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:121)
+	at org.gradle.api.internal.tasks.execution.ProblemsTaskPathTrackingTaskExecuter.execute(ProblemsTaskPathTrackingTaskExecuter.java:41)
+	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:210)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:205)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:54)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+	at org.gradle.execution.plan.DefaultNodeExecutor.executeLocalTaskNode(DefaultNodeExecutor.java:55)
+	at org.gradle.execution.plan.DefaultNodeExecutor.execute(DefaultNodeExecutor.java:34)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:355)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:343)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.lambda$execute$0(DefaultTaskExecutionGraph.java:339)
+	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:84)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:339)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:328)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:459)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:376)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
+Caused by: org.gradle.api.internal.tasks.compile.CompilationFailedException: Compilation failed; see the compiler output below.
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/DialtactsActivity.java:29: error: cannot find symbol
+import android.provider.ContactsContract.Intents.UI;
+                                                ^
+  symbol:   class UI
+  location: class Intents
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:55: error: cannot find symbol
+import android.provider.ContactsContract.Intents.UI;
+                                                ^
+  symbol:   class UI
+  location: class Intents
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:30: error: package android.syncml.pim does not exist
+import android.syncml.pim.VBuilder;
+                         ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:31: error: package android.syncml.pim does not exist
+import android.syncml.pim.VBuilderCollection;
+                         ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:32: error: package android.syncml.pim does not exist
+import android.syncml.pim.VParser;
+                         ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:33: error: package android.syncml.pim.vcard does not exist
+import android.syncml.pim.vcard.VCardDataBuilder;
+                               ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:34: error: package android.syncml.pim.vcard does not exist
+import android.syncml.pim.vcard.VCardEntryCounter;
+                               ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:35: error: package android.syncml.pim.vcard does not exist
+import android.syncml.pim.vcard.VCardException;
+                               ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:36: error: package android.syncml.pim.vcard does not exist
+import android.syncml.pim.vcard.VCardNestedException;
+                               ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:37: error: package android.syncml.pim.vcard does not exist
+import android.syncml.pim.vcard.VCardParser_V21;
+                               ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:38: error: package android.syncml.pim.vcard does not exist
+import android.syncml.pim.vcard.VCardParser_V30;
+                               ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:39: error: package android.syncml.pim.vcard does not exist
+import android.syncml.pim.vcard.VCardSourceDetector;
+                               ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:40: error: package android.syncml.pim.vcard does not exist
+import android.syncml.pim.vcard.VCardVersionException;
+                               ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:133: error: cannot find symbol
+        private VCardParser_V21 mVCardParser;
+                ^
+  symbol:   class VCardParser_V21
+  location: class ImportVCardActivity.VCardReadThread
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:250: error: cannot find symbol
+                VCardSourceDetector detector) {
+                ^
+  symbol:   class VCardSourceDetector
+  location: class ImportVCardActivity.VCardReadThread
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:288: error: cannot find symbol
+        private boolean readOneVCard(String canonicalPath, String charset, VBuilder builder,
+                                                                           ^
+  symbol:   class VBuilder
+  location: class ImportVCardActivity.VCardReadThread
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:289: error: cannot find symbol
+                VCardSourceDetector detector, boolean throwNestedException)
+                ^
+  symbol:   class VCardSourceDetector
+  location: class ImportVCardActivity.VCardReadThread
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ImportVCardActivity.java:290: error: cannot find symbol
+                throws VCardNestedException {
+                       ^
+  symbol:   class VCardNestedException
+  location: class ImportVCardActivity.VCardReadThread
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/SpecialCharSequenceMgr.java:31: error: cannot find symbol
+import android.provider.Telephony.Intents;
+                                 ^
+  symbol:   class Intents
+  location: class Telephony
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactEntryAdapter.java:194: error: cannot find symbol
+        c = resolver.query(Im.CONTENT_URI,
+                             ^
+  symbol:   variable CONTENT_URI
+  location: class Im
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:218: error: constant expression required
+            case R.id.photoImage: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:223: error: constant expression required
+            case R.id.checkable: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:234: error: constant expression required
+            case R.id.entry_ringtone: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:240: error: constant expression required
+            case R.id.separator: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:247: error: constant expression required
+            case R.id.saveButton:
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:251: error: constant expression required
+            case R.id.discardButton:
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:255: error: constant expression required
+            case R.id.delete: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:269: error: constant expression required
+            case R.id.label: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:653: error: cannot find symbol
+                        Im.CONTENT_URI, nextType);
+                          ^
+  symbol:   variable CONTENT_URI
+  location: class Im
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:667: error: cannot find symbol
+                        Organization.CONTENT_URI, nextType);
+                                    ^
+  symbol:   variable CONTENT_URI
+  location: class Organization
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:910: error: cannot find symbol
+                java.io.OutputStream os = Contacts.openContactPhotoOutputStream(
+                                                  ^
+  symbol:   method openContactPhotoOutputStream(ContentResolver,Uri,boolean)
+  location: class Contacts
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:1173: error: cannot find symbol
+        Cursor organizationsCursor = mResolver.query(Organization.CONTENT_URI,
+                                                                 ^
+  symbol:   variable CONTENT_URI
+  location: class Organization
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:1184: error: cannot find symbol
+                Uri uri = ContentUris.withAppendedId(Organization.CONTENT_URI, id);
+                                                                 ^
+  symbol:   variable CONTENT_URI
+  location: class Organization
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:1284: error: cannot find symbol
+                        Uri uri = ContentUris.withAppendedId(Im.CONTENT_URI, id);
+                                                               ^
+  symbol:   variable CONTENT_URI
+  location: class Im
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:1311: error: incompatible types: String cannot be converted to Uri
+            entry = EditEntry.newPhoneEntry(this, Phone.CONTENT_URI.toString(),
+                                                                            ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:1317: error: incompatible types: String cannot be converted to Uri
+            entry = EditEntry.newEmailEntry(this, Email.CONTENT_URI.toString(),
+                                                                            ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:1503: error: cannot find symbol
+                        imHandle.toString(), Im.CONTENT_URI, 0);
+                                               ^
+  symbol:   variable CONTENT_URI
+  location: class Im
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:1506: error: cannot find symbol
+                        Im.CONTENT_URI, 0);
+                          ^
+  symbol:   variable CONTENT_URI
+  location: class Im
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:2137: error: cannot find symbol
+            entry.contentDirectory = Organization.CONTENT_URI.toString();
+                                                 ^
+  symbol:   variable CONTENT_URI
+  location: class Organization
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:2304: error: cannot find symbol
+            entry.contentDirectory = Im.CONTENT_URI.toString();
+                                       ^
+  symbol:   variable CONTENT_URI
+  location: class Im
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/DialtactsActivity.java:84: error: cannot find symbol
+        if (intent.getAction().equals(UI.FILTER_CONTACTS_ACTION)
+                                      ^
+  symbol:   variable UI
+  location: class DialtactsActivity
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/DialtactsActivity.java:136: error: cannot find symbol
+        Intent intent = new Intent(UI.LIST_DEFAULT);
+                                   ^
+  symbol:   variable UI
+  location: class DialtactsActivity
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/DialtactsActivity.java:146: error: cannot find symbol
+        Intent intent = new Intent(UI.LIST_STREQUENT_ACTION);
+                                   ^
+  symbol:   variable UI
+  location: class DialtactsActivity
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/DialtactsActivity.java:232: error: cannot find symbol
+        if (action.equals(UI.FILTER_CONTACTS_ACTION)) {
+                          ^
+  symbol:   variable UI
+  location: class DialtactsActivity
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/DialtactsActivity.java:279: error: cannot find symbol
+        String filter = intent.getStringExtra(UI.FILTER_TEXT_EXTRA_KEY);
+                                              ^
+  symbol:   variable UI
+  location: class DialtactsActivity
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/VCardExporter.java:738: error: cannot find symbol
+            cursor = mContentResolver.query(Organization.CONTENT_URI,
+                                                        ^
+  symbol:   variable CONTENT_URI
+  location: class Organization
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:542: error: constant expression required
+            case R.id.digits:
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:554: error: constant expression required
+            case R.id.one: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:559: error: constant expression required
+            case R.id.two: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:564: error: constant expression required
+            case R.id.three: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:569: error: constant expression required
+            case R.id.four: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:574: error: constant expression required
+            case R.id.five: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:579: error: constant expression required
+            case R.id.six: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:584: error: constant expression required
+            case R.id.seven: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:589: error: constant expression required
+            case R.id.eight: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:594: error: constant expression required
+            case R.id.nine: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:599: error: constant expression required
+            case R.id.zero: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:604: error: constant expression required
+            case R.id.pound: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:609: error: constant expression required
+            case R.id.star: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:614: error: constant expression required
+            case R.id.backspace: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:618: error: constant expression required
+            case R.id.digits: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:629: error: constant expression required
+            case R.id.backspace: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:633: error: constant expression required
+            case R.id.one: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:640: error: constant expression required
+            case R.id.zero: {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:649: error: cannot find symbol
+        Intent intent = new Intent(Intent.ACTION_CALL_PRIVILEGED,
+                                         ^
+  symbol:   variable ACTION_CALL_PRIVILEGED
+  location: class Intent
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:664: error: cannot find symbol
+        Intent intent = new Intent(Intent.ACTION_CALL_PRIVILEGED,
+                                         ^
+  symbol:   variable ACTION_CALL_PRIVILEGED
+  location: class Intent
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:372: error: cannot find symbol
+        String title = intent.getStringExtra(Contacts.Intents.UI.TITLE_EXTRA_KEY);
+                                                     ^
+  symbol:   variable Intents
+  location: class Contacts
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:382: error: package UI does not exist
+        if (UI.LIST_DEFAULT.equals(action)) {
+              ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:386: error: package UI does not exist
+        } else if (UI.LIST_GROUP_ACTION.equals(action)) {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:388: error: cannot find symbol
+            String groupName = intent.getStringExtra(UI.GROUP_NAME_EXTRA_KEY);
+                                                     ^
+  symbol:   variable UI
+  location: class ContactsListActivity
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:394: error: package UI does not exist
+        } else if (UI.LIST_ALL_CONTACTS_ACTION.equals(action)) {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:396: error: package UI does not exist
+        } else if (UI.LIST_STARRED_ACTION.equals(action)) {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:398: error: package UI does not exist
+        } else if (UI.LIST_FREQUENT_ACTION.equals(action)) {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:400: error: package UI does not exist
+        } else if (UI.LIST_STREQUENT_ACTION.equals(action)) {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:402: error: package UI does not exist
+        } else if (UI.LIST_CONTACTS_WITH_PHONES_ACTION.equals(action)) {
+                     ^
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:445: error: cannot find symbol
+                    Intent newIntent = new Intent(Intent.ACTION_CALL_PRIVILEGED,
+                                                        ^
+  symbol:   variable ACTION_CALL_PRIVILEGED
+  location: class Intent
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:474: error: cannot find symbol
+                newIntent = new Intent(Intent.ACTION_CALL_PRIVILEGED, intent.getData());
+                                             ^
+  symbol:   variable ACTION_CALL_PRIVILEGED
+  location: class Intent
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:482: error: cannot find symbol
+            Intent newIntent = new Intent(Intent.ACTION_CALL_PRIVILEGED, intent.getData());
+                                                ^
+  symbol:   variable ACTION_CALL_PRIVILEGED
+  location: class Intent
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:545: error: cannot find symbol
+                if (Groups.GROUP_MY_CONTACTS.equals(mDisplayInfo)) {
+                          ^
+  symbol:   variable GROUP_MY_CONTACTS
+  location: class Groups
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:664: error: cannot find symbol
+                buildSystemGroupUris(Groups.GROUP_MY_CONTACTS);
+                                           ^
+  symbol:   variable GROUP_MY_CONTACTS
+  location: class Groups
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:665: error: cannot find symbol
+                mDisplayInfo = Groups.GROUP_MY_CONTACTS;
+                                     ^
+  symbol:   variable GROUP_MY_CONTACTS
+  location: class Groups
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:737: error: cannot find symbol
+        icicle.putParcelable(LIST_STATE_KEY, mList.onSaveInstanceState());
+                                             ^
+  symbol:   variable mList
+  location: class ContactsListActivity
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:738: error: cannot find symbol
+        icicle.putBoolean(FOCUS_KEY, mList.hasFocus());
+                                     ^
+  symbol:   variable mList
+  location: class ContactsListActivity
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:829: error: cannot find symbol
+                    mDisplayInfo = Groups.GROUP_MY_CONTACTS;
+                                         ^
+  symbol:   variable GROUP_MY_CONTACTS
+  location: class Groups
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:961: error: cannot find symbol
+            Intent intent = new Intent(Intent.ACTION_CALL_PRIVILEGED,
+                                             ^
+  symbol:   variable ACTION_CALL_PRIVILEGED
+  location: class Intent
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1067: error: cannot find symbol
+        inputMethodManager.hideSoftInputFromWindow(mList.getWindowToken(), 0);
+                                                   ^
+  symbol:   variable mList
+  location: class ContactsListActivity
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1140: error: cannot find symbol
+                final Bitmap icon = ContactsContract.Contacts.openContactPhotoInputStream_COMPAT(this, uri, 0, null);
+                                                             ^
+  symbol:   method openContactPhotoInputStream_COMPAT(ContactsListActivity,Uri,int,<null>)
+  location: class Contacts
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1195: error: cannot find symbol
+        Bitmap photo = ContactsContract.Contacts.openContactPhotoInputStream_COMPAT(this, personUri, 0, null);
+                                                ^
+  symbol:   method openContactPhotoInputStream_COMPAT(ContactsListActivity,Uri,int,<null>)
+  location: class Contacts
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1504: error: cannot find symbol
+                Intent intent = new Intent(Intent.ACTION_CALL_PRIVILEGED, uri);
+                                                 ^
+  symbol:   variable ACTION_CALL_PRIVILEGED
+  location: class Intent
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1565: error: cannot find symbol
+                        && !Groups.GROUP_MY_CONTACTS.equals(systemId)) {
+                                  ^
+  symbol:   variable GROUP_MY_CONTACTS
+  location: class Groups
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1569: error: cannot find symbol
+                    if (Groups.GROUP_ANDROID_STARRED.equals(name)) {
+                              ^
+  symbol:   variable GROUP_ANDROID_STARRED
+  location: class Groups
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1581: error: cannot find symbol
+                            && Groups.GROUP_MY_CONTACTS.equals(mDisplayInfo)) {
+                                     ^
+  symbol:   variable GROUP_MY_CONTACTS
+  location: class Groups
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1618: error: cannot find symbol
+                    activity.mList.onRestoreInstanceState(activity.mListState);
+                            ^
+  symbol:   variable mList
+  location: variable activity of type ContactsListActivity
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1620: error: cannot find symbol
+                        activity.mList.requestFocus();
+                                ^
+  symbol:   variable mList
+  location: variable activity of type ContactsListActivity
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1661: error: cannot find symbol
+                    mLocalizedLabels = EditContactActivity.getLabelsForKind(mContext,
+                                                                            ^
+  symbol:   variable mContext
+  location: class ContactsListActivity.ContactItemListAdapter
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1665: error: cannot find symbol
+                    mLocalizedLabels = EditContactActivity.getLabelsForKind(mContext,
+                                                                            ^
+  symbol:   variable mContext
+  location: class ContactsListActivity.ContactItemListAdapter
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1734: error: cannot find symbol
+            if (!mDataValid) {
+                 ^
+  symbol:   variable mDataValid
+  location: class ContactsListActivity.ContactItemListAdapter
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1742: error: cannot find symbol
+                        (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE); 
+                                         ^
+  symbol:   variable mContext
+  location: class ContactsListActivity.ContactItemListAdapter
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1748: error: cannot find symbol
+            if (!mCursor.moveToPosition(getRealPosition(position))) {
+                 ^
+  symbol:   variable mCursor
+  location: class ContactsListActivity.ContactItemListAdapter
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1754: error: cannot find symbol
+                v = newView(mContext, mCursor, parent);
+                            ^
+  symbol:   variable mContext
+  location: class ContactsListActivity.ContactItemListAdapter
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+100 errors
+	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:88)
+	at org.gradle.api.internal.tasks.compile.JdkJavaCompiler.execute(JdkJavaCompiler.java:49)
+	at org.gradle.api.internal.tasks.compile.NormalizingJavaCompiler.delegateAndHandleErrors(NormalizingJavaCompiler.java:98)
+	at org.gradle.api.internal.tasks.compile.NormalizingJavaCompiler.execute(NormalizingJavaCompiler.java:52)
+	at org.gradle.api.internal.tasks.compile.NormalizingJavaCompiler.execute(NormalizingJavaCompiler.java:38)
+	at org.gradle.api.internal.tasks.compile.AnnotationProcessorDiscoveringCompiler.execute(AnnotationProcessorDiscoveringCompiler.java:52)
+	at org.gradle.api.internal.tasks.compile.AnnotationProcessorDiscoveringCompiler.execute(AnnotationProcessorDiscoveringCompiler.java:38)
+	at org.gradle.api.internal.tasks.compile.ModuleApplicationNameWritingCompiler.execute(ModuleApplicationNameWritingCompiler.java:46)
+	at org.gradle.api.internal.tasks.compile.ModuleApplicationNameWritingCompiler.execute(ModuleApplicationNameWritingCompiler.java:36)
+	at org.gradle.jvm.toolchain.internal.DefaultToolchainJavaCompiler.execute(DefaultToolchainJavaCompiler.java:57)
+	at org.gradle.api.tasks.compile.JavaCompile.lambda$createToolchainCompiler$3(JavaCompile.java:206)
+	at org.gradle.api.internal.tasks.compile.CleaningJavaCompiler.execute(CleaningJavaCompiler.java:53)
+	at org.gradle.api.internal.tasks.compile.incremental.IncrementalCompilerFactory.lambda$createRebuildAllCompiler$0(IncrementalCompilerFactory.java:55)
+	at org.gradle.api.internal.tasks.compile.incremental.SelectiveCompiler.execute(SelectiveCompiler.java:70)
+	at org.gradle.api.internal.tasks.compile.incremental.SelectiveCompiler.execute(SelectiveCompiler.java:44)
+	at org.gradle.api.internal.tasks.compile.incremental.IncrementalResultStoringCompiler.execute(IncrementalResultStoringCompiler.java:66)
+	at org.gradle.api.internal.tasks.compile.incremental.IncrementalResultStoringCompiler.execute(IncrementalResultStoringCompiler.java:52)
+	at org.gradle.api.internal.tasks.compile.CompileJavaBuildOperationReportingCompiler$CompileOperation.call(CompileJavaBuildOperationReportingCompiler.java:78)
+	at org.gradle.api.internal.tasks.compile.CompileJavaBuildOperationReportingCompiler$CompileOperation.call(CompileJavaBuildOperationReportingCompiler.java:52)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:210)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:205)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:54)
+	at org.gradle.api.internal.tasks.compile.CompileJavaBuildOperationReportingCompiler.execute(CompileJavaBuildOperationReportingCompiler.java:49)
+	at org.gradle.api.tasks.compile.JavaCompile.performCompilation(JavaCompile.java:224)
+	at org.gradle.api.tasks.compile.JavaCompile.performIncrementalCompilation(JavaCompile.java:165)
+	at org.gradle.api.tasks.compile.JavaCompile.compile(JavaCompile.java:150)
+	at org.gradle.internal.reflect.JavaMethod.invoke(JavaMethod.java:125)
+	at org.gradle.api.internal.project.taskfactory.IncrementalTaskAction.doExecute(IncrementalTaskAction.java:45)
+	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:51)
+	at org.gradle.api.internal.project.taskfactory.IncrementalTaskAction.execute(IncrementalTaskAction.java:26)
+	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:29)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$3.run(TaskExecution.java:259)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:30)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:27)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:48)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeAction(TaskExecution.java:244)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeActions(TaskExecution.java:227)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeWithPreviousOutputFiles(TaskExecution.java:210)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.execute(TaskExecution.java:176)
+	at org.gradle.internal.execution.steps.ExecuteStep.executeInternal(ExecuteStep.java:167)
+	at org.gradle.internal.execution.steps.ExecuteStep.access$000(ExecuteStep.java:47)
+	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:137)
+	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:134)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:210)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:205)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:54)
+	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:134)
+	at org.gradle.internal.execution.steps.ExecuteStep$Mutable.execute(ExecuteStep.java:80)
+	at org.gradle.internal.execution.steps.CancelExecutionStep.execute(CancelExecutionStep.java:42)
+	at org.gradle.internal.execution.steps.TimeoutStep.executeWithoutTimeout(TimeoutStep.java:75)
+	at org.gradle.internal.execution.steps.TimeoutStep.execute(TimeoutStep.java:55)
+	at org.gradle.internal.execution.steps.PreCreateOutputParentsStep.execute(PreCreateOutputParentsStep.java:51)
+	at org.gradle.internal.execution.steps.PreCreateOutputParentsStep.execute(PreCreateOutputParentsStep.java:29)
+	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.executeMutable(RemovePreviousOutputsStep.java:67)
+	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.executeMutable(RemovePreviousOutputsStep.java:39)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.BroadcastChangingOutputsStep.execute(BroadcastChangingOutputsStep.java:42)
+	at org.gradle.internal.execution.steps.BroadcastChangingOutputsStep.execute(BroadcastChangingOutputsStep.java:24)
+	at org.gradle.internal.execution.steps.CaptureOutputsAfterExecutionStep.execute(CaptureOutputsAfterExecutionStep.java:69)
+	at org.gradle.internal.execution.steps.CaptureOutputsAfterExecutionStep.execute(CaptureOutputsAfterExecutionStep.java:46)
+	at org.gradle.internal.execution.steps.ResolveInputChangesStep.executeMutable(ResolveInputChangesStep.java:39)
+	at org.gradle.internal.execution.steps.ResolveInputChangesStep.executeMutable(ResolveInputChangesStep.java:28)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.BuildCacheStep.executeWithoutCache(BuildCacheStep.java:189)
+	at org.gradle.internal.execution.steps.BuildCacheStep.executeAndStoreInCache(BuildCacheStep.java:145)
+	at org.gradle.internal.execution.steps.BuildCacheStep.lambda$executeWithCache$4(BuildCacheStep.java:104)
+	at org.gradle.internal.execution.steps.BuildCacheStep.lambda$executeWithCache$5(BuildCacheStep.java:104)
+	at org.gradle.internal.Try$Success.map(Try.java:170)
+	at org.gradle.internal.execution.steps.BuildCacheStep.executeWithCache(BuildCacheStep.java:88)
+	at org.gradle.internal.execution.steps.BuildCacheStep.lambda$execute$0(BuildCacheStep.java:75)
+	at org.gradle.internal.Either$Left.fold(Either.java:116)
+	at org.gradle.internal.execution.caching.CachingState.fold(CachingState.java:62)
+	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:74)
+	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:49)
+	at org.gradle.internal.execution.steps.StoreExecutionStateStep.executeMutable(StoreExecutionStateStep.java:46)
+	at org.gradle.internal.execution.steps.StoreExecutionStateStep.executeMutable(StoreExecutionStateStep.java:35)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.executeBecause(SkipUpToDateStep.java:75)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.lambda$execute$2(SkipUpToDateStep.java:53)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:53)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:35)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:37)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:27)
+	at org.gradle.internal.execution.steps.ResolveMutableCachingStateStep.executeDelegate(ResolveMutableCachingStateStep.java:70)
+	at org.gradle.internal.execution.steps.ResolveMutableCachingStateStep.executeDelegate(ResolveMutableCachingStateStep.java:32)
+	at org.gradle.internal.execution.steps.AbstractResolveCachingStateStep.execute(AbstractResolveCachingStateStep.java:69)
+	at org.gradle.internal.execution.steps.AbstractResolveCachingStateStep.execute(AbstractResolveCachingStateStep.java:37)
+	at org.gradle.internal.execution.steps.ResolveChangesStep.executeMutable(ResolveChangesStep.java:63)
+	at org.gradle.internal.execution.steps.ResolveChangesStep.executeMutable(ResolveChangesStep.java:34)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.ValidateStep$Mutable.executeDelegate(ValidateStep.java:79)
+	at org.gradle.internal.execution.steps.ValidateStep$Mutable.executeDelegate(ValidateStep.java:65)
+	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:105)
+	at org.gradle.internal.execution.steps.ValidateStep$Mutable.execute(ValidateStep.java:65)
+	at org.gradle.internal.execution.steps.CaptureMutableStateBeforeExecutionStep.executeMutable(CaptureMutableStateBeforeExecutionStep.java:86)
+	at org.gradle.internal.execution.steps.CaptureMutableStateBeforeExecutionStep.execute(CaptureMutableStateBeforeExecutionStep.java:65)
+	at org.gradle.internal.execution.steps.CaptureMutableStateBeforeExecutionStep.execute(CaptureMutableStateBeforeExecutionStep.java:45)
+	at org.gradle.internal.execution.steps.SkipEmptyMutableWorkStep.executeWithNonEmptySources(SkipEmptyMutableWorkStep.java:210)
+	at org.gradle.internal.execution.steps.SkipEmptyMutableWorkStep.executeMutable(SkipEmptyMutableWorkStep.java:90)
+	at org.gradle.internal.execution.steps.SkipEmptyMutableWorkStep.executeMutable(SkipEmptyMutableWorkStep.java:53)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsStartedStep.execute(MarkSnapshottingInputsStartedStep.java:38)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.executeMutable(LoadPreviousExecutionStateStep.java:36)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.executeMutable(LoadPreviousExecutionStateStep.java:23)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.executeMutable(HandleStaleOutputsStep.java:77)
+	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.executeMutable(HandleStaleOutputsStep.java:43)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.lambda$executeMutable$0(AssignMutableWorkspaceStep.java:34)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$4.withWorkspace(TaskExecution.java:305)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.executeMutable(AssignMutableWorkspaceStep.java:30)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.executeMutable(AssignMutableWorkspaceStep.java:21)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:40)
+	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:23)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.lambda$execute$2(ExecuteWorkBuildOperationFiringStep.java:67)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:67)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:39)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:46)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:34)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:56)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:38)
+	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:68)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:132)
+	... 30 more
+
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.6.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 19s
+15 actionable tasks: 1 executed, 14 up-to-date

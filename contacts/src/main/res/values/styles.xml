@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+
+    <style name="MinusButton">
+        <item name="android:background">@drawable/btn_circle</item>
+        <item name="android:src">@drawable/ic_btn_round_minus</item>
+    </style>
+
+    <style name="PlusButton">
+        <item name="android:background">@drawable/btn_circle</item>
+        <item name="android:src">@drawable/ic_btn_round_plus</item>
+    </style>
+
+    <style name="MoreButton">
+        <item name="android:background">@drawable/btn_circle</item>
+        <item name="android:src">@drawable/ic_btn_round_more</item>
+    </style>
+
+    <style name="TallTitleBarTheme" parent="@style/Classic.Theme.NoTitleBar">
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="BackgroundOnly">
+        <item name="android:windowBackground">@null</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowNoDisplay">true</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+
+
+    <!-- ===== Tema clássico: TextAppearance.*/Widget.* (prefixo Classic.) ===== -->
+<!-- ============ Text Appearances ============ -->
+
+    <style name="Classic.TextAppearance" parent="">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textColorHighlight">#FF1B82EB</item>
+        <item name="android:textColorHint">?android:attr/textColorHint</item>
+        <item name="android:textColorLink">#5C5CFF</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="Classic.TextAppearance.Large">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="Classic.TextAppearance.Large.Inverse">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+        <item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+    </style>
+
+    <style name="Classic.TextAppearance.Medium">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="Classic.TextAppearance.Small">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+
+    <style name="Classic.TextAppearance.Small.Inverse">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">?android:attr/textColorSecondaryInverse</item>
+        <item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+    </style>
+
+    <style name="Classic.TextAppearance.Widget.Button" parent="Classic.TextAppearance.Small.Inverse">
+        <item name="android:textColor">@color/primary_text_light_nodisable</item>
+    </style>
+
+    <!-- ============ Widgets ============ -->
+
+    <style name="Classic.Widget.Button" parent="">
+        <item name="android:background">@drawable/btn_default</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:textAppearance">@style/Classic.TextAppearance.Small.Inverse</item>
+        <item name="android:textColor">@color/primary_text_light_nodisable</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+    </style>
+
+    <style name="Classic.Widget.Button.Small">
+        <item name="android:background">@drawable/btn_default_small</item>
+    </style>
+
+    <style name="Classic.Widget.ImageWell" parent="">
+        <item name="android:background">@drawable/panel_picture_frame_background</item>
+    </style>
+
+    <style name="Classic.Widget.TextView.ListSeparator" parent="">
+        <item name="android:background">@drawable/settings_header</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">27dip</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#FF000000</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">5sp</item>
+    </style>
+
+    <style name="Classic.Widget.CompoundButton.Star" parent="">
+        <item name="android:background">@drawable/btn_star_label_background</item>
+        <item name="android:button">@drawable/btn_star</item>
+    </style>
+
+    <!-- ============ Recriados manualmente (não existiam no SDK 1.0) ============ -->
+
+    <!--
+      ButtonBar: introduzido depois do 1.0 — recriado no padrão simples
+      documentado do AOSP (uma LinearLayout horizontal com peso igual
+      entre os botões; aqui expressamos só a parte que é "estilo", o
+      layout_weight fica no XML que usar este estilo).
+    -->
+    <style name="Classic.ButtonBar" parent="">
+        <item name="android:paddingLeft">2dip</item>
+        <item name="android:paddingTop">4dip</item>
+        <item name="android:paddingRight">2dip</item>
+        <item name="android:paddingBottom">4dip</item>
+    </style>
+</resources>
