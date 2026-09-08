@@ -214,69 +214,58 @@ public final class EditContactActivity extends Activity implements View.OnClickL
     };
 
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.photoImage: {
-                doPickPhotoAction();
-                break;
-            }
-            
-            case R.id.checkable: {
-                CheckBox checkBox = (CheckBox) v.findViewById(R.id.checkbox);
-                checkBox.toggle();
-                
-                EditEntry entry = findEntryForView(v);
-                entry.data = checkBox.isChecked() ? "1" : "0";
-                
-                mContactChanged = true;
-                break;
-            }
-            
-            case R.id.entry_ringtone: {
-                EditEntry entry = findEntryForView(v);
-                doPickRingtone(entry);
-                break;
-            }
-            
-            case R.id.separator: {
-                // Someone clicked on a section header, so handle add action
-                int sectionType = (Integer) v.getTag();
-                doAddAction(sectionType);
-                break;
+        // switch(v.getId()) nao compila mais aqui: com o modulo de tema classico
+        // virando dependencia de biblioteca, os R.id.* deixam de ser "constant
+        // expression" em tempo de compilacao. Convertido pra if/else if.
+        int clickedId = v.getId();
+        if (clickedId == R.id.photoImage) {
+            doPickPhotoAction();
+
+        } else if (clickedId == R.id.checkable) {
+            CheckBox checkBox = (CheckBox) v.findViewById(R.id.checkbox);
+            checkBox.toggle();
+
+            EditEntry entry = findEntryForView(v);
+            entry.data = checkBox.isChecked() ? "1" : "0";
+
+            mContactChanged = true;
+
+        } else if (clickedId == R.id.entry_ringtone) {
+            EditEntry entry = findEntryForView(v);
+            doPickRingtone(entry);
+
+        } else if (clickedId == R.id.separator) {
+            // Someone clicked on a section header, so handle add action
+            int sectionType = (Integer) v.getTag();
+            doAddAction(sectionType);
+
+        } else if (clickedId == R.id.saveButton) {
+            doSaveAction();
+
+        } else if (clickedId == R.id.discardButton) {
+            doRevertAction();
+
+        } else if (clickedId == R.id.delete) {
+            EditEntry entry = findEntryForView(v);
+            if (entry != null) {
+                // Clear the text and hide the view so it gets saved properly
+                ((TextView) entry.view.findViewById(R.id.data)).setText(null);
+                entry.view.setVisibility(View.GONE);
+                entry.isDeleted = true;
             }
 
-            case R.id.saveButton:
-                doSaveAction();
-                break;
+            // Force rebuild of views because section headers might need to change
+            buildViews();
 
-            case R.id.discardButton:
-                doRevertAction();
-                break;
-
-            case R.id.delete: {
-                EditEntry entry = findEntryForView(v);
-                if (entry != null) {
-                    // Clear the text and hide the view so it gets saved properly
-                    ((TextView) entry.view.findViewById(R.id.data)).setText(null);
-                    entry.view.setVisibility(View.GONE);
-                    entry.isDeleted = true;
-                }
-                
-                // Force rebuild of views because section headers might need to change
-                buildViews();
-                break;
-            }
-
-            case R.id.label: {
-                EditEntry entry = findEntryForView(v);
-                if (entry != null) {
-                    String[] labels = getLabelsForKind(this, entry.kind);
-                    LabelPickedListener listener = new LabelPickedListener(entry, labels);
-                    new AlertDialog.Builder(EditContactActivity.this)
-                            .setItems(labels, listener)
-                            .setTitle(R.string.selectLabel)
-                            .show();
-                }
-                break;
+        } else if (clickedId == R.id.label) {
+            EditEntry entry = findEntryForView(v);
+            if (entry != null) {
+                String[] labels = getLabelsForKind(this, entry.kind);
+                LabelPickedListener listener = new LabelPickedListener(entry, labels);
+                new AlertDialog.Builder(EditContactActivity.this)
+                        .setItems(labels, listener)
+                        .setTitle(R.string.selectLabel)
+                        .show();
             }
         }
     }

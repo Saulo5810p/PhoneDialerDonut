@@ -1649,20 +1649,24 @@ public final class ContactsListActivity extends ListActivity
         private boolean mDisplayPhotos = false;
         private SparseArray<SoftReference<Bitmap>> mBitmapCache = null;
         private int mFrequentSeparatorPos = ListView.INVALID_POSITION;
+        // mContext/mCursor/mDataValid do CursorAdapter sao @UnsupportedAppUsage
+        // (ocultos do stub do SDK moderno), por isso guardamos nossas proprias copias.
+        private final Context mLocalContext;
 
         public ContactItemListAdapter(Context context) {
             super(context, R.layout.contacts_list_item, null, false);
+            mLocalContext = context;
             
             mAlphabet = context.getString(R.string.fast_scroll_alphabet_compat);
             
             mUnknownNameText = context.getText(android.R.string.unknownName);
             switch (mMode) {
                 case MODE_PICK_POSTAL:
-                    mLocalizedLabels = EditContactActivity.getLabelsForKind(mContext,
+                    mLocalizedLabels = EditContactActivity.getLabelsForKind(mLocalContext,
                             ContactEntryAdapter.KIND_POSTAL);
                     break;
                 default:
-                    mLocalizedLabels = EditContactActivity.getLabelsForKind(mContext,
+                    mLocalizedLabels = EditContactActivity.getLabelsForKind(mLocalContext,
                             ContactEntryAdapter.KIND_PHONE);
                     break;
             }
@@ -1731,7 +1735,7 @@ public final class ContactsListActivity extends ListActivity
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            if (!mDataValid) {
+            if (getCursor() == null) {
                 throw new IllegalStateException(
                         "this should only be called when the cursor is valid");
             }
@@ -1739,23 +1743,23 @@ public final class ContactsListActivity extends ListActivity
             // Handle the separator specially
             if (position == mFrequentSeparatorPos) {
                 LayoutInflater inflater =
-                        (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE); 
+                        (LayoutInflater) mLocalContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE); 
                 TextView view = (TextView) inflater.inflate(R.layout.list_separator, parent, false);
                 view.setText(R.string.favoritesFrquentSeparator);
                 return view;
             }
 
-            if (!mCursor.moveToPosition(getRealPosition(position))) {
+            if (!getCursor().moveToPosition(getRealPosition(position))) {
                 throw new IllegalStateException("couldn't move cursor to position " + position);
             }
             
             View v;
             if (convertView == null) {
-                v = newView(mContext, mCursor, parent);
+                v = newView(mLocalContext, getCursor(), parent);
             } else {
                 v = convertView;
             }
-            bindView(v, mContext, mCursor);
+            bindView(v, mLocalContext, getCursor());
             return v;
         }
 

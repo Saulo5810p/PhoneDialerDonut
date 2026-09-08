@@ -732,16 +732,11 @@ class VCardExporterImpl {
                 Organization.COMPANY,
                 Organization.TITLE,
         };
-        // Organization nao tem CONTENT_URI proprio (e um "data kind" dentro da
-        // tabela Data, nao uma tabela em si) - a consulta certa e via Data.CONTENT_URI
-        // filtrando pelo MIMETYPE da Organization.
-        String selection = Organization.CONTACT_ID + "=? AND " + Data.MIMETYPE + "=?";
+        String selection = Organization.CONTACT_ID + "=?";
         Cursor cursor = null;
         try {
-            cursor = mContentResolver.query(Data.CONTENT_URI,
-                    projection, selection,
-                    new String[] { String.valueOf(personId), Organization.CONTENT_ITEM_TYPE },
-                    null);
+            cursor = mContentResolver.query(Organization.CONTENT_URI,
+                    projection, selection, new String[] { String.valueOf(personId) }, null);
             if ((cursor != null) && (cursor.moveToFirst())) {
                 int companyColumn = cursor.getColumnIndex(Organization.COMPANY);
                 int titleColumn = cursor.getColumnIndex(Organization.TITLE);

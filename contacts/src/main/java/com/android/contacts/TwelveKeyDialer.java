@@ -38,6 +38,7 @@ import android.provider.ContactsContract;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.provider.ContactsContract.Intents.Insert;
 import android.provider.Settings;
+import android.telecom.TelecomManager;
 import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.PhoneStateListener;
@@ -538,116 +539,114 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
     }
 
     public boolean onKey(View view, int keyCode, KeyEvent event) {
-        switch (view.getId()) {
-            case R.id.digits:
-                if (keyCode == KeyEvent.KEYCODE_ENTER) {
-                    placeCall();
-                    return true;
-                }
-                break;
+        // switch(view.getId()) nao compila mais aqui (R.id.* nao e mais
+        // "constant expression" com o tema classico como dependencia de biblioteca).
+        if (view.getId() == R.id.digits) {
+            if (keyCode == KeyEvent.KEYCODE_ENTER) {
+                placeCall();
+                return true;
+            }
         }
         return false;
     }
 
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.one: {
-                playTone(ToneGenerator.TONE_DTMF_1);
-                keyPressed(KeyEvent.KEYCODE_1);
-                return;
-            }
-            case R.id.two: {
-                playTone(ToneGenerator.TONE_DTMF_2);
-                keyPressed(KeyEvent.KEYCODE_2);
-                return;
-            }
-            case R.id.three: {
-                playTone(ToneGenerator.TONE_DTMF_3);
-                keyPressed(KeyEvent.KEYCODE_3);
-                return;
-            }
-            case R.id.four: {
-                playTone(ToneGenerator.TONE_DTMF_4);
-                keyPressed(KeyEvent.KEYCODE_4);
-                return;
-            }
-            case R.id.five: {
-                playTone(ToneGenerator.TONE_DTMF_5);
-                keyPressed(KeyEvent.KEYCODE_5);
-                return;
-            }
-            case R.id.six: {
-                playTone(ToneGenerator.TONE_DTMF_6);
-                keyPressed(KeyEvent.KEYCODE_6);
-                return;
-            }
-            case R.id.seven: {
-                playTone(ToneGenerator.TONE_DTMF_7);
-                keyPressed(KeyEvent.KEYCODE_7);
-                return;
-            }
-            case R.id.eight: {
-                playTone(ToneGenerator.TONE_DTMF_8);
-                keyPressed(KeyEvent.KEYCODE_8);
-                return;
-            }
-            case R.id.nine: {
-                playTone(ToneGenerator.TONE_DTMF_9);
-                keyPressed(KeyEvent.KEYCODE_9);
-                return;
-            }
-            case R.id.zero: {
-                playTone(ToneGenerator.TONE_DTMF_0);
-                keyPressed(KeyEvent.KEYCODE_0);
-                return;
-            }
-            case R.id.pound: {
-                playTone(ToneGenerator.TONE_DTMF_P);
-                keyPressed(KeyEvent.KEYCODE_POUND);
-                return;
-            }
-            case R.id.star: {
-                playTone(ToneGenerator.TONE_DTMF_S);
-                keyPressed(KeyEvent.KEYCODE_STAR);
-                return;
-            }
-            case R.id.backspace: {
-                keyPressed(KeyEvent.KEYCODE_DEL);
-                return;
-            }
-            case R.id.digits: {
-                placeCall();
-                return;
-            }
+        // Idem: switch(view.getId()) convertido pra if/else if.
+        int clickedId = view.getId();
+        if (clickedId == R.id.one) {
+            playTone(ToneGenerator.TONE_DTMF_1);
+            keyPressed(KeyEvent.KEYCODE_1);
+            return;
+        } else if (clickedId == R.id.two) {
+            playTone(ToneGenerator.TONE_DTMF_2);
+            keyPressed(KeyEvent.KEYCODE_2);
+            return;
+        } else if (clickedId == R.id.three) {
+            playTone(ToneGenerator.TONE_DTMF_3);
+            keyPressed(KeyEvent.KEYCODE_3);
+            return;
+        } else if (clickedId == R.id.four) {
+            playTone(ToneGenerator.TONE_DTMF_4);
+            keyPressed(KeyEvent.KEYCODE_4);
+            return;
+        } else if (clickedId == R.id.five) {
+            playTone(ToneGenerator.TONE_DTMF_5);
+            keyPressed(KeyEvent.KEYCODE_5);
+            return;
+        } else if (clickedId == R.id.six) {
+            playTone(ToneGenerator.TONE_DTMF_6);
+            keyPressed(KeyEvent.KEYCODE_6);
+            return;
+        } else if (clickedId == R.id.seven) {
+            playTone(ToneGenerator.TONE_DTMF_7);
+            keyPressed(KeyEvent.KEYCODE_7);
+            return;
+        } else if (clickedId == R.id.eight) {
+            playTone(ToneGenerator.TONE_DTMF_8);
+            keyPressed(KeyEvent.KEYCODE_8);
+            return;
+        } else if (clickedId == R.id.nine) {
+            playTone(ToneGenerator.TONE_DTMF_9);
+            keyPressed(KeyEvent.KEYCODE_9);
+            return;
+        } else if (clickedId == R.id.zero) {
+            playTone(ToneGenerator.TONE_DTMF_0);
+            keyPressed(KeyEvent.KEYCODE_0);
+            return;
+        } else if (clickedId == R.id.pound) {
+            playTone(ToneGenerator.TONE_DTMF_P);
+            keyPressed(KeyEvent.KEYCODE_POUND);
+            return;
+        } else if (clickedId == R.id.star) {
+            playTone(ToneGenerator.TONE_DTMF_S);
+            keyPressed(KeyEvent.KEYCODE_STAR);
+            return;
+        } else if (clickedId == R.id.backspace) {
+            keyPressed(KeyEvent.KEYCODE_DEL);
+            return;
+        } else if (clickedId == R.id.digits) {
+            placeCall();
+            return;
         }
     }
 
     public boolean onLongClick(View view) {
         final Editable digits = mDigits.getText();
         int id = view.getId();
-        switch (id) {
-            case R.id.backspace: {
-                digits.clear();
+        // Idem: switch(id) convertido pra if/else if.
+        if (id == R.id.backspace) {
+            digits.clear();
+            return true;
+        } else if (id == R.id.one) {
+            if (digits.length() == 0) {
+                callVoicemail();
                 return true;
             }
-            case R.id.one: {
-                if (digits.length() == 0) {
-                    callVoicemail();
-                    return true;
-                }
-                return false;
-            }
-            case R.id.zero: {
-                keyPressed(KeyEvent.KEYCODE_PLUS);
-                return true;
-            }
+            return false;
+        } else if (id == R.id.zero) {
+            keyPressed(KeyEvent.KEYCODE_PLUS);
+            return true;
         }
         return false;
     }
 
     void callVoicemail() {
-        Intent intent = new Intent(Intent.ACTION_CALL_PRIVILEGED,
-                Uri.fromParts("voicemail", "", null));
+        // Intent.ACTION_CALL_PRIVILEGED nao existe mais pra apps normais
+        // (era signature-only). O caminho publico pra "segurar o 1 liga pro
+        // correio de voz" e pedir o numero pro TelecomManager e discar normal.
+        TelecomManager telecomManager =
+                (TelecomManager) getSystemService(Context.TELECOM_SERVICE);
+        Uri voicemailUri = telecomManager != null
+                ? telecomManager.getVoiceMailNumber() != null
+                        ? Uri.fromParts("tel", telecomManager.getVoiceMailNumber(), null)
+                        : null
+                : null;
+        if (voicemailUri == null) {
+            // Sem número de correio de voz configurado na SIM/operadora - nada a discar.
+            playTone(ToneGenerator.TONE_PROP_NACK);
+            return;
+        }
+        Intent intent = new Intent(Intent.ACTION_CALL, voicemailUri);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         mDigits.getText().clear();
@@ -661,7 +660,9 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
             playTone(ToneGenerator.TONE_PROP_NACK);
             return;
         }
-        Intent intent = new Intent(Intent.ACTION_CALL_PRIVILEGED,
+        // Intent.ACTION_CALL_PRIVILEGED nao existe mais pra apps normais;
+        // ACTION_CALL (com permissao CALL_PHONE) e o equivalente publico.
+        Intent intent = new Intent(Intent.ACTION_CALL,
                 Uri.fromParts("tel", number, null));
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
