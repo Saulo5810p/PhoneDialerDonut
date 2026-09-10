@@ -1,0 +1,220 @@
+Starting a Gradle Daemon, 1 busy and 1 incompatible and 1 stopped Daemons could not be reused, use --status for details
+Warning: Unable to set daemon's environment variables to match the client because: 
+  There is no native integration with this operating environment.
+  If the daemon was started with a significantly different environment from the client, and your build 
+  relies on environment variables, you may experience unexpected behavior.
+
+> Configure project :contacts
+WARNING: The option setting 'android.aapt2FromMavenOverride=/data/data/com.termux/files/usr/bin/aapt2' is experimental.
+
+> Task :contacts:preBuild UP-TO-DATE
+> Task :contacts:preDebugBuild UP-TO-DATE
+> Task :contacts:javaPreCompileDebug UP-TO-DATE
+> Task :contacts:checkDebugAarMetadata UP-TO-DATE
+> Task :contacts:generateDebugResValues UP-TO-DATE
+> Task :contacts:mapDebugSourceSetPaths UP-TO-DATE
+> Task :contacts:generateDebugResources UP-TO-DATE
+> Task :contacts:mergeDebugResources UP-TO-DATE
+> Task :contacts:packageDebugResources UP-TO-DATE
+> Task :contacts:parseDebugLocalResources UP-TO-DATE
+> Task :contacts:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :contacts:extractDeepLinksDebug UP-TO-DATE
+> Task :contacts:processDebugMainManifest UP-TO-DATE
+> Task :contacts:processDebugManifest UP-TO-DATE
+> Task :contacts:processDebugManifestForPackage UP-TO-DATE
+> Task :contacts:processDebugResources UP-TO-DATE
+
+> Task :contacts:compileDebugJavaWithJavac
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1904: error: cannot find symbol
+                                java.io.InputStream is = getContext().getContentResolver()
+                                                         ^
+  symbol:   method getContext()
+  location: class ContactsListActivity.ContactItemListAdapter
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:640: error: method getVoiceMailNumber in class TelecomManager cannot be applied to given types;
+                ? telecomManager.getVoiceMailNumber() != null
+                                ^
+  required: PhoneAccountHandle
+  found:    no arguments
+  reason: actual and formal argument lists differ in length
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:641: error: method getVoiceMailNumber in class TelecomManager cannot be applied to given types;
+                        ? Uri.fromParts("tel", telecomManager.getVoiceMailNumber(), null)
+                                                             ^
+  required: PhoneAccountHandle
+  found:    no arguments
+  reason: actual and formal argument lists differ in length
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ButtonGridLayout.java:43: error: cannot find symbol
+        int y = mPaddingTop;
+                ^
+  symbol:   variable mPaddingTop
+  location: class ButtonGridLayout
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ButtonGridLayout.java:46: error: cannot find symbol
+        final int yInc = (getHeight() - mPaddingTop - mPaddingBottom) / rows;
+                                        ^
+  symbol:   variable mPaddingTop
+  location: class ButtonGridLayout
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ButtonGridLayout.java:46: error: cannot find symbol
+        final int yInc = (getHeight() - mPaddingTop - mPaddingBottom) / rows;
+                                                      ^
+  symbol:   variable mPaddingBottom
+  location: class ButtonGridLayout
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ButtonGridLayout.java:47: error: cannot find symbol
+        final int xInc = (getWidth() - mPaddingLeft - mPaddingRight) / mColumns;
+                                       ^
+  symbol:   variable mPaddingLeft
+  location: class ButtonGridLayout
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ButtonGridLayout.java:47: error: cannot find symbol
+        final int xInc = (getWidth() - mPaddingLeft - mPaddingRight) / mColumns;
+                                                      ^
+  symbol:   variable mPaddingRight
+  location: class ButtonGridLayout
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ButtonGridLayout.java:54: error: cannot find symbol
+            int x = mPaddingLeft;
+                    ^
+  symbol:   variable mPaddingLeft
+  location: class ButtonGridLayout
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ButtonGridLayout.java:76: error: cannot find symbol
+        int width = mPaddingLeft + mPaddingRight;
+                    ^
+  symbol:   variable mPaddingLeft
+  location: class ButtonGridLayout
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ButtonGridLayout.java:76: error: cannot find symbol
+        int width = mPaddingLeft + mPaddingRight;
+                                   ^
+  symbol:   variable mPaddingRight
+  location: class ButtonGridLayout
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ButtonGridLayout.java:77: error: cannot find symbol
+        int height = mPaddingTop + mPaddingBottom;
+                     ^
+  symbol:   variable mPaddingTop
+  location: class ButtonGridLayout
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ButtonGridLayout.java:77: error: cannot find symbol
+        int height = mPaddingTop + mPaddingBottom;
+                                   ^
+  symbol:   variable mPaddingBottom
+  location: class ButtonGridLayout
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:901: error: cannot find symbol
+                java.io.OutputStream os = Contacts.openContactPhotoOutputStream(
+                                                  ^
+  symbol:   method openContactPhotoOutputStream(ContentResolver,Uri)
+  location: class Contacts
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/AttachImage.java:102: error: cannot find symbol
+                            .openContactPhotoOutputStream(getContentResolver(), mContactUri, true)) {
+                            ^
+  symbol:   method openContactPhotoOutputStream(ContentResolver,Uri,boolean)
+  location: class Contacts
+/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/RecentCallsListActivity.java:791: error: cannot find symbol
+                    cursor.deleteRow();
+                          ^
+  symbol:   method deleteRow()
+  location: variable cursor of type Cursor
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+16 errors
+
+> Task :contacts:compileDebugJavaWithJavac FAILED
+
+[Incubating] Problems report is available at: file:///data/data/com.termux/files/home/app-project-android-1.6/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':contacts:compileDebugJavaWithJavac' (registered by plugin 'com.android.internal.application').
+> Compilation failed; see the compiler output below.
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:640: error: method getVoiceMailNumber in class TelecomManager cannot be applied to given types;
+                  ? telecomManager.getVoiceMailNumber() != null
+                                  ^
+    required: PhoneAccountHandle
+    found:    no arguments
+    reason: actual and formal argument lists differ in length
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/TwelveKeyDialer.java:641: error: method getVoiceMailNumber in class TelecomManager cannot be applied to given types;
+                          ? Uri.fromParts("tel", telecomManager.getVoiceMailNumber(), null)
+                                                               ^
+    required: PhoneAccountHandle
+    found:    no arguments
+    reason: actual and formal argument lists differ in length
+  Note: Recompile with -Xlint:deprecation for details.
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ButtonGridLayout.java:43: error: cannot find symbol
+          int y = mPaddingTop;
+                  ^
+    symbol:   variable mPaddingTop
+    location: class ButtonGridLayout
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ButtonGridLayout.java:46: error: cannot find symbol
+          final int yInc = (getHeight() - mPaddingTop - mPaddingBottom) / rows;
+                                          ^
+    symbol:   variable mPaddingTop
+    location: class ButtonGridLayout
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ButtonGridLayout.java:46: error: cannot find symbol
+          final int yInc = (getHeight() - mPaddingTop - mPaddingBottom) / rows;
+                                                        ^
+    symbol:   variable mPaddingBottom
+    location: class ButtonGridLayout
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ButtonGridLayout.java:47: error: cannot find symbol
+          final int xInc = (getWidth() - mPaddingLeft - mPaddingRight) / mColumns;
+                                         ^
+    symbol:   variable mPaddingLeft
+    location: class ButtonGridLayout
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ButtonGridLayout.java:47: error: cannot find symbol
+          final int xInc = (getWidth() - mPaddingLeft - mPaddingRight) / mColumns;
+                                                        ^
+    symbol:   variable mPaddingRight
+    location: class ButtonGridLayout
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ButtonGridLayout.java:54: error: cannot find symbol
+              int x = mPaddingLeft;
+                      ^
+    symbol:   variable mPaddingLeft
+    location: class ButtonGridLayout
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ButtonGridLayout.java:76: error: cannot find symbol
+          int width = mPaddingLeft + mPaddingRight;
+                      ^
+    symbol:   variable mPaddingLeft
+    location: class ButtonGridLayout
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ButtonGridLayout.java:76: error: cannot find symbol
+          int width = mPaddingLeft + mPaddingRight;
+                                     ^
+    symbol:   variable mPaddingRight
+    location: class ButtonGridLayout
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ButtonGridLayout.java:77: error: cannot find symbol
+          int height = mPaddingTop + mPaddingBottom;
+                       ^
+    symbol:   variable mPaddingTop
+    location: class ButtonGridLayout
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ButtonGridLayout.java:77: error: cannot find symbol
+          int height = mPaddingTop + mPaddingBottom;
+                                     ^
+    symbol:   variable mPaddingBottom
+    location: class ButtonGridLayout
+  Note: Some input files use or override a deprecated API.
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/ContactsListActivity.java:1904: error: cannot find symbol
+                                  java.io.InputStream is = getContext().getContentResolver()
+                                                           ^
+    symbol:   method getContext()
+    location: class ContactsListActivity.ContactItemListAdapter
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/EditContactActivity.java:901: error: cannot find symbol
+                  java.io.OutputStream os = Contacts.openContactPhotoOutputStream(
+                                                    ^
+    symbol:   method openContactPhotoOutputStream(ContentResolver,Uri)
+    location: class Contacts
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/AttachImage.java:102: error: cannot find symbol
+                              .openContactPhotoOutputStream(getContentResolver(), mContactUri, true)) {
+                              ^
+    symbol:   method openContactPhotoOutputStream(ContentResolver,Uri,boolean)
+    location: class Contacts
+  /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/java/com/android/contacts/RecentCallsListActivity.java:791: error: cannot find symbol
+                      cursor.deleteRow();
+                            ^
+    symbol:   method deleteRow()
+    location: variable cursor of type Cursor
+  16 errors
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.6.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 29s
+15 actionable tasks: 1 executed, 14 up-to-date

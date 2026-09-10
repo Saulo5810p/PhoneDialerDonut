@@ -28,7 +28,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
-import android.provider.Telephony.Intents;
+// import android.provider.Telephony.Intents; nao existe mais - nunca existiu
+// esse caminho, o valor certo (android.provider.Telephony.Sms.Intents,
+// que exige minSdk 28+) e so uma string de broadcast estavel, entao usamos
+// o literal direto la embaixo em vez de importar a classe.
 import android.telephony.PhoneNumberUtils;
 import android.telephony.TelephonyManager;
 import android.util.Log;
@@ -85,7 +88,7 @@ public class SpecialCharSequenceMgr {
         // Secret codes are in the form *#*#<code>#*#*
         int len = input.length();
         if (len > 8 && input.startsWith("*#*#") && input.endsWith("#*#*")) {
-            Intent intent = new Intent(Intents.SECRET_CODE_ACTION,
+            Intent intent = new Intent("android.provider.Telephony.SECRET_CODE",
                     Uri.parse("android_secret_code://" + input.substring(4, len - 4)));
             context.sendBroadcast(intent);
             return true;

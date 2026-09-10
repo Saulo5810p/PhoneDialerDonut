@@ -38,7 +38,6 @@ import android.provider.ContactsContract;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.provider.ContactsContract.Intents.Insert;
 import android.provider.Settings;
-import android.telecom.TelecomManager;
 import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.PhoneStateListener;
@@ -632,14 +631,16 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
 
     void callVoicemail() {
         // Intent.ACTION_CALL_PRIVILEGED nao existe mais pra apps normais
-        // (era signature-only). O caminho publico pra "segurar o 1 liga pro
-        // correio de voz" e pedir o numero pro TelecomManager e discar normal.
-        TelecomManager telecomManager =
-                (TelecomManager) getSystemService(Context.TELECOM_SERVICE);
-        Uri voicemailUri = telecomManager != null
-                ? telecomManager.getVoiceMailNumber() != null
-                        ? Uri.fromParts("tel", telecomManager.getVoiceMailNumber(), null)
-                        : null
+        // (era signature-only). TelecomManager.getVoiceMailNumber() precisa de
+        // um PhoneAccountHandle nesse compileSdk; TelephonyManager.getVoiceMailNumber()
+        // (sem argumento) e o caminho mais simples e continua publico.
+        TelephonyManager telephonyManager =
+                (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
+        String voicemailNumber = telephonyManager != null
+                ? telephonyManager.getVoiceMailNumber()
+                : null;
+        Uri voicemailUri = voicemailNumber != null
+                ? Uri.fromParts("tel", voicemailNumber, null)
                 : null;
         if (voicemailUri == null) {
             // Sem número de correio de voz configurado na SIM/operadora - nada a discar.

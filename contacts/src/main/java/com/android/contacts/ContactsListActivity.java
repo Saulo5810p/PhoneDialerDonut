@@ -52,7 +52,7 @@ import android.provider.ContactsContract.Groups;
 import android.provider.ContactsContract.Intents;
 import android.provider.ContactsContract.StatusUpdates;
 import android.provider.ContactsContract.Intents.Insert;
-import android.provider.ContactsContract.Intents.UI;
+import com.android.contacts.compat.ContactsUiIntents;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.SparseArray;
@@ -91,6 +91,14 @@ public final class ContactsListActivity extends ListActivity
 
     private static final String LIST_STATE_KEY = "liststate";
     private static final String FOCUS_KEY = "focused";
+
+    // ContactsContract.Groups nunca teve GROUP_MY_CONTACTS/GROUP_ANDROID_STARRED -
+    // essas constantes existiam so na classe antiga (e ja removida)
+    // android.provider.Contacts.Groups. Os valores abaixo sao os mesmos literais
+    // que ela tinha; aqui servem so como marcador interno (mDisplayInfo), nao como
+    // nome real de grupo do provider.
+    private static final String GROUP_MY_CONTACTS = "Contacts";
+    private static final String GROUP_ANDROID_STARRED = "Starred in Android";
     
     static final int MENU_ITEM_VIEW_CONTACT = 1;
     static final int MENU_ITEM_CALL = 2;
@@ -369,7 +377,7 @@ public final class ContactsListActivity extends ListActivity
         final Intent intent = getIntent();
 
         // Allow the title to be set to a custom String using an extra on the intent
-        String title = intent.getStringExtra(Contacts.Intents.UI.TITLE_EXTRA_KEY);
+        String title = intent.getStringExtra(ContactsUiIntents.TITLE_EXTRA_KEY);
         if (title != null) {
             setTitle(title);
         }
@@ -379,27 +387,27 @@ public final class ContactsListActivity extends ListActivity
         
         setContentView(R.layout.contacts_list_content);
 
-        if (UI.LIST_DEFAULT.equals(action)) {
+        if (ContactsUiIntents.LIST_DEFAULT.equals(action)) {
             mDefaultMode = true;
             // When mDefaultMode is true the mode is set in onResume(), since the preferneces
             // activity may change it whenever this activity isn't running
-        } else if (UI.LIST_GROUP_ACTION.equals(action)) {
+        } else if (ContactsUiIntents.LIST_GROUP_ACTION.equals(action)) {
             mMode = MODE_GROUP;
-            String groupName = intent.getStringExtra(UI.GROUP_NAME_EXTRA_KEY);
+            String groupName = intent.getStringExtra(ContactsUiIntents.GROUP_NAME_EXTRA_KEY);
             if (TextUtils.isEmpty(groupName)) {
                 finish();
                 return;
             }
             buildUserGroupUris(groupName);
-        } else if (UI.LIST_ALL_CONTACTS_ACTION.equals(action)) {
+        } else if (ContactsUiIntents.LIST_ALL_CONTACTS_ACTION.equals(action)) {
             mMode = MODE_ALL_CONTACTS;
-        } else if (UI.LIST_STARRED_ACTION.equals(action)) {
+        } else if (ContactsUiIntents.LIST_STARRED_ACTION.equals(action)) {
             mMode = MODE_STARRED;
-        } else if (UI.LIST_FREQUENT_ACTION.equals(action)) {
+        } else if (ContactsUiIntents.LIST_FREQUENT_ACTION.equals(action)) {
             mMode = MODE_FREQUENT;
-        } else if (UI.LIST_STREQUENT_ACTION.equals(action)) {
+        } else if (ContactsUiIntents.LIST_STREQUENT_ACTION.equals(action)) {
             mMode = MODE_STREQUENT;
-        } else if (UI.LIST_CONTACTS_WITH_PHONES_ACTION.equals(action)) {
+        } else if (ContactsUiIntents.LIST_CONTACTS_WITH_PHONES_ACTION.equals(action)) {
             mMode = MODE_WITH_PHONES;
         } else if (Intent.ACTION_PICK.equals(action)) {
             // XXX These should be showing the data from the URI given in
@@ -442,7 +450,7 @@ public final class ContactsListActivity extends ListActivity
             if ("call".equals(intent.getStringExtra(SearchManager.ACTION_MSG))) {
                 String query = intent.getStringExtra(SearchManager.QUERY);
                 if (!TextUtils.isEmpty(query)) {
-                    Intent newIntent = new Intent(Intent.ACTION_CALL_PRIVILEGED,
+                    Intent newIntent = new Intent(Intent.ACTION_CALL,
                             Uri.fromParts("tel", query, null));
                     startActivity(newIntent);
                 }
@@ -471,7 +479,7 @@ public final class ContactsListActivity extends ListActivity
             // See if the suggestion was clicked with a search action key (call button)
             Intent newIntent;
             if ("call".equals(intent.getStringExtra(SearchManager.ACTION_MSG))) {
-                newIntent = new Intent(Intent.ACTION_CALL_PRIVILEGED, intent.getData());
+                newIntent = new Intent(Intent.ACTION_CALL, intent.getData());
             } else {
                 newIntent = new Intent(Intent.ACTION_VIEW, intent.getData());
             }
@@ -479,7 +487,7 @@ public final class ContactsListActivity extends ListActivity
             finish();
             return;
         } else if (Intents.SEARCH_SUGGESTION_DIAL_NUMBER_CLICKED.equals(action)) {
-            Intent newIntent = new Intent(Intent.ACTION_CALL_PRIVILEGED, intent.getData());
+            Intent newIntent = new Intent(Intent.ACTION_CALL, intent.getData());
             startActivity(newIntent);
             finish();
             return;
@@ -542,7 +550,7 @@ public final class ContactsListActivity extends ListActivity
         int gravity = Gravity.CENTER;
         switch (mMode) {
             case MODE_GROUP:
-                if (Groups.GROUP_MY_CONTACTS.equals(mDisplayInfo)) {
+                if (GROUP_MY_CONTACTS.equals(mDisplayInfo)) {
                     if (mSyncEnabled) {
                         empty.setText(getText(R.string.noContactsHelpTextWithSync));
                     } else {
@@ -661,8 +669,8 @@ public final class ContactsListActivity extends ListActivity
                 // We don't know what to display, default to My Contacts
                 mMode = MODE_GROUP;
                 mDisplayType = DISPLAY_TYPE_SYSTEM_GROUP;
-                buildSystemGroupUris(Groups.GROUP_MY_CONTACTS);
-                mDisplayInfo = Groups.GROUP_MY_CONTACTS;
+                buildSystemGroupUris(GROUP_MY_CONTACTS);
+                mDisplayInfo = GROUP_MY_CONTACTS;
                 break;
             }
         }
@@ -734,8 +742,8 @@ public final class ContactsListActivity extends ListActivity
     protected void onSaveInstanceState(Bundle icicle) {
         super.onSaveInstanceState(icicle);
         // Save list state in the bundle so we can restore it after the QueryHandler has run
-        icicle.putParcelable(LIST_STATE_KEY, mList.onSaveInstanceState());
-        icicle.putBoolean(FOCUS_KEY, mList.hasFocus());
+        icicle.putParcelable(LIST_STATE_KEY, getListView().onSaveInstanceState());
+        icicle.putBoolean(FOCUS_KEY, getListView().hasFocus());
     }
 
     @Override
@@ -826,7 +834,7 @@ public final class ContactsListActivity extends ListActivity
                 } else if (mDisplayGroupsIncludesMyContacts &&
                         mDisplayGroupCurrentSelection == DISPLAY_GROUP_INDEX_MY_CONTACTS) {
                     mDisplayType = DISPLAY_TYPE_SYSTEM_GROUP;
-                    mDisplayInfo = Groups.GROUP_MY_CONTACTS;
+                    mDisplayInfo = GROUP_MY_CONTACTS;
                 } else {
                     mDisplayType = DISPLAY_TYPE_USER_GROUP;
                     mDisplayInfo = mDisplayGroups[mDisplayGroupCurrentSelection].toString();
@@ -958,7 +966,7 @@ public final class ContactsListActivity extends ListActivity
             CharSequence label = cursor.getString(LABEL_COLUMN_INDEX);
             int type = cursor.getInt(TYPE_COLUMN_INDEX);
             label = Phone.getTypeLabel(getResources(), type, label);
-            Intent intent = new Intent(Intent.ACTION_CALL_PRIVILEGED,
+            Intent intent = new Intent(Intent.ACTION_CALL,
                     ContentUris.withAppendedId(Phone.CONTENT_URI, phoneId));
             menu.add(0, MENU_ITEM_CALL, 0, String.format(getString(R.string.menu_callNumber), label))
                     .setIntent(intent);
@@ -1064,7 +1072,7 @@ public final class ContactsListActivity extends ListActivity
         // Hide soft keyboard, if visible
         InputMethodManager inputMethodManager = (InputMethodManager)
                 getSystemService(Context.INPUT_METHOD_SERVICE);
-        inputMethodManager.hideSoftInputFromWindow(mList.getWindowToken(), 0);
+        inputMethodManager.hideSoftInputFromWindow(getListView().getWindowToken(), 0);
 
         if (mMode == MODE_INSERT_OR_EDIT_CONTACT) {
             Intent intent;
@@ -1129,6 +1137,28 @@ public final class ContactsListActivity extends ListActivity
         }
     }
 
+    /**
+     * openContactPhotoInputStream_COMPAT nunca existiu de verdade - o método real
+     * do SDK devolve um InputStream, não um Bitmap já decodificado. Este helper
+     * faz a decodificação que os dois call-sites abaixo já esperavam.
+     */
+    private Bitmap loadContactPhotoBitmap(Uri contactUri) {
+        java.io.InputStream stream = ContactsContract.Contacts.openContactPhotoInputStream(
+                getContentResolver(), contactUri, false);
+        if (stream == null) {
+            return null;
+        }
+        try {
+            return BitmapFactory.decodeStream(stream);
+        } finally {
+            try {
+                stream.close();
+            } catch (java.io.IOException e) {
+                // ignorado
+            }
+        }
+    }
+
     private void returnPickerResult(Cursor c, String name, Uri uri, long id) {
         final Intent intent = new Intent();
     
@@ -1137,7 +1167,7 @@ public final class ContactsListActivity extends ListActivity
             if (Intent.ACTION_VIEW.equals(mShortcutAction)) {
                 // This is a simple shortcut to view a contact.
                 shortcutIntent = new Intent(mShortcutAction, uri);
-                final Bitmap icon = ContactsContract.Contacts.openContactPhotoInputStream_COMPAT(this, uri, 0, null);
+                final Bitmap icon = loadContactPhotoBitmap(uri);
                 if (icon != null) {
                     intent.putExtra(Intent.EXTRA_SHORTCUT_ICON, icon);
                 } else {
@@ -1192,7 +1222,7 @@ public final class ContactsListActivity extends ListActivity
         final Resources r = getResources();
         boolean drawPhoneOverlay = true;
 
-        Bitmap photo = ContactsContract.Contacts.openContactPhotoInputStream_COMPAT(this, personUri, 0, null);
+        Bitmap photo = loadContactPhotoBitmap(personUri);
         if (photo == null) {
             // If there isn't a photo use the generic phone action icon instead
             Bitmap phoneIcon = getPhoneActionIcon(r, actionResId);
@@ -1501,7 +1531,7 @@ public final class ContactsListActivity extends ListActivity
                     return false;
                 }
                 Uri uri = ContentUris.withAppendedId(Phone.CONTENT_URI, phoneId);
-                Intent intent = new Intent(Intent.ACTION_CALL_PRIVILEGED, uri);
+                Intent intent = new Intent(Intent.ACTION_CALL, uri);
                 startActivity(intent);
                 return true;
             }
@@ -1562,11 +1592,11 @@ public final class ContactsListActivity extends ListActivity
                 String systemId = cursor.getString(GROUPS_COLUMN_INDEX_SYSTEM_ID);
                 String name = cursor.getString(GROUPS_COLUMN_INDEX_NAME);
                 if (cursor.isNull(GROUPS_COLUMN_INDEX_SYSTEM_ID)
-                        && !Groups.GROUP_MY_CONTACTS.equals(systemId)) {
+                        && !GROUP_MY_CONTACTS.equals(systemId)) {
                     // All groups that aren't My Contacts, since that one is localized on the phone
 
                     // Localize the "Starred in Android" string which we get from the server side.
-                    if (Groups.GROUP_ANDROID_STARRED.equals(name)) {
+                    if (GROUP_ANDROID_STARRED.equals(name)) {
                         name = getString(R.string.starredInAndroid);
                     }
                     groups.add(name);
@@ -1578,7 +1608,7 @@ public final class ContactsListActivity extends ListActivity
                     groups.add(DISPLAY_GROUP_INDEX_MY_CONTACTS,
                             getString(R.string.groupNameMyContacts));
                     if (mDisplayType == DISPLAY_TYPE_SYSTEM_GROUP
-                            && Groups.GROUP_MY_CONTACTS.equals(mDisplayInfo)) {
+                            && GROUP_MY_CONTACTS.equals(mDisplayInfo)) {
                         currentIndex = DISPLAY_GROUP_INDEX_MY_CONTACTS;
                     }
                     mDisplayGroupsIncludesMyContacts = true;
@@ -1615,9 +1645,9 @@ public final class ContactsListActivity extends ListActivity
                 
                 // Now that the cursor is populated again, it's possible to restore the list state
                 if (activity.mListState != null) {
-                    activity.mList.onRestoreInstanceState(activity.mListState);
+                    activity.getListView().onRestoreInstanceState(activity.mListState);
                     if (activity.mListHasFocus) {
-                        activity.mList.requestFocus();
+                        activity.getListView().requestFocus();
                     }
                     activity.mListHasFocus = false;
                     activity.mListState = null;
@@ -1871,7 +1901,7 @@ public final class ContactsListActivity extends ListActivity
                         try {
                             String photoUriStr = cursor.getString(PHOTO_COLUMN_INDEX);
                             if (photoUriStr != null) {
-                                java.io.InputStream is = getContext().getContentResolver()
+                                java.io.InputStream is = mLocalContext.getContentResolver()
                                         .openInputStream(Uri.parse(photoUriStr));
                                 if (is != null) {
                                     photo = BitmapFactory.decodeStream(is);

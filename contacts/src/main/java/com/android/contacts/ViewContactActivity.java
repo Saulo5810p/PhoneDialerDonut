@@ -79,6 +79,7 @@ import android.provider.ContactsContract.CommonDataKinds.Organization;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.provider.ContactsContract.CommonDataKinds.StructuredPostal;
 import android.provider.ContactsContract.Contacts;
+import android.provider.ContactsContract.Data;
 import android.provider.ContactsContract.Intents;
 import android.provider.ContactsContract.StatusUpdates;
 import android.text.TextUtils;
@@ -177,14 +178,13 @@ public class ViewContactActivity extends ListActivity
         if (!mObserverRegistered) {
             return;
         }
-        switch (view.getId()) {
-            case R.id.star: {
-                int oldStarredState = mCursor.getInt(CONTACT_STARRED_COLUMN);
-                ContentValues values = new ContentValues(1);
-                values.put(Contacts.STARRED, oldStarredState == 1 ? 0 : 1);
-                getContentResolver().update(mUri, values, null, null);
-                break;
-            }
+        // switch(view.getId()) nao compila mais (R.id.* deixou de ser "constant
+        // expression" com o tema classico como dependencia de biblioteca).
+        if (view.getId() == R.id.star) {
+            int oldStarredState = mCursor.getInt(CONTACT_STARRED_COLUMN);
+            ContentValues values = new ContentValues(1);
+            values.put(Contacts.STARRED, oldStarredState == 1 ? 0 : 1);
+            getContentResolver().update(mUri, values, null, null);
         }
     }
 
@@ -512,12 +512,12 @@ public class ViewContactActivity extends ListActivity
                 if (index != -1) {
                     ViewEntry entry = ViewAdapter.getEntry(mSections, index, SHOW_SEPARATORS);
                     if (entry.kind == KIND_PHONE) {
-                        Intent intent = new Intent(Intent.ACTION_CALL_PRIVILEGED, entry.uri);
+                        Intent intent = new Intent(Intent.ACTION_CALL, entry.uri);
                         startActivity(intent);
                     }
                 } else if (mNumPhoneNumbers != 0) {
                     // There isn't anything selected, call the default number
-                    Intent intent = new Intent(Intent.ACTION_CALL_PRIVILEGED, mUri);
+                    Intent intent = new Intent(Intent.ACTION_CALL, mUri);
                     startActivity(intent);
                 }
                 return true;
@@ -656,7 +656,7 @@ public class ViewContactActivity extends ListActivity
                 entry.data = number;
                 entry.id = id;
                 entry.uri = uri;
-                entry.intent = new Intent(Intent.ACTION_CALL_PRIVILEGED, entry.uri);
+                entry.intent = new Intent(Intent.ACTION_CALL, entry.uri);
                 entry.auxIntent = new Intent(Intent.ACTION_SENDTO,
                         Uri.fromParts("sms", number, null));
                 entry.kind = KIND_PHONE;
@@ -731,7 +731,7 @@ public class ViewContactActivity extends ListActivity
                         break;
 
                     case KIND_IM: {
-                        entry.uri = ContentUris.withAppendedId(Im.CONTENT_URI, id);
+                        entry.uri = ContentUris.withAppendedId(Data.CONTENT_URI, id);
                         // aux_data guarda o protocolo (int, era um valor "decodificado" no
                         // formato antigo) — Im.getProtocolLabel já resolve o nome exibível.
                         String auxData = methodsCursor.getString(METHODS_AUX_DATA_COLUMN);
@@ -778,15 +778,18 @@ public class ViewContactActivity extends ListActivity
         // Removido sem substituto — não há mais "presença órfã" pra reconstruir.
 
         // Build the organization entries
-        Cursor organizationsCursor = mResolver.query(Organization.CONTENT_URI,
-                ORGANIZATIONS_PROJECTION, Organization.CONTACT_ID + "=?",
-                new String[] { String.valueOf(contactId) }, null);
+        // Organization nao tem CONTENT_URI proprio - consulta via Data.CONTENT_URI
+        // filtrando por MIMETYPE (mesmo padrao usado em EditContactActivity/VCardExporter).
+        Cursor organizationsCursor = mResolver.query(Data.CONTENT_URI,
+                ORGANIZATIONS_PROJECTION,
+                Organization.CONTACT_ID + "=? AND " + Data.MIMETYPE + "=?",
+                new String[] { String.valueOf(contactId), Organization.CONTENT_ITEM_TYPE }, null);
 
         if (organizationsCursor != null) {
             while (organizationsCursor.moveToNext()) {
                 ViewEntry entry = new ViewEntry();
                 entry.id = organizationsCursor.getLong(ORGANIZATIONS_ID_COLUMN);
-                entry.uri = ContentUris.withAppendedId(Organization.CONTENT_URI, entry.id);
+                entry.uri = ContentUris.withAppendedId(Data.CONTENT_URI, entry.id);
                 entry.kind = KIND_ORGANIZATION;
                 entry.label = organizationsCursor.getString(ORGANIZATIONS_COMPANY_COLUMN);
                 entry.data = organizationsCursor.getString(ORGANIZATIONS_TITLE_COLUMN);

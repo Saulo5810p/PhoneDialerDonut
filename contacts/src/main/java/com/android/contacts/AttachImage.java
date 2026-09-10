@@ -96,15 +96,40 @@ public class AttachImage extends Activity {
                 Bitmap photo = extras.getParcelable("data");
                 if (photo != null) {
                     // Contacts.People.setPhotoData() (API antiga) foi substituído pela
-                    // API pública oficial para gravar foto de contato: um OutputStream
-                    // direto no provider, sem precisar montar a linha de Data manualmente.
-                    try (OutputStream os = ContactsContract.Contacts
-                            .openContactPhotoOutputStream(getContentResolver(), mContactUri, true)) {
-                        if (os != null) {
-                            photo.compress(Bitmap.CompressFormat.JPEG, 75, os);
+                    // API pública oficial para gravar foto de contato. Contacts.
+                    // openContactPhotoOutputStream não existe mais - grava direto na
+                    // Data (mesmo padrão usado em EditContactActivity.save()/create()).
+                    long contactId = android.content.ContentUris.parseId(mContactUri);
+                    long rawContactId = -1;
+                    android.database.Cursor rawCursor = getContentResolver().query(
+                            ContactsContract.RawContacts.CONTENT_URI,
+                            new String[] { ContactsContract.RawContacts._ID },
+                            ContactsContract.RawContacts.CONTACT_ID + "=?",
+                            new String[] { String.valueOf(contactId) }, null);
+                    if (rawCursor != null) {
+                        try {
+                            if (rawCursor.moveToFirst()) {
+                                rawContactId = rawCursor.getLong(0);
+                            }
+                        } finally {
+                            rawCursor.close();
                         }
-                    } catch (IOException e) {
-                        // falha ao gravar a foto - segue o fluxo normal (finish())
+                    }
+                    if (rawContactId >= 0) {
+                        getContentResolver().delete(ContactsContract.Data.CONTENT_URI,
+                                ContactsContract.Data.RAW_CONTACT_ID + "=? AND "
+                                        + ContactsContract.Data.MIMETYPE + "=?",
+                                new String[] { String.valueOf(rawContactId),
+                                        ContactsContract.CommonDataKinds.Photo.CONTENT_ITEM_TYPE });
+                        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                        photo.compress(Bitmap.CompressFormat.JPEG, 75, stream);
+                        android.content.ContentValues photoValues = new android.content.ContentValues();
+                        photoValues.put(ContactsContract.Data.RAW_CONTACT_ID, rawContactId);
+                        photoValues.put(ContactsContract.Data.MIMETYPE,
+                                ContactsContract.CommonDataKinds.Photo.CONTENT_ITEM_TYPE);
+                        photoValues.put(ContactsContract.CommonDataKinds.Photo.PHOTO,
+                                stream.toByteArray());
+                        getContentResolver().insert(ContactsContract.Data.CONTENT_URI, photoValues);
                     }
                 }
             }

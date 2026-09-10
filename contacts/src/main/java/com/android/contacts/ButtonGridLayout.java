@@ -40,18 +40,18 @@ public class ButtonGridLayout extends ViewGroup {
     
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
-        int y = mPaddingTop;
+        int y = getPaddingTop();
         final int rows = getRows();
         final View child0 = getChildAt(0);
-        final int yInc = (getHeight() - mPaddingTop - mPaddingBottom) / rows;
-        final int xInc = (getWidth() - mPaddingLeft - mPaddingRight) / mColumns;
+        final int yInc = (getHeight() - getPaddingTop() - getPaddingBottom()) / rows;
+        final int xInc = (getWidth() - getPaddingLeft() - getPaddingRight()) / mColumns;
         final int childWidth = child0.getMeasuredWidth();
         final int childHeight = child0.getMeasuredHeight();
         final int xOffset = (xInc - childWidth) / 2;
         final int yOffset = (yInc - childHeight) / 2;
         
         for (int row = 0; row < rows; row++) {
-            int x = mPaddingLeft;
+            int x = getPaddingLeft();
             for (int col = 0; col < mColumns; col++) {
                 int cell = row * mColumns + col;
                 if (cell >= getChildCount()) {
@@ -73,8 +73,8 @@ public class ButtonGridLayout extends ViewGroup {
     
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int width = mPaddingLeft + mPaddingRight;
-        int height = mPaddingTop + mPaddingBottom;
+        int width = getPaddingLeft() + getPaddingRight();
+        int height = getPaddingTop() + getPaddingBottom();
         
         // Measure the first child and get it's size
         View child = getChildAt(0);

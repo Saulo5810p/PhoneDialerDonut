@@ -191,13 +191,16 @@ public abstract class ContactEntryAdapter<E extends ContactEntryAdapter.Entry>
         }
 
         // IM — aux_data guarda o protocolo (int) como string, no lugar do encode antigo
-        c = resolver.query(Im.CONTENT_URI,
+        // Im nao tem CONTENT_URI proprio (e um "data kind" dentro de Data) - por isso
+        // aqui, diferente de Email/StructuredPostal acima, precisa filtrar por MIMETYPE.
+        c = resolver.query(Data.CONTENT_URI,
                 withPresence
                     ? new String[] { Im._ID, Im.DATA, Im.TYPE, Im.LABEL, Im.IS_PRIMARY,
                             Im.PROTOCOL, Im.CONTACT_PRESENCE }
                     : new String[] { Im._ID, Im.DATA, Im.TYPE, Im.LABEL, Im.IS_PRIMARY,
                             Im.PROTOCOL },
-                selection, args, null);
+                selection + " AND " + Data.MIMETYPE + "=?",
+                new String[] { String.valueOf(contactId), Im.CONTENT_ITEM_TYPE }, null);
         if (c != null) {
             try {
                 while (c.moveToNext()) {

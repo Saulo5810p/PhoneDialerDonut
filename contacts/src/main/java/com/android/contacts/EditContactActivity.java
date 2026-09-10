@@ -639,7 +639,7 @@ public final class EditContactActivity extends Activity implements View.OnClickL
                 // Try figuring out which type to insert next
                 int nextType = guessNextType(mImEntries, TYPE_PRECEDENCE_IM);
                 entry = EditEntry.newImEntry(EditContactActivity.this,
-                        Im.CONTENT_URI, nextType);
+                        Data.CONTENT_URI, nextType);
                 mImEntries.add(entry);
                 break;
             }
@@ -653,7 +653,7 @@ public final class EditContactActivity extends Activity implements View.OnClickL
             case SECTION_ORG: {
                 int nextType = guessNextType(mOrgEntries, TYPE_PRECEDENCE_ORG);
                 entry = EditEntry.newOrganizationEntry(EditContactActivity.this,
-                        Organization.CONTENT_URI, nextType);
+                        Data.CONTENT_URI, nextType);
                 mOrgEntries.add(entry);
                 break;
             }
@@ -893,23 +893,28 @@ public final class EditContactActivity extends Activity implements View.OnClickL
         }
         upsertStructuredName(contactId, name, mPhoneticNameView.getText().toString());
 
+        long rawContactId = getPrimaryRawContactId(contactId);
+
         if (mPhotoChanged) {
-            // Only write the photo if it's changed, since we don't initially load mPhoto
-            try {
-                java.io.OutputStream os = Contacts.openContactPhotoOutputStream(
-                        mResolver, mUri, true);
-                if (os != null) {
-                    if (mPhoto != null) {
-                        mPhoto.compress(Bitmap.CompressFormat.JPEG, 75, os);
-                    }
-                    os.close();
-                }
-            } catch (java.io.IOException e) {
-                Log.e(TAG, "falha ao salvar foto", e);
+            // Only write the photo if it's changed, since we don't initially load mPhoto.
+            // Contacts.openContactPhotoOutputStream não existe mais - grava direto na
+            // Data (mesmo padrão já usado em create(), abaixo).
+            mResolver.delete(Data.CONTENT_URI,
+                    Data.RAW_CONTACT_ID + "=? AND " + Data.MIMETYPE + "=?",
+                    new String[] { String.valueOf(rawContactId),
+                            android.provider.ContactsContract.CommonDataKinds.Photo.CONTENT_ITEM_TYPE });
+            if (mPhoto != null) {
+                java.io.ByteArrayOutputStream stream = new java.io.ByteArrayOutputStream();
+                mPhoto.compress(Bitmap.CompressFormat.JPEG, 75, stream);
+                ContentValues photoValues = new ContentValues();
+                photoValues.put(Data.RAW_CONTACT_ID, rawContactId);
+                photoValues.put(Data.MIMETYPE,
+                        android.provider.ContactsContract.CommonDataKinds.Photo.CONTENT_ITEM_TYPE);
+                photoValues.put(android.provider.ContactsContract.CommonDataKinds.Photo.PHOTO,
+                        stream.toByteArray());
+                mResolver.insert(Data.CONTENT_URI, photoValues);
             }
         }
-
-        long rawContactId = getPrimaryRawContactId(contactId);
 
         int entryCount = ContactEntryAdapter.countEntries(mSections, false);
         for (int i = 0; i < entryCount; i++) {
@@ -1159,9 +1164,12 @@ public final class EditContactActivity extends Activity implements View.OnClickL
         }
 
         // Organizations
-        Cursor organizationsCursor = mResolver.query(Organization.CONTENT_URI,
-                ORGANIZATIONS_PROJECTION, Organization.CONTACT_ID + "=?",
-                new String[] { String.valueOf(contactId) }, null);
+        // Organization nao tem CONTENT_URI proprio (e um "data kind" dentro da
+        // tabela Data) - consulta via Data.CONTENT_URI filtrando pelo MIMETYPE.
+        Cursor organizationsCursor = mResolver.query(Data.CONTENT_URI,
+                ORGANIZATIONS_PROJECTION,
+                Organization.CONTACT_ID + "=? AND " + Data.MIMETYPE + "=?",
+                new String[] { String.valueOf(contactId), Organization.CONTENT_ITEM_TYPE }, null);
 
         if (organizationsCursor != null) {
             while (organizationsCursor.moveToNext()) {
@@ -1170,7 +1178,7 @@ public final class EditContactActivity extends Activity implements View.OnClickL
                 String company = organizationsCursor.getString(ORGANIZATIONS_COMPANY_COLUMN);
                 String title = organizationsCursor.getString(ORGANIZATIONS_TITLE_COLUMN);
                 long id = organizationsCursor.getLong(ORGANIZATIONS_ID_COLUMN);
-                Uri uri = ContentUris.withAppendedId(Organization.CONTENT_URI, id);
+                Uri uri = ContentUris.withAppendedId(Data.CONTENT_URI, id);
 
                 // Add an organization entry
                 entry = EditEntry.newOrganizationEntry(this, label, type, company, title, uri, id);
@@ -1270,7 +1278,7 @@ public final class EditContactActivity extends Activity implements View.OnClickL
                     }
 
                     case KIND_IM: {
-                        Uri uri = ContentUris.withAppendedId(Im.CONTENT_URI, id);
+                        Uri uri = ContentUris.withAppendedId(Data.CONTENT_URI, id);
                         // auxData guarda o protocolo (int) como string — sem decode
                         // especial, é só Integer.parseInt direto.
                         if (TextUtils.isEmpty(auxData)) {
@@ -1297,13 +1305,13 @@ public final class EditContactActivity extends Activity implements View.OnClickL
 
         // Add the base types if needed
         if (!mMobilePhoneAdded) {
-            entry = EditEntry.newPhoneEntry(this, Phone.CONTENT_URI.toString(),
+            entry = EditEntry.newPhoneEntry(this, Phone.CONTENT_URI,
                     DEFAULT_PHONE_TYPE);
             mPhoneEntries.add(entry);
         }
 
         if (!mPrimaryEmailAdded) {
-            entry = EditEntry.newEmailEntry(this, Email.CONTENT_URI.toString(),
+            entry = EditEntry.newEmailEntry(this, Email.CONTENT_URI,
                     DEFAULT_EMAIL_TYPE);
             entry.isPrimary = true;
             mEmailEntries.add(entry);
@@ -1489,10 +1497,10 @@ public final class EditContactActivity extends Activity implements View.OnClickL
             if (protocol >= 0) {
                 entry = EditEntry.newImEntry(this,
                         getLabelsForKind(this, KIND_IM)[protocol], protocol,
-                        imHandle.toString(), Im.CONTENT_URI, 0);
+                        imHandle.toString(), Data.CONTENT_URI, 0);
             } else {
                 entry = EditEntry.newImEntry(this, imProtocol.toString(), -1, imHandle.toString(),
-                        Im.CONTENT_URI, 0);
+                        Data.CONTENT_URI, 0);
             }
             entry.isPrimary = extras.getBoolean(Insert.IM_ISPRIMARY);
             mImEntries.add(entry);
@@ -2123,7 +2131,7 @@ public final class EditContactActivity extends Activity implements View.OnClickL
             entry.hint2 = activity.getString(R.string.ghostData_title);
             entry.data2 = title;
             entry.column = Organization.COMPANY;
-            entry.contentDirectory = Organization.CONTENT_URI.toString();
+            entry.contentDirectory = Data.CONTENT_URI.toString();
             entry.kind = KIND_ORGANIZATION;
             entry.contentType = EditorInfo.TYPE_CLASS_TEXT
                     | EditorInfo.TYPE_TEXT_FLAG_CAP_WORDS;
@@ -2290,7 +2298,7 @@ public final class EditContactActivity extends Activity implements View.OnClickL
             EditEntry entry = new EditEntry(activity, label, protocol, data, uri, id);
             entry.hint = activity.getString(R.string.ghostData_im);
             entry.column = Data.DATA1;
-            entry.contentDirectory = Im.CONTENT_URI.toString();
+            entry.contentDirectory = Data.CONTENT_URI.toString();
             entry.kind = KIND_IM;
             entry.contentType = EditorInfo.TYPE_CLASS_TEXT
                     | EditorInfo.TYPE_TEXT_VARIATION_EMAIL_ADDRESS;

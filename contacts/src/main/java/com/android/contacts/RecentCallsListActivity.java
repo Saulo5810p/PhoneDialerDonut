@@ -191,7 +191,7 @@ public class RecentCallsListActivity extends ListActivity
             String number = (String) view.getTag();
             if (!TextUtils.isEmpty(number)) {
                 Uri telUri = Uri.fromParts("tel", number, null);
-                startActivity(new Intent(Intent.ACTION_CALL_PRIVILEGED, telUri));
+                startActivity(new Intent(Intent.ACTION_CALL, telUri));
             }
         }
 
@@ -723,7 +723,7 @@ public class RecentCallsListActivity extends ListActivity
         }
 
         if (numberUri != null) {
-            Intent intent = new Intent(Intent.ACTION_CALL_PRIVILEGED, numberUri);
+            Intent intent = new Intent(Intent.ACTION_CALL, numberUri);
             menu.add(0, 0, 0, getResources().getString(R.string.recentCalls_callNumber, number))
                     .setIntent(intent);
         }
@@ -788,7 +788,11 @@ public class RecentCallsListActivity extends ListActivity
                 Cursor cursor = mAdapter.getCursor();
                 if (cursor != null) {
                     cursor.moveToPosition(menuInfo.position);
-                    cursor.deleteRow();
+                    // Cursor nunca teve deleteRow() na API publica - apaga via
+                    // ContentResolver mesmo, pelo _ID da linha do call log.
+                    long id = cursor.getLong(ID_COLUMN_INDEX);
+                    getContentResolver().delete(
+                            ContentUris.withAppendedId(Calls.CONTENT_URI, id), null, null);
                 }
                 return true;
             }
@@ -896,7 +900,7 @@ public class RecentCallsListActivity extends ListActivity
                 // If the caller-id matches a contact with a better qualified number, use it
                 number = getBetterNumberFromContacts(number);
             }
-            Intent intent = new Intent(Intent.ACTION_CALL_PRIVILEGED,
+            Intent intent = new Intent(Intent.ACTION_CALL,
                     Uri.fromParts("tel", number, null));
             intent.setFlags(
                     Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);

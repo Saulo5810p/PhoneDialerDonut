@@ -26,7 +26,7 @@ import android.os.Bundle;
 import android.provider.CallLog;
 import android.provider.ContactsContract;
 import android.provider.CallLog.Calls;
-import android.provider.ContactsContract.Intents.UI;
+import com.android.contacts.compat.ContactsUiIntents;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Window;
@@ -81,7 +81,7 @@ public class DialtactsActivity extends TabActivity implements TabHost.OnTabChang
 
         setCurrentTab(intent);
 
-        if (intent.getAction().equals(UI.FILTER_CONTACTS_ACTION)
+        if (intent.getAction().equals(ContactsUiIntents.FILTER_CONTACTS_ACTION)
                 && icicle == null) {
             setupFilterText(intent);
         }
@@ -133,7 +133,7 @@ public class DialtactsActivity extends TabActivity implements TabHost.OnTabChang
     }
 
     private void setupContactsTab() {
-        Intent intent = new Intent(UI.LIST_DEFAULT);
+        Intent intent = new Intent(ContactsUiIntents.LIST_DEFAULT);
         intent.setClass(this, ContactsListActivity.class);
 
         mTabHost.addTab(mTabHost.newTabSpec("contacts")
@@ -143,7 +143,7 @@ public class DialtactsActivity extends TabActivity implements TabHost.OnTabChang
     }
 
     private void setupFavoritesTab() {
-        Intent intent = new Intent(UI.LIST_STREQUENT_ACTION);
+        Intent intent = new Intent(ContactsUiIntents.LIST_STREQUENT_ACTION);
         intent.setClass(this, ContactsListActivity.class);
 
         mTabHost.addTab(mTabHost.newTabSpec("favorites")
@@ -229,7 +229,7 @@ public class DialtactsActivity extends TabActivity implements TabHost.OnTabChang
         fixIntent(newIntent);
         setCurrentTab(newIntent);
         final String action = newIntent.getAction();
-        if (action.equals(UI.FILTER_CONTACTS_ACTION)) {
+        if (action.equals(ContactsUiIntents.FILTER_CONTACTS_ACTION)) {
             setupFilterText(newIntent);
         } else if (isDialIntent(newIntent)) {
             setupDialUri(newIntent);
@@ -276,7 +276,7 @@ public class DialtactsActivity extends TabActivity implements TabHost.OnTabChang
         if ((intent.getFlags() & Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY) != 0) {
             return;
         }
-        String filter = intent.getStringExtra(UI.FILTER_TEXT_EXTRA_KEY);
+        String filter = intent.getStringExtra(ContactsUiIntents.FILTER_TEXT_EXTRA_KEY);
         if (filter != null && filter.length() > 0) {
             mFilterText = filter;
         }

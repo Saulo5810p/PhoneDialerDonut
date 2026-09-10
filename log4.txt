@@ -1,0 +1,41 @@
+Starting a Gradle Daemon, 1 busy and 1 incompatible and 1 stopped Daemons could not be reused, use --status for details
+Warning: Unable to set daemon's environment variables to match the client because: 
+  There is no native integration with this operating environment.
+  If the daemon was started with a significantly different environment from the client, and your build 
+  relies on environment variables, you may experience unexpected behavior.
+
+> Configure project :contacts
+WARNING: The option setting 'android.aapt2FromMavenOverride=/data/data/com.termux/files/usr/bin/aapt2' is experimental.
+
+> Task :contacts:preBuild UP-TO-DATE
+> Task :contacts:preDebugBuild UP-TO-DATE
+> Task :contacts:javaPreCompileDebug UP-TO-DATE
+> Task :contacts:checkDebugAarMetadata UP-TO-DATE
+> Task :contacts:generateDebugResValues UP-TO-DATE
+> Task :contacts:mapDebugSourceSetPaths UP-TO-DATE
+> Task :contacts:generateDebugResources UP-TO-DATE
+> Task :contacts:mergeDebugResources UP-TO-DATE
+> Task :contacts:packageDebugResources UP-TO-DATE
+> Task :contacts:parseDebugLocalResources UP-TO-DATE
+> Task :contacts:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :contacts:extractDeepLinksDebug UP-TO-DATE
+> Task :contacts:processDebugMainManifest UP-TO-DATE
+> Task :contacts:processDebugManifest UP-TO-DATE
+> Task :contacts:processDebugManifestForPackage UP-TO-DATE
+> Task :contacts:processDebugResources UP-TO-DATE
+
+> Task :contacts:compileDebugJavaWithJavac
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+[Incubating] Problems report is available at: file:///data/data/com.termux/files/home/app-project-android-1.6/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.6.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 28s
+15 actionable tasks: 1 executed, 14 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.6.1/userguide/configuration_cache_enabling.html

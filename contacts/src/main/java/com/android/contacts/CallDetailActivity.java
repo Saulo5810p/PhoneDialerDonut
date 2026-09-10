@@ -126,7 +126,7 @@ public class CallDetailActivity extends ListActivity implements
                 TelephonyManager tm = (TelephonyManager)
                         getSystemService(Context.TELEPHONY_SERVICE);
                 if (tm.getCallState() == TelephonyManager.CALL_STATE_IDLE) {
-                    Intent callIntent = new Intent(Intent.ACTION_CALL_PRIVILEGED,
+                    Intent callIntent = new Intent(Intent.ACTION_CALL,
                             Uri.fromParts("tel", mNumber, null));
                     startActivity(callIntent);
                     return true;
@@ -224,7 +224,7 @@ public class CallDetailActivity extends ListActivity implements
                     // Build list of various available actions
                     List<ViewEntry> actions = new ArrayList<ViewEntry>();
                     
-                    Intent callIntent = new Intent(Intent.ACTION_CALL_PRIVILEGED,
+                    Intent callIntent = new Intent(Intent.ACTION_CALL,
                             Uri.fromParts("tel", mNumber, null));
                     ViewEntry entry = new ViewEntry(android.R.drawable.sym_action_call, callText,
                             callIntent);
