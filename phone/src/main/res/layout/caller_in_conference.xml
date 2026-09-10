@@ -32,8 +32,8 @@
             android:id="@+id/conferenceCallerDisconnect"
             style="?android:attr/buttonStyleSmall"
             android:src="@drawable/ic_button_conference_end"
-            android:layout_width="46px"
-            android:layout_height="46px"
+            android:layout_width="46dip"
+            android:layout_height="46dip"
             android:layout_marginTop="2dip"
             android:layout_marginLeft="6dip"
             android:scaleType="center"/>
@@ -93,8 +93,8 @@
             android:id="@+id/conferenceCallerSeparate"
             style="?android:attr/buttonStyleSmall"
             android:src="@drawable/ic_button_conference_private"
-            android:layout_width="46px"
-            android:layout_height="46px"
+            android:layout_width="46dip"
+            android:layout_height="46dip"
             android:layout_marginTop="2dip"
             android:layout_marginRight="6dip"
             android:scaleType="center"/>

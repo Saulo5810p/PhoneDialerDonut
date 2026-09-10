@@ -16,14 +16,14 @@
 
 <com.android.contacts.ButtonGridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/dialpad"
-    android:paddingLeft="16px"
-    android:paddingRight="16px"
+    android:paddingLeft="16dip"
+    android:paddingRight="16dip"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
 >
         <ImageButton android:id="@+id/one"
-            android:layout_width="96px"
-            android:layout_height="76px"
+            android:layout_width="96dip"
+            android:layout_height="76dip"
             android:src="@drawable/dial_num_1"
             android:background="@drawable/btn_dial"
             android:soundEffectsEnabled="false"
@@ -31,8 +31,8 @@
         />
             
         <ImageButton android:id="@+id/two"
-            android:layout_width="96px"
-            android:layout_height="76px"
+            android:layout_width="96dip"
+            android:layout_height="76dip"
             android:src="@drawable/dial_num_2"
             android:background="@drawable/btn_dial"
             android:soundEffectsEnabled="false"
@@ -40,8 +40,8 @@
         />
 
         <ImageButton android:id="@+id/three"
-            android:layout_width="96px"
-            android:layout_height="76px"
+            android:layout_width="96dip"
+            android:layout_height="76dip"
             android:src="@drawable/dial_num_3"
             android:background="@drawable/btn_dial"
             android:soundEffectsEnabled="false"
@@ -49,8 +49,8 @@
         />
 
         <ImageButton android:id="@+id/four"
-            android:layout_width="96px"
-            android:layout_height="76px"
+            android:layout_width="96dip"
+            android:layout_height="76dip"
             android:src="@drawable/dial_num_4"
             android:background="@drawable/btn_dial"
             android:soundEffectsEnabled="false"
@@ -58,8 +58,8 @@
         />
         
         <ImageButton android:id="@+id/five"
-            android:layout_width="96px"
-            android:layout_height="76px"
+            android:layout_width="96dip"
+            android:layout_height="76dip"
             android:src="@drawable/dial_num_5"
             android:background="@drawable/btn_dial"
             android:soundEffectsEnabled="false"
@@ -67,8 +67,8 @@
         />
 
         <ImageButton android:id="@+id/six"
-            android:layout_width="96px"
-            android:layout_height="76px"
+            android:layout_width="96dip"
+            android:layout_height="76dip"
             android:src="@drawable/dial_num_6"
             android:background="@drawable/btn_dial"
             android:soundEffectsEnabled="false"
@@ -76,8 +76,8 @@
         />
 
         <ImageButton android:id="@+id/seven"
-            android:layout_width="96px"
-            android:layout_height="76px"
+            android:layout_width="96dip"
+            android:layout_height="76dip"
             android:src="@drawable/dial_num_7"
             android:background="@drawable/btn_dial"
             android:soundEffectsEnabled="false"
@@ -85,8 +85,8 @@
         />
     
         <ImageButton android:id="@+id/eight"
-            android:layout_width="96px"
-            android:layout_height="76px"
+            android:layout_width="96dip"
+            android:layout_height="76dip"
             android:src="@drawable/dial_num_8"
             android:background="@drawable/btn_dial"
             android:soundEffectsEnabled="false"
@@ -94,8 +94,8 @@
         />
 
         <ImageButton android:id="@+id/nine"
-            android:layout_width="96px"
-            android:layout_height="76px"
+            android:layout_width="96dip"
+            android:layout_height="76dip"
             android:src="@drawable/dial_num_9"
             android:background="@drawable/btn_dial"
             android:soundEffectsEnabled="false"
@@ -103,8 +103,8 @@
         />
 
         <ImageButton android:id="@+id/star"
-            android:layout_width="96px"
-            android:layout_height="76px"
+            android:layout_width="96dip"
+            android:layout_height="76dip"
             android:src="@drawable/dial_num_star"
             android:background="@drawable/btn_dial"
             android:soundEffectsEnabled="false"
@@ -112,8 +112,8 @@
         />
     
         <ImageButton android:id="@+id/zero"
-            android:layout_width="96px"
-            android:layout_height="76px"
+            android:layout_width="96dip"
+            android:layout_height="76dip"
             android:src="@drawable/dial_num_0"
             android:background="@drawable/btn_dial"
             android:soundEffectsEnabled="false"
@@ -121,8 +121,8 @@
         />
 
         <ImageButton android:id="@+id/pound"
-            android:layout_width="96px"
-            android:layout_height="76px"
+            android:layout_width="96dip"
+            android:layout_height="76dip"
             android:src="@drawable/dial_num_pound"
             android:background="@drawable/btn_dial"
             android:soundEffectsEnabled="false"

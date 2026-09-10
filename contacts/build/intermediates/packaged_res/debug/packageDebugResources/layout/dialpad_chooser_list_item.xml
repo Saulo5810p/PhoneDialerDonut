@@ -21,8 +21,8 @@
     android:layout_height="fill_parent">
 
     <ImageView android:id="@+id/icon"
-        android:layout_width="64px"
-        android:layout_height="64px"
+        android:layout_width="64dip"
+        android:layout_height="64dip"
         android:scaleType="center" />
 
     <TextView android:id="@+id/text"

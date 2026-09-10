@@ -51,837 +51,846 @@
 35    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 35-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:28:5-81
 35-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:28:22-78
-36
-37    <permission
-37-->[androidx.core:core:1.13.1] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1d876224da57df4a482e52292d7feacd/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
-38        android:name="com.xaulinxs.donut.contatos.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-38-->[androidx.core:core:1.13.1] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1d876224da57df4a482e52292d7feacd/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
-39        android:protectionLevel="signature" />
-39-->[androidx.core:core:1.13.1] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1d876224da57df4a482e52292d7feacd/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
-40
-41    <uses-permission android:name="com.xaulinxs.donut.contatos.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-41-->[androidx.core:core:1.13.1] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1d876224da57df4a482e52292d7feacd/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
-41-->[androidx.core:core:1.13.1] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1d876224da57df4a482e52292d7feacd/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
-42
-43    <application
-43-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:30:5-393:19
-44        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-44-->[androidx.core:core:1.13.1] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1d876224da57df4a482e52292d7feacd/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
-45        android:debuggable="true"
-46        android:extractNativeLibs="false"
-47        android:icon="@drawable/ic_launcher_contacts"
-47-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:32:9-54
-48        android:label="@string/contactsList"
-48-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:31:9-45
-49        android:process="android.process.acore"
-49-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:33:9-48
-50        android:taskAffinity="android.task.contacts"
-50-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:34:9-53
-51        android:theme="@style/Classic.Theme" >
-51-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:35:9-45
-52
-53        <!-- A virtual 12 key dialer -->
-54        <activity
-54-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:39:9-48:20
-55            android:name="com.android.contacts.TwelveKeyDialer"
-55-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:39:19-49
-56            android:exported="true"
-56-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:41:13-36
-57            android:launchMode="singleTop" >
-57-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:40:13-43
-58            <intent-filter>
-58-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:43:13-47:29
-59                <action android:name="com.android.phone.action.TOUCH_DIALER" />
-59-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:44:17-80
-59-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:44:25-77
-60
-61                <category android:name="android.intent.category.DEFAULT" />
-61-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:17-76
-61-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:27-73
-62                <category android:name="android.intent.category.TAB" />
-62-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:46:17-72
-62-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:46:27-69
-63            </intent-filter>
-64        </activity>
-65
-66        <!-- A list of recent calls -->
-67        <activity
-67-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:51:9-60:20
-68            android:name="com.android.contacts.RecentCallsListActivity"
-68-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:51:19-57
-69            android:exported="true"
-69-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:53:13-36
-70            android:label="@string/recentCallsIconLabel" >
-70-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:52:13-57
-71            <intent-filter>
-71-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:55:13-59:29
-72                <action android:name="com.android.phone.action.RECENT_CALLS" />
-72-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:56:17-80
-72-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:56:25-77
-73
-74                <category android:name="android.intent.category.DEFAULT" />
-74-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:17-76
-74-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:27-73
-75                <category android:name="android.intent.category.TAB" />
-75-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:46:17-72
-75-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:46:27-69
-76            </intent-filter>
-77        </activity>
-78
-79        <!-- Tab container for TwelveKeyDialer and RecentCallsList -->
-80        <activity
-80-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:63:9-113:20
-81            android:name="com.android.contacts.DialtactsActivity"
-81-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:63:19-51
-82            android:clearTaskOnLaunch="true"
-82-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:67:13-45
-83            android:exported="true"
-83-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:70:13-36
-84            android:icon="@drawable/ic_launcher_phone"
-84-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:68:13-55
-85            android:label="@string/launcherDialer"
-85-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:64:13-51
-86            android:launchMode="singleTask"
-86-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:66:13-44
-87            android:screenOrientation="nosensor"
-87-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:69:13-49
-88            android:theme="@style/Classic.Theme.NoTitleBar" >
-88-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:65:13-60
-89            <intent-filter>
-89-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:72:13-78:29
-90                <action android:name="android.intent.action.DIAL" />
-90-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:73:17-69
-90-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:73:25-66
-91
-92                <category android:name="android.intent.category.DEFAULT" />
-92-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:17-76
-92-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:27-73
-93                <category android:name="android.intent.category.BROWSABLE" />
-93-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:75:17-78
-93-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:75:27-75
+36    <uses-permission android:name="android.permission.CALL_PHONE" />
+36-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:29:5-69
+36-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:29:22-66
+37    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+37-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:30:5-72
+37-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:30:22-69
+38    <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
+38-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:31:5-73
+38-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:31:22-70
+39
+40    <permission
+40-->[androidx.core:core:1.13.1] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1d876224da57df4a482e52292d7feacd/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
+41        android:name="com.xaulinxs.donut.contatos.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+41-->[androidx.core:core:1.13.1] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1d876224da57df4a482e52292d7feacd/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
+42        android:protectionLevel="signature" />
+42-->[androidx.core:core:1.13.1] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1d876224da57df4a482e52292d7feacd/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
+43
+44    <uses-permission android:name="com.xaulinxs.donut.contatos.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+44-->[androidx.core:core:1.13.1] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1d876224da57df4a482e52292d7feacd/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
+44-->[androidx.core:core:1.13.1] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1d876224da57df4a482e52292d7feacd/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
+45
+46    <application
+46-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:33:5-396:19
+47        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+47-->[androidx.core:core:1.13.1] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1d876224da57df4a482e52292d7feacd/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
+48        android:debuggable="true"
+49        android:extractNativeLibs="false"
+50        android:icon="@drawable/ic_launcher_contacts"
+50-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:35:9-54
+51        android:label="@string/contactsList"
+51-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:34:9-45
+52        android:process="android.process.acore"
+52-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:36:9-48
+53        android:taskAffinity="android.task.contacts"
+53-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:37:9-53
+54        android:theme="@style/Classic.Theme" >
+54-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:38:9-45
+55
+56        <!-- A virtual 12 key dialer -->
+57        <activity
+57-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:42:9-51:20
+58            android:name="com.android.contacts.TwelveKeyDialer"
+58-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:42:19-49
+59            android:exported="true"
+59-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:44:13-36
+60            android:launchMode="singleTop" >
+60-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:43:13-43
+61            <intent-filter>
+61-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:46:13-50:29
+62                <action android:name="com.android.phone.action.TOUCH_DIALER" />
+62-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:47:17-80
+62-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:47:25-77
+63
+64                <category android:name="android.intent.category.DEFAULT" />
+64-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:17-76
+64-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:27-73
+65                <category android:name="android.intent.category.TAB" />
+65-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:49:17-72
+65-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:49:27-69
+66            </intent-filter>
+67        </activity>
+68
+69        <!-- A list of recent calls -->
+70        <activity
+70-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:54:9-63:20
+71            android:name="com.android.contacts.RecentCallsListActivity"
+71-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:54:19-57
+72            android:exported="true"
+72-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:56:13-36
+73            android:label="@string/recentCallsIconLabel" >
+73-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:55:13-57
+74            <intent-filter>
+74-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:58:13-62:29
+75                <action android:name="com.android.phone.action.RECENT_CALLS" />
+75-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:59:17-80
+75-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:59:25-77
+76
+77                <category android:name="android.intent.category.DEFAULT" />
+77-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:17-76
+77-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:27-73
+78                <category android:name="android.intent.category.TAB" />
+78-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:49:17-72
+78-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:49:27-69
+79            </intent-filter>
+80        </activity>
+81
+82        <!-- Tab container for TwelveKeyDialer and RecentCallsList -->
+83        <activity
+83-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:66:9-116:20
+84            android:name="com.android.contacts.DialtactsActivity"
+84-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:66:19-51
+85            android:clearTaskOnLaunch="true"
+85-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:70:13-45
+86            android:exported="true"
+86-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:73:13-36
+87            android:icon="@drawable/ic_launcher_phone"
+87-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:71:13-55
+88            android:label="@string/launcherDialer"
+88-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:67:13-51
+89            android:launchMode="singleTask"
+89-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:69:13-44
+90            android:screenOrientation="nosensor"
+90-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:72:13-49
+91            android:theme="@style/Classic.Theme.NoTitleBar" >
+91-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:68:13-60
+92            <intent-filter>
+92-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:75:13-81:29
+93                <action android:name="android.intent.action.DIAL" />
+93-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:17-69
+93-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:25-66
 94
-95                <data android:mimeType="vnd.android.cursor.item/phone" />
-95-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:17-74
-95-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:23-71
-96                <data android:mimeType="vnd.android.cursor.item/person" />
-96-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:17-74
-96-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:23-71
-97            </intent-filter>
-98            <intent-filter>
-98-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:13-84:29
-99                <action android:name="android.intent.action.DIAL" />
-99-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:73:17-69
-99-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:73:25-66
-100
-101                <category android:name="android.intent.category.DEFAULT" />
-101-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:17-76
-101-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:27-73
-102                <category android:name="android.intent.category.BROWSABLE" />
-102-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:75:17-78
-102-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:75:27-75
+95                <category android:name="android.intent.category.DEFAULT" />
+95-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:17-76
+95-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:27-73
+96                <category android:name="android.intent.category.BROWSABLE" />
+96-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:78:17-78
+96-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:78:27-75
+97
+98                <data android:mimeType="vnd.android.cursor.item/phone" />
+98-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:17-74
+98-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:23-71
+99                <data android:mimeType="vnd.android.cursor.item/person" />
+99-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:17-74
+99-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:23-71
+100            </intent-filter>
+101            <intent-filter>
+101-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:82:13-87:29
+102                <action android:name="android.intent.action.DIAL" />
+102-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:17-69
+102-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:25-66
 103
-104                <data android:scheme="voicemail" />
-104-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:17-74
-104-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:83:23-49
-105            </intent-filter>
-106            <intent-filter>
-106-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:85:13-88:29
-107                <action android:name="android.intent.action.DIAL" />
-107-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:73:17-69
-107-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:73:25-66
-108
-109                <category android:name="android.intent.category.DEFAULT" />
-109-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:17-76
-109-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:27-73
-110            </intent-filter>
-111            <intent-filter>
-111-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:89:13-94:29
-112                <action android:name="android.intent.action.MAIN" />
-112-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:90:17-69
-112-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:90:25-66
-113
-114                <category android:name="android.intent.category.DEFAULT" />
-114-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:17-76
-114-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:27-73
-115                <category android:name="android.intent.category.LAUNCHER" />
-115-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:92:17-77
-115-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:92:27-74
-116                <category android:name="android.intent.category.BROWSABLE" />
-116-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:75:17-78
-116-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:75:27-75
-117            </intent-filter>
-118            <intent-filter>
-118-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:95:13-101:29
-119                <action android:name="android.intent.action.VIEW" />
-119-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:96:17-69
-119-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:96:25-66
-120                <action android:name="android.intent.action.DIAL" />
-120-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:73:17-69
-120-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:73:25-66
-121
-122                <category android:name="android.intent.category.DEFAULT" />
-122-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:17-76
-122-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:27-73
-123                <category android:name="android.intent.category.BROWSABLE" />
-123-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:75:17-78
-123-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:75:27-75
+104                <category android:name="android.intent.category.DEFAULT" />
+104-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:17-76
+104-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:27-73
+105                <category android:name="android.intent.category.BROWSABLE" />
+105-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:78:17-78
+105-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:78:27-75
+106
+107                <data android:scheme="voicemail" />
+107-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:17-74
+107-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:86:23-49
+108            </intent-filter>
+109            <intent-filter>
+109-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:88:13-91:29
+110                <action android:name="android.intent.action.DIAL" />
+110-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:17-69
+110-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:25-66
+111
+112                <category android:name="android.intent.category.DEFAULT" />
+112-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:17-76
+112-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:27-73
+113            </intent-filter>
+114            <intent-filter>
+114-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:92:13-97:29
+115                <action android:name="android.intent.action.MAIN" />
+115-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:93:17-69
+115-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:93:25-66
+116
+117                <category android:name="android.intent.category.DEFAULT" />
+117-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:17-76
+117-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:27-73
+118                <category android:name="android.intent.category.LAUNCHER" />
+118-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:95:17-77
+118-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:95:27-74
+119                <category android:name="android.intent.category.BROWSABLE" />
+119-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:78:17-78
+119-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:78:27-75
+120            </intent-filter>
+121            <intent-filter>
+121-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:98:13-104:29
+122                <action android:name="android.intent.action.VIEW" />
+122-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:99:17-69
+122-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:99:25-66
+123                <action android:name="android.intent.action.DIAL" />
+123-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:17-69
+123-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:25-66
 124
-125                <data android:scheme="tel" />
-125-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:17-74
-125-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:83:23-49
-126            </intent-filter>
-127            <intent-filter>
-127-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:102:13-107:29
-128                <action android:name="android.intent.action.VIEW" />
-128-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:96:17-69
-128-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:96:25-66
-129
-130                <category android:name="android.intent.category.DEFAULT" />
-130-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:17-76
-130-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:27-73
-131                <category android:name="android.intent.category.BROWSABLE" />
-131-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:75:17-78
-131-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:75:27-75
+125                <category android:name="android.intent.category.DEFAULT" />
+125-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:17-76
+125-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:27-73
+126                <category android:name="android.intent.category.BROWSABLE" />
+126-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:78:17-78
+126-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:78:27-75
+127
+128                <data android:scheme="tel" />
+128-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:17-74
+128-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:86:23-49
+129            </intent-filter>
+130            <intent-filter>
+130-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:105:13-110:29
+131                <action android:name="android.intent.action.VIEW" />
+131-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:99:17-69
+131-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:99:25-66
 132
-133                <data android:mimeType="vnd.android.cursor.dir/calls" />
-133-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:17-74
-133-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:23-71
-134            </intent-filter>
-135            <intent-filter>
-135-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:108:13-112:29
-136                <action android:name="android.intent.action.CALL_BUTTON" />
-136-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:109:17-76
-136-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:109:25-73
-137
-138                <category android:name="android.intent.category.DEFAULT" />
-138-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:17-76
-138-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:27-73
-139                <category android:name="android.intent.category.BROWSABLE" />
-139-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:75:17-78
-139-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:75:27-75
-140            </intent-filter>
-141        </activity> <!-- An empty activity that presents the DialtactActivity's Favorites tab -->
-142        <activity-alias
-142-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:141:9-151:26
-143            android:name="com.android.contacts.DialtactsFavoritesEntryActivity"
-143-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:141:25-71
-144            android:exported="true"
-144-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:145:13-36
-145            android:icon="@drawable/ic_launcher_contacts"
-145-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:144:13-58
-146            android:label="@string/strequentList"
-146-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:143:13-50
-147            android:targetActivity="com.android.contacts.DialtactsActivity" >
-147-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:142:13-55
-148            <intent-filter>
-148-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:147:13-150:29
-149                <action android:name="android.intent.action.MAIN" />
-149-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:90:17-69
-149-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:90:25-66
-150
-151                <category android:name="android.intent.category.DEFAULT" />
-151-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:17-76
-151-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:27-73
-152            </intent-filter>
-153        </activity-alias> <!-- An empty activity that presents the DialtactActivity's Contacts tab -->
-154        <activity-alias
-154-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:116:9-138:26
-155            android:name="com.android.contacts.DialtactsContactsEntryActivity"
-155-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:116:25-70
-156            android:exported="true"
-156-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:120:13-36
-157            android:icon="@drawable/ic_launcher_contacts"
-157-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:119:13-58
-158            android:label="@string/contactsList"
-158-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:118:13-49
-159            android:targetActivity="com.android.contacts.DialtactsActivity" >
-159-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:117:13-55
-160            <intent-filter>
-160-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:122:13-126:29
-161                <action android:name="android.intent.action.MAIN" />
-161-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:90:17-69
-161-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:90:25-66
-162
-163                <category android:name="android.intent.category.DEFAULT" />
-163-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:17-76
-163-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:27-73
-164                <category android:name="android.intent.category.LAUNCHER" />
-164-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:92:17-77
-164-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:92:27-74
-165            </intent-filter>
-166            <intent-filter>
-166-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:128:13-132:29
-167                <action android:name="android.intent.action.VIEW" />
-167-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:96:17-69
-167-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:96:25-66
-168
-169                <category android:name="android.intent.category.DEFAULT" />
-169-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:17-76
-169-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:27-73
-170
-171                <data android:mimeType="vnd.android.cursor.dir/person" />
-171-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:17-74
-171-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:23-71
-172            </intent-filter>
-173            <intent-filter>
-173-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:134:13-137:29
-174                <action android:name="com.android.contacts.action.FILTER_CONTACTS" />
-174-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:135:17-86
-174-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:135:25-83
-175
-176                <category android:name="android.intent.category.DEFAULT" />
-176-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:17-76
-176-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:27-73
-177            </intent-filter>
-178        </activity-alias>
-179
-180        <!-- The actual list of contacts, usually embedded in ContactsActivity -->
-181        <activity
-181-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:154:9-238:20
-182            android:name="com.android.contacts.ContactsListActivity"
-182-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:154:19-54
-183            android:clearTaskOnLaunch="true"
-183-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:156:13-45
-184            android:exported="true"
-184-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:157:13-36
-185            android:label="@string/contactsList" >
-185-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:155:13-49
-186            <intent-filter>
-186-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:159:13-163:29
-187                <action android:name="com.android.contacts.action.LIST_DEFAULT" />
-187-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:160:17-83
-187-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:160:25-80
-188
-189                <category android:name="android.intent.category.DEFAULT" />
-189-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:17-76
-189-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:27-73
-190                <category android:name="android.intent.category.TAB" />
-190-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:46:17-72
-190-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:46:27-69
-191            </intent-filter>
-192            <intent-filter>
-192-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:165:13-169:29
-193                <action android:name="com.android.contacts.action.LIST_CONTACTS" />
-193-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:166:17-84
-193-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:166:25-81
-194
-195                <category android:name="android.intent.category.DEFAULT" />
-195-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:17-76
-195-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:27-73
-196                <category android:name="android.intent.category.TAB" />
-196-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:46:17-72
-196-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:46:27-69
-197            </intent-filter>
-198            <intent-filter>
-198-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:171:13-175:29
-199                <action android:name="com.android.contacts.action.LIST_ALL_CONTACTS" />
-199-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:172:17-88
-199-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:172:25-85
-200
-201                <category android:name="android.intent.category.DEFAULT" />
-201-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:17-76
-201-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:27-73
-202                <category android:name="android.intent.category.TAB" />
-202-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:46:17-72
-202-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:46:27-69
-203            </intent-filter>
-204            <intent-filter>
-204-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:177:13-181:29
-205                <action android:name="com.android.contacts.action.LIST_CONTACTS_WITH_PHONES" />
-205-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:178:17-96
-205-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:178:25-93
-206
-207                <category android:name="android.intent.category.DEFAULT" />
-207-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:17-76
-207-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:27-73
-208                <category android:name="android.intent.category.TAB" />
-208-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:46:17-72
-208-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:46:27-69
-209            </intent-filter>
-210            <intent-filter android:label="@string/starredList" >
-210-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:183:13-187:29
-210-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:183:28-63
-211                <action android:name="com.android.contacts.action.LIST_STARRED" />
-211-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:184:17-83
-211-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:184:25-80
-212
-213                <category android:name="android.intent.category.DEFAULT" />
-213-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:17-76
-213-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:27-73
-214                <category android:name="android.intent.category.TAB" />
-214-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:46:17-72
-214-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:46:27-69
-215            </intent-filter>
-216            <intent-filter android:label="@string/frequentList" >
-216-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:189:13-193:29
-216-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:189:28-64
-217                <action android:name="com.android.contacts.action.LIST_FREQUENT" />
-217-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:190:17-84
-217-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:190:25-81
-218
-219                <category android:name="android.intent.category.DEFAULT" />
-219-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:17-76
-219-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:27-73
-220                <category android:name="android.intent.category.TAB" />
-220-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:46:17-72
-220-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:46:27-69
-221            </intent-filter>
-222            <intent-filter android:label="@string/strequentList" >
-222-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:195:13-199:29
-222-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:195:28-65
-223                <action android:name="com.android.contacts.action.LIST_STREQUENT" />
-223-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:196:17-85
-223-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:196:25-82
-224
-225                <category android:name="android.intent.category.DEFAULT" />
-225-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:17-76
-225-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:27-73
-226                <category android:name="android.intent.category.TAB" />
-226-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:46:17-72
-226-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:46:27-69
-227            </intent-filter>
-228            <intent-filter>
-228-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:201:13-205:29
-229                <action android:name="android.intent.action.INSERT_OR_EDIT" />
-229-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:202:17-79
-229-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:202:25-76
-230
-231                <category android:name="android.intent.category.DEFAULT" />
-231-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:17-76
-231-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:27-73
-232
-233                <data android:mimeType="vnd.android.cursor.item/person" />
-233-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:17-74
-233-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:23-71
-234            </intent-filter>
-235            <!--
-236            <intent-filter android:label="Add To Contacts">
-237                <action android:name="com.android.contacts.action.ADD_CONTACT" />
-238                <category android:name="android.intent.category.SELECTED_ALTERNATIVE" />
-239                <data android:scheme="mailto" />
-240                <data android:scheme="tel" />
-241            </intent-filter>
-242            -->
-243            <intent-filter>
-243-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:214:13-220:29
-244                <action android:name="android.intent.action.PICK" />
-244-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:215:17-69
-244-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:215:25-66
-245
-246                <category android:name="android.intent.category.DEFAULT" />
-246-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:17-76
-246-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:27-73
-247
-248                <data android:mimeType="vnd.android.cursor.dir/person" />
-248-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:17-74
-248-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:23-71
-249                <data android:mimeType="vnd.android.cursor.dir/phone" />
-249-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:17-74
-249-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:23-71
-250                <data android:mimeType="vnd.android.cursor.dir/postal-address" />
-250-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:17-74
-250-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:23-71
-251            </intent-filter>
-252            <intent-filter>
-252-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:222:13-228:29
-253                <action android:name="android.intent.action.GET_CONTENT" />
-253-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:223:17-76
-253-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:223:25-73
-254
-255                <category android:name="android.intent.category.DEFAULT" />
-255-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:17-76
-255-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:27-73
-256
-257                <data android:mimeType="vnd.android.cursor.item/person" />
-257-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:17-74
-257-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:23-71
-258                <data android:mimeType="vnd.android.cursor.item/phone" />
-258-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:17-74
-258-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:23-71
-259                <data android:mimeType="vnd.android.cursor.item/postal-address" />
-259-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:17-74
-259-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:23-71
-260            </intent-filter>
-261            <intent-filter>
-261-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:230:13-233:29
-262                <action android:name="android.intent.action.SEARCH" />
-262-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:231:17-71
-262-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:231:25-68
-263
-264                <category android:name="android.intent.category.DEFAULT" />
-264-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:17-76
-264-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:27-73
-265            </intent-filter>
+133                <category android:name="android.intent.category.DEFAULT" />
+133-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:17-76
+133-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:27-73
+134                <category android:name="android.intent.category.BROWSABLE" />
+134-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:78:17-78
+134-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:78:27-75
+135
+136                <data android:mimeType="vnd.android.cursor.dir/calls" />
+136-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:17-74
+136-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:23-71
+137            </intent-filter>
+138            <intent-filter>
+138-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:111:13-115:29
+139                <action android:name="android.intent.action.CALL_BUTTON" />
+139-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:112:17-76
+139-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:112:25-73
+140
+141                <category android:name="android.intent.category.DEFAULT" />
+141-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:17-76
+141-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:27-73
+142                <category android:name="android.intent.category.BROWSABLE" />
+142-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:78:17-78
+142-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:78:27-75
+143            </intent-filter>
+144        </activity> <!-- An empty activity that presents the DialtactActivity's Favorites tab -->
+145        <activity-alias
+145-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:144:9-154:26
+146            android:name="com.android.contacts.DialtactsFavoritesEntryActivity"
+146-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:144:25-71
+147            android:exported="true"
+147-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:148:13-36
+148            android:icon="@drawable/ic_launcher_contacts"
+148-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:147:13-58
+149            android:label="@string/strequentList"
+149-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:146:13-50
+150            android:targetActivity="com.android.contacts.DialtactsActivity" >
+150-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:145:13-55
+151            <intent-filter>
+151-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:150:13-153:29
+152                <action android:name="android.intent.action.MAIN" />
+152-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:93:17-69
+152-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:93:25-66
+153
+154                <category android:name="android.intent.category.DEFAULT" />
+154-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:17-76
+154-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:27-73
+155            </intent-filter>
+156        </activity-alias> <!-- An empty activity that presents the DialtactActivity's Contacts tab -->
+157        <activity-alias
+157-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:119:9-141:26
+158            android:name="com.android.contacts.DialtactsContactsEntryActivity"
+158-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:119:25-70
+159            android:exported="true"
+159-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:123:13-36
+160            android:icon="@drawable/ic_launcher_contacts"
+160-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:122:13-58
+161            android:label="@string/contactsList"
+161-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:121:13-49
+162            android:targetActivity="com.android.contacts.DialtactsActivity" >
+162-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:120:13-55
+163            <intent-filter>
+163-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:125:13-129:29
+164                <action android:name="android.intent.action.MAIN" />
+164-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:93:17-69
+164-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:93:25-66
+165
+166                <category android:name="android.intent.category.DEFAULT" />
+166-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:17-76
+166-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:27-73
+167                <category android:name="android.intent.category.LAUNCHER" />
+167-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:95:17-77
+167-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:95:27-74
+168            </intent-filter>
+169            <intent-filter>
+169-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:131:13-135:29
+170                <action android:name="android.intent.action.VIEW" />
+170-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:99:17-69
+170-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:99:25-66
+171
+172                <category android:name="android.intent.category.DEFAULT" />
+172-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:17-76
+172-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:27-73
+173
+174                <data android:mimeType="vnd.android.cursor.dir/person" />
+174-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:17-74
+174-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:23-71
+175            </intent-filter>
+176            <intent-filter>
+176-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:137:13-140:29
+177                <action android:name="com.android.contacts.action.FILTER_CONTACTS" />
+177-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:138:17-86
+177-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:138:25-83
+178
+179                <category android:name="android.intent.category.DEFAULT" />
+179-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:17-76
+179-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:27-73
+180            </intent-filter>
+181        </activity-alias>
+182
+183        <!-- The actual list of contacts, usually embedded in ContactsActivity -->
+184        <activity
+184-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:157:9-241:20
+185            android:name="com.android.contacts.ContactsListActivity"
+185-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:157:19-54
+186            android:clearTaskOnLaunch="true"
+186-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:159:13-45
+187            android:exported="true"
+187-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:160:13-36
+188            android:label="@string/contactsList" >
+188-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:158:13-49
+189            <intent-filter>
+189-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:162:13-166:29
+190                <action android:name="com.android.contacts.action.LIST_DEFAULT" />
+190-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:163:17-83
+190-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:163:25-80
+191
+192                <category android:name="android.intent.category.DEFAULT" />
+192-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:17-76
+192-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:27-73
+193                <category android:name="android.intent.category.TAB" />
+193-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:49:17-72
+193-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:49:27-69
+194            </intent-filter>
+195            <intent-filter>
+195-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:168:13-172:29
+196                <action android:name="com.android.contacts.action.LIST_CONTACTS" />
+196-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:169:17-84
+196-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:169:25-81
+197
+198                <category android:name="android.intent.category.DEFAULT" />
+198-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:17-76
+198-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:27-73
+199                <category android:name="android.intent.category.TAB" />
+199-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:49:17-72
+199-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:49:27-69
+200            </intent-filter>
+201            <intent-filter>
+201-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:174:13-178:29
+202                <action android:name="com.android.contacts.action.LIST_ALL_CONTACTS" />
+202-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:175:17-88
+202-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:175:25-85
+203
+204                <category android:name="android.intent.category.DEFAULT" />
+204-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:17-76
+204-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:27-73
+205                <category android:name="android.intent.category.TAB" />
+205-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:49:17-72
+205-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:49:27-69
+206            </intent-filter>
+207            <intent-filter>
+207-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:180:13-184:29
+208                <action android:name="com.android.contacts.action.LIST_CONTACTS_WITH_PHONES" />
+208-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:181:17-96
+208-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:181:25-93
+209
+210                <category android:name="android.intent.category.DEFAULT" />
+210-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:17-76
+210-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:27-73
+211                <category android:name="android.intent.category.TAB" />
+211-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:49:17-72
+211-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:49:27-69
+212            </intent-filter>
+213            <intent-filter android:label="@string/starredList" >
+213-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:186:13-190:29
+213-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:186:28-63
+214                <action android:name="com.android.contacts.action.LIST_STARRED" />
+214-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:187:17-83
+214-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:187:25-80
+215
+216                <category android:name="android.intent.category.DEFAULT" />
+216-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:17-76
+216-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:27-73
+217                <category android:name="android.intent.category.TAB" />
+217-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:49:17-72
+217-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:49:27-69
+218            </intent-filter>
+219            <intent-filter android:label="@string/frequentList" >
+219-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:192:13-196:29
+219-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:192:28-64
+220                <action android:name="com.android.contacts.action.LIST_FREQUENT" />
+220-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:193:17-84
+220-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:193:25-81
+221
+222                <category android:name="android.intent.category.DEFAULT" />
+222-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:17-76
+222-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:27-73
+223                <category android:name="android.intent.category.TAB" />
+223-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:49:17-72
+223-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:49:27-69
+224            </intent-filter>
+225            <intent-filter android:label="@string/strequentList" >
+225-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:198:13-202:29
+225-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:198:28-65
+226                <action android:name="com.android.contacts.action.LIST_STREQUENT" />
+226-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:199:17-85
+226-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:199:25-82
+227
+228                <category android:name="android.intent.category.DEFAULT" />
+228-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:17-76
+228-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:27-73
+229                <category android:name="android.intent.category.TAB" />
+229-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:49:17-72
+229-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:49:27-69
+230            </intent-filter>
+231            <intent-filter>
+231-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:204:13-208:29
+232                <action android:name="android.intent.action.INSERT_OR_EDIT" />
+232-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:205:17-79
+232-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:205:25-76
+233
+234                <category android:name="android.intent.category.DEFAULT" />
+234-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:17-76
+234-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:27-73
+235
+236                <data android:mimeType="vnd.android.cursor.item/person" />
+236-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:17-74
+236-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:23-71
+237            </intent-filter>
+238            <!--
+239            <intent-filter android:label="Add To Contacts">
+240                <action android:name="com.android.contacts.action.ADD_CONTACT" />
+241                <category android:name="android.intent.category.SELECTED_ALTERNATIVE" />
+242                <data android:scheme="mailto" />
+243                <data android:scheme="tel" />
+244            </intent-filter>
+245            -->
+246            <intent-filter>
+246-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:217:13-223:29
+247                <action android:name="android.intent.action.PICK" />
+247-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:218:17-69
+247-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:218:25-66
+248
+249                <category android:name="android.intent.category.DEFAULT" />
+249-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:17-76
+249-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:27-73
+250
+251                <data android:mimeType="vnd.android.cursor.dir/person" />
+251-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:17-74
+251-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:23-71
+252                <data android:mimeType="vnd.android.cursor.dir/phone" />
+252-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:17-74
+252-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:23-71
+253                <data android:mimeType="vnd.android.cursor.dir/postal-address" />
+253-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:17-74
+253-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:23-71
+254            </intent-filter>
+255            <intent-filter>
+255-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:225:13-231:29
+256                <action android:name="android.intent.action.GET_CONTENT" />
+256-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:226:17-76
+256-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:226:25-73
+257
+258                <category android:name="android.intent.category.DEFAULT" />
+258-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:17-76
+258-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:27-73
+259
+260                <data android:mimeType="vnd.android.cursor.item/person" />
+260-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:17-74
+260-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:23-71
+261                <data android:mimeType="vnd.android.cursor.item/phone" />
+261-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:17-74
+261-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:23-71
+262                <data android:mimeType="vnd.android.cursor.item/postal-address" />
+262-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:17-74
+262-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:23-71
+263            </intent-filter>
+264            <intent-filter>
+264-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:233:13-236:29
+265                <action android:name="android.intent.action.SEARCH" />
+265-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:234:17-71
+265-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:234:25-68
 266
-267            <meta-data
-267-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:235:13-237:15
-268                android:name="android.app.searchable"
-268-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:235:24-61
-269                android:resource="@xml/searchable" />
-269-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:236:17-51
-270        </activity>
-271
-272        <activity-alias
-272-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:277:9-288:26
-273            android:name="alias.MessageShortcut"
-273-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:277:25-61
-274            android:exported="true"
-274-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:281:13-36
-275            android:icon="@drawable/ic_launcher_shortcut_contact"
-275-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:280:13-66
-276            android:label="@string/shortcutMessageContact"
-276-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:279:13-59
-277            android:targetActivity="com.android.contacts.ContactsListActivity" >
-277-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:278:13-58
-278            <intent-filter>
-278-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:257:13-260:29
-279                <action android:name="android.intent.action.CREATE_SHORTCUT" />
-279-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:258:17-80
-279-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:258:25-77
-280
-281                <category android:name="android.intent.category.DEFAULT" />
-281-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:17-76
-281-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:27-73
-282            </intent-filter>
-283        </activity-alias>
-284        <activity-alias
-284-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:264:9-275:26
-285            android:name="alias.DialShortcut"
-285-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:264:25-58
-286            android:exported="true"
-286-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:268:13-36
-287            android:icon="@drawable/ic_launcher_shortcut_contact"
-287-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:267:13-66
-288            android:label="@string/shortcutDialContact"
-288-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:266:13-56
-289            android:targetActivity="com.android.contacts.ContactsListActivity" >
-289-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:265:13-58
-290            <intent-filter>
-290-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:257:13-260:29
-291                <action android:name="android.intent.action.CREATE_SHORTCUT" />
-291-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:258:17-80
-291-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:258:25-77
-292
-293                <category android:name="android.intent.category.DEFAULT" />
-293-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:17-76
-293-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:27-73
-294            </intent-filter>
-295        </activity-alias>
-296        <activity-alias
-296-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:251:9-262:26
-297            android:name="com.android.contacts.ContactShortcut"
-297-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:251:25-55
-298            android:exported="true"
-298-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:255:13-36
-299            android:icon="@drawable/ic_launcher_shortcut_contact"
-299-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:254:13-66
-300            android:label="@string/shortcutContact"
-300-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:253:13-52
-301            android:targetActivity="com.android.contacts.ContactsListActivity" >
-301-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:252:13-58
-302            <intent-filter>
-302-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:257:13-260:29
-303                <action android:name="android.intent.action.CREATE_SHORTCUT" />
-303-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:258:17-80
-303-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:258:25-77
-304
-305                <category android:name="android.intent.category.DEFAULT" />
-305-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:17-76
-305-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:27-73
-306            </intent-filter>
-307        </activity-alias>
-308
-309        <activity
-309-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:240:9-249:20
-310            android:name="com.android.contacts.ShowOrCreateActivity"
-310-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:240:19-54
-311            android:exported="true"
-311-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:242:13-36
-312            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-312-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:241:13-72
-313            <intent-filter>
-313-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:243:13-248:29
-314                <action android:name="com.android.contacts.action.SHOW_OR_CREATE_CONTACT" />
-314-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:244:17-93
-314-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:244:25-90
-315
-316                <data android:scheme="mailto" />
-316-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:17-74
-316-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:83:23-49
-317                <data android:scheme="tel" />
-317-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:17-74
-317-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:83:23-49
+267                <category android:name="android.intent.category.DEFAULT" />
+267-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:17-76
+267-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:27-73
+268            </intent-filter>
+269
+270            <meta-data
+270-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:238:13-240:15
+271                android:name="android.app.searchable"
+271-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:238:24-61
+272                android:resource="@xml/searchable" />
+272-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:239:17-51
+273        </activity>
+274
+275        <activity-alias
+275-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:280:9-291:26
+276            android:name="alias.MessageShortcut"
+276-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:280:25-61
+277            android:exported="true"
+277-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:284:13-36
+278            android:icon="@drawable/ic_launcher_shortcut_contact"
+278-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:283:13-66
+279            android:label="@string/shortcutMessageContact"
+279-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:282:13-59
+280            android:targetActivity="com.android.contacts.ContactsListActivity" >
+280-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:281:13-58
+281            <intent-filter>
+281-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:260:13-263:29
+282                <action android:name="android.intent.action.CREATE_SHORTCUT" />
+282-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:261:17-80
+282-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:261:25-77
+283
+284                <category android:name="android.intent.category.DEFAULT" />
+284-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:17-76
+284-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:27-73
+285            </intent-filter>
+286        </activity-alias>
+287        <activity-alias
+287-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:267:9-278:26
+288            android:name="alias.DialShortcut"
+288-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:267:25-58
+289            android:exported="true"
+289-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:271:13-36
+290            android:icon="@drawable/ic_launcher_shortcut_contact"
+290-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:270:13-66
+291            android:label="@string/shortcutDialContact"
+291-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:269:13-56
+292            android:targetActivity="com.android.contacts.ContactsListActivity" >
+292-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:268:13-58
+293            <intent-filter>
+293-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:260:13-263:29
+294                <action android:name="android.intent.action.CREATE_SHORTCUT" />
+294-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:261:17-80
+294-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:261:25-77
+295
+296                <category android:name="android.intent.category.DEFAULT" />
+296-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:17-76
+296-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:27-73
+297            </intent-filter>
+298        </activity-alias>
+299        <activity-alias
+299-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:254:9-265:26
+300            android:name="com.android.contacts.ContactShortcut"
+300-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:254:25-55
+301            android:exported="true"
+301-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:258:13-36
+302            android:icon="@drawable/ic_launcher_shortcut_contact"
+302-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:257:13-66
+303            android:label="@string/shortcutContact"
+303-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:256:13-52
+304            android:targetActivity="com.android.contacts.ContactsListActivity" >
+304-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:255:13-58
+305            <intent-filter>
+305-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:260:13-263:29
+306                <action android:name="android.intent.action.CREATE_SHORTCUT" />
+306-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:261:17-80
+306-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:261:25-77
+307
+308                <category android:name="android.intent.category.DEFAULT" />
+308-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:17-76
+308-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:27-73
+309            </intent-filter>
+310        </activity-alias>
+311
+312        <activity
+312-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:243:9-252:20
+313            android:name="com.android.contacts.ShowOrCreateActivity"
+313-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:243:19-54
+314            android:exported="true"
+314-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:245:13-36
+315            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+315-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:244:13-72
+316            <intent-filter>
+316-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:246:13-251:29
+317                <action android:name="com.android.contacts.action.SHOW_OR_CREATE_CONTACT" />
+317-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:247:17-93
+317-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:247:25-90
 318
-319                <category android:name="android.intent.category.DEFAULT" />
-319-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:17-76
-319-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:27-73
-320            </intent-filter>
-321        </activity>
-322        <activity
-322-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:290:9-300:20
-323            android:name="com.android.contacts.CallDetailActivity"
-323-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:290:19-52
-324            android:exported="true"
-324-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:293:13-36
-325            android:label="@string/callDetailTitle"
-325-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:291:13-52
-326            android:theme="@style/TallTitleBarTheme" >
-326-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:292:13-53
-327            <intent-filter>
-327-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:295:13-299:29
-328                <action android:name="android.intent.action.VIEW" />
-328-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:96:17-69
-328-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:96:25-66
-329
-330                <category android:name="android.intent.category.DEFAULT" />
-330-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:17-76
-330-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:27-73
-331
-332                <data android:mimeType="vnd.android.cursor.item/calls" />
-332-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:17-74
-332-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:23-71
-333            </intent-filter>
-334        </activity>
-335
-336        <!-- Views the details of a single contact -->
-337        <activity
-337-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:303:9-313:20
-338            android:name="com.android.contacts.ViewContactActivity"
-338-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:303:19-53
-339            android:exported="true"
-339-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:306:13-36
-340            android:label="@string/viewContactTitle"
-340-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:304:13-53
-341            android:theme="@style/TallTitleBarTheme" >
-341-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:305:13-53
-342            <intent-filter android:label="@string/viewContactDesription" >
-342-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:308:13-312:29
-342-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:308:28-73
-343                <action android:name="android.intent.action.VIEW" />
-343-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:96:17-69
-343-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:96:25-66
-344
-345                <category android:name="android.intent.category.DEFAULT" />
-345-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:17-76
-345-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:27-73
-346
-347                <data android:mimeType="vnd.android.cursor.item/person" />
-347-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:17-74
-347-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:23-71
-348            </intent-filter>
-349        </activity>
-350
-351        <!-- Edits the details of a single contact -->
-352        <activity
-352-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:316:9-329:20
-353            android:name="com.android.contacts.EditContactActivity"
-353-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:316:19-53
-354            android:exported="true"
-354-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:318:13-36
-355            android:windowSoftInputMode="stateVisible|adjustResize" >
-355-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:317:17-72
-356            <intent-filter android:label="@string/editContactDescription" >
-356-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:319:13-323:29
-356-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:319:28-74
-357                <action android:name="android.intent.action.EDIT" />
-357-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:320:17-69
-357-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:320:25-66
-358
-359                <category android:name="android.intent.category.DEFAULT" />
-359-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:17-76
-359-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:27-73
-360
-361                <data android:mimeType="vnd.android.cursor.item/person" />
-361-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:17-74
-361-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:23-71
-362            </intent-filter>
-363            <intent-filter android:label="@string/insertContactDescription" >
-363-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:324:13-328:29
-363-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:324:28-76
-364                <action android:name="android.intent.action.INSERT" />
-364-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:325:17-71
-364-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:325:25-68
-365
-366                <category android:name="android.intent.category.DEFAULT" />
-366-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:17-76
-366-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:27-73
-367
-368                <data android:mimeType="vnd.android.cursor.dir/person" />
-368-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:17-74
-368-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:23-71
-369            </intent-filter>
-370        </activity>
-371
-372        <!-- Attaches a photo to a contact. Started from external applications -->
-373        <activity
-373-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:332:9-342:20
-374            android:name="com.android.contacts.AttachImage"
-374-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:332:19-45
-375            android:exported="true"
-375-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:335:13-36
-376            android:label="@string/attachToContact"
-376-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:333:13-52
-377            android:taskAffinity="" >
-377-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:334:13-36
-378            <intent-filter>
-378-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:336:13-340:29
-379                <action android:name="android.intent.action.ATTACH_DATA" />
-379-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:337:17-76
-379-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:337:25-73
-380
-381                <data android:mimeType="image/*" />
-381-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:17-74
-381-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:23-71
-382
-383                <category android:name="android.intent.category.DEFAULT" />
-383-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:17-76
-383-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:27-73
-384            </intent-filter>
-385            />
-386        </activity>
-387
-388        <!--
-389             ContactsGroupSyncSelector removido do manifest: a classe .java já
-390             tinha sido excluída do build numa sessão anterior (ver
-391             contacts/_excluded_do_build/), mas a entrada aqui e uma referência
-392             direta em ContactsListActivity.onCreateOptionsMenu() ficaram
-393             esquecidas, e essa referência quebraria o javac. Achado e corrigido
-394             nesta sessão durante a conferência final de pendências.
-395        -->
-396
-397
-398        <!-- Makes .ContactsListActivity the search target for any activity in Contacts -->
-399        <meta-data
-399-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:352:9-353:60
-400            android:name="android.app.default_searchable"
-400-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:352:20-65
-401            android:value=".ContactsListActivity" />
-401-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:353:20-57
-402
-403        <!-- LIVE FOLDERS -->
-404        <activity
-404-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:357:9-366:20
-405            android:name="com.android.contacts.ContactsLiveFolders$AllContacts"
-405-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:358:13-60
-406            android:exported="true"
-406-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:361:13-36
-407            android:icon="@drawable/ic_launcher_folder_live_contacts"
-407-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:360:13-70
-408            android:label="@string/liveFolderAll" >
-408-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:359:13-50
-409            <intent-filter>
-409-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:362:13-365:29
-410                <action android:name="android.intent.action.CREATE_LIVE_FOLDER" />
-410-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:363:17-83
-410-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:363:25-80
-411
-412                <category android:name="android.intent.category.DEFAULT" />
-412-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:17-76
-412-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:27-73
-413            </intent-filter>
-414        </activity>
-415        <activity
-415-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:368:9-377:20
-416            android:name="com.android.contacts.ContactsLiveFolders$StarredContacts"
-416-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:369:13-64
-417            android:exported="true"
-417-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:372:13-36
-418            android:icon="@drawable/ic_launcher_folder_live_contacts_starred"
-418-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:371:13-78
-419            android:label="@string/liveFolderFavorites" >
-419-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:370:13-56
-420            <intent-filter>
-420-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:362:13-365:29
-421                <action android:name="android.intent.action.CREATE_LIVE_FOLDER" />
-421-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:363:17-83
-421-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:363:25-80
-422
-423                <category android:name="android.intent.category.DEFAULT" />
-423-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:17-76
-423-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:27-73
-424            </intent-filter>
-425        </activity>
-426        <activity
-426-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:379:9-388:20
-427            android:name="com.android.contacts.ContactsLiveFolders$PhoneContacts"
-427-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:380:13-62
-428            android:exported="true"
-428-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:383:13-36
-429            android:icon="@drawable/ic_launcher_folder_live_contacts_phone"
-429-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:382:13-76
-430            android:label="@string/liveFolderPhone" >
-430-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:381:13-52
-431            <intent-filter>
-431-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:362:13-365:29
-432                <action android:name="android.intent.action.CREATE_LIVE_FOLDER" />
-432-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:363:17-83
-432-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:363:25-80
-433
-434                <category android:name="android.intent.category.DEFAULT" />
-434-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:17-76
-434-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:45:27-73
-435            </intent-filter>
-436        </activity>
-437        <activity
-437-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:390:9-391:53
-438            android:name="com.android.contacts.ImportVCardActivity"
-438-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:390:19-54
-439            android:theme="@style/BackgroundOnly" />
-439-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:391:13-50
-440
-441        <provider
-441-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:24:9-32:20
-442            android:name="androidx.startup.InitializationProvider"
-442-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:25:13-67
-443            android:authorities="com.xaulinxs.donut.contatos.androidx-startup"
-443-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:26:13-68
-444            android:exported="false" >
-444-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:27:13-37
-445            <meta-data
-445-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
-446                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-446-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
-447                android:value="androidx.startup" />
-447-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
-448        </provider>
-449
-450        <receiver
-450-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
-451            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-451-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
-452            android:directBootAware="false"
-452-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
-453            android:enabled="true"
-453-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
-454            android:exported="true"
-454-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
-455            android:permission="android.permission.DUMP" >
-455-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
-456            <intent-filter>
-456-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
-457                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-457-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
-457-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
-458            </intent-filter>
+319                <data android:scheme="mailto" />
+319-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:17-74
+319-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:86:23-49
+320                <data android:scheme="tel" />
+320-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:17-74
+320-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:86:23-49
+321
+322                <category android:name="android.intent.category.DEFAULT" />
+322-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:17-76
+322-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:27-73
+323            </intent-filter>
+324        </activity>
+325        <activity
+325-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:293:9-303:20
+326            android:name="com.android.contacts.CallDetailActivity"
+326-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:293:19-52
+327            android:exported="true"
+327-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:296:13-36
+328            android:label="@string/callDetailTitle"
+328-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:294:13-52
+329            android:theme="@style/TallTitleBarTheme" >
+329-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:295:13-53
+330            <intent-filter>
+330-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:298:13-302:29
+331                <action android:name="android.intent.action.VIEW" />
+331-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:99:17-69
+331-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:99:25-66
+332
+333                <category android:name="android.intent.category.DEFAULT" />
+333-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:17-76
+333-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:27-73
+334
+335                <data android:mimeType="vnd.android.cursor.item/calls" />
+335-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:17-74
+335-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:23-71
+336            </intent-filter>
+337        </activity>
+338
+339        <!-- Views the details of a single contact -->
+340        <activity
+340-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:306:9-316:20
+341            android:name="com.android.contacts.ViewContactActivity"
+341-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:306:19-53
+342            android:exported="true"
+342-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:309:13-36
+343            android:label="@string/viewContactTitle"
+343-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:307:13-53
+344            android:theme="@style/TallTitleBarTheme" >
+344-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:308:13-53
+345            <intent-filter android:label="@string/viewContactDesription" >
+345-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:311:13-315:29
+345-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:311:28-73
+346                <action android:name="android.intent.action.VIEW" />
+346-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:99:17-69
+346-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:99:25-66
+347
+348                <category android:name="android.intent.category.DEFAULT" />
+348-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:17-76
+348-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:27-73
+349
+350                <data android:mimeType="vnd.android.cursor.item/person" />
+350-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:17-74
+350-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:23-71
+351            </intent-filter>
+352        </activity>
+353
+354        <!-- Edits the details of a single contact -->
+355        <activity
+355-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:319:9-332:20
+356            android:name="com.android.contacts.EditContactActivity"
+356-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:319:19-53
+357            android:exported="true"
+357-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:321:13-36
+358            android:windowSoftInputMode="stateVisible|adjustResize" >
+358-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:320:17-72
+359            <intent-filter android:label="@string/editContactDescription" >
+359-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:322:13-326:29
+359-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:322:28-74
+360                <action android:name="android.intent.action.EDIT" />
+360-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:323:17-69
+360-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:323:25-66
+361
+362                <category android:name="android.intent.category.DEFAULT" />
+362-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:17-76
+362-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:27-73
+363
+364                <data android:mimeType="vnd.android.cursor.item/person" />
+364-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:17-74
+364-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:23-71
+365            </intent-filter>
+366            <intent-filter android:label="@string/insertContactDescription" >
+366-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:327:13-331:29
+366-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:327:28-76
+367                <action android:name="android.intent.action.INSERT" />
+367-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:328:17-71
+367-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:328:25-68
+368
+369                <category android:name="android.intent.category.DEFAULT" />
+369-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:17-76
+369-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:27-73
+370
+371                <data android:mimeType="vnd.android.cursor.dir/person" />
+371-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:17-74
+371-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:23-71
+372            </intent-filter>
+373        </activity>
+374
+375        <!-- Attaches a photo to a contact. Started from external applications -->
+376        <activity
+376-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:335:9-345:20
+377            android:name="com.android.contacts.AttachImage"
+377-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:335:19-45
+378            android:exported="true"
+378-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:338:13-36
+379            android:label="@string/attachToContact"
+379-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:336:13-52
+380            android:taskAffinity="" >
+380-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:337:13-36
+381            <intent-filter>
+381-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:339:13-343:29
+382                <action android:name="android.intent.action.ATTACH_DATA" />
+382-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:340:17-76
+382-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:340:25-73
+383
+384                <data android:mimeType="image/*" />
+384-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:17-74
+384-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:23-71
+385
+386                <category android:name="android.intent.category.DEFAULT" />
+386-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:17-76
+386-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:27-73
+387            </intent-filter>
+388            />
+389        </activity>
+390
+391        <!--
+392             ContactsGroupSyncSelector removido do manifest: a classe .java já
+393             tinha sido excluída do build numa sessão anterior (ver
+394             contacts/_excluded_do_build/), mas a entrada aqui e uma referência
+395             direta em ContactsListActivity.onCreateOptionsMenu() ficaram
+396             esquecidas, e essa referência quebraria o javac. Achado e corrigido
+397             nesta sessão durante a conferência final de pendências.
+398        -->
+399
+400
+401        <!-- Makes .ContactsListActivity the search target for any activity in Contacts -->
+402        <meta-data
+402-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:355:9-356:60
+403            android:name="android.app.default_searchable"
+403-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:355:20-65
+404            android:value=".ContactsListActivity" />
+404-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:356:20-57
+405
+406        <!-- LIVE FOLDERS -->
+407        <activity
+407-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:360:9-369:20
+408            android:name="com.android.contacts.ContactsLiveFolders$AllContacts"
+408-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:361:13-60
+409            android:exported="true"
+409-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:364:13-36
+410            android:icon="@drawable/ic_launcher_folder_live_contacts"
+410-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:363:13-70
+411            android:label="@string/liveFolderAll" >
+411-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:362:13-50
+412            <intent-filter>
+412-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:365:13-368:29
+413                <action android:name="android.intent.action.CREATE_LIVE_FOLDER" />
+413-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:366:17-83
+413-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:366:25-80
+414
+415                <category android:name="android.intent.category.DEFAULT" />
+415-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:17-76
+415-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:27-73
+416            </intent-filter>
+417        </activity>
+418        <activity
+418-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:371:9-380:20
+419            android:name="com.android.contacts.ContactsLiveFolders$StarredContacts"
+419-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:372:13-64
+420            android:exported="true"
+420-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:375:13-36
+421            android:icon="@drawable/ic_launcher_folder_live_contacts_starred"
+421-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:374:13-78
+422            android:label="@string/liveFolderFavorites" >
+422-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:373:13-56
+423            <intent-filter>
+423-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:365:13-368:29
+424                <action android:name="android.intent.action.CREATE_LIVE_FOLDER" />
+424-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:366:17-83
+424-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:366:25-80
+425
+426                <category android:name="android.intent.category.DEFAULT" />
+426-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:17-76
+426-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:27-73
+427            </intent-filter>
+428        </activity>
+429        <activity
+429-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:382:9-391:20
+430            android:name="com.android.contacts.ContactsLiveFolders$PhoneContacts"
+430-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:383:13-62
+431            android:exported="true"
+431-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:386:13-36
+432            android:icon="@drawable/ic_launcher_folder_live_contacts_phone"
+432-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:385:13-76
+433            android:label="@string/liveFolderPhone" >
+433-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:384:13-52
+434            <intent-filter>
+434-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:365:13-368:29
+435                <action android:name="android.intent.action.CREATE_LIVE_FOLDER" />
+435-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:366:17-83
+435-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:366:25-80
+436
+437                <category android:name="android.intent.category.DEFAULT" />
+437-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:17-76
+437-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:48:27-73
+438            </intent-filter>
+439        </activity>
+440        <activity
+440-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:393:9-394:53
+441            android:name="com.android.contacts.ImportVCardActivity"
+441-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:393:19-54
+442            android:theme="@style/BackgroundOnly" />
+442-->/data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:394:13-50
+443
+444        <provider
+444-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:24:9-32:20
+445            android:name="androidx.startup.InitializationProvider"
+445-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:25:13-67
+446            android:authorities="com.xaulinxs.donut.contatos.androidx-startup"
+446-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:26:13-68
+447            android:exported="false" >
+447-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:27:13-37
+448            <meta-data
+448-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
+449                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+449-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
+450                android:value="androidx.startup" />
+450-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
+451        </provider>
+452
+453        <receiver
+453-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
+454            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+454-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
+455            android:directBootAware="false"
+455-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
+456            android:enabled="true"
+456-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
+457            android:exported="true"
+457-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
+458            android:permission="android.permission.DUMP" >
+458-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
 459            <intent-filter>
-459-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
-460                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-460-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
-460-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
+459-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
+460                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+460-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
+460-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
 461            </intent-filter>
 462            <intent-filter>
-462-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
-463                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-463-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
-463-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
+462-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
+463                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+463-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
+463-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
 464            </intent-filter>
 465            <intent-filter>
-465-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
-466                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-466-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
-466-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
+465-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
+466                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+466-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
+466-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
 467            </intent-filter>
-468        </receiver>
-469    </application>
-470
-471</manifest>
+468            <intent-filter>
+468-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
+469                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+469-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
+469-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
+470            </intent-filter>
+471        </receiver>
+472    </application>
+473
+474</manifest>

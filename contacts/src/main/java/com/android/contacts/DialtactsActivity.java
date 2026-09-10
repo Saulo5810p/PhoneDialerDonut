@@ -32,6 +32,10 @@ import android.view.KeyEvent;
 import android.view.Window;
 import android.widget.TabHost;
 import com.android.contacts.compat.TelephonyCompat;
+import android.Manifest;
+import android.content.pm.PackageManager;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 /**
  * The dialer activity that has one tab with the virtual 12key dialer,
@@ -73,6 +77,8 @@ public class DialtactsActivity extends TabActivity implements TabHost.OnTabChang
         mTabHost = getTabHost();
         mTabHost.setOnTabChangedListener(this);
 
+        checkAndRequestRuntimePermissions();
+
         // Setup the tabs
         setupDialerTab();
         setupCallLogTab();
@@ -84,6 +90,40 @@ public class DialtactsActivity extends TabActivity implements TabHost.OnTabChang
         if (intent.getAction().equals(ContactsUiIntents.FILTER_CONTACTS_ACTION)
                 && icicle == null) {
             setupFilterText(intent);
+        }
+    }
+
+    private static final int REQUEST_CODE_RUNTIME_PERMISSIONS = 1001;
+
+    private void checkAndRequestRuntimePermissions() {
+        String[] permissoesNecessarias = {
+                Manifest.permission.CALL_PHONE,
+                Manifest.permission.READ_CALL_LOG,
+                Manifest.permission.WRITE_CALL_LOG,
+                Manifest.permission.READ_CONTACTS,
+                Manifest.permission.WRITE_CONTACTS,
+                Manifest.permission.READ_PHONE_STATE,
+        };
+        java.util.ArrayList<String> faltando = new java.util.ArrayList<>();
+        for (String permissao : permissoesNecessarias) {
+            if (ContextCompat.checkSelfPermission(this, permissao)
+                    != PackageManager.PERMISSION_GRANTED) {
+                faltando.add(permissao);
+            }
+        }
+        if (!faltando.isEmpty()) {
+            ActivityCompat.requestPermissions(this,
+                    faltando.toArray(new String[0]),
+                    REQUEST_CODE_RUNTIME_PERMISSIONS);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQUEST_CODE_RUNTIME_PERMISSIONS) {
+            recreate();
         }
     }
 

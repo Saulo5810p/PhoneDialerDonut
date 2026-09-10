@@ -30,8 +30,8 @@
     android:clickable="false"
     android:freezesText="true"
     android:maxLines="1"
-    android:paddingLeft="16px"
-    android:paddingRight="16px"
+    android:paddingLeft="16dip"
+    android:paddingRight="16dip"
     android:scrollHorizontally="true"
     android:textColor="@color/dtmf_dialer_display_text"
     android:textSize="22sp"/>

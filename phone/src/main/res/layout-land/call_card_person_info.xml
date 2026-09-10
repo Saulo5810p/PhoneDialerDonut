@@ -36,8 +36,8 @@
          scaleType="centerInside" here (rather than the scaleType="center"
          we use in portrait mode, where photos are drawn at their true size.) -->
     <ImageView android:id="@+id/photo"
-               android:layout_width="96px"
-               android:layout_height="96px"
+               android:layout_width="96dip"
+               android:layout_height="96dip"
                android:scaleType="centerInside"
                android:background="@drawable/incall_photo_border"
                />

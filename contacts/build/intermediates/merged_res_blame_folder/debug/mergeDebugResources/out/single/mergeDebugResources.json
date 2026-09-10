@@ -48,6 +48,10 @@
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/ic_lock_idle_low_battery.png"
     },
     {
+        "merged": "com.android.contacts-debug-10:/layout-land_twelve_key_dialer.xml.flat",
+        "source": "com.android.contacts-main-12:/layout-land/twelve_key_dialer.xml"
+    },
+    {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_picture_emergency.png.flat",
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/picture_emergency.png"
     },
@@ -60,12 +64,12 @@
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/progress_small_titlebar.xml"
     },
     {
-        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_ic_call_log_list_missed_call.png.flat",
-        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/ic_call_log_list_missed_call.png"
-    },
-    {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_btn_radio.xml.flat",
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/btn_radio.xml"
+    },
+    {
+        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_ic_call_log_list_missed_call.png.flat",
+        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/ic_call_log_list_missed_call.png"
     },
     {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_checkbox_label_background.9.png.flat",
@@ -112,12 +116,12 @@
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/ic_maps_indicator_current_position_anim1.png"
     },
     {
-        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_ic_notification_clear_all.png.flat",
-        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/ic_notification_clear_all.png"
-    },
-    {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_submenu_arrow_nofocus.png.flat",
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/submenu_arrow_nofocus.png"
+    },
+    {
+        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_ic_notification_clear_all.png.flat",
+        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/ic_notification_clear_all.png"
     },
     {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_code_lock_bottom.9.png.flat",
@@ -176,12 +180,12 @@
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/dialog_divider_horizontal_light.9.png"
     },
     {
-        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_checkbox_background.xml.flat",
-        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/checkbox_background.xml"
-    },
-    {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_editbox_background.xml.flat",
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/editbox_background.xml"
+    },
+    {
+        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_checkbox_background.xml.flat",
+        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/checkbox_background.xml"
     },
     {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_ic_lock_power_off.png.flat",
@@ -280,28 +284,24 @@
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/color/widget_paneltabwidget.xml"
     },
     {
-        "merged": "com.android.contacts-debug-10:/drawable_ratingbar_small.xml.flat",
-        "source": "com.android.contacts-main-12:/drawable/ratingbar_small.xml"
-    },
-    {
-        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_dial_num_6_blk.png.flat",
-        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/dial_num_6_blk.png"
+        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_spinner_dropdown_background_up.9.png.flat",
+        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/spinner_dropdown_background_up.9.png"
     },
     {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_stat_sys_data_out_g.png.flat",
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/stat_sys_data_out_g.png"
     },
     {
-        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_spinner_dropdown_background_up.9.png.flat",
-        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/spinner_dropdown_background_up.9.png"
-    },
-    {
-        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_dial_num_star.xml.flat",
-        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/dial_num_star.xml"
+        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_dial_num_6_blk.png.flat",
+        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/dial_num_6_blk.png"
     },
     {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_textfield_expanded_top_selected.9.png.flat",
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/textfield_expanded_top_selected.9.png"
+    },
+    {
+        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_dial_num_star.xml.flat",
+        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/dial_num_star.xml"
     },
     {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_ic_launcher_contacts.png.flat",
@@ -372,12 +372,12 @@
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/ic_menu_zoom.png"
     },
     {
-        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_clock_hand_minute.png.flat",
-        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/clock_hand_minute.png"
-    },
-    {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_dial_num_3_blk.png.flat",
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/dial_num_3_blk.png"
+    },
+    {
+        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_clock_hand_minute.png.flat",
+        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/clock_hand_minute.png"
     },
     {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_ic_volume.png.flat",
@@ -432,16 +432,16 @@
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/dial_num_2_blk.png"
     },
     {
-        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/layout_dialpad_chooser_list_item.xml.flat",
-        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/layout/dialpad_chooser_list_item.xml"
+        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_stat_sys_download_anim0.png.flat",
+        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/stat_sys_download_anim0.png"
     },
     {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_ic_popup_sync_6.png.flat",
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/ic_popup_sync_6.png"
     },
     {
-        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_stat_sys_download_anim0.png.flat",
-        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/stat_sys_download_anim0.png"
+        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/layout_dialpad_chooser_list_item.xml.flat",
+        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/layout/dialpad_chooser_list_item.xml"
     },
     {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_ic_tab_unselected_starred.png.flat",
@@ -508,12 +508,12 @@
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/stat_notify_missed_call.png"
     },
     {
-        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_btn_radio_off_pressed.png.flat",
-        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/btn_radio_off_pressed.png"
-    },
-    {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_ic_menu_call.png.flat",
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/ic_menu_call.png"
+    },
+    {
+        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_btn_radio_off_pressed.png.flat",
+        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/btn_radio_off_pressed.png"
     },
     {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_expander_ic_maximized.9.png.flat",
@@ -784,12 +784,12 @@
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/btn_media_player_pressed.9.png"
     },
     {
-        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_btn_radio_off_disable.png.flat",
-        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/btn_radio_off_disable.png"
-    },
-    {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_status_bar_background.9.png.flat",
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/status_bar_background.9.png"
+    },
+    {
+        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_btn_radio_off_disable.png.flat",
+        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/btn_radio_off_disable.png"
     },
     {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_btn_plus.xml.flat",
@@ -816,16 +816,16 @@
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable-land/statusbar_background.png"
     },
     {
-        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_checkbox_on_background_focus_yellow.png.flat",
-        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/checkbox_on_background_focus_yellow.png"
+        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_ic_menu_show_barcode.png.flat",
+        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/ic_menu_show_barcode.png"
     },
     {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_zoom_in.png.flat",
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/zoom_in.png"
     },
     {
-        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_ic_menu_show_barcode.png.flat",
-        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/ic_menu_show_barcode.png"
+        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_checkbox_on_background_focus_yellow.png.flat",
+        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/checkbox_on_background_focus_yellow.png"
     },
     {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_timepicker_up_disabled_focused.9.png.flat",
@@ -876,12 +876,12 @@
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/ic_menu_recent_history.png"
     },
     {
-        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_ic_tab_selected_starred.png.flat",
-        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/ic_tab_selected_starred.png"
-    },
-    {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_frame_gallery_thumb_selected.9.png.flat",
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/frame_gallery_thumb_selected.9.png"
+    },
+    {
+        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_ic_tab_selected_starred.png.flat",
+        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/ic_tab_selected_starred.png"
     },
     {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_stat_sys_signal_1.png.flat",
@@ -944,16 +944,20 @@
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/ic_menu_myplaces.png"
     },
     {
-        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_btn_dial_normal.png.flat",
-        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/btn_dial_normal.png"
-    },
-    {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_indicator_code_lock_point_area_default.png.flat",
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/indicator_code_lock_point_area_default.png"
     },
     {
+        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_btn_dial_normal.png.flat",
+        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/btn_dial_normal.png"
+    },
+    {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_stat_sys_download_anim3.png.flat",
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/stat_sys_download_anim3.png"
+    },
+    {
+        "merged": "com.android.contacts-debug-10:/layout_dialpad_chooser_list_item.xml.flat",
+        "source": "com.android.contacts-main-12:/layout/dialpad_chooser_list_item.xml"
     },
     {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_btn_check_on_selected.png.flat",
@@ -1014,10 +1018,6 @@
     {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_stat_sys_headset.png.flat",
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/stat_sys_headset.png"
-    },
-    {
-        "merged": "com.android.contacts-debug-10:/drawable_btn_toggle_bg.xml.flat",
-        "source": "com.android.contacts-main-12:/drawable/btn_toggle_bg.xml"
     },
     {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_grid_selector_background.xml.flat",
@@ -1188,12 +1188,12 @@
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/stat_sys_r_signal_2.png"
     },
     {
-        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_list_selector_background_disabled.9.png.flat",
-        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/list_selector_background_disabled.9.png"
-    },
-    {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_btn_dial_textfield_selected.9.png.flat",
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/btn_dial_textfield_selected.9.png"
+    },
+    {
+        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_list_selector_background_disabled.9.png.flat",
+        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/list_selector_background_disabled.9.png"
     },
     {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_stat_sys_r_signal_1.png.flat",
@@ -1216,12 +1216,12 @@
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/btn_radio_off_longpress.png"
     },
     {
-        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_btn_application_selector.xml.flat",
-        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/btn_application_selector.xml"
-    },
-    {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_unknown_image.png.flat",
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/unknown_image.png"
+    },
+    {
+        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_btn_application_selector.xml.flat",
+        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/btn_application_selector.xml"
     },
     {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_ic_call_log_header_missed_call.png.flat",
@@ -1256,12 +1256,16 @@
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/tab_selected_bar_left.9.png"
     },
     {
-        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_dial_num_8_blk.png.flat",
-        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/dial_num_8_blk.png"
+        "merged": "com.android.contacts-debug-10:/layout_twelve_key_dialer.xml.flat",
+        "source": "com.android.contacts-main-12:/layout/twelve_key_dialer.xml"
     },
     {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_icon_highlight_rectangle.9.png.flat",
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/icon_highlight_rectangle.9.png"
+    },
+    {
+        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_dial_num_8_blk.png.flat",
+        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/dial_num_8_blk.png"
     },
     {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_btn_check_on_disable.png.flat",
@@ -1328,20 +1332,20 @@
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/textfield_default.9.png"
     },
     {
-        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_code_lock_left.9.png.flat",
-        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/code_lock_left.9.png"
-    },
-    {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_btn_dropdown_pressed.9.png.flat",
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/btn_dropdown_pressed.9.png"
     },
     {
-        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_btn_dial_delete.xml.flat",
-        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/btn_dial_delete.xml"
+        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_code_lock_left.9.png.flat",
+        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/code_lock_left.9.png"
     },
     {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_btn_dial_delete_pressed.9.png.flat",
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/btn_dial_delete_pressed.9.png"
+    },
+    {
+        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_btn_dial_delete.xml.flat",
+        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/btn_dial_delete.xml"
     },
     {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_btn_radio_on_longpress.png.flat",
@@ -1364,12 +1368,12 @@
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/ic_menu_more.png"
     },
     {
-        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_ic_menu_search.png.flat",
-        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/ic_menu_search.png"
-    },
-    {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_indicator_code_lock_point_area_green.png.flat",
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/indicator_code_lock_point_area_green.png"
+    },
+    {
+        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_ic_menu_search.png.flat",
+        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/ic_menu_search.png"
     },
     {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_menu_background_fill_parent_width.9.png.flat",
@@ -1384,12 +1388,12 @@
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/pickerbox_unselected.9.png"
     },
     {
-        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_progress_circular_indeterminate.png.flat",
-        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/progress_circular_indeterminate.png"
-    },
-    {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_btn_star_label_background.9.png.flat",
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/btn_star_label_background.9.png"
+    },
+    {
+        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_progress_circular_indeterminate.png.flat",
+        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/progress_circular_indeterminate.png"
     },
     {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_ic_lock_idle_lock.png.flat",
@@ -1416,12 +1420,12 @@
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/btn_dial_delete_selected.9.png"
     },
     {
-        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_status_icon_background.xml.flat",
-        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/status_icon_background.xml"
-    },
-    {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_pressed_application_background_static.png.flat",
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/pressed_application_background_static.png"
+    },
+    {
+        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_status_icon_background.xml.flat",
+        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/status_icon_background.xml"
     },
     {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_stat_notify_sync.png.flat",
@@ -1456,12 +1460,12 @@
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/stat_sys_battery_charge_anim5.png"
     },
     {
-        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_timepicker_down_selected.9.png.flat",
-        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/timepicker_down_selected.9.png"
-    },
-    {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_sym_battery_white.png.flat",
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/sym_battery_white.png"
+    },
+    {
+        "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_timepicker_down_selected.9.png.flat",
+        "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/timepicker_down_selected.9.png"
     },
     {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_ic_dialog_map.png.flat",
@@ -1550,10 +1554,6 @@
     {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_expander_ic_minimized.9.png.flat",
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/expander_ic_minimized.9.png"
-    },
-    {
-        "merged": "com.android.contacts-debug-10:/drawable_ratingbar_full.xml.flat",
-        "source": "com.android.contacts-main-12:/drawable/ratingbar_full.xml"
     },
     {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_radiobutton_on_background.png.flat",
@@ -2004,16 +2004,16 @@
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/editbox_dropdown_arrowup.png"
     },
     {
+        "merged": "com.android.contacts-debug-10:/layout_dialpad.xml.flat",
+        "source": "com.android.contacts-main-12:/layout/dialpad.xml"
+    },
+    {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_ic_text_dot.png.flat",
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/ic_text_dot.png"
     },
     {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_btn_dial_delete_active.xml.flat",
         "source": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-main-12:/drawable/btn_dial_delete_active.xml"
-    },
-    {
-        "merged": "com.android.contacts-debug-10:/drawable_ratingbar.xml.flat",
-        "source": "com.android.contacts-main-12:/drawable/ratingbar.xml"
     },
     {
         "merged": "/data/data/com.termux/files/home/.gradle/daemon/9.6.1/com.android.contacts-debug-10:/drawable_editbox_background_focus_yellow.9.png.flat",

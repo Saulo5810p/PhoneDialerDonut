@@ -41,7 +41,7 @@
         <item name="android:starStyle">@style/Classic.Widget.CompoundButton.Star</item>
 
         <!-- Listas -->
-        <item name="android:listPreferredItemHeight">64px</item>
+        <item name="android:listPreferredItemHeight">64dip</item>
         <item name="android:listDivider">@drawable/divider_horizontal_dark</item>
         <item name="android:scrollbarSize">10dip</item>
 
