@@ -510,13 +510,44 @@ public final class EditContactActivity extends Activity implements View.OnClickL
 
         switch (requestCode) {
             case PHOTO_PICKED_WITH_DATA: {
+                // Corrigido: o seletor de mídia moderno não devolve mais o Bitmap
+                // recortado pelo extra "data" - só o Uri da imagem escolhida via
+                // data.getData(). Lemos a imagem desse Uri e fazemos o recorte
+                // quadrado (centralizado) na mão, no lugar da Activity de CROP
+                // antiga que não é mais chamada.
+                Bitmap photo = null;
                 final Bundle extras = data.getExtras();
-                if (extras != null) {
-                    Bitmap photo = extras.getParcelable("data");
+                if (extras != null && extras.getParcelable("data") != null) {
+                    // Alguns apps antigos ainda devolvem o Bitmap direto - mantido
+                    // como caminho de compatibilidade.
+                    photo = extras.getParcelable("data");
+                } else {
+                    Uri pickedImageUri = data.getData();
+                    if (pickedImageUri != null) {
+                        try {
+                            java.io.InputStream imageStream =
+                                    getContentResolver().openInputStream(pickedImageUri);
+                            Bitmap fullPhoto = android.graphics.BitmapFactory.decodeStream(imageStream);
+                            if (imageStream != null) {
+                                imageStream.close();
+                            }
+                            if (fullPhoto != null) {
+                                photo = cropToSquare(fullPhoto);
+                            }
+                        } catch (java.io.IOException e) {
+                            Log.e(TAG, "Falha ao ler a imagem escolhida: " + pickedImageUri, e);
+                        }
+                    }
+                }
+
+                if (photo != null) {
                     mPhoto = photo;
                     mPhotoChanged = true;
                     mPhotoImageView.setImageBitmap(photo);
                     setPhotoPresent(true);
+                } else {
+                    Toast.makeText(this, R.string.photoPickerNotFoundText, Toast.LENGTH_SHORT)
+                            .show();
                 }
                 break;
             }
@@ -682,17 +713,30 @@ public final class EditContactActivity extends Activity implements View.OnClickL
         finish();
     }
 
+    /**
+     * Recorta um bitmap para um quadrado centralizado, pra substituir o recorte
+     * que antes era feito pela Activity de CROP externa (ver doPickPhotoAction).
+     */
+    private Bitmap cropToSquare(Bitmap source) {
+        int width = source.getWidth();
+        int height = source.getHeight();
+        int size = Math.min(width, height);
+        int x = (width - size) / 2;
+        int y = (height - size) / 2;
+        return Bitmap.createBitmap(source, x, y, size, size);
+    }
+
     private void doPickPhotoAction() {
+        // Corrigido: os extras "crop"/"return-data" dependiam de uma Activity de
+        // recorte (com.android.camera.action.CROP) que os seletores de mídia
+        // modernos (Photo Picker, apps de galeria atuais) ignoram - eles nunca
+        // devolvem o Bitmap pelo extra "data", só o Uri da imagem via
+        // Intent.getData(). Por isso a foto nunca aparecia (ficava só o fallback
+        // genérico). O recorte quadrado agora é feito manualmente em
+        // onActivityResult, a partir do Uri.
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT, null);
-        // TODO: get these values from constants somewhere
         intent.setType("image/*");
-        intent.putExtra("crop", "true");
-        intent.putExtra("aspectX", 1);
-        intent.putExtra("aspectY", 1);
-        intent.putExtra("outputX", 96);
-        intent.putExtra("outputY", 96);
         try {
-            intent.putExtra("return-data", true);
             startActivityForResult(intent, PHOTO_PICKED_WITH_DATA);
         } catch (ActivityNotFoundException e) {
             new AlertDialog.Builder(EditContactActivity.this)

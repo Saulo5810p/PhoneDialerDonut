@@ -1148,6 +1148,32 @@ public final class ContactsListActivity extends ListActivity
                 getSystemService(Context.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(getListView().getWindowToken(), 0);
 
+        // Corrigido: nesses modos a lista é montada com CONTACTS_PROJECTION sobre
+        // Phone.CONTENT_URI (uma linha por telefone). O "id" que o ListView entrega
+        // aqui é o _id dessa linha de telefone (Phone._ID), não o id do contato -
+        // por isso um toque simples abria uma URI de contato inexistente ("contato
+        // não existe"). O id do contato de verdade é a coluna Phone.CONTACT_ID,
+        // que já mora em ID_COLUMN_INDEX (índice 0) do cursor - mesma coluna que o
+        // menu de contexto (toque longo) já usa corretamente.
+        long contactId = id;
+        if (mMode == MODE_INSERT_OR_EDIT_CONTACT || (mMode & MODE_MASK_PICKER) == 0
+                || mMode == MODE_PICK_CONTACT || mMode == MODE_PICK_OR_CREATE_CONTACT) {
+            // Modos com MODE_MASK_CREATE_NEW têm um header ("Novo contato") na
+            // posição 0 fora do cursor do adapter - a posição real no cursor
+            // fica deslocada em -1 nesses casos (mesmo ajuste já feito mais
+            // abaixo para o caso do mShortcutAction).
+            int cursorPosition = position;
+            if ((mMode & MODE_MASK_CREATE_NEW) == MODE_MASK_CREATE_NEW) {
+                cursorPosition = position - 1;
+            }
+            if (cursorPosition >= 0) {
+                Cursor rowCursor = (Cursor) mAdapter.getItem(cursorPosition);
+                if (rowCursor != null) {
+                    contactId = rowCursor.getLong(ID_COLUMN_INDEX);
+                }
+            }
+        }
+
         if (mMode == MODE_INSERT_OR_EDIT_CONTACT) {
             Intent intent;
             if (position == 0) {
@@ -1156,7 +1182,7 @@ public final class ContactsListActivity extends ListActivity
             } else {
                 // Edit
                 intent = new Intent(Intent.ACTION_EDIT,
-                        ContentUris.withAppendedId(Contacts.CONTENT_URI, id));
+                        ContentUris.withAppendedId(Contacts.CONTENT_URI, contactId));
             }
             intent.setFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
             final Bundle extras = getIntent().getExtras();
@@ -1168,7 +1194,7 @@ public final class ContactsListActivity extends ListActivity
         } else if (id != -1) {
             if ((mMode & MODE_MASK_PICKER) == 0) {
                 Intent intent = new Intent(Intent.ACTION_VIEW,
-                        ContentUris.withAppendedId(Contacts.CONTENT_URI, id));
+                        ContentUris.withAppendedId(Contacts.CONTENT_URI, contactId));
                 startActivity(intent);
             } else if (mMode == MODE_QUERY_PICK_TO_VIEW) {
                 // Started with query that should launch to view contact
@@ -1180,14 +1206,14 @@ public final class ContactsListActivity extends ListActivity
                 finish();
             } else if (mMode == MODE_PICK_CONTACT 
                     || mMode == MODE_PICK_OR_CREATE_CONTACT) {
-                Uri uri = ContentUris.withAppendedId(Contacts.CONTENT_URI, id);
+                Uri uri = ContentUris.withAppendedId(Contacts.CONTENT_URI, contactId);
                 if (mShortcutAction != null) {
                     // Subtract one if we have Create Contact at the top
                     Cursor c = (Cursor) mAdapter.getItem(position
                             - (mMode == MODE_PICK_OR_CREATE_CONTACT? 1:0));
-                    returnPickerResult(c, c.getString(NAME_COLUMN_INDEX), uri, id);
+                    returnPickerResult(c, c.getString(NAME_COLUMN_INDEX), uri, contactId);
                 } else {
-                    returnPickerResult(null, null, uri, id);
+                    returnPickerResult(null, null, uri, contactId);
                 }
             } else if (mMode == MODE_PICK_PHONE) {
                 Uri uri = ContentUris.withAppendedId(Phone.CONTENT_URI, id);
@@ -1484,9 +1510,14 @@ public final class ContactsListActivity extends ListActivity
             }
             
             case MODE_STARRED:
-                mQueryHandler.startQuery(QUERY_TOKEN, null, Contacts.CONTENT_URI,
+                // Corrigido: a base era Contacts.CONTENT_URI (tabela agregada de
+                // contatos), mas CONTACTS_PROJECTION tem colunas que só existem na
+                // view Phone (Phone.NUMBER, Phone.TYPE etc). Isso derrubava a query
+                // com "no such column" e a aba de favoritos ficava sempre vazia.
+                // Igual às outras abas, a base agora é Phone.CONTENT_URI.
+                mQueryHandler.startQuery(QUERY_TOKEN, null, Phone.CONTENT_URI,
                         CONTACTS_PROJECTION,
-                        Contacts.STARRED + "=1", null, getSortOrder(CONTACTS_PROJECTION));
+                        Phone.STARRED + "=1", null, getSortOrder(CONTACTS_PROJECTION));
                 break;
 
             case MODE_FREQUENT:

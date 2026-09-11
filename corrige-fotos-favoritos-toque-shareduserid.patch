@@ -1,0 +1,191 @@
+diff --git a/contacts/src/main/AndroidManifest.xml b/contacts/src/main/AndroidManifest.xml
+index 299da2a..1fa891c 100644
+--- a/contacts/src/main/AndroidManifest.xml
++++ b/contacts/src/main/AndroidManifest.xml
+@@ -15,7 +15,6 @@
+ -->
+ 
+ <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+-        android:sharedUserId="android.uid.shared"
+ >
+     <uses-permission android:name="android.permission.CALL_PRIVILEGED" />
+     <uses-permission android:name="android.permission.READ_CONTACTS" />
+diff --git a/contacts/src/main/java/com/android/contacts/ContactsListActivity.java b/contacts/src/main/java/com/android/contacts/ContactsListActivity.java
+index e340bce..1a52654 100644
+--- a/contacts/src/main/java/com/android/contacts/ContactsListActivity.java
++++ b/contacts/src/main/java/com/android/contacts/ContactsListActivity.java
+@@ -1108,6 +1108,32 @@ public final class ContactsListActivity extends ListActivity
+                 getSystemService(Context.INPUT_METHOD_SERVICE);
+         inputMethodManager.hideSoftInputFromWindow(getListView().getWindowToken(), 0);
+ 
++        // Corrigido: nesses modos a lista é montada com CONTACTS_PROJECTION sobre
++        // Phone.CONTENT_URI (uma linha por telefone). O "id" que o ListView entrega
++        // aqui é o _id dessa linha de telefone (Phone._ID), não o id do contato -
++        // por isso um toque simples abria uma URI de contato inexistente ("contato
++        // não existe"). O id do contato de verdade é a coluna Phone.CONTACT_ID,
++        // que já mora em ID_COLUMN_INDEX (índice 0) do cursor - mesma coluna que o
++        // menu de contexto (toque longo) já usa corretamente.
++        long contactId = id;
++        if (mMode == MODE_INSERT_OR_EDIT_CONTACT || (mMode & MODE_MASK_PICKER) == 0
++                || mMode == MODE_PICK_CONTACT || mMode == MODE_PICK_OR_CREATE_CONTACT) {
++            // Modos com MODE_MASK_CREATE_NEW têm um header ("Novo contato") na
++            // posição 0 fora do cursor do adapter - a posição real no cursor
++            // fica deslocada em -1 nesses casos (mesmo ajuste já feito mais
++            // abaixo para o caso do mShortcutAction).
++            int cursorPosition = position;
++            if ((mMode & MODE_MASK_CREATE_NEW) == MODE_MASK_CREATE_NEW) {
++                cursorPosition = position - 1;
++            }
++            if (cursorPosition >= 0) {
++                Cursor rowCursor = (Cursor) mAdapter.getItem(cursorPosition);
++                if (rowCursor != null) {
++                    contactId = rowCursor.getLong(ID_COLUMN_INDEX);
++                }
++            }
++        }
++
+         if (mMode == MODE_INSERT_OR_EDIT_CONTACT) {
+             Intent intent;
+             if (position == 0) {
+@@ -1116,7 +1142,7 @@ public final class ContactsListActivity extends ListActivity
+             } else {
+                 // Edit
+                 intent = new Intent(Intent.ACTION_EDIT,
+-                        ContentUris.withAppendedId(Contacts.CONTENT_URI, id));
++                        ContentUris.withAppendedId(Contacts.CONTENT_URI, contactId));
+             }
+             intent.setFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
+             final Bundle extras = getIntent().getExtras();
+@@ -1128,7 +1154,7 @@ public final class ContactsListActivity extends ListActivity
+         } else if (id != -1) {
+             if ((mMode & MODE_MASK_PICKER) == 0) {
+                 Intent intent = new Intent(Intent.ACTION_VIEW,
+-                        ContentUris.withAppendedId(Contacts.CONTENT_URI, id));
++                        ContentUris.withAppendedId(Contacts.CONTENT_URI, contactId));
+                 startActivity(intent);
+             } else if (mMode == MODE_QUERY_PICK_TO_VIEW) {
+                 // Started with query that should launch to view contact
+@@ -1140,14 +1166,14 @@ public final class ContactsListActivity extends ListActivity
+                 finish();
+             } else if (mMode == MODE_PICK_CONTACT 
+                     || mMode == MODE_PICK_OR_CREATE_CONTACT) {
+-                Uri uri = ContentUris.withAppendedId(Contacts.CONTENT_URI, id);
++                Uri uri = ContentUris.withAppendedId(Contacts.CONTENT_URI, contactId);
+                 if (mShortcutAction != null) {
+                     // Subtract one if we have Create Contact at the top
+                     Cursor c = (Cursor) mAdapter.getItem(position
+                             - (mMode == MODE_PICK_OR_CREATE_CONTACT? 1:0));
+-                    returnPickerResult(c, c.getString(NAME_COLUMN_INDEX), uri, id);
++                    returnPickerResult(c, c.getString(NAME_COLUMN_INDEX), uri, contactId);
+                 } else {
+-                    returnPickerResult(null, null, uri, id);
++                    returnPickerResult(null, null, uri, contactId);
+                 }
+             } else if (mMode == MODE_PICK_PHONE) {
+                 Uri uri = ContentUris.withAppendedId(Phone.CONTENT_URI, id);
+@@ -1444,9 +1470,14 @@ public final class ContactsListActivity extends ListActivity
+             }
+             
+             case MODE_STARRED:
+-                mQueryHandler.startQuery(QUERY_TOKEN, null, Contacts.CONTENT_URI,
++                // Corrigido: a base era Contacts.CONTENT_URI (tabela agregada de
++                // contatos), mas CONTACTS_PROJECTION tem colunas que só existem na
++                // view Phone (Phone.NUMBER, Phone.TYPE etc). Isso derrubava a query
++                // com "no such column" e a aba de favoritos ficava sempre vazia.
++                // Igual às outras abas, a base agora é Phone.CONTENT_URI.
++                mQueryHandler.startQuery(QUERY_TOKEN, null, Phone.CONTENT_URI,
+                         CONTACTS_PROJECTION,
+-                        Contacts.STARRED + "=1", null, getSortOrder(CONTACTS_PROJECTION));
++                        Phone.STARRED + "=1", null, getSortOrder(CONTACTS_PROJECTION));
+                 break;
+ 
+             case MODE_FREQUENT:
+diff --git a/contacts/src/main/java/com/android/contacts/EditContactActivity.java b/contacts/src/main/java/com/android/contacts/EditContactActivity.java
+index 6d616fa..7709e2b 100644
+--- a/contacts/src/main/java/com/android/contacts/EditContactActivity.java
++++ b/contacts/src/main/java/com/android/contacts/EditContactActivity.java
+@@ -510,13 +510,44 @@ public final class EditContactActivity extends Activity implements View.OnClickL
+ 
+         switch (requestCode) {
+             case PHOTO_PICKED_WITH_DATA: {
++                // Corrigido: o seletor de mídia moderno não devolve mais o Bitmap
++                // recortado pelo extra "data" - só o Uri da imagem escolhida via
++                // data.getData(). Lemos a imagem desse Uri e fazemos o recorte
++                // quadrado (centralizado) na mão, no lugar da Activity de CROP
++                // antiga que não é mais chamada.
++                Bitmap photo = null;
+                 final Bundle extras = data.getExtras();
+-                if (extras != null) {
+-                    Bitmap photo = extras.getParcelable("data");
++                if (extras != null && extras.getParcelable("data") != null) {
++                    // Alguns apps antigos ainda devolvem o Bitmap direto - mantido
++                    // como caminho de compatibilidade.
++                    photo = extras.getParcelable("data");
++                } else {
++                    Uri pickedImageUri = data.getData();
++                    if (pickedImageUri != null) {
++                        try {
++                            java.io.InputStream imageStream =
++                                    getContentResolver().openInputStream(pickedImageUri);
++                            Bitmap fullPhoto = android.graphics.BitmapFactory.decodeStream(imageStream);
++                            if (imageStream != null) {
++                                imageStream.close();
++                            }
++                            if (fullPhoto != null) {
++                                photo = cropToSquare(fullPhoto);
++                            }
++                        } catch (java.io.IOException e) {
++                            Log.e(TAG, "Falha ao ler a imagem escolhida: " + pickedImageUri, e);
++                        }
++                    }
++                }
++
++                if (photo != null) {
+                     mPhoto = photo;
+                     mPhotoChanged = true;
+                     mPhotoImageView.setImageBitmap(photo);
+                     setPhotoPresent(true);
++                } else {
++                    Toast.makeText(this, R.string.photoPickerNotFoundText, Toast.LENGTH_SHORT)
++                            .show();
+                 }
+                 break;
+             }
+@@ -682,17 +713,30 @@ public final class EditContactActivity extends Activity implements View.OnClickL
+         finish();
+     }
+ 
++    /**
++     * Recorta um bitmap para um quadrado centralizado, pra substituir o recorte
++     * que antes era feito pela Activity de CROP externa (ver doPickPhotoAction).
++     */
++    private Bitmap cropToSquare(Bitmap source) {
++        int width = source.getWidth();
++        int height = source.getHeight();
++        int size = Math.min(width, height);
++        int x = (width - size) / 2;
++        int y = (height - size) / 2;
++        return Bitmap.createBitmap(source, x, y, size, size);
++    }
++
+     private void doPickPhotoAction() {
++        // Corrigido: os extras "crop"/"return-data" dependiam de uma Activity de
++        // recorte (com.android.camera.action.CROP) que os seletores de mídia
++        // modernos (Photo Picker, apps de galeria atuais) ignoram - eles nunca
++        // devolvem o Bitmap pelo extra "data", só o Uri da imagem via
++        // Intent.getData(). Por isso a foto nunca aparecia (ficava só o fallback
++        // genérico). O recorte quadrado agora é feito manualmente em
++        // onActivityResult, a partir do Uri.
+         Intent intent = new Intent(Intent.ACTION_GET_CONTENT, null);
+-        // TODO: get these values from constants somewhere
+         intent.setType("image/*");
+-        intent.putExtra("crop", "true");
+-        intent.putExtra("aspectX", 1);
+-        intent.putExtra("aspectY", 1);
+-        intent.putExtra("outputX", 96);
+-        intent.putExtra("outputY", 96);
+         try {
+-            intent.putExtra("return-data", true);
+             startActivityForResult(intent, PHOTO_PICKED_WITH_DATA);
+         } catch (ActivityNotFoundException e) {
+             new AlertDialog.Builder(EditContactActivity.this)
