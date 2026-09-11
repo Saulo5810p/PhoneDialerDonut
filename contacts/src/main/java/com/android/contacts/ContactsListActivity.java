@@ -786,7 +786,6 @@ public final class ContactsListActivity extends ListActivity
         // New contact
         menu.add(0, MENU_NEW_CONTACT, 0, R.string.menu_newContact)
                 .setIcon(android.R.drawable.ic_menu_add)
-                .setIntent(new Intent(Intents.Insert.ACTION, Contacts.CONTENT_URI))
                 .setAlphabeticShortcut('n');
 
         // Display group
@@ -859,6 +858,15 @@ public final class ContactsListActivity extends ListActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case MENU_NEW_CONTACT:
+                // Corrigido: não usar mais MenuItem.setIntent(), que em versões
+                // recentes do Android dispara startActivity() a partir de um
+                // Context que não é a Activity e crasha por falta de
+                // FLAG_ACTIVITY_NEW_TASK. Chamando startActivity() aqui direto
+                // (com o Context da própria Activity) resolve.
+                startActivity(new Intent(Intents.Insert.ACTION, Contacts.CONTENT_URI));
+                return true;
+
             case MENU_DISPLAY_GROUP:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this)
                     .setTitle(R.string.select_group_title)
@@ -956,8 +964,11 @@ public final class ContactsListActivity extends ListActivity
         menu.setHeaderTitle(cursor.getString(NAME_COLUMN_INDEX));
 
         // View contact details
-        menu.add(0, MENU_ITEM_VIEW_CONTACT, 0, R.string.menu_viewContact)
-                .setIntent(new Intent(Intent.ACTION_VIEW, personUri));
+        // Corrigido: retirado o .setIntent(...) daqui (ver onContextItemSelected).
+        // Deixar o próprio framework chamar startActivity() a partir do MenuItem
+        // é o que causava o crash "FLAG_ACTIVITY_NEW_TASK" em versões recentes
+        // do Android; agora cada item é tratado explicitamente no handler.
+        menu.add(0, MENU_ITEM_VIEW_CONTACT, 0, R.string.menu_viewContact);
 
         // Calling contact
         long phoneId = cursor.getLong(PRIMARY_PHONE_ID_COLUMN_INDEX);
@@ -966,15 +977,10 @@ public final class ContactsListActivity extends ListActivity
             CharSequence label = cursor.getString(LABEL_COLUMN_INDEX);
             int type = cursor.getInt(TYPE_COLUMN_INDEX);
             label = Phone.getTypeLabel(getResources(), type, label);
-            Intent intent = new Intent(Intent.ACTION_CALL,
-                    ContentUris.withAppendedId(Phone.CONTENT_URI, phoneId));
-            menu.add(0, MENU_ITEM_CALL, 0, String.format(getString(R.string.menu_callNumber), label))
-                    .setIntent(intent);
+            menu.add(0, MENU_ITEM_CALL, 0, String.format(getString(R.string.menu_callNumber), label));
 
             // Send SMS item
-            menu.add(0, MENU_ITEM_SEND_SMS, 0, R.string.menu_sendSMS)
-                    .setIntent(new Intent(Intent.ACTION_SENDTO,
-                            Uri.fromParts("sms", cursor.getString(NUMBER_COLUMN_INDEX), null)));
+            menu.add(0, MENU_ITEM_SEND_SMS, 0, R.string.menu_sendSMS);
         }
 
         // Star toggling
@@ -986,8 +992,7 @@ public final class ContactsListActivity extends ListActivity
         }
 
         // Contact editing
-        menu.add(0, MENU_ITEM_EDIT, 0, R.string.menu_editContact)
-                .setIntent(new Intent(Intent.ACTION_EDIT, personUri));
+        menu.add(0, MENU_ITEM_EDIT, 0, R.string.menu_editContact);
         menu.add(0, MENU_ITEM_DELETE, 0, R.string.menu_deleteContact);
     }
 
@@ -1004,6 +1009,35 @@ public final class ContactsListActivity extends ListActivity
         Cursor cursor = (Cursor) getListAdapter().getItem(info.position);
 
         switch (item.getItemId()) {
+            case MENU_ITEM_VIEW_CONTACT: {
+                Uri personUri = ContentUris.withAppendedId(Contacts.CONTENT_URI,
+                        cursor.getLong(ID_COLUMN_INDEX));
+                startActivity(new Intent(Intent.ACTION_VIEW, personUri));
+                return true;
+            }
+
+            case MENU_ITEM_CALL: {
+                long phoneId = cursor.getLong(PRIMARY_PHONE_ID_COLUMN_INDEX);
+                if (phoneId > 0) {
+                    startActivity(new Intent(Intent.ACTION_CALL,
+                            ContentUris.withAppendedId(Phone.CONTENT_URI, phoneId)));
+                }
+                return true;
+            }
+
+            case MENU_ITEM_SEND_SMS: {
+                startActivity(new Intent(Intent.ACTION_SENDTO,
+                        Uri.fromParts("sms", cursor.getString(NUMBER_COLUMN_INDEX), null)));
+                return true;
+            }
+
+            case MENU_ITEM_EDIT: {
+                Uri personUri = ContentUris.withAppendedId(Contacts.CONTENT_URI,
+                        cursor.getLong(ID_COLUMN_INDEX));
+                startActivity(new Intent(Intent.ACTION_EDIT, personUri));
+                return true;
+            }
+
             case MENU_ITEM_TOGGLE_STAR: {
                 // Toggle the star
                 ContentValues values = new ContentValues(1);

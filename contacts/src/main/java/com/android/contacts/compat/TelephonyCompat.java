@@ -29,7 +29,16 @@ public class TelephonyCompat {
     public static boolean isIdle(Context context) {
         TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         if (tm == null) return true;
-        return tm.getCallState() == TelephonyManager.CALL_STATE_IDLE;
+        try {
+            return tm.getCallState() == TelephonyManager.CALL_STATE_IDLE;
+        } catch (SecurityException e) {
+            // getCallState() exige READ_PHONE_STATE concedida em runtime (é uma
+            // permissão "dangerous", declarar no manifest não basta). Se ainda
+            // não foi concedida, assume que está ocioso em vez de crashar - a
+            // Activity que abre a tela do discador (DialtactsActivity) já pede
+            // essa permissão no onCreate, então isso só serve de rede de segurança.
+            return true;
+        }
     }
 
     public static void cancelMissedCallsNotification(Context context) {

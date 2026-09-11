@@ -150,7 +150,7 @@ ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src
 		ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:68:13-60
 	android:name
 		ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:66:19-51
-intent-filter#action:name:android.intent.action.DIAL+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:mimeType:vnd.android.cursor.item/person+data:mimeType:vnd.android.cursor.item/phone
+intent-filter#action:name:android.intent.action.DIAL+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:mimeType:vnd.android.cursor.item/contact+data:mimeType:vnd.android.cursor.item/phone_v2
 ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:75:13-81:29
 action#android.intent.action.DIAL
 ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:76:17-69
@@ -161,11 +161,11 @@ ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src
 	android:name
 		ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:78:27-75
 data
-ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:17-74
+ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:17-77
 	android:scheme
 		ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:86:23-49
 	android:mimeType
-		ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:23-71
+		ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:79:23-74
 intent-filter#action:name:android.intent.action.DIAL+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:scheme:voicemail
 ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:82:13-87:29
 intent-filter#action:name:android.intent.action.DIAL+category:name:android.intent.category.DEFAULT
@@ -208,7 +208,7 @@ ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src
 		ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:119:25-70
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.DEFAULT+category:name:android.intent.category.LAUNCHER
 ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:125:13-129:29
-intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.DEFAULT+data:mimeType:vnd.android.cursor.dir/person
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.DEFAULT+data:mimeType:vnd.android.cursor.dir/contact
 ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:131:13-135:29
 intent-filter#action:name:com.android.contacts.action.FILTER_CONTACTS+category:name:android.intent.category.DEFAULT
 ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:137:13-140:29
@@ -288,19 +288,19 @@ action#com.android.contacts.action.LIST_STREQUENT
 ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:199:17-85
 	android:name
 		ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:199:25-82
-intent-filter#action:name:android.intent.action.INSERT_OR_EDIT+category:name:android.intent.category.DEFAULT+data:mimeType:vnd.android.cursor.item/person
+intent-filter#action:name:android.intent.action.INSERT_OR_EDIT+category:name:android.intent.category.DEFAULT+data:mimeType:vnd.android.cursor.item/contact
 ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:204:13-208:29
 action#android.intent.action.INSERT_OR_EDIT
 ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:205:17-79
 	android:name
 		ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:205:25-76
-intent-filter#action:name:android.intent.action.PICK+category:name:android.intent.category.DEFAULT+data:mimeType:vnd.android.cursor.dir/person+data:mimeType:vnd.android.cursor.dir/phone+data:mimeType:vnd.android.cursor.dir/postal-address
+intent-filter#action:name:android.intent.action.PICK+category:name:android.intent.category.DEFAULT+data:mimeType:vnd.android.cursor.dir/contact+data:mimeType:vnd.android.cursor.dir/phone_v2+data:mimeType:vnd.android.cursor.dir/postal-address_v2
 ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:217:13-223:29
 action#android.intent.action.PICK
 ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:218:17-69
 	android:name
 		ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:218:25-66
-intent-filter#action:name:android.intent.action.GET_CONTENT+category:name:android.intent.category.DEFAULT+data:mimeType:vnd.android.cursor.item/person+data:mimeType:vnd.android.cursor.item/phone+data:mimeType:vnd.android.cursor.item/postal-address
+intent-filter#action:name:android.intent.action.GET_CONTENT+category:name:android.intent.category.DEFAULT+data:mimeType:vnd.android.cursor.item/contact+data:mimeType:vnd.android.cursor.item/phone_v2+data:mimeType:vnd.android.cursor.item/postal-address_v2
 ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:225:13-231:29
 action#android.intent.action.GET_CONTENT
 ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:226:17-76
@@ -396,7 +396,7 @@ ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src
 		ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:308:13-53
 	android:name
 		ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:306:19-53
-intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.DEFAULT+data:mimeType:vnd.android.cursor.item/person
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.DEFAULT+data:mimeType:vnd.android.cursor.item/contact
 ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:311:13-315:29
 	android:label
 		ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:311:28-73
@@ -408,7 +408,7 @@ ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src
 		ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:321:13-36
 	android:name
 		ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:319:19-53
-intent-filter#action:name:android.intent.action.EDIT+category:name:android.intent.category.DEFAULT+data:mimeType:vnd.android.cursor.item/person
+intent-filter#action:name:android.intent.action.EDIT+category:name:android.intent.category.DEFAULT+data:mimeType:vnd.android.cursor.item/contact
 ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:322:13-326:29
 	android:label
 		ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:322:28-74
@@ -416,7 +416,7 @@ action#android.intent.action.EDIT
 ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:323:17-69
 	android:name
 		ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:323:25-66
-intent-filter#action:name:android.intent.action.INSERT+category:name:android.intent.category.DEFAULT+data:mimeType:vnd.android.cursor.dir/person
+intent-filter#action:name:android.intent.action.INSERT+category:name:android.intent.category.DEFAULT+data:mimeType:vnd.android.cursor.dir/contact
 ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:327:13-331:29
 	android:label
 		ADDED from /data/data/com.termux/files/home/app-project-android-1.6/contacts/src/main/AndroidManifest.xml:327:28-76

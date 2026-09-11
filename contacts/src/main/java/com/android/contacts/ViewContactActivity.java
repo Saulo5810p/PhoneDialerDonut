@@ -129,6 +129,11 @@ public class ViewContactActivity extends ListActivity
     public static final int MENU_ITEM_DELETE = 1;
     public static final int MENU_ITEM_MAKE_DEFAULT = 2;
     public static final int MENU_ITEM_SHOW_BARCODE = 3;
+    public static final int MENU_ITEM_EDIT = 4;
+    public static final int MENU_ITEM_QUICK_CALL = 5;
+    public static final int MENU_ITEM_QUICK_SMS = 6;
+    public static final int MENU_ITEM_QUICK_EMAIL = 7;
+    public static final int MENU_ITEM_QUICK_ADDRESS = 8;
 
     private Uri mUri;
     private ContentResolver mResolver;
@@ -346,9 +351,9 @@ public class ViewContactActivity extends ListActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add(0, 0, 0, R.string.menu_editContact)
+        // Corrigido: retirado o .setIntent(...) - ver onOptionsItemSelected.
+        menu.add(0, MENU_ITEM_EDIT, 0, R.string.menu_editContact)
                 .setIcon(android.R.drawable.ic_menu_edit)
-                .setIntent(new Intent(Intent.ACTION_EDIT, mUri))
                 .setAlphabeticShortcut('e');
         menu.add(0, MENU_ITEM_DELETE, 0, R.string.menu_deleteContact)
                 .setIcon(android.R.drawable.ic_menu_delete);
@@ -395,11 +400,14 @@ public class ViewContactActivity extends ListActivity
             return;
         }
 
+        // Corrigido: nada de .setIntent(...) aqui - ver onContextItemSelected,
+        // que reconstrói o "entry" a partir da posição e chama startActivity()
+        // direto. É o mesmo crash de FLAG_ACTIVITY_NEW_TASK do menu de opções.
         ViewEntry entry = ContactEntryAdapter.getEntry(mSections, info.position, SHOW_SEPARATORS);
         switch (entry.kind) {
             case KIND_PHONE: {
-                menu.add(0, 0, 0, R.string.menu_call).setIntent(entry.intent);
-                menu.add(0, 0, 0, R.string.menu_sendSMS).setIntent(entry.auxIntent);
+                menu.add(0, MENU_ITEM_QUICK_CALL, 0, R.string.menu_call);
+                menu.add(0, MENU_ITEM_QUICK_SMS, 0, R.string.menu_sendSMS);
                 if (entry.primaryIcon == -1) {
                     menu.add(0, MENU_ITEM_MAKE_DEFAULT, 0, R.string.menu_makeDefaultNumber);
                 }
@@ -407,12 +415,12 @@ public class ViewContactActivity extends ListActivity
             }
 
             case KIND_EMAIL: {
-                menu.add(0, 0, 0, R.string.menu_sendEmail).setIntent(entry.intent);
+                menu.add(0, MENU_ITEM_QUICK_EMAIL, 0, R.string.menu_sendEmail);
                 break;
             }
 
             case KIND_POSTAL: {
-                menu.add(0, 0, 0, R.string.menu_viewAddress).setIntent(entry.intent);
+                menu.add(0, MENU_ITEM_QUICK_ADDRESS, 0, R.string.menu_viewAddress);
                 break;
             }
         }
@@ -421,6 +429,10 @@ public class ViewContactActivity extends ListActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case MENU_ITEM_EDIT: {
+                startActivity(new Intent(Intent.ACTION_EDIT, mUri));
+                return true;
+            }
             case MENU_ITEM_DELETE: {
                 // Get confirmation
                 showDialog(DIALOG_CONFIRM_DELETE);
@@ -473,16 +485,44 @@ public class ViewContactActivity extends ListActivity
     
     @Override
     public boolean onContextItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case MENU_ITEM_MAKE_DEFAULT: {
-                AdapterView.AdapterContextMenuInfo info;
-                try {
-                     info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-                } catch (ClassCastException e) {
-                    Log.e(TAG, "bad menuInfo", e);
-                    break;
-                }
+        AdapterView.AdapterContextMenuInfo info;
+        try {
+             info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        } catch (ClassCastException e) {
+            Log.e(TAG, "bad menuInfo", e);
+            return super.onContextItemSelected(item);
+        }
 
+        switch (item.getItemId()) {
+            case MENU_ITEM_QUICK_CALL: {
+                ViewEntry entry = ContactEntryAdapter.getEntry(mSections, info.position,
+                        SHOW_SEPARATORS);
+                if (entry.intent != null) {
+                    startActivity(entry.intent);
+                }
+                return true;
+            }
+
+            case MENU_ITEM_QUICK_SMS: {
+                ViewEntry entry = ContactEntryAdapter.getEntry(mSections, info.position,
+                        SHOW_SEPARATORS);
+                if (entry.auxIntent != null) {
+                    startActivity(entry.auxIntent);
+                }
+                return true;
+            }
+
+            case MENU_ITEM_QUICK_EMAIL:
+            case MENU_ITEM_QUICK_ADDRESS: {
+                ViewEntry entry = ContactEntryAdapter.getEntry(mSections, info.position,
+                        SHOW_SEPARATORS);
+                if (entry.intent != null) {
+                    startActivity(entry.intent);
+                }
+                return true;
+            }
+
+            case MENU_ITEM_MAKE_DEFAULT: {
                 ViewEntry entry = ContactEntryAdapter.getEntry(mSections, info.position,
                         SHOW_SEPARATORS);
                 // Antes: People.PRIMARY_PHONE_ID na linha do contato (denormalizado).

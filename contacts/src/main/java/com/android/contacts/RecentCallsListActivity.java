@@ -116,6 +116,11 @@ public class RecentCallsListActivity extends ListActivity
     private static final int MENU_ITEM_DELETE = 1;
     private static final int MENU_ITEM_DELETE_ALL = 2;
     private static final int MENU_ITEM_VIEW_CONTACTS = 3;
+    private static final int MENU_ITEM_CALL_NUMBER = 4;
+    private static final int MENU_ITEM_VIEW_CONTACT_DETAIL = 5;
+    private static final int MENU_ITEM_EDIT_BEFORE_CALL = 6;
+    private static final int MENU_ITEM_SEND_SMS = 7;
+    private static final int MENU_ITEM_ADD_TO_CONTACT = 8;
 
     private static final int QUERY_TOKEN = 53;
     private static final int UPDATE_TOKEN = 54;
@@ -722,33 +727,57 @@ public class RecentCallsListActivity extends ListActivity
             menu.setHeaderTitle(number);
         }
 
+        // Corrigido: nada de .setIntent(...) aqui - cada item ganhou um id
+        // próprio e é resolvido de novo em onContextItemSelected(), que chama
+        // startActivity() direto pela Activity. Deixar o MenuItem guardar o
+        // Intent e o framework chamar startActivity() por conta própria é o
+        // que causava o crash de FLAG_ACTIVITY_NEW_TASK em Android recente.
         if (numberUri != null) {
-            Intent intent = new Intent(Intent.ACTION_CALL, numberUri);
-            menu.add(0, 0, 0, getResources().getString(R.string.recentCalls_callNumber, number))
-                    .setIntent(intent);
+            menu.add(0, MENU_ITEM_CALL_NUMBER, 0,
+                    getResources().getString(R.string.recentCalls_callNumber, number));
         }
 
         if (contactInfoPresent) {
-            menu.add(0, 0, 0, R.string.menu_viewContact)
-                    .setIntent(new Intent(Intent.ACTION_VIEW,
-                            ContentUris.withAppendedId(Contacts.CONTENT_URI, info.personId)));
+            menu.add(0, MENU_ITEM_VIEW_CONTACT_DETAIL, 0, R.string.menu_viewContact);
         }
 
         if (numberUri != null && !isVoicemail) {
-            menu.add(0, 0, 0, R.string.recentCalls_editNumberBeforeCall)
-                    .setIntent(new Intent(Intent.ACTION_DIAL, numberUri));
-            menu.add(0, 0, 0, R.string.menu_sendTextMessage)
-                    .setIntent(new Intent(Intent.ACTION_SENDTO,
-                            Uri.fromParts("sms", number, null)));
+            menu.add(0, MENU_ITEM_EDIT_BEFORE_CALL, 0, R.string.recentCalls_editNumberBeforeCall);
+            menu.add(0, MENU_ITEM_SEND_SMS, 0, R.string.menu_sendTextMessage);
         }
         if (!contactInfoPresent && numberUri != null && !isVoicemail) {
-            Intent intent = new Intent(Intent.ACTION_INSERT_OR_EDIT);
-            intent.setType(Contacts.CONTENT_ITEM_TYPE);
-            intent.putExtra(Insert.PHONE, number);
-            menu.add(0, 0, 0, R.string.recentCalls_addToContact)
-                    .setIntent(intent);
+            menu.add(0, MENU_ITEM_ADD_TO_CONTACT, 0, R.string.recentCalls_addToContact);
         }
         menu.add(0, MENU_ITEM_DELETE, 0, R.string.recentCalls_removeFromRecentList);
+    }
+
+    // Reconstrói, a partir da posição no cursor, os mesmos dados calculados em
+    // onCreateContextMenu() (number/numberUri/isVoicemail/contactInfo). Usado
+    // em onContextItemSelected() pra montar o Intent de cada item sob demanda,
+    // já que os MenuItems não guardam mais o Intent neles (ver comentário acima).
+    private RecentCallMenuInfo resolveRecentCallMenuInfo(int position) {
+        Cursor cursor = (Cursor) mAdapter.getItem(position);
+        RecentCallMenuInfo result = new RecentCallMenuInfo();
+        result.number = cursor.getString(NUMBER_COLUMN_INDEX);
+        if (result.number.equals(CallerInfo.UNKNOWN_NUMBER)
+                || result.number.equals(CallerInfo.PRIVATE_NUMBER)
+                || result.number.equals(CallerInfo.PAYPHONE_NUMBER)) {
+            result.numberUri = null;
+        } else if (result.number.equals(mVoiceMailNumber)) {
+            result.numberUri = Uri.parse("voicemail:x");
+            result.isVoicemail = true;
+        } else {
+            result.numberUri = Uri.fromParts("tel", result.number, null);
+        }
+        result.contactInfo = mAdapter.getContactInfo(result.number);
+        return result;
+    }
+
+    private static class RecentCallMenuInfo {
+        String number;
+        Uri numberUri;
+        boolean isVoicemail;
+        ContactInfo contactInfo;
     }
 
     @Override
@@ -784,6 +813,50 @@ public class RecentCallsListActivity extends ListActivity
         }
 
         switch (item.getItemId()) {
+            case MENU_ITEM_CALL_NUMBER: {
+                RecentCallMenuInfo info = resolveRecentCallMenuInfo(menuInfo.position);
+                if (info.numberUri != null) {
+                    startActivity(new Intent(Intent.ACTION_CALL, info.numberUri));
+                }
+                return true;
+            }
+
+            case MENU_ITEM_VIEW_CONTACT_DETAIL: {
+                RecentCallMenuInfo info = resolveRecentCallMenuInfo(menuInfo.position);
+                boolean contactInfoPresent = (info.contactInfo != null
+                        && info.contactInfo != ContactInfo.EMPTY);
+                if (contactInfoPresent) {
+                    startActivity(new Intent(Intent.ACTION_VIEW,
+                            ContentUris.withAppendedId(Contacts.CONTENT_URI,
+                                    info.contactInfo.personId)));
+                }
+                return true;
+            }
+
+            case MENU_ITEM_EDIT_BEFORE_CALL: {
+                RecentCallMenuInfo info = resolveRecentCallMenuInfo(menuInfo.position);
+                if (info.numberUri != null) {
+                    startActivity(new Intent(Intent.ACTION_DIAL, info.numberUri));
+                }
+                return true;
+            }
+
+            case MENU_ITEM_SEND_SMS: {
+                RecentCallMenuInfo info = resolveRecentCallMenuInfo(menuInfo.position);
+                startActivity(new Intent(Intent.ACTION_SENDTO,
+                        Uri.fromParts("sms", info.number, null)));
+                return true;
+            }
+
+            case MENU_ITEM_ADD_TO_CONTACT: {
+                RecentCallMenuInfo info = resolveRecentCallMenuInfo(menuInfo.position);
+                Intent intent = new Intent(Intent.ACTION_INSERT_OR_EDIT);
+                intent.setType(Contacts.CONTENT_ITEM_TYPE);
+                intent.putExtra(Insert.PHONE, info.number);
+                startActivity(intent);
+                return true;
+            }
+
             case MENU_ITEM_DELETE: {
                 Cursor cursor = mAdapter.getCursor();
                 if (cursor != null) {

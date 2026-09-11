@@ -456,9 +456,12 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
         }
     }
 
+    private static final int MENU_ITEM_ADD_TO_CONTACT = 1;
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        mAddToContactMenuItem = menu.add(0, 0, 0, R.string.recentCalls_addToContact)
+        mAddToContactMenuItem = menu.add(0, MENU_ITEM_ADD_TO_CONTACT, 0,
+                R.string.recentCalls_addToContact)
                 .setIcon(android.R.drawable.ic_menu_add);
 
         return true;
@@ -472,17 +475,26 @@ public class TwelveKeyDialer extends Activity implements View.OnClickListener,
         }
 
         CharSequence digits = mDigits.getText();
-        if (digits == null || !TextUtils.isGraphic(digits)) {
-            mAddToContactMenuItem.setVisible(false);
-        } else {
-            // Put the current digits string into an intent
-            Intent intent = new Intent(Intent.ACTION_INSERT_OR_EDIT);
-            intent.putExtra(Insert.PHONE, mDigits.getText());
-            intent.setType(ContactsContract.Contacts.CONTENT_ITEM_TYPE);
-            mAddToContactMenuItem.setIntent(intent);
-            mAddToContactMenuItem.setVisible(true);
-        }
+        // Corrigido: não guardamos mais o Intent no MenuItem com .setIntent().
+        // O intent é remontado em onOptionsItemSelected() a partir dos
+        // dígitos, na hora do clique - ver comentário lá.
+        mAddToContactMenuItem.setVisible(digits != null && TextUtils.isGraphic(digits));
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == MENU_ITEM_ADD_TO_CONTACT) {
+            CharSequence digits = mDigits.getText();
+            if (digits != null && TextUtils.isGraphic(digits)) {
+                Intent intent = new Intent(Intent.ACTION_INSERT_OR_EDIT);
+                intent.putExtra(Insert.PHONE, digits);
+                intent.setType(ContactsContract.Contacts.CONTENT_ITEM_TYPE);
+                startActivity(intent);
+            }
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
