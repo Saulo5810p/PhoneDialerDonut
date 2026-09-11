@@ -483,6 +483,19 @@ public class ViewContactActivity extends ListActivity
         return super.onOptionsItemSelected(item);
     }
     
+    // Inicia a Activity e, se não existir nenhum app instalado capaz de tratar
+    // o Intent (ex.: ainda não existe um discador padrão instalado - o módulo
+    // :phone deste projeto ainda tá sendo construído), avisa em vez de
+    // crashar com ActivityNotFoundException.
+    private void safeStartActivity(Intent intent) {
+        try {
+            startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            Log.e(TAG, "nenhum app instalado pra: " + intent, e);
+            Toast.makeText(this, R.string.noAppToHandleAction, Toast.LENGTH_SHORT).show();
+        }
+    }
+
     @Override
     public boolean onContextItemSelected(MenuItem item) {
         AdapterView.AdapterContextMenuInfo info;
@@ -498,7 +511,7 @@ public class ViewContactActivity extends ListActivity
                 ViewEntry entry = ContactEntryAdapter.getEntry(mSections, info.position,
                         SHOW_SEPARATORS);
                 if (entry.intent != null) {
-                    startActivity(entry.intent);
+                    safeStartActivity(entry.intent);
                 }
                 return true;
             }
@@ -507,7 +520,7 @@ public class ViewContactActivity extends ListActivity
                 ViewEntry entry = ContactEntryAdapter.getEntry(mSections, info.position,
                         SHOW_SEPARATORS);
                 if (entry.auxIntent != null) {
-                    startActivity(entry.auxIntent);
+                    safeStartActivity(entry.auxIntent);
                 }
                 return true;
             }
@@ -517,7 +530,7 @@ public class ViewContactActivity extends ListActivity
                 ViewEntry entry = ContactEntryAdapter.getEntry(mSections, info.position,
                         SHOW_SEPARATORS);
                 if (entry.intent != null) {
-                    startActivity(entry.intent);
+                    safeStartActivity(entry.intent);
                 }
                 return true;
             }
@@ -553,12 +566,12 @@ public class ViewContactActivity extends ListActivity
                     ViewEntry entry = ViewAdapter.getEntry(mSections, index, SHOW_SEPARATORS);
                     if (entry.kind == KIND_PHONE) {
                         Intent intent = new Intent(Intent.ACTION_CALL, entry.uri);
-                        startActivity(intent);
+                        safeStartActivity(intent);
                     }
                 } else if (mNumPhoneNumbers != 0) {
                     // There isn't anything selected, call the default number
                     Intent intent = new Intent(Intent.ACTION_CALL, mUri);
-                    startActivity(intent);
+                    safeStartActivity(intent);
                 }
                 return true;
             }

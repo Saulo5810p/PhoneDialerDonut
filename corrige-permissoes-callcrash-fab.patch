@@ -1,0 +1,396 @@
+diff --git a/contacts/src/main/java/com/android/contacts/ContactsListActivity.java b/contacts/src/main/java/com/android/contacts/ContactsListActivity.java
+index e340bce..ce3bede 100644
+--- a/contacts/src/main/java/com/android/contacts/ContactsListActivity.java
++++ b/contacts/src/main/java/com/android/contacts/ContactsListActivity.java
+@@ -21,6 +21,7 @@ import android.app.AlertDialog;
+ import android.app.ListActivity;
+ import android.app.SearchManager;
+ import android.content.AsyncQueryHandler;
++import android.content.ActivityNotFoundException;
+ import android.content.ContentResolver;
+ import android.content.ContentUris;
+ import android.content.ContentValues;
+@@ -74,6 +75,7 @@ import android.widget.ListView;
+ import android.widget.ResourceCursorAdapter;
+ import android.widget.SectionIndexer;
+ import android.widget.TextView;
++import android.widget.Toast;
+ 
+ import java.lang.ref.SoftReference;
+ import java.lang.ref.WeakReference;
+@@ -536,12 +538,44 @@ public final class ContactsListActivity extends ListActivity
+         // Checagem de sync via IContentProvider/ISyncAdapter (API interna, inacessível
+         // a apps normais) removida. mSyncEnabled fica sempre false — só afeta qual das
+         // duas strings de "lista vazia" é mostrada, sem impacto funcional real.
+-        if (getContentResolver().acquireContentProviderClient(Contacts.CONTENT_URI) == null) {
+-            // Provider de contatos indisponível, desiste.
++        try {
++            if (getContentResolver().acquireContentProviderClient(Contacts.CONTENT_URI) == null) {
++                // Provider de contatos indisponível, desiste.
++                finish();
++                return;
++            }
++        } catch (SecurityException e) {
++            // Ainda sem permissão de contatos concedida (ex.: essa aba foi aberta
++            // antes do usuário responder ao pedido de permissão, ou negou). Não
++            // deixa crashar - só fecha essa tela; o DialtactsActivity cuida de
++            // pedir a permissão de novo.
++            Log.e(TAG, "sem permissão de contatos ainda", e);
++            Toast.makeText(this, R.string.missingContactsPermissionToast, Toast.LENGTH_SHORT)
++                    .show();
+             finish();
+             return;
+         }
+         mSyncEnabled = false;
++
++        // Botão flutuante de novo contato, só na aba "Contatos" de verdade
++        // (não em pickers nem na aba de favoritos).
++        View fab = findViewById(R.id.fabNewContact);
++        if (fab != null) {
++            if (mDefaultMode && (mMode & MODE_MASK_PICKER) != MODE_MASK_PICKER) {
++                fab.setVisibility(View.VISIBLE);
++                fab.setOnClickListener(new View.OnClickListener() {
++                    public void onClick(View v) {
++                        try {
++                            startActivity(new Intent(Intents.Insert.ACTION, Contacts.CONTENT_URI));
++                        } catch (ActivityNotFoundException e) {
++                            Log.e(TAG, "sem app pra criar contato", e);
++                        }
++                    }
++                });
++            } else {
++                fab.setVisibility(View.GONE);
++            }
++        }
+     }
+ 
+     private void setEmptyText() {
+@@ -1019,8 +1053,14 @@ public final class ContactsListActivity extends ListActivity
+             case MENU_ITEM_CALL: {
+                 long phoneId = cursor.getLong(PRIMARY_PHONE_ID_COLUMN_INDEX);
+                 if (phoneId > 0) {
+-                    startActivity(new Intent(Intent.ACTION_CALL,
+-                            ContentUris.withAppendedId(Phone.CONTENT_URI, phoneId)));
++                    try {
++                        startActivity(new Intent(Intent.ACTION_CALL,
++                                ContentUris.withAppendedId(Phone.CONTENT_URI, phoneId)));
++                    } catch (ActivityNotFoundException e) {
++                        Log.e(TAG, "nenhum app pra ligar ainda", e);
++                        Toast.makeText(this, R.string.noAppToHandleAction, Toast.LENGTH_SHORT)
++                                .show();
++                    }
+                 }
+                 return true;
+             }
+diff --git a/contacts/src/main/java/com/android/contacts/DialtactsActivity.java b/contacts/src/main/java/com/android/contacts/DialtactsActivity.java
+index 8d089c1..77072ed 100644
+--- a/contacts/src/main/java/com/android/contacts/DialtactsActivity.java
++++ b/contacts/src/main/java/com/android/contacts/DialtactsActivity.java
+@@ -77,45 +77,52 @@ public class DialtactsActivity extends TabActivity implements TabHost.OnTabChang
+         mTabHost = getTabHost();
+         mTabHost.setOnTabChangedListener(this);
+ 
+-        checkAndRequestRuntimePermissions();
+-
+-        // Setup the tabs
+-        setupDialerTab();
+-        setupCallLogTab();
+-        setupContactsTab();
+-        setupFavoritesTab();
+-
+-        setCurrentTab(intent);
+-
+-        if (intent.getAction().equals(ContactsUiIntents.FILTER_CONTACTS_ACTION)
+-                && icicle == null) {
+-            setupFilterText(intent);
++        // Corrigido: antes as abas eram montadas e abertas (setCurrentTab)
++        // mesmo sem nenhuma permissão em runtime concedida ainda, e o pedido
++        // de permissão é assíncrono (o popup aparece, mas o código já seguiu
++        // adiante) - por isso as telas tentavam acessar contatos/estado da
++        // chamada sem permissão e crashavam. Agora só monta as abas se já
++        // tiver tudo concedido; senão só pede a permissão e espera - quando o
++        // usuário responder, onRequestPermissionsResult() chama recreate() e
++        // essa checagem roda de novo.
++        String[] faltando = permissoesFaltando();
++        if (faltando.length == 0) {
++            setupDialerTab();
++            setupCallLogTab();
++            setupContactsTab();
++            setupFavoritesTab();
++
++            setCurrentTab(intent);
++
++            if (intent.getAction().equals(ContactsUiIntents.FILTER_CONTACTS_ACTION)
++                    && icicle == null) {
++                setupFilterText(intent);
++            }
++        } else {
++            ActivityCompat.requestPermissions(this, faltando, REQUEST_CODE_RUNTIME_PERMISSIONS);
+         }
+     }
+ 
+     private static final int REQUEST_CODE_RUNTIME_PERMISSIONS = 1001;
+ 
+-    private void checkAndRequestRuntimePermissions() {
+-        String[] permissoesNecessarias = {
+-                Manifest.permission.CALL_PHONE,
+-                Manifest.permission.READ_CALL_LOG,
+-                Manifest.permission.WRITE_CALL_LOG,
+-                Manifest.permission.READ_CONTACTS,
+-                Manifest.permission.WRITE_CONTACTS,
+-                Manifest.permission.READ_PHONE_STATE,
+-        };
++    private static final String[] PERMISSOES_NECESSARIAS = {
++            Manifest.permission.CALL_PHONE,
++            Manifest.permission.READ_CALL_LOG,
++            Manifest.permission.WRITE_CALL_LOG,
++            Manifest.permission.READ_CONTACTS,
++            Manifest.permission.WRITE_CONTACTS,
++            Manifest.permission.READ_PHONE_STATE,
++    };
++
++    private String[] permissoesFaltando() {
+         java.util.ArrayList<String> faltando = new java.util.ArrayList<>();
+-        for (String permissao : permissoesNecessarias) {
++        for (String permissao : PERMISSOES_NECESSARIAS) {
+             if (ContextCompat.checkSelfPermission(this, permissao)
+                     != PackageManager.PERMISSION_GRANTED) {
+                 faltando.add(permissao);
+             }
+         }
+-        if (!faltando.isEmpty()) {
+-            ActivityCompat.requestPermissions(this,
+-                    faltando.toArray(new String[0]),
+-                    REQUEST_CODE_RUNTIME_PERMISSIONS);
+-        }
++        return faltando.toArray(new String[0]);
+     }
+ 
+     @Override
+diff --git a/contacts/src/main/java/com/android/contacts/RecentCallsListActivity.java b/contacts/src/main/java/com/android/contacts/RecentCallsListActivity.java
+index 4d8bbdd..2c2ae1b 100644
+--- a/contacts/src/main/java/com/android/contacts/RecentCallsListActivity.java
++++ b/contacts/src/main/java/com/android/contacts/RecentCallsListActivity.java
+@@ -61,6 +61,7 @@ import android.widget.ImageView;
+ import android.widget.ListView;
+ import android.widget.ResourceCursorAdapter;
+ import android.widget.TextView;
++import android.widget.Toast;
+ 
+ import com.android.contacts.compat.CallerInfo;
+ import com.android.contacts.compat.TelephonyCompat;
+@@ -816,7 +817,13 @@ public class RecentCallsListActivity extends ListActivity
+             case MENU_ITEM_CALL_NUMBER: {
+                 RecentCallMenuInfo info = resolveRecentCallMenuInfo(menuInfo.position);
+                 if (info.numberUri != null) {
+-                    startActivity(new Intent(Intent.ACTION_CALL, info.numberUri));
++                    try {
++                        startActivity(new Intent(Intent.ACTION_CALL, info.numberUri));
++                    } catch (ActivityNotFoundException e) {
++                        Log.e(TAG, "nenhum app pra ligar ainda", e);
++                        Toast.makeText(this, R.string.noAppToHandleAction, Toast.LENGTH_SHORT)
++                                .show();
++                    }
+                 }
+                 return true;
+             }
+@@ -836,7 +843,13 @@ public class RecentCallsListActivity extends ListActivity
+             case MENU_ITEM_EDIT_BEFORE_CALL: {
+                 RecentCallMenuInfo info = resolveRecentCallMenuInfo(menuInfo.position);
+                 if (info.numberUri != null) {
+-                    startActivity(new Intent(Intent.ACTION_DIAL, info.numberUri));
++                    try {
++                        startActivity(new Intent(Intent.ACTION_DIAL, info.numberUri));
++                    } catch (ActivityNotFoundException e) {
++                        Log.e(TAG, "nenhum discador instalado ainda", e);
++                        Toast.makeText(this, R.string.noAppToHandleAction, Toast.LENGTH_SHORT)
++                                .show();
++                    }
+                 }
+                 return true;
+             }
+diff --git a/contacts/src/main/java/com/android/contacts/ViewContactActivity.java b/contacts/src/main/java/com/android/contacts/ViewContactActivity.java
+index e6d7541..7b32195 100644
+--- a/contacts/src/main/java/com/android/contacts/ViewContactActivity.java
++++ b/contacts/src/main/java/com/android/contacts/ViewContactActivity.java
+@@ -483,6 +483,19 @@ public class ViewContactActivity extends ListActivity
+         return super.onOptionsItemSelected(item);
+     }
+     
++    // Inicia a Activity e, se não existir nenhum app instalado capaz de tratar
++    // o Intent (ex.: ainda não existe um discador padrão instalado - o módulo
++    // :phone deste projeto ainda tá sendo construído), avisa em vez de
++    // crashar com ActivityNotFoundException.
++    private void safeStartActivity(Intent intent) {
++        try {
++            startActivity(intent);
++        } catch (ActivityNotFoundException e) {
++            Log.e(TAG, "nenhum app instalado pra: " + intent, e);
++            Toast.makeText(this, R.string.noAppToHandleAction, Toast.LENGTH_SHORT).show();
++        }
++    }
++
+     @Override
+     public boolean onContextItemSelected(MenuItem item) {
+         AdapterView.AdapterContextMenuInfo info;
+@@ -498,7 +511,7 @@ public class ViewContactActivity extends ListActivity
+                 ViewEntry entry = ContactEntryAdapter.getEntry(mSections, info.position,
+                         SHOW_SEPARATORS);
+                 if (entry.intent != null) {
+-                    startActivity(entry.intent);
++                    safeStartActivity(entry.intent);
+                 }
+                 return true;
+             }
+@@ -507,7 +520,7 @@ public class ViewContactActivity extends ListActivity
+                 ViewEntry entry = ContactEntryAdapter.getEntry(mSections, info.position,
+                         SHOW_SEPARATORS);
+                 if (entry.auxIntent != null) {
+-                    startActivity(entry.auxIntent);
++                    safeStartActivity(entry.auxIntent);
+                 }
+                 return true;
+             }
+@@ -517,7 +530,7 @@ public class ViewContactActivity extends ListActivity
+                 ViewEntry entry = ContactEntryAdapter.getEntry(mSections, info.position,
+                         SHOW_SEPARATORS);
+                 if (entry.intent != null) {
+-                    startActivity(entry.intent);
++                    safeStartActivity(entry.intent);
+                 }
+                 return true;
+             }
+@@ -553,12 +566,12 @@ public class ViewContactActivity extends ListActivity
+                     ViewEntry entry = ViewAdapter.getEntry(mSections, index, SHOW_SEPARATORS);
+                     if (entry.kind == KIND_PHONE) {
+                         Intent intent = new Intent(Intent.ACTION_CALL, entry.uri);
+-                        startActivity(intent);
++                        safeStartActivity(intent);
+                     }
+                 } else if (mNumPhoneNumbers != 0) {
+                     // There isn't anything selected, call the default number
+                     Intent intent = new Intent(Intent.ACTION_CALL, mUri);
+-                    startActivity(intent);
++                    safeStartActivity(intent);
+                 }
+                 return true;
+             }
+diff --git a/contacts/src/main/res/layout/contacts_list_content.xml b/contacts/src/main/res/layout/contacts_list_content.xml
+index 1f37dcf..0b44f1b 100644
+--- a/contacts/src/main/res/layout/contacts_list_content.xml
++++ b/contacts/src/main/res/layout/contacts_list_content.xml
+@@ -14,32 +14,55 @@
+      limitations under the License.
+ -->
+ 
+-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<!-- FrameLayout adicionado só pra poder sobrepor o botão flutuante de novo
++     contato por cima da lista, sem mexer no ListView/ScrollView originais. -->
++<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+         android:layout_width="fill_parent"
+-        android:layout_height="fill_parent"
+-        android:orientation="vertical">
++        android:layout_height="fill_parent">
+ 
+-    <ListView android:id="@android:id/list"
++    <LinearLayout
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent"
+-            android:fastScrollEnabled="true"
+-    />
++            android:orientation="vertical">
+ 
+-    <ScrollView android:id="@android:id/empty"
+-        android:layout_width="fill_parent"
+-        android:layout_height="fill_parent"
+-        android:fillViewport="true"
+-    >
+-        <TextView android:id="@+id/emptyText"
+-            android:layout_width="fill_parent"
+-            android:layout_height="wrap_content"
+-            android:text="@string/noContacts"
+-            android:textSize="20sp"
+-            android:textColor="?android:attr/textColorSecondary"
+-            android:paddingLeft="10dip"
+-            android:paddingRight="10dip"
+-            android:paddingTop="10dip"
+-            android:lineSpacingMultiplier="0.92"
++        <ListView android:id="@android:id/list"
++                android:layout_width="fill_parent"
++                android:layout_height="fill_parent"
++                android:fastScrollEnabled="true"
+         />
+-    </ScrollView>
+-</LinearLayout>
++
++        <ScrollView android:id="@android:id/empty"
++            android:layout_width="fill_parent"
++            android:layout_height="fill_parent"
++            android:fillViewport="true"
++        >
++            <TextView android:id="@+id/emptyText"
++                android:layout_width="fill_parent"
++                android:layout_height="wrap_content"
++                android:text="@string/noContacts"
++                android:textSize="20sp"
++                android:textColor="?android:attr/textColorSecondary"
++                android:paddingLeft="10dip"
++                android:paddingRight="10dip"
++                android:paddingTop="10dip"
++                android:lineSpacingMultiplier="0.92"
++            />
++        </ScrollView>
++    </LinearLayout>
++
++    <!-- Botão flutuante de novo contato. Usa o ic_menu_add.png que já existe
++         no projeto (já é um círculo com "+", não precisou de fundo extra) -
++         escondido em telas de "escolher contato" (picker) pelo próprio
++         ContactsListActivity, igual o menu de opções já fazia. -->
++    <ImageButton android:id="@+id/fabNewContact"
++        android:layout_width="56dip"
++        android:layout_height="56dip"
++        android:layout_gravity="bottom|right"
++        android:layout_margin="16dip"
++        android:src="@drawable/ic_menu_add"
++        android:background="@null"
++        android:scaleType="fitCenter"
++        android:contentDescription="@string/menu_newContact"
++    />
++
++</FrameLayout>
+diff --git a/contacts/src/main/res/layout/edit_contact.xml b/contacts/src/main/res/layout/edit_contact.xml
+index a3a1849..70448d1 100644
+--- a/contacts/src/main/res/layout/edit_contact.xml
++++ b/contacts/src/main/res/layout/edit_contact.xml
+@@ -74,10 +74,16 @@
+         <!-- "Phonetic name" entry widget, visible only in certain locales -->
+         <include layout="@layout/edit_phonetic_name"/>
+ 
++        <!-- Corrigido: layout_height="0dip" + layout_weight="1" dentro de um
++             ScrollView é um combo instável (o ScrollView mede o filho com
++             altura "infinita" pra saber o tamanho total roláveis, então a
++             distribuição por peso pode zerar essa área) - foi isso que fazia
++             os campos abaixo do número desaparecerem depois de fechar o
++             teclado. Trocado por wrap_content simples, sem peso; o
++             ScrollView já dá conta de rolar se o conteúdo não couber. -->
+         <LinearLayout
+             android:layout_width="fill_parent"
+-            android:layout_height="0dip"
+-            android:layout_weight="1"
++            android:layout_height="wrap_content"
+             android:orientation="vertical"
+             >
+ 
+diff --git a/contacts/src/main/res/values/strings.xml b/contacts/src/main/res/values/strings.xml
+index c6add99..3f12626 100644
+--- a/contacts/src/main/res/values/strings.xml
++++ b/contacts/src/main/res/values/strings.xml
+@@ -247,6 +247,8 @@
+ 
+     <!-- The text displayed when the contacts list is empty while displaying all contacts -->
+     <string name="noContacts">No contacts.</string>
++    <string name="missingContactsPermissionToast">Permissão de contatos ainda não concedida. Tente de novo.</string>
++    <string name="noAppToHandleAction">Nenhum app instalado consegue fazer isso ainda.</string>
+ 
+     <!-- The text displayed when the contacts list is empty while displaying only contacts that have phone numbers -->
+     <string name="noContactsWithPhoneNumbers">No contacts with phone numbers.</string>

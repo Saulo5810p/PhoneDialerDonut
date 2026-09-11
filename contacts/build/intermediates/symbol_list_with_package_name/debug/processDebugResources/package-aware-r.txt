@@ -899,6 +899,7 @@ id edit_text_id
 id eight
 id emptyText
 id entry_ringtone
+id fabNewContact
 id five
 id forever
 id four
@@ -1152,6 +1153,8 @@ string menu_showBarcode
 string menu_viewAddress
 string menu_viewContact
 string messageShortcutActivityTitle
+string missingContactsPermissionToast
+string noAppToHandleAction
 string noContacts
 string noContactsHelpText
 string noContactsHelpTextWithSync

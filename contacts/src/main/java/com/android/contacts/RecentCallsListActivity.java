@@ -61,6 +61,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ResourceCursorAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.contacts.compat.CallerInfo;
 import com.android.contacts.compat.TelephonyCompat;
@@ -816,7 +817,13 @@ public class RecentCallsListActivity extends ListActivity
             case MENU_ITEM_CALL_NUMBER: {
                 RecentCallMenuInfo info = resolveRecentCallMenuInfo(menuInfo.position);
                 if (info.numberUri != null) {
-                    startActivity(new Intent(Intent.ACTION_CALL, info.numberUri));
+                    try {
+                        startActivity(new Intent(Intent.ACTION_CALL, info.numberUri));
+                    } catch (ActivityNotFoundException e) {
+                        Log.e(TAG, "nenhum app pra ligar ainda", e);
+                        Toast.makeText(this, R.string.noAppToHandleAction, Toast.LENGTH_SHORT)
+                                .show();
+                    }
                 }
                 return true;
             }
@@ -836,7 +843,13 @@ public class RecentCallsListActivity extends ListActivity
             case MENU_ITEM_EDIT_BEFORE_CALL: {
                 RecentCallMenuInfo info = resolveRecentCallMenuInfo(menuInfo.position);
                 if (info.numberUri != null) {
-                    startActivity(new Intent(Intent.ACTION_DIAL, info.numberUri));
+                    try {
+                        startActivity(new Intent(Intent.ACTION_DIAL, info.numberUri));
+                    } catch (ActivityNotFoundException e) {
+                        Log.e(TAG, "nenhum discador instalado ainda", e);
+                        Toast.makeText(this, R.string.noAppToHandleAction, Toast.LENGTH_SHORT)
+                                .show();
+                    }
                 }
                 return true;
             }

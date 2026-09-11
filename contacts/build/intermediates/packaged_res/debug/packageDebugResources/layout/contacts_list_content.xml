@@ -14,32 +14,55 @@
      limitations under the License.
 -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- FrameLayout adicionado só pra poder sobrepor o botão flutuante de novo
+     contato por cima da lista, sem mexer no ListView/ScrollView originais. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="vertical">
+        android:layout_height="fill_parent">
 
-    <ListView android:id="@android:id/list"
+    <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:fastScrollEnabled="true"
+            android:orientation="vertical">
+
+        <ListView android:id="@android:id/list"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:fastScrollEnabled="true"
+        />
+
+        <ScrollView android:id="@android:id/empty"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:fillViewport="true"
+        >
+            <TextView android:id="@+id/emptyText"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/noContacts"
+                android:textSize="20sp"
+                android:textColor="?android:attr/textColorSecondary"
+                android:paddingLeft="10dip"
+                android:paddingRight="10dip"
+                android:paddingTop="10dip"
+                android:lineSpacingMultiplier="0.92"
+            />
+        </ScrollView>
+    </LinearLayout>
+
+    <!-- Botão flutuante de novo contato. Usa o ic_menu_add.png que já existe
+         no projeto (já é um círculo com "+", não precisou de fundo extra) -
+         escondido em telas de "escolher contato" (picker) pelo próprio
+         ContactsListActivity, igual o menu de opções já fazia. -->
+    <ImageButton android:id="@+id/fabNewContact"
+        android:layout_width="56dip"
+        android:layout_height="56dip"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="16dip"
+        android:src="@drawable/ic_menu_add"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        android:contentDescription="@string/menu_newContact"
     />
 
-    <ScrollView android:id="@android:id/empty"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:fillViewport="true"
-    >
-        <TextView android:id="@+id/emptyText"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/noContacts"
-            android:textSize="20sp"
-            android:textColor="?android:attr/textColorSecondary"
-            android:paddingLeft="10dip"
-            android:paddingRight="10dip"
-            android:paddingTop="10dip"
-            android:lineSpacingMultiplier="0.92"
-        />
-    </ScrollView>
-</LinearLayout>
+</FrameLayout>

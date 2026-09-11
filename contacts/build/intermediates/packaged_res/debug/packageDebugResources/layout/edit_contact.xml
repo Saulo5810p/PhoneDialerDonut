@@ -74,10 +74,16 @@
         <!-- "Phonetic name" entry widget, visible only in certain locales -->
         <include layout="@layout/edit_phonetic_name"/>
 
+        <!-- Corrigido: layout_height="0dip" + layout_weight="1" dentro de um
+             ScrollView é um combo instável (o ScrollView mede o filho com
+             altura "infinita" pra saber o tamanho total roláveis, então a
+             distribuição por peso pode zerar essa área) - foi isso que fazia
+             os campos abaixo do número desaparecerem depois de fechar o
+             teclado. Trocado por wrap_content simples, sem peso; o
+             ScrollView já dá conta de rolar se o conteúdo não couber. -->
         <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="0dip"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             >
 

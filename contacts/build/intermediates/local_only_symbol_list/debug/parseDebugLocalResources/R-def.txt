@@ -793,6 +793,7 @@ id duration
 id eight
 id emptyText
 id entry_ringtone
+id fabNewContact
 id five
 id four
 id icon
@@ -1000,6 +1001,8 @@ string menu_showBarcode
 string menu_viewAddress
 string menu_viewContact
 string messageShortcutActivityTitle
+string missingContactsPermissionToast
+string noAppToHandleAction
 string noContacts
 string noContactsHelpText
 string noContactsHelpTextWithSync

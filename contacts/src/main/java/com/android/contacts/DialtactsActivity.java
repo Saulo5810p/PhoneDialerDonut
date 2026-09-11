@@ -77,45 +77,52 @@ public class DialtactsActivity extends TabActivity implements TabHost.OnTabChang
         mTabHost = getTabHost();
         mTabHost.setOnTabChangedListener(this);
 
-        checkAndRequestRuntimePermissions();
+        // Corrigido: antes as abas eram montadas e abertas (setCurrentTab)
+        // mesmo sem nenhuma permissão em runtime concedida ainda, e o pedido
+        // de permissão é assíncrono (o popup aparece, mas o código já seguiu
+        // adiante) - por isso as telas tentavam acessar contatos/estado da
+        // chamada sem permissão e crashavam. Agora só monta as abas se já
+        // tiver tudo concedido; senão só pede a permissão e espera - quando o
+        // usuário responder, onRequestPermissionsResult() chama recreate() e
+        // essa checagem roda de novo.
+        String[] faltando = permissoesFaltando();
+        if (faltando.length == 0) {
+            setupDialerTab();
+            setupCallLogTab();
+            setupContactsTab();
+            setupFavoritesTab();
 
-        // Setup the tabs
-        setupDialerTab();
-        setupCallLogTab();
-        setupContactsTab();
-        setupFavoritesTab();
+            setCurrentTab(intent);
 
-        setCurrentTab(intent);
-
-        if (intent.getAction().equals(ContactsUiIntents.FILTER_CONTACTS_ACTION)
-                && icicle == null) {
-            setupFilterText(intent);
+            if (intent.getAction().equals(ContactsUiIntents.FILTER_CONTACTS_ACTION)
+                    && icicle == null) {
+                setupFilterText(intent);
+            }
+        } else {
+            ActivityCompat.requestPermissions(this, faltando, REQUEST_CODE_RUNTIME_PERMISSIONS);
         }
     }
 
     private static final int REQUEST_CODE_RUNTIME_PERMISSIONS = 1001;
 
-    private void checkAndRequestRuntimePermissions() {
-        String[] permissoesNecessarias = {
-                Manifest.permission.CALL_PHONE,
-                Manifest.permission.READ_CALL_LOG,
-                Manifest.permission.WRITE_CALL_LOG,
-                Manifest.permission.READ_CONTACTS,
-                Manifest.permission.WRITE_CONTACTS,
-                Manifest.permission.READ_PHONE_STATE,
-        };
+    private static final String[] PERMISSOES_NECESSARIAS = {
+            Manifest.permission.CALL_PHONE,
+            Manifest.permission.READ_CALL_LOG,
+            Manifest.permission.WRITE_CALL_LOG,
+            Manifest.permission.READ_CONTACTS,
+            Manifest.permission.WRITE_CONTACTS,
+            Manifest.permission.READ_PHONE_STATE,
+    };
+
+    private String[] permissoesFaltando() {
         java.util.ArrayList<String> faltando = new java.util.ArrayList<>();
-        for (String permissao : permissoesNecessarias) {
+        for (String permissao : PERMISSOES_NECESSARIAS) {
             if (ContextCompat.checkSelfPermission(this, permissao)
                     != PackageManager.PERMISSION_GRANTED) {
                 faltando.add(permissao);
             }
         }
-        if (!faltando.isEmpty()) {
-            ActivityCompat.requestPermissions(this,
-                    faltando.toArray(new String[0]),
-                    REQUEST_CODE_RUNTIME_PERMISSIONS);
-        }
+        return faltando.toArray(new String[0]);
     }
 
     @Override

@@ -21,6 +21,7 @@ import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.app.SearchManager;
 import android.content.AsyncQueryHandler;
+import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.ContentValues;
@@ -74,6 +75,7 @@ import android.widget.ListView;
 import android.widget.ResourceCursorAdapter;
 import android.widget.SectionIndexer;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.lang.ref.SoftReference;
 import java.lang.ref.WeakReference;
@@ -536,12 +538,44 @@ public final class ContactsListActivity extends ListActivity
         // Checagem de sync via IContentProvider/ISyncAdapter (API interna, inacessível
         // a apps normais) removida. mSyncEnabled fica sempre false — só afeta qual das
         // duas strings de "lista vazia" é mostrada, sem impacto funcional real.
-        if (getContentResolver().acquireContentProviderClient(Contacts.CONTENT_URI) == null) {
-            // Provider de contatos indisponível, desiste.
+        try {
+            if (getContentResolver().acquireContentProviderClient(Contacts.CONTENT_URI) == null) {
+                // Provider de contatos indisponível, desiste.
+                finish();
+                return;
+            }
+        } catch (SecurityException e) {
+            // Ainda sem permissão de contatos concedida (ex.: essa aba foi aberta
+            // antes do usuário responder ao pedido de permissão, ou negou). Não
+            // deixa crashar - só fecha essa tela; o DialtactsActivity cuida de
+            // pedir a permissão de novo.
+            Log.e(TAG, "sem permissão de contatos ainda", e);
+            Toast.makeText(this, R.string.missingContactsPermissionToast, Toast.LENGTH_SHORT)
+                    .show();
             finish();
             return;
         }
         mSyncEnabled = false;
+
+        // Botão flutuante de novo contato, só na aba "Contatos" de verdade
+        // (não em pickers nem na aba de favoritos).
+        View fab = findViewById(R.id.fabNewContact);
+        if (fab != null) {
+            if (mDefaultMode && (mMode & MODE_MASK_PICKER) != MODE_MASK_PICKER) {
+                fab.setVisibility(View.VISIBLE);
+                fab.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        try {
+                            startActivity(new Intent(Intents.Insert.ACTION, Contacts.CONTENT_URI));
+                        } catch (ActivityNotFoundException e) {
+                            Log.e(TAG, "sem app pra criar contato", e);
+                        }
+                    }
+                });
+            } else {
+                fab.setVisibility(View.GONE);
+            }
+        }
     }
 
     private void setEmptyText() {
@@ -1019,8 +1053,14 @@ public final class ContactsListActivity extends ListActivity
             case MENU_ITEM_CALL: {
                 long phoneId = cursor.getLong(PRIMARY_PHONE_ID_COLUMN_INDEX);
                 if (phoneId > 0) {
-                    startActivity(new Intent(Intent.ACTION_CALL,
-                            ContentUris.withAppendedId(Phone.CONTENT_URI, phoneId)));
+                    try {
+                        startActivity(new Intent(Intent.ACTION_CALL,
+                                ContentUris.withAppendedId(Phone.CONTENT_URI, phoneId)));
+                    } catch (ActivityNotFoundException e) {
+                        Log.e(TAG, "nenhum app pra ligar ainda", e);
+                        Toast.makeText(this, R.string.noAppToHandleAction, Toast.LENGTH_SHORT)
+                                .show();
+                    }
                 }
                 return true;
             }
