@@ -20,6 +20,7 @@ import android.app.Activity;
 import android.content.Intent;
 import com.android.phone.compat.TelephonyIntentsCompat;
 import android.os.Bundle;
+import android.telecom.TelecomManager;
 import android.telephony.PhoneNumberUtils;
 import android.util.Log;
 
@@ -40,7 +41,6 @@ import android.util.Log;
  */
 public class OutgoingCallBroadcaster extends Activity {
 
-    private static final String PERMISSION = android.Manifest.permission.PROCESS_OUTGOING_CALLS;
     private static final String TAG = "OutgoingCallBroadcaster";
     private static final boolean LOGV = false;
 
@@ -62,8 +62,6 @@ public class OutgoingCallBroadcaster extends Activity {
         }
         final boolean emergencyNumber =
                 (number != null) && PhoneNumberUtils.isEmergencyNumber(number);
-
-        boolean callNow;
 
         if (getClass().getName().equals(intent.getComponent().getClassName())) {
             // If we were launched directly from the OutgoingCallBroadcaster,
@@ -90,7 +88,6 @@ public class OutgoingCallBroadcaster extends Activity {
                 finish();
                 return;
             }
-            callNow = false;
         } else if (TelephonyIntentsCompat.ACTION_CALL_EMERGENCY.equals(action)) {
             if (!emergencyNumber) {
                 Log.w(TAG, "Cannot call non-emergency number " + number
@@ -98,7 +95,6 @@ public class OutgoingCallBroadcaster extends Activity {
                 finish();
                 return;
             }
-            callNow = true;
         } else {
             Log.e(TAG, "Unhandled Intent " + intent + ".");
             finish();
@@ -115,24 +111,18 @@ public class OutgoingCallBroadcaster extends Activity {
         // broadcast; technically we should be holding a wake lock here
         // as well.
         PhoneApp.getInstance().wakeUpScreen();
-        
-        /* If number is null, we're probably trying to call a non-existent voicemail number or
-         * something else fishy.  Whatever the problem, there's no number, so there's no point
-         * in allowing apps to modify the number. */
-        if (number == null) callNow = true;
 
-        if (callNow) {
-            intent.setClass(this, InCallScreen.class);
-            startActivity(intent);
+        // Entrega a chamada pro Telecom do sistema. Ele que cuida do
+        // NEW_OUTGOING_CALL (protegido, só o sistema pode mandar) e do
+        // disque de verdade; a InCallScreen é aberta depois, quando o
+        // DonutInCallService recebe onCallAdded pra essa chamada.
+        TelecomManager telecomManager =
+                (TelecomManager) getSystemService(TELECOM_SERVICE);
+        if (telecomManager != null) {
+            telecomManager.placeCall(intent.getData(), intent.getExtras());
+        } else {
+            Log.e(TAG, "TelecomManager indisponível, não foi possível originar a chamada.");
         }
-
-        Intent broadcastIntent = new Intent(Intent.ACTION_NEW_OUTGOING_CALL);
-        if (number != null) broadcastIntent.putExtra(Intent.EXTRA_PHONE_NUMBER, number);
-        broadcastIntent.putExtra(EXTRA_ALREADY_CALLED, callNow);
-        broadcastIntent.putExtra(EXTRA_ORIGINAL_URI, intent.getData().toString());
-        if (LOGV) Log.v(TAG, "Broadcasting intent " + broadcastIntent + ".");
-        sendOrderedBroadcast(broadcastIntent, PERMISSION, null, null,
-                             Activity.RESULT_OK, number, null);
 
         finish();
     }

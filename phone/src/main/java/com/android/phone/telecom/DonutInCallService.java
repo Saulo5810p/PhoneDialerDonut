@@ -13,10 +13,13 @@ package com.android.phone.telecom;
 // DonutCallManager, que por sua vez a UI antiga (CallNotifier/InCallScreen)
 // escuta sem precisar conhecer android.telecom diretamente.
 
+import android.content.Intent;
 import android.telecom.Call;
 import android.telecom.CallAudioState;
 import android.telecom.InCallService;
 import android.util.Log;
+
+import com.android.phone.InCallScreen;
 
 public class DonutInCallService extends InCallService {
 
@@ -34,6 +37,21 @@ public class DonutInCallService extends InCallService {
         Log.i(TAG, "onCallAdded: " + call);
         call.registerCallback(mCallCallback);
         DonutCallManager.getInstance().onCallAdded(call);
+
+        // CORREÇÃO: nada mais no projeto abria a InCallScreen depois que o
+        // OutgoingCallBroadcaster parou de fazer isso na mão (era ele quem
+        // chamava startActivity(InCallScreen) antes de crashar no broadcast
+        // proibido). Sem isto aqui, a chamada até seria discada de verdade
+        // pelo sistema, mas nenhuma tela apareceria. Este é o ponto oficial
+        // do InCallService pra abrir a UI própria (documentado pela própria
+        // API): toda vez que o sistema registra uma chamada nova -- discada
+        // por nós, recebida, ou já em andamento -- abrimos a tela clássica.
+        // InCallScreen é singleInstance (ver AndroidManifest), então chamar
+        // startActivity de novo com uma instância já em primeiro plano só
+        // traz ela pra frente, não recria nem duplica.
+        Intent intent = new Intent(this, InCallScreen.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
     @Override
