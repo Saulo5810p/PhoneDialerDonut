@@ -1,0 +1,877 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<!--
+3 Copyright (C) 2007 The Android Open Source Project
+4
+5     Licensed under the Apache License, Version 2.0 (the "License");
+6     you may not use this file except in compliance with the License.
+7     You may obtain a copy of the License at
+8  
+9          http://www.apache.org/licenses/LICENSE-2.0
+10  
+11     Unless required by applicable law or agreed to in writing, software
+12     distributed under the License is distributed on an "AS IS" BASIS,
+13     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+14     See the License for the specific language governing permissions and
+15     limitations under the License.
+16-->
+17<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+18    package="com.xaulinxs.donut.telefoneantigo"
+19    android:versionCode="1"
+20    android:versionName="1.6-donut-rebuild" >
+21
+22    <uses-sdk
+23        android:minSdkVersion="23"
+24        android:targetSdkVersion="34" />
+25
+26    <protected-broadcast android:name="android.intent.action.SERVICE_STATE" />
+26-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:20:5-79
+26-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:20:26-76
+27    <protected-broadcast android:name="android.intent.action.RADIO_TECHNOLOGY" />
+27-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:20:5-79
+27-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:20:26-76
+28    <protected-broadcast android:name="android.intent.action.EMERGENCY_CALLBACK_MODE_CHANGED" />
+28-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:20:5-79
+28-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:20:26-76
+29    <protected-broadcast android:name="android.intent.action.SIG_STR" />
+29-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:20:5-79
+29-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:20:26-76
+30    <protected-broadcast android:name="android.intent.action.ANY_DATA_STATE" />
+30-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:20:5-79
+30-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:20:26-76
+31    <protected-broadcast android:name="android.intent.action.DATA_CONNECTION_FAILED" />
+31-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:20:5-79
+31-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:20:26-76
+32    <protected-broadcast android:name="android.intent.action.SIM_STATE_CHANGED" />
+32-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:20:5-79
+32-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:20:26-76
+33    <protected-broadcast android:name="android.intent.action.NETWORK_SET_TIME" />
+33-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:20:5-79
+33-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:20:26-76
+34    <protected-broadcast android:name="android.intent.action.NETWORK_SET_TIMEZONE" />
+34-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:20:5-79
+34-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:20:26-76
+35    <protected-broadcast android:name="android.intent.action.ACTION_SHOW_NOTICE_ECM_BLOCK_OTHERS" />
+35-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:20:5-79
+35-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:20:26-76
+36    <protected-broadcast android:name="android.intent.action.ACTION_MDN_STATE_CHANGED" />
+36-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:20:5-79
+36-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:20:26-76
+37    <protected-broadcast android:name="android.provider.Telephony.SPN_STRINGS_UPDATED" />
+37-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:20:5-79
+37-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:20:26-76
+38
+39    <!--
+40         Permissões signature/system-only removidas nesta rodada, porque
+41         nenhum app normal (nem assinado, sem sharedUserId de sistema)
+42         chega a recebê-las de verdade: eram letra morta.
+43         CALL_PRIVILEGED, WRITE_SECURE_SETTINGS, INTERNAL_SYSTEM_WINDOW,
+44         ADD_SYSTEM_SERVICE, STATUS_BAR, MODIFY_PHONE_STATE, DEVICE_POWER,
+45         REORDER_TASKS, CHANGE_CONFIGURATION, SET_TIME_ZONE,
+46         WRITE_APN_SETTINGS, BROADCAST_SMS, BROADCAST_WAP_PUSH,
+47         DISABLE_KEYGUARD (substituída pelo padrão moderno de janela, ver
+48         PhoneApp.disableKeyguard()). SYSTEM_ALERT_WINDOW também saiu: não é
+49         usada em nenhum lugar do código já migrado.
+50    -->
+51    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+51-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:43:5-75
+51-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:43:22-72
+52    <uses-permission android:name="android.permission.CALL_PHONE" />
+52-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:44:5-69
+52-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:44:22-66
+53    <uses-permission android:name="android.permission.ANSWER_PHONE_CALLS" />
+53-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:45:5-77
+53-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:45:22-74
+54    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+54-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:46:5-73
+54-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:46:22-70
+55    <uses-permission android:name="android.permission.READ_CONTACTS" />
+55-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:47:5-72
+55-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:47:22-69
+56    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+56-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:48:5-73
+56-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:48:22-70
+57    <uses-permission android:name="android.permission.VIBRATE" />
+57-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:49:5-66
+57-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:49:22-63
+58    <uses-permission android:name="android.permission.BLUETOOTH" />
+58-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:50:5-68
+58-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:50:22-65
+59    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+59-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:51:5-74
+59-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:51:22-71
+60    <uses-permission android:name="android.permission.WAKE_LOCK" />
+60-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:52:5-68
+60-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:52:22-65
+61    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+61-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:53:5-80
+61-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:53:22-77
+62    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+62-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:54:5-71
+62-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:54:22-68
+63    <uses-permission android:name="android.permission.READ_SMS" />
+63-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:55:5-67
+63-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:55:22-64
+64    <uses-permission android:name="android.permission.WRITE_SMS" />
+64-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:56:5-68
+64-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:56:22-65
+65    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+65-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:57:5-76
+65-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:57:22-73
+66    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+66-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:58:5-75
+66-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:58:22-72
+67    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
+67-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:59:5-77
+67-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:59:22-74
+68    <uses-permission android:name="android.permission.INTERNET" />
+68-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:60:5-67
+68-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:60:22-64
+69    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+69-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:61:5-81
+69-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:61:22-78
+70    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+70-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:62:5-81
+70-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:62:22-78
+71    <!--
+72         POST_NOTIFICATIONS: obrigatória em runtime a partir do Android 13
+73         (API 33) pra qualquer notificação aparecer, necessária agora que
+74         PhoneApp.onCreate() chama NotificationMgr.init() de verdade (a
+75         notificação de chamada em andamento/chamada perdida depende disso).
+76         Só a declaração no manifest não basta: falta ainda pedir em
+77         runtime (ver STATUS-PROJETO.md, seção do NotificationMgr).
+78    -->
+79    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+79-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:69:5-77
+79-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:69:22-74
+80
+81    <permission
+81-->[androidx.core:core:1.13.1] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1d876224da57df4a482e52292d7feacd/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
+82        android:name="com.xaulinxs.donut.telefoneantigo.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+82-->[androidx.core:core:1.13.1] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1d876224da57df4a482e52292d7feacd/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
+83        android:protectionLevel="signature" />
+83-->[androidx.core:core:1.13.1] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1d876224da57df4a482e52292d7feacd/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
+84
+85    <uses-permission android:name="com.xaulinxs.donut.telefoneantigo.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+85-->[androidx.core:core:1.13.1] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1d876224da57df4a482e52292d7feacd/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
+85-->[androidx.core:core:1.13.1] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1d876224da57df4a482e52292d7feacd/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
+86
+87    <application
+87-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:71:5-370:19
+88        android:name="com.android.phone.PhoneApp"
+88-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:71:18-41
+89        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+89-->[androidx.core:core:1.13.1] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1d876224da57df4a482e52292d7feacd/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
+90        android:debuggable="true"
+91        android:extractNativeLibs="false"
+92        android:icon="@drawable/ic_launcher_phone"
+92-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:74:18-60
+93        android:label="@string/dialerIconLabel"
+93-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:73:18-57
+94        android:persistent="true"
+94-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:72:18-43
+95        android:theme="@style/Classic.Theme" >
+95-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:75:18-54
+96
+97        <!--
+98                 Peça real da Rota A: registra o app como candidato a InCallService
+99                 (tela de chamada) do sistema. Precisa do usuário escolher este app
+100                 como discador padrão pra ser ativado — não acontece sozinho.
+101        -->
+102        <service
+102-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:79:13-86:23
+103            android:name="com.android.phone.telecom.DonutInCallService"
+103-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:79:22-64
+104            android:exported="true"
+104-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:81:22-45
+105            android:permission="android.permission.BIND_INCALL_SERVICE" >
+105-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:80:22-81
+106            <meta-data
+106-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:82:17-101
+107                android:name="android.telecom.IN_CALL_SERVICE_UI"
+107-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:82:28-77
+108                android:value="true" />
+108-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:82:78-98
+109
+110            <intent-filter>
+110-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:83:17-85:33
+111                <action android:name="android.telecom.InCallService" />
+111-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:84:21-76
+111-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:84:29-73
+112            </intent-filter>
+113        </service>
+114        <!--
+115             Tela de discagem própria do Phone (nova nesta rodada). Junto
+116             com o DonutInCallService (já registrado acima), é o que falta
+117             pro Android considerar este app elegível como discador padrão
+118             (RoleManager.ROLE_DIALER). Também vira o ícone que abre no
+119             launcher, já que o app não tinha nenhuma Activity LAUNCHER até
+120             agora.
+121        -->
+122        <activity
+122-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:93:9-117:20
+123            android:name="com.android.phone.PhoneDialerActivity"
+123-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:93:19-53
+124            android:exported="true"
+124-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:98:13-36
+125            android:label="@string/phoneIconLabel"
+125-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:94:13-51
+126            android:launchMode="singleTop"
+126-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:97:13-43
+127            android:screenOrientation="nosensor"
+127-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:96:13-49
+128            android:theme="@style/Classic.Theme.NoTitleBar" >
+128-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:95:13-60
+129            <intent-filter>
+129-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:99:13-102:29
+130                <action android:name="android.intent.action.MAIN" />
+130-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:100:17-69
+130-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:100:25-66
+131
+132                <category android:name="android.intent.category.LAUNCHER" />
+132-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:101:17-77
+132-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:101:27-74
+133            </intent-filter>
+134            <intent-filter>
+134-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:103:13-106:29
+135                <action android:name="android.intent.action.DIAL" />
+135-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:104:17-69
+135-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:104:25-66
+136
+137                <category android:name="android.intent.category.DEFAULT" />
+137-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:105:17-76
+137-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:105:27-73
+138            </intent-filter>
+139            <intent-filter>
+139-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:107:13-111:29
+140                <action android:name="android.intent.action.DIAL" />
+140-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:104:17-69
+140-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:104:25-66
+141
+142                <category android:name="android.intent.category.DEFAULT" />
+142-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:105:17-76
+142-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:105:27-73
+143
+144                <data android:scheme="tel" />
+144-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:110:17-46
+144-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:110:23-43
+145            </intent-filter>
+146            <intent-filter>
+146-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:112:13-116:29
+147                <action android:name="android.intent.action.VIEW" />
+147-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:113:17-69
+147-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:113:25-66
+148
+149                <category android:name="android.intent.category.DEFAULT" />
+149-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:105:17-76
+149-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:105:27-73
+150
+151                <data android:scheme="tel" />
+151-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:110:17-46
+151-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:110:23-43
+152            </intent-filter>
+153        </activity>
+154
+155        <!-- Dialer UI that only allows emergency calls -->
+156        <activity
+156-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:120:9-128:20
+157            android:name="com.android.phone.EmergencyDialer"
+157-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:120:19-49
+158            android:exported="true"
+158-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:123:13-36
+159            android:label="@string/emergencyDialerIconLabel"
+159-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:121:13-61
+160            android:screenOrientation="nosensor" >
+160-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:122:13-49
+161            <intent-filter>
+161-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:124:13-127:29
+162                <action android:name="com.android.phone.EmergencyDialer.DIAL" />
+162-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:125:17-81
+162-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:125:25-78
+163
+164                <category android:name="android.intent.category.DEFAULT" />
+164-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:105:17-76
+164-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:105:27-73
+165            </intent-filter>
+166        </activity>
+167        <activity android:name="com.android.phone.ADNList" />
+167-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:130:9-44
+167-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:130:19-41
+168        <activity
+168-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:132:9-141:20
+169            android:name="com.android.phone.SimContacts"
+169-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:132:19-45
+170            android:exported="true"
+170-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:134:13-36
+171            android:label="@string/simContacts_title" >
+171-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:133:13-54
+172            <intent-filter>
+172-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:136:13-140:29
+173                <action android:name="android.intent.action.VIEW" />
+173-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:113:17-69
+173-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:113:25-66
+174
+175                <category android:name="android.intent.category.DEFAULT" />
+175-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:105:17-76
+175-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:105:27-73
+176
+177                <data android:mimeType="vnd.android.cursor.item/sim-contact" />
+177-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:110:17-46
+177-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:139:23-77
+178            </intent-filter>
+179        </activity>
+180        <activity
+180-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:143:9-150:20
+181            android:name="com.android.phone.FdnList"
+181-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:143:19-41
+182            android:exported="true"
+182-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:144:13-36
+183            android:label="@string/fdnListLabel" >
+183-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:143:42-78
+184            <intent-filter>
+184-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:136:13-140:29
+185                <action android:name="android.intent.action.VIEW" />
+185-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:113:17-69
+185-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:113:25-66
+186
+187                <category android:name="android.intent.category.DEFAULT" />
+187-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:105:17-76
+187-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:105:27-73
+188
+189                <data android:mimeType="vnd.android.cursor.item/sim-contact" />
+189-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:110:17-46
+189-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:139:23-77
+190            </intent-filter>
+191        </activity>
+192        <activity
+192-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:152:9-174:20
+193            android:name="com.android.phone.OutgoingCallBroadcaster"
+193-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:152:19-57
+194            android:exported="true"
+194-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:155:17-40
+195            android:permission="android.permission.CALL_PHONE"
+195-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:153:17-67
+196            android:theme="@android:style/Theme.NoDisplay" >
+196-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:154:17-63
+197
+198            <!--
+199                 CALL action intent filters, for the various ways
+200                 of initiating an outgoing call.
+201            -->
+202            <intent-filter>
+202-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:158:13-162:29
+203                <action android:name="android.intent.action.CALL" />
+203-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:159:17-69
+203-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:159:25-66
+204
+205                <category android:name="android.intent.category.DEFAULT" />
+205-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:105:17-76
+205-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:105:27-73
+206
+207                <data android:scheme="tel" />
+207-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:110:17-46
+207-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:110:23-43
+208            </intent-filter>
+209            <intent-filter>
+209-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:163:13-167:29
+210                <action android:name="android.intent.action.CALL" />
+210-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:159:17-69
+210-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:159:25-66
+211
+212                <category android:name="android.intent.category.DEFAULT" />
+212-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:105:17-76
+212-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:105:27-73
+213
+214                <data android:scheme="voicemail" />
+214-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:110:17-46
+214-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:110:23-43
+215            </intent-filter>
+216            <intent-filter>
+216-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:168:13-173:29
+217                <action android:name="android.intent.action.CALL" />
+217-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:159:17-69
+217-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:159:25-66
+218
+219                <category android:name="android.intent.category.DEFAULT" />
+219-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:105:17-76
+219-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:105:27-73
+220
+221                <data android:mimeType="vnd.android.cursor.item/phone_v2" />
+221-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:110:17-46
+221-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:139:23-77
+222                <data android:mimeType="vnd.android.cursor.item/contact" />
+222-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:110:17-46
+222-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:139:23-77
+223            </intent-filter>
+224        </activity>
+225
+226        <activity-alias
+226-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:199:9-219:26
+227            android:name="com.android.phone.PrivilegedOutgoingCallBroadcaster"
+227-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:199:25-73
+228            android:exported="true"
+228-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:202:17-40
+229            android:permission="android.permission.CALL_PRIVILEGED"
+229-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:201:17-72
+230            android:targetActivity="com.android.phone.OutgoingCallBroadcaster" >
+230-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:200:17-65
+231            <intent-filter>
+231-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:203:13-207:29
+232                <action android:name="android.intent.action.CALL_PRIVILEGED" />
+232-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:204:17-80
+232-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:204:25-77
+233
+234                <category android:name="android.intent.category.DEFAULT" />
+234-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:105:17-76
+234-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:105:27-73
+235
+236                <data android:scheme="tel" />
+236-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:110:17-46
+236-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:110:23-43
+237            </intent-filter>
+238            <intent-filter>
+238-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:208:13-212:29
+239                <action android:name="android.intent.action.CALL_PRIVILEGED" />
+239-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:204:17-80
+239-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:204:25-77
+240
+241                <category android:name="android.intent.category.DEFAULT" />
+241-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:105:17-76
+241-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:105:27-73
+242
+243                <data android:scheme="voicemail" />
+243-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:110:17-46
+243-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:110:23-43
+244            </intent-filter>
+245            <intent-filter>
+245-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:213:13-218:29
+246                <action android:name="android.intent.action.CALL_PRIVILEGED" />
+246-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:204:17-80
+246-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:204:25-77
+247
+248                <category android:name="android.intent.category.DEFAULT" />
+248-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:105:17-76
+248-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:105:27-73
+249
+250                <data android:mimeType="vnd.android.cursor.item/phone_v2" />
+250-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:110:17-46
+250-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:139:23-77
+251                <data android:mimeType="vnd.android.cursor.item/contact" />
+251-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:110:17-46
+251-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:139:23-77
+252            </intent-filter>
+253        </activity-alias>
+254        <activity-alias
+254-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:176:9-197:26
+255            android:name="com.android.phone.EmergencyOutgoingCallBroadcaster"
+255-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:176:25-72
+256            android:exported="true"
+256-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:180:17-40
+257            android:permission="android.permission.CALL_PRIVILEGED"
+257-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:178:17-72
+258            android:targetActivity="com.android.phone.OutgoingCallBroadcaster"
+258-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:177:17-65
+259            android:theme="@android:style/Theme.NoDisplay" >
+259-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:179:17-63
+260            <intent-filter>
+260-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:181:13-185:29
+261                <action android:name="android.intent.action.CALL_EMERGENCY" />
+261-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:182:17-79
+261-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:182:25-76
+262
+263                <category android:name="android.intent.category.DEFAULT" />
+263-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:105:17-76
+263-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:105:27-73
+264
+265                <data android:scheme="tel" />
+265-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:110:17-46
+265-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:110:23-43
+266            </intent-filter>
+267            <intent-filter>
+267-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:186:13-190:29
+268                <action android:name="android.intent.action.CALL_EMERGENCY" />
+268-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:182:17-79
+268-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:182:25-76
+269
+270                <category android:name="android.intent.category.DEFAULT" />
+270-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:105:17-76
+270-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:105:27-73
+271
+272                <data android:scheme="voicemail" />
+272-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:110:17-46
+272-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:110:23-43
+273            </intent-filter>
+274            <intent-filter>
+274-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:191:13-196:29
+275                <action android:name="android.intent.action.CALL_EMERGENCY" />
+275-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:182:17-79
+275-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:182:25-76
+276
+277                <category android:name="android.intent.category.DEFAULT" />
+277-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:105:17-76
+277-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:105:27-73
+278
+279                <data android:mimeType="vnd.android.cursor.item/phone_v2" />
+279-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:110:17-46
+279-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:139:23-77
+280                <data android:mimeType="vnd.android.cursor.item/contact" />
+280-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:110:17-46
+280-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:139:23-77
+281            </intent-filter>
+282        </activity-alias>
+283
+284        <receiver
+284-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:221:9-227:20
+285            android:name="com.android.phone.ProcessOutgoingCallTest"
+285-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:221:19-57
+286            android:enabled="false"
+286-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:222:13-36
+287            android:exported="false" >
+287-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:221:58-82
+288            <intent-filter android:priority="1" >
+288-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:223:13-226:29
+288-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:223:28-48
+289                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
+289-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:224:17-82
+289-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:224:25-79
+290
+291                <category android:name="android.intent.category.DEFAULT" />
+291-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:105:17-76
+291-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:105:27-73
+292            </intent-filter>
+293        </receiver>
+294        <receiver
+294-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:229:9-234:20
+295            android:name="com.android.phone.OutgoingCallReceiver"
+295-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:229:19-54
+296            android:exported="false" >
+296-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:229:55-79
+297            <intent-filter android:priority="-100" >
+297-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:223:13-226:29
+297-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:223:28-48
+298                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
+298-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:224:17-82
+298-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:224:25-79
+299
+300                <category android:name="android.intent.category.DEFAULT" />
+300-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:105:17-76
+300-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:105:27-73
+301            </intent-filter>
+302        </receiver>
+303
+304        <activity
+304-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:236:9-242:40
+305            android:name="com.android.phone.InCallScreen"
+305-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:236:19-46
+306            android:excludeFromRecents="true"
+306-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:239:13-46
+307            android:exported="false"
+307-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:242:13-37
+308            android:label="@string/phoneIconLabel"
+308-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:238:13-51
+309            android:launchMode="singleInstance"
+309-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:240:13-48
+310            android:screenOrientation="nosensor"
+310-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:241:13-49
+311            android:theme="@style/Classic.Theme.NoTitleBar" />
+311-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:237:13-60
+312
+313        <!-- general settings -->
+314        <activity
+314-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:245:9-252:20
+315            android:name="com.android.phone.Settings"
+315-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:245:19-42
+316            android:exported="true"
+316-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:246:13-36
+317            android:label="@string/settings_label" >
+317-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:245:43-81
+318            <intent-filter>
+318-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:247:13-251:29
+319                <action android:name="android.intent.action.VIEW" />
+319-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:113:17-69
+319-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:113:25-66
+320                <action android:name="android.intent.action.MAIN" />
+320-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:100:17-69
+320-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:100:25-66
+321                <action android:name="android.settings.DATA_ROAMING_SETTINGS" />
+321-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:250:17-81
+321-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:250:25-78
+322            </intent-filter>
+323        </activity>
+324
+325        <!-- networks setting -->
+326        <!--
+327             NetworkQueryService (escaneava operadoras via RIL interno) foi excluído do
+328             build: TelephonyManager não oferece equivalente público de scan/seleção
+329             manual de operadora a apps normais. Ver STATUS-PROJETO.md.
+330        -->
+331        <activity
+331-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:258:9-264:20
+332            android:name="com.android.phone.NetworkSetting"
+332-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:258:19-48
+333            android:exported="false"
+333-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:259:13-37
+334            android:label="@string/networks" >
+334-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:258:49-81
+335            <intent-filter>
+335-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:260:13-263:29
+336                <action android:name="android.intent.action.MAIN" />
+336-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:100:17-69
+336-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:100:25-66
+337                <action android:name="android.settings.NETWORK_OPERATOR_" />
+337-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:262:17-77
+337-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:262:25-74
+338            </intent-filter>
+339        </activity>
+340        <activity
+340-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:266:9-272:20
+341            android:name="com.android.phone.GsmUmtsOptions"
+341-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:266:19-48
+342            android:exported="false"
+342-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:268:13-37
+343            android:label="@string/gsm_umts_options" >
+343-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:267:13-53
+344            <intent-filter>
+344-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:269:13-271:29
+345                <action android:name="android.intent.action.MAIN" />
+345-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:100:17-69
+345-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:100:25-66
+346            </intent-filter>
+347        </activity>
+348        <activity
+348-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:274:9-280:20
+349            android:name="com.android.phone.CdmaOptions"
+349-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:274:19-45
+350            android:exported="false"
+350-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:276:13-37
+351            android:label="@string/cdma_options" >
+351-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:275:13-49
+352            <intent-filter>
+352-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:269:13-271:29
+353                <action android:name="android.intent.action.MAIN" />
+353-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:100:17-69
+353-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:100:25-66
+354            </intent-filter>
+355        </activity>
+356        <activity
+356-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:282:9-288:20
+357            android:name="com.android.phone.CellBroadcastSms"
+357-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:282:19-50
+358            android:exported="false"
+358-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:284:13-37
+359            android:label="@string/cell_broadcast_sms" >
+359-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:283:13-55
+360            <intent-filter>
+360-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:269:13-271:29
+361                <action android:name="android.intent.action.MAIN" />
+361-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:100:17-69
+361-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:100:25-66
+362            </intent-filter>
+363        </activity>
+364
+365        <!-- fdn setting -->
+366        <activity
+366-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:291:9-296:20
+367            android:name="com.android.phone.FdnSetting"
+367-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:291:19-44
+368            android:exported="false"
+368-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:292:13-37
+369            android:label="@string/fdn" >
+369-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:291:45-72
+370            <intent-filter>
+370-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:269:13-271:29
+371                <action android:name="android.intent.action.MAIN" />
+371-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:100:17-69
+371-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:100:25-66
+372            </intent-filter>
+373        </activity>
+374        <activity
+374-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:298:9-299:20
+375            android:name="com.android.phone.EnableFdnScreen"
+375-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:298:19-49
+376            android:label="" >
+376-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:298:50-66
+377        </activity>
+378
+379        <!-- SIM PIN setting -->
+380        <activity
+380-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:302:9-308:20
+381            android:name="com.android.phone.EnableIccPinScreen"
+381-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:302:19-52
+382            android:exported="false"
+382-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:303:13-37
+383            android:label="@string/enable_pin" >
+383-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:302:53-87
+384            <intent-filter>
+384-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:304:13-307:29
+385                <action android:name="android.intent.action.MAIN" />
+385-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:100:17-69
+385-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:100:25-66
+386
+387                <category android:name="android.intent.category.DEVELOPMENT_PREFERENCE" />
+387-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:306:17-91
+387-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:306:27-88
+388            </intent-filter>
+389        </activity>
+390        <activity
+390-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:310:9-316:20
+391            android:name="com.android.phone.ChangeIccPinScreen"
+391-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:310:19-52
+392            android:exported="false"
+392-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:311:13-37
+393            android:label="@string/change_pin" >
+393-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:310:53-87
+394            <intent-filter>
+394-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:304:13-307:29
+395                <action android:name="android.intent.action.MAIN" />
+395-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:100:17-69
+395-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:100:25-66
+396
+397                <category android:name="android.intent.category.DEVELOPMENT_PREFERENCE" />
+397-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:306:17-91
+397-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:306:27-88
+398            </intent-filter>
+399        </activity>
+400        <activity
+400-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:318:9-319:20
+401            android:name="com.android.phone.GetPin2Screen"
+401-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:318:19-47
+402            android:label="@string/get_pin2" >
+402-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:318:48-80
+403        </activity>
+404        <activity android:name="com.android.phone.EditFdnContactScreen" >
+404-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:321:9-322:20
+404-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:321:19-54
+405        </activity>
+406        <activity
+406-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:324:9-326:20
+407            android:name="com.android.phone.DeleteFdnContactScreen"
+407-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:324:19-56
+408            android:label="@string/delete_fdn_contact" >
+408-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:325:9-51
+409        </activity>
+410
+411        <!--
+412             DataRoamingReenable/RoamingSetting removidos do manifest: essas
+413             duas Activities eram citadas no AndroidManifest.xml original do
+414             AOSP, mas o projeto NUNCA teve os arquivos .java correspondentes,
+415             nem antes da migração, nem depois. Nenhum código do app (nem
+416             Settings.java, a tela-mãe já migrada) navega até elas. Deixar
+417             essas entradas quebraria o aapt2 na primeira compilação (activity
+418             declarada sem classe correspondente). Achado nesta sessão durante
+419             a conferência final de pendências, não relacionado ao Bluetooth
+420             Handsfree.
+421        -->
+422
+423
+424        <!-- Emergency Callback Mode screen -->
+425        <activity
+425-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:339:9-344:20
+426            android:name="com.android.phone.EmergencyCallbackMode"
+426-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:339:19-55
+427            android:label="Emergency Call Back"
+427-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:340:17-52
+428            android:launchMode="singleTask"
+428-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:342:17-48
+429            android:taskAffinity=":EmergencyCallbackMode"
+429-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:343:17-62
+430            android:theme="@style/EmergencyCallBack" >
+430-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:341:17-57
+431        </activity>
+432
+433        <!-- call feature setting -->
+434        <activity
+434-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:347:9-354:20
+435            android:name="com.android.phone.CallFeaturesSetting"
+435-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:347:19-53
+436            android:exported="true"
+436-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:348:13-36
+437            android:label="@string/call_settings" >
+437-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:347:54-91
+438            <intent-filter>
+438-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:349:13-353:29
+439                <action android:name="android.intent.action.VIEW" />
+439-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:113:17-69
+439-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:113:25-66
+440                <action android:name="android.intent.action.MAIN" />
+440-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:100:17-69
+440-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:100:25-66
+441                <action android:name="com.android.phone.CallFeaturesSetting.ADD_VOICEMAIL" />
+441-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:352:17-94
+441-->/data/data/com.termux/files/home/app-project-android-1.6/phone/src/main/AndroidManifest.xml:352:25-91
+442            </intent-filter>
+443        </activity>
+444
+445        <!--
+446             EmergencyCallHandler foi excluído do build: o retry de chamada de
+447             emergência com rádio desligado (Phone.registerForServiceStateChanged/
+448             setRadioPower) é signature-only, sem equivalente público, e a classe
+449             não tinha layout/tela própria nem era referenciada por nenhum arquivo
+450             já migrado — ver STATUS-PROJETO.md.
+451        -->
+452        <!--
+453             BluetoothHeadsetService/BluetoothHandsfree/BluetoothAtPhonebook
+454             foram excluídos do build: implementavam a stack de AT commands
+455             Bluetooth (HSP/HFP) rodada pelo próprio app, via android.bluetooth.
+456             AtCommandHandler/AtParser/HeadsetBase/ScoSocket/
+457             BluetoothAudioGateway/IBluetoothHeadset, toda removida do SDK
+458             público (o Android moderno faz esse papel de Audio Gateway no
+459             próprio serviço de sistema de Bluetooth; um app comum só pede
+460             roteamento de áudio via CallAudioState.ROUTE_BLUETOOTH, API
+461             pública). Ver telecom/DonutCallManager.java.
+462        -->
+463        <provider
+463-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:24:9-32:20
+464            android:name="androidx.startup.InitializationProvider"
+464-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:25:13-67
+465            android:authorities="com.xaulinxs.donut.telefoneantigo.androidx-startup"
+465-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:26:13-68
+466            android:exported="false" >
+466-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:27:13-37
+467            <meta-data
+467-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
+468                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+468-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
+469                android:value="androidx.startup" />
+469-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
+470        </provider>
+471
+472        <receiver
+472-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
+473            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+473-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
+474            android:directBootAware="false"
+474-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
+475            android:enabled="true"
+475-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
+476            android:exported="true"
+476-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
+477            android:permission="android.permission.DUMP" >
+477-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
+478            <intent-filter>
+478-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
+479                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+479-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
+479-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
+480            </intent-filter>
+481            <intent-filter>
+481-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
+482                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+482-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
+482-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
+483            </intent-filter>
+484            <intent-filter>
+484-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
+485                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+485-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
+485-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
+486            </intent-filter>
+487            <intent-filter>
+487-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
+488                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+488-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
+488-->[androidx.profileinstaller:profileinstaller:1.3.0] /data/data/com.termux/files/home/.gradle/caches/9.6.1/transforms/1e02af3e5d1485deabc6c6656da75547/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
+489            </intent-filter>
+490        </receiver>
+491    </application>
+492
+493</manifest>

@@ -1,0 +1,158 @@
+diff --git a/phone/src/main/AndroidManifest.xml b/phone/src/main/AndroidManifest.xml
+index 66d3d0c..143628a 100644
+--- a/phone/src/main/AndroidManifest.xml
++++ b/phone/src/main/AndroidManifest.xml
+@@ -15,7 +15,6 @@
+ -->
+ 
+ <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+-        package="com.android.phone"
+ >
+ 
+     <protected-broadcast android:name="android.intent.action.SERVICE_STATE" />
+@@ -120,7 +119,8 @@
+         <!-- Dialer UI that only allows emergency calls -->
+         <activity android:name="EmergencyDialer"
+             android:label="@string/emergencyDialerIconLabel"
+-            android:screenOrientation="nosensor">
++            android:screenOrientation="nosensor"
++            android:exported="true">
+             <intent-filter>
+                 <action android:name="com.android.phone.EmergencyDialer.DIAL" />
+                 <category android:name="android.intent.category.DEFAULT" />
+@@ -130,7 +130,8 @@
+         <activity android:name="ADNList" />
+ 
+         <activity android:name="SimContacts"
+-            android:label="@string/simContacts_title">
++            android:label="@string/simContacts_title"
++            android:exported="true">
+ 
+             <intent-filter>
+                 <action android:name="android.intent.action.VIEW" />
+@@ -139,7 +140,8 @@
+             </intent-filter>
+         </activity>
+ 
+-        <activity android:name="FdnList" android:label="@string/fdnListLabel">
++        <activity android:name="FdnList" android:label="@string/fdnListLabel"
++            android:exported="true">
+             <intent-filter>
+                 <action android:name="android.intent.action.VIEW" />
+                 <category android:name="android.intent.category.DEFAULT" />
+@@ -149,7 +151,8 @@
+ 
+         <activity android:name="OutgoingCallBroadcaster"
+                 android:permission="android.permission.CALL_PHONE"
+-                android:theme="@android:style/Theme.NoDisplay">
++                android:theme="@android:style/Theme.NoDisplay"
++                android:exported="true">
+             <!-- CALL action intent filters, for the various ways
+                  of initiating an outgoing call. -->
+             <intent-filter>
+@@ -173,7 +176,8 @@
+         <activity-alias android:name="EmergencyOutgoingCallBroadcaster"
+                 android:targetActivity="OutgoingCallBroadcaster"
+                 android:permission="android.permission.CALL_PRIVILEGED"
+-                android:theme="@android:style/Theme.NoDisplay">
++                android:theme="@android:style/Theme.NoDisplay"
++                android:exported="true">
+             <intent-filter>
+                 <action android:name="android.intent.action.CALL_EMERGENCY" />
+                 <category android:name="android.intent.category.DEFAULT" />
+@@ -194,7 +198,8 @@
+ 
+         <activity-alias android:name="PrivilegedOutgoingCallBroadcaster"
+                 android:targetActivity="OutgoingCallBroadcaster"
+-                android:permission="android.permission.CALL_PRIVILEGED">
++                android:permission="android.permission.CALL_PRIVILEGED"
++                android:exported="true">
+             <intent-filter>
+                 <action android:name="android.intent.action.CALL_PRIVILEGED" />
+                 <category android:name="android.intent.category.DEFAULT" />
+@@ -237,7 +242,8 @@
+             android:exported="false" />
+ 
+         <!-- general settings -->
+-        <activity android:name="Settings" android:label="@string/settings_label">
++        <activity android:name="Settings" android:label="@string/settings_label"
++            android:exported="true">
+             <intent-filter>
+                 <action android:name="android.intent.action.VIEW" />
+                 <action android:name="android.intent.action.MAIN" />
+@@ -249,7 +255,8 @@
+         <!-- NetworkQueryService (escaneava operadoras via RIL interno) foi excluído do
+              build: TelephonyManager não oferece equivalente público de scan/seleção
+              manual de operadora a apps normais. Ver STATUS-PROJETO.md. -->
+-        <activity android:name="NetworkSetting" android:label="@string/networks">
++        <activity android:name="NetworkSetting" android:label="@string/networks"
++            android:exported="false">
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+                 <action android:name="android.settings.NETWORK_OPERATOR_" />
+@@ -257,28 +264,32 @@
+         </activity>
+ 
+         <activity android:name="GsmUmtsOptions"
+-            android:label="@string/gsm_umts_options">
++            android:label="@string/gsm_umts_options"
++            android:exported="false">
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+             </intent-filter>
+         </activity>
+ 
+         <activity android:name="CdmaOptions"
+-            android:label="@string/cdma_options">
++            android:label="@string/cdma_options"
++            android:exported="false">
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+             </intent-filter>
+         </activity>
+ 
+         <activity android:name="CellBroadcastSms"
+-            android:label="@string/cell_broadcast_sms">
++            android:label="@string/cell_broadcast_sms"
++            android:exported="false">
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+             </intent-filter>
+         </activity>
+         
+         <!-- fdn setting -->
+-        <activity android:name="FdnSetting" android:label="@string/fdn">
++        <activity android:name="FdnSetting" android:label="@string/fdn"
++            android:exported="false">
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+             </intent-filter>
+@@ -288,14 +299,16 @@
+         </activity>
+ 
+         <!-- SIM PIN setting -->
+-        <activity android:name="EnableIccPinScreen" android:label="@string/enable_pin">
++        <activity android:name="EnableIccPinScreen" android:label="@string/enable_pin"
++            android:exported="false">
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+                 <category android:name="android.intent.category.DEVELOPMENT_PREFERENCE" />
+             </intent-filter>
+         </activity>
+ 
+-        <activity android:name="ChangeIccPinScreen" android:label="@string/change_pin">
++        <activity android:name="ChangeIccPinScreen" android:label="@string/change_pin"
++            android:exported="false">
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+                 <category android:name="android.intent.category.DEVELOPMENT_PREFERENCE" />
+@@ -331,7 +344,8 @@
+         </activity>
+ 
+         <!-- call feature setting -->
+-        <activity android:name="CallFeaturesSetting" android:label="@string/call_settings">
++        <activity android:name="CallFeaturesSetting" android:label="@string/call_settings"
++            android:exported="true">
+             <intent-filter>
+                 <action android:name="android.intent.action.VIEW" />
+                 <action android:name="android.intent.action.MAIN" />

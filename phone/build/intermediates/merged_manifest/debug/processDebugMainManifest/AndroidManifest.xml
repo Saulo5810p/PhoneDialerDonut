@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2007 The Android Open Source Project
+<!--
+ Copyright (C) 2007 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,9 +14,14 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
->
+    package="com.xaulinxs.donut.telefoneantigo"
+    android:versionCode="1"
+    android:versionName="1.6-donut-rebuild" >
+
+    <uses-sdk
+        android:minSdkVersion="23"
+        android:targetSdkVersion="34" />
 
     <protected-broadcast android:name="android.intent.action.SERVICE_STATE" />
     <protected-broadcast android:name="android.intent.action.RADIO_TECHNOLOGY" />
@@ -29,8 +35,9 @@
     <protected-broadcast android:name="android.intent.action.ACTION_SHOW_NOTICE_ECM_BLOCK_OTHERS" />
     <protected-broadcast android:name="android.intent.action.ACTION_MDN_STATE_CHANGED" />
     <protected-broadcast android:name="android.provider.Telephony.SPN_STRINGS_UPDATED" />
-    
-    <!-- Permissões signature/system-only removidas nesta rodada, porque
+
+    <!--
+         Permissões signature/system-only removidas nesta rodada, porque
          nenhum app normal (nem assinado, sem sharedUserId de sistema)
          chega a recebê-las de verdade: eram letra morta.
          CALL_PRIVILEGED, WRITE_SECURE_SETTINGS, INTERNAL_SYSTEM_WINDOW,
@@ -39,7 +46,8 @@
          WRITE_APN_SETTINGS, BROADCAST_SMS, BROADCAST_WAP_PUSH,
          DISABLE_KEYGUARD (substituída pelo padrão moderno de janela, ver
          PhoneApp.disableKeyguard()). SYSTEM_ALERT_WINDOW também saiu: não é
-         usada em nenhum lugar do código já migrado. -->
+         usada em nenhum lugar do código já migrado.
+    -->
     <uses-permission android:name="android.permission.BROADCAST_STICKY" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.ANSWER_PHONE_CALLS" />
@@ -60,190 +68,253 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <!-- POST_NOTIFICATIONS: obrigatória em runtime a partir do Android 13
+    <!--
+         POST_NOTIFICATIONS: obrigatória em runtime a partir do Android 13
          (API 33) pra qualquer notificação aparecer, necessária agora que
          PhoneApp.onCreate() chama NotificationMgr.init() de verdade (a
          notificação de chamada em andamento/chamada perdida depende disso).
          Só a declaração no manifest não basta: falta ainda pedir em
-         runtime (ver STATUS-PROJETO.md, seção do NotificationMgr). -->
+         runtime (ver STATUS-PROJETO.md, seção do NotificationMgr).
+    -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
-    <application android:name="PhoneApp"
-                 android:persistent="true"
-                 android:label="@string/dialerIconLabel"
-                 android:icon="@drawable/ic_launcher_phone"
-                 android:theme="@style/Classic.Theme">
-            <!-- Peça real da Rota A: registra o app como candidato a InCallService
+    <permission
+        android:name="com.xaulinxs.donut.telefoneantigo.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.xaulinxs.donut.telefoneantigo.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+
+    <application
+        android:name="com.android.phone.PhoneApp"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:debuggable="true"
+        android:extractNativeLibs="false"
+        android:icon="@drawable/ic_launcher_phone"
+        android:label="@string/dialerIconLabel"
+        android:persistent="true"
+        android:theme="@style/Classic.Theme" >
+
+        <!--
+                 Peça real da Rota A: registra o app como candidato a InCallService
                  (tela de chamada) do sistema. Precisa do usuário escolher este app
-                 como discador padrão pra ser ativado — não acontece sozinho. -->
-            <service android:name=".telecom.DonutInCallService"
-                     android:permission="android.permission.BIND_INCALL_SERVICE"
-                     android:exported="true">
-                <meta-data android:name="android.telecom.IN_CALL_SERVICE_UI" android:value="true" />
-                <intent-filter>
-                    <action android:name="android.telecom.InCallService" />
-                </intent-filter>
-            </service>
-        <!-- Tela de discagem própria do Phone (nova nesta rodada). Junto
+                 como discador padrão pra ser ativado — não acontece sozinho.
+        -->
+        <service
+            android:name="com.android.phone.telecom.DonutInCallService"
+            android:exported="true"
+            android:permission="android.permission.BIND_INCALL_SERVICE" >
+            <meta-data
+                android:name="android.telecom.IN_CALL_SERVICE_UI"
+                android:value="true" />
+
+            <intent-filter>
+                <action android:name="android.telecom.InCallService" />
+            </intent-filter>
+        </service>
+        <!--
+             Tela de discagem própria do Phone (nova nesta rodada). Junto
              com o DonutInCallService (já registrado acima), é o que falta
              pro Android considerar este app elegível como discador padrão
              (RoleManager.ROLE_DIALER). Também vira o ícone que abre no
              launcher, já que o app não tinha nenhuma Activity LAUNCHER até
-             agora. -->
-        <activity android:name="PhoneDialerActivity"
+             agora.
+        -->
+        <activity
+            android:name="com.android.phone.PhoneDialerActivity"
+            android:exported="true"
             android:label="@string/phoneIconLabel"
-            android:theme="@style/Classic.Theme.NoTitleBar"
-            android:screenOrientation="nosensor"
             android:launchMode="singleTop"
-            android:exported="true">
+            android:screenOrientation="nosensor"
+            android:theme="@style/Classic.Theme.NoTitleBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.DIAL" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.DIAL" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:scheme="tel" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:scheme="tel" />
             </intent-filter>
         </activity>
 
         <!-- Dialer UI that only allows emergency calls -->
-        <activity android:name="EmergencyDialer"
+        <activity
+            android:name="com.android.phone.EmergencyDialer"
+            android:exported="true"
             android:label="@string/emergencyDialerIconLabel"
-            android:screenOrientation="nosensor"
-            android:exported="true">
+            android:screenOrientation="nosensor" >
             <intent-filter>
                 <action android:name="com.android.phone.EmergencyDialer.DIAL" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
-        <activity android:name="ADNList" />
-
-        <activity android:name="SimContacts"
-            android:label="@string/simContacts_title"
-            android:exported="true">
-
+        <activity android:name="com.android.phone.ADNList" />
+        <activity
+            android:name="com.android.phone.SimContacts"
+            android:exported="true"
+            android:label="@string/simContacts_title" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="vnd.android.cursor.item/sim-contact" />
             </intent-filter>
         </activity>
-
-        <activity android:name="FdnList" android:label="@string/fdnListLabel"
-            android:exported="true">
+        <activity
+            android:name="com.android.phone.FdnList"
+            android:exported="true"
+            android:label="@string/fdnListLabel" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="vnd.android.cursor.item/sim-contact" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.android.phone.OutgoingCallBroadcaster"
+            android:exported="true"
+            android:permission="android.permission.CALL_PHONE"
+            android:theme="@android:style/Theme.NoDisplay" >
 
-        <activity android:name="OutgoingCallBroadcaster"
-                android:permission="android.permission.CALL_PHONE"
-                android:theme="@android:style/Theme.NoDisplay"
-                android:exported="true">
-            <!-- CALL action intent filters, for the various ways
-                 of initiating an outgoing call. -->
+            <!--
+                 CALL action intent filters, for the various ways
+                 of initiating an outgoing call.
+            -->
             <intent-filter>
                 <action android:name="android.intent.action.CALL" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:scheme="tel" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.CALL" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:scheme="voicemail" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.CALL" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="vnd.android.cursor.item/phone_v2" />
                 <data android:mimeType="vnd.android.cursor.item/contact" />
             </intent-filter>
         </activity>
 
-        <activity-alias android:name="EmergencyOutgoingCallBroadcaster"
-                android:targetActivity="OutgoingCallBroadcaster"
-                android:permission="android.permission.CALL_PRIVILEGED"
-                android:theme="@android:style/Theme.NoDisplay"
-                android:exported="true">
+        <activity-alias
+            android:name="com.android.phone.PrivilegedOutgoingCallBroadcaster"
+            android:exported="true"
+            android:permission="android.permission.CALL_PRIVILEGED"
+            android:targetActivity="com.android.phone.OutgoingCallBroadcaster" >
+            <intent-filter>
+                <action android:name="android.intent.action.CALL_PRIVILEGED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="tel" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.CALL_PRIVILEGED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="voicemail" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.CALL_PRIVILEGED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="vnd.android.cursor.item/phone_v2" />
+                <data android:mimeType="vnd.android.cursor.item/contact" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name="com.android.phone.EmergencyOutgoingCallBroadcaster"
+            android:exported="true"
+            android:permission="android.permission.CALL_PRIVILEGED"
+            android:targetActivity="com.android.phone.OutgoingCallBroadcaster"
+            android:theme="@android:style/Theme.NoDisplay" >
             <intent-filter>
                 <action android:name="android.intent.action.CALL_EMERGENCY" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:scheme="tel" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.CALL_EMERGENCY" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:scheme="voicemail" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.CALL_EMERGENCY" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="vnd.android.cursor.item/phone_v2" />
                 <data android:mimeType="vnd.android.cursor.item/contact" />
             </intent-filter>
         </activity-alias>
 
-        <activity-alias android:name="PrivilegedOutgoingCallBroadcaster"
-                android:targetActivity="OutgoingCallBroadcaster"
-                android:permission="android.permission.CALL_PRIVILEGED"
-                android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.CALL_PRIVILEGED" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:scheme="tel" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.CALL_PRIVILEGED" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:scheme="voicemail" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.CALL_PRIVILEGED" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="vnd.android.cursor.item/phone_v2" />
-                <data android:mimeType="vnd.android.cursor.item/contact" />
-            </intent-filter>
-        </activity-alias>
-
-        <receiver android:name="ProcessOutgoingCallTest" android:exported="false"
-            android:enabled="false">
-            <intent-filter android:priority="1">
+        <receiver
+            android:name="com.android.phone.ProcessOutgoingCallTest"
+            android:enabled="false"
+            android:exported="false" >
+            <intent-filter android:priority="1" >
                 <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.android.phone.OutgoingCallReceiver"
+            android:exported="false" >
+            <intent-filter android:priority="-100" >
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
 
-        <receiver android:name="OutgoingCallReceiver" android:exported="false">
-            <intent-filter android:priority="-100">
-                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </receiver>
-
-        <activity android:name="InCallScreen"
-            android:theme="@style/Classic.Theme.NoTitleBar"
-            android:label="@string/phoneIconLabel"
+        <activity
+            android:name="com.android.phone.InCallScreen"
             android:excludeFromRecents="true"
+            android:exported="false"
+            android:label="@string/phoneIconLabel"
             android:launchMode="singleInstance"
             android:screenOrientation="nosensor"
-            android:exported="false" />
+            android:theme="@style/Classic.Theme.NoTitleBar" />
 
         <!-- general settings -->
-        <activity android:name="Settings" android:label="@string/settings_label"
-            android:exported="true">
+        <activity
+            android:name="com.android.phone.Settings"
+            android:exported="true"
+            android:label="@string/settings_label" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.MAIN" />
@@ -252,80 +323,93 @@
         </activity>
 
         <!-- networks setting -->
-        <!-- NetworkQueryService (escaneava operadoras via RIL interno) foi excluído do
+        <!--
+             NetworkQueryService (escaneava operadoras via RIL interno) foi excluído do
              build: TelephonyManager não oferece equivalente público de scan/seleção
-             manual de operadora a apps normais. Ver STATUS-PROJETO.md. -->
-        <activity android:name="NetworkSetting" android:label="@string/networks"
-            android:exported="false">
+             manual de operadora a apps normais. Ver STATUS-PROJETO.md.
+        -->
+        <activity
+            android:name="com.android.phone.NetworkSetting"
+            android:exported="false"
+            android:label="@string/networks" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.settings.NETWORK_OPERATOR_" />
             </intent-filter>
         </activity>
-
-        <activity android:name="GsmUmtsOptions"
-            android:label="@string/gsm_umts_options"
-            android:exported="false">
+        <activity
+            android:name="com.android.phone.GsmUmtsOptions"
+            android:exported="false"
+            android:label="@string/gsm_umts_options" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.android.phone.CdmaOptions"
+            android:exported="false"
+            android:label="@string/cdma_options" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.android.phone.CellBroadcastSms"
+            android:exported="false"
+            android:label="@string/cell_broadcast_sms" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
 
-        <activity android:name="CdmaOptions"
-            android:label="@string/cdma_options"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name="CellBroadcastSms"
-            android:label="@string/cell_broadcast_sms"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-        
         <!-- fdn setting -->
-        <activity android:name="FdnSetting" android:label="@string/fdn"
-            android:exported="false">
+        <activity
+            android:name="com.android.phone.FdnSetting"
+            android:exported="false"
+            android:label="@string/fdn" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-
-        <activity android:name="EnableFdnScreen" android:label="">
+        <activity
+            android:name="com.android.phone.EnableFdnScreen"
+            android:label="" >
         </activity>
 
         <!-- SIM PIN setting -->
-        <activity android:name="EnableIccPinScreen" android:label="@string/enable_pin"
-            android:exported="false">
+        <activity
+            android:name="com.android.phone.EnableIccPinScreen"
+            android:exported="false"
+            android:label="@string/enable_pin" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.DEVELOPMENT_PREFERENCE" />
             </intent-filter>
         </activity>
-
-        <activity android:name="ChangeIccPinScreen" android:label="@string/change_pin"
-            android:exported="false">
+        <activity
+            android:name="com.android.phone.ChangeIccPinScreen"
+            android:exported="false"
+            android:label="@string/change_pin" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.DEVELOPMENT_PREFERENCE" />
             </intent-filter>
         </activity>
-
-        <activity android:name="GetPin2Screen" android:label="@string/get_pin2">
+        <activity
+            android:name="com.android.phone.GetPin2Screen"
+            android:label="@string/get_pin2" >
+        </activity>
+        <activity android:name="com.android.phone.EditFdnContactScreen" >
+        </activity>
+        <activity
+            android:name="com.android.phone.DeleteFdnContactScreen"
+            android:label="@string/delete_fdn_contact" >
         </activity>
 
-        <activity android:name="EditFdnContactScreen">
-        </activity>
-
-        <activity android:name="DeleteFdnContactScreen" 
-        android:label="@string/delete_fdn_contact">
-        </activity>
-        
-        <!-- DataRoamingReenable/RoamingSetting removidos do manifest: essas
+        <!--
+             DataRoamingReenable/RoamingSetting removidos do manifest: essas
              duas Activities eram citadas no AndroidManifest.xml original do
              AOSP, mas o projeto NUNCA teve os arquivos .java correspondentes,
              nem antes da migração, nem depois. Nenhum código do app (nem
@@ -333,19 +417,24 @@
              essas entradas quebraria o aapt2 na primeira compilação (activity
              declarada sem classe correspondente). Achado nesta sessão durante
              a conferência final de pendências, não relacionado ao Bluetooth
-             Handsfree. -->
-        
+             Handsfree.
+        -->
+
+
         <!-- Emergency Callback Mode screen -->
-        <activity android:name="EmergencyCallbackMode" 
-                android:label="Emergency Call Back"
-                android:theme="@style/EmergencyCallBack"
-                android:launchMode="singleTask"
-                android:taskAffinity=":EmergencyCallbackMode">
+        <activity
+            android:name="com.android.phone.EmergencyCallbackMode"
+            android:label="Emergency Call Back"
+            android:launchMode="singleTask"
+            android:taskAffinity=":EmergencyCallbackMode"
+            android:theme="@style/EmergencyCallBack" >
         </activity>
 
         <!-- call feature setting -->
-        <activity android:name="CallFeaturesSetting" android:label="@string/call_settings"
-            android:exported="true">
+        <activity
+            android:name="com.android.phone.CallFeaturesSetting"
+            android:exported="true"
+            android:label="@string/call_settings" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.MAIN" />
@@ -353,12 +442,15 @@
             </intent-filter>
         </activity>
 
-        <!-- EmergencyCallHandler foi excluído do build: o retry de chamada de
+        <!--
+             EmergencyCallHandler foi excluído do build: o retry de chamada de
              emergência com rádio desligado (Phone.registerForServiceStateChanged/
              setRadioPower) é signature-only, sem equivalente público, e a classe
              não tinha layout/tela própria nem era referenciada por nenhum arquivo
-             já migrado — ver STATUS-PROJETO.md. -->
-        <!-- BluetoothHeadsetService/BluetoothHandsfree/BluetoothAtPhonebook
+             já migrado — ver STATUS-PROJETO.md.
+        -->
+        <!--
+             BluetoothHeadsetService/BluetoothHandsfree/BluetoothAtPhonebook
              foram excluídos do build: implementavam a stack de AT commands
              Bluetooth (HSP/HFP) rodada pelo próprio app, via android.bluetooth.
              AtCommandHandler/AtParser/HeadsetBase/ScoSocket/
@@ -366,7 +458,36 @@
              público (o Android moderno faz esse papel de Audio Gateway no
              próprio serviço de sistema de Bluetooth; um app comum só pede
              roteamento de áudio via CallAudioState.ROUTE_BLUETOOTH, API
-             pública). Ver telecom/DonutCallManager.java. -->
-    </application>
-</manifest>
+             pública). Ver telecom/DonutCallManager.java.
+        -->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="com.xaulinxs.donut.telefoneantigo.androidx-startup"
+            android:exported="false" >
+            <meta-data
+                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+                android:value="androidx.startup" />
+        </provider>
 
+        <receiver
+            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+            android:directBootAware="false"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.DUMP" >
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>
