@@ -26,6 +26,8 @@
     <string name="emergencyDialerIconLabel">Emergency Dialer</string>
     <!-- Application name on Home screen -->
     <string name="phoneIconLabel">Phone</string>
+    <!-- Content description of the call button on the Phone module's own dial screen -->
+    <string name="phoneDialerCallButton">Call</string>
     <!-- Tab title -->
     <string name="recentCallsIconLabel">Call log</string>
     <!-- Title of FDN list screen -->

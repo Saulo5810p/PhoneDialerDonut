@@ -345,7 +345,11 @@ public class SimContacts extends ADNList {
                         //TODO play error sound or something...
                         return true;
                     }
-                    Intent intent = new Intent(Intent.ACTION_CALL_PRIVILEGED,
+                    // ACTION_CALL_PRIVILEGED exige a permissão CALL_PRIVILEGED
+                    // (signature|system) -- nenhum app comum consegue disparar
+                    // esse Intent. Trocado por ACTION_CALL, que passa pelo
+                    // OutgoingCallBroadcaster já registrado no manifest.
+                    Intent intent = new Intent(Intent.ACTION_CALL,
                             Uri.fromParts("tel", number, null));
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
                                           | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);

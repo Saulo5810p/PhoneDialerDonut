@@ -194,6 +194,55 @@ public class PhoneApp extends Application {
         return mKeyguardManager;
     }
 
+    /**
+     * Duração do timeout de tela pedido por telas de chamada/discagem
+     * enquanto estão em primeiro plano. Antigo mecanismo interno de
+     * "poke lock" (LocalPowerManager) não existe mais em nenhuma API
+     * pública -- ver setScreenTimeout() abaixo pro substituto.
+     */
+    public enum ScreenTimeoutDuration {
+        SHORT,
+        MEDIUM,
+        DEFAULT
+    }
+
+    /**
+     * Suspende o keyguard enquanto uma tela de chamada/discagem estiver em
+     * primeiro plano (InCallScreen, EmergencyDialer). Usa o mesmo
+     * KeyguardManager.KeyguardLock já criado em onCreate() -- API pública,
+     * porém deprecated desde a API 13 e sem efeito garantido em todo
+     * fabricante/versão; app.disableKeyguard()/reenableKeyguard() só cobrem
+     * o caso "melhor esforço". Pra telas que realmente precisam aparecer
+     * sobre a tela bloqueada, o caminho moderno é
+     * Activity.setShowWhenLocked(true)/setTurnScreenOn(true) na própria
+     * Activity (API 27+), não algo que dá pra centralizar aqui.
+     */
+    void disableKeyguard() {
+        if (mKeyguardLock != null) {
+            mKeyguardLock.disableKeyguard();
+        }
+    }
+
+    void reenableKeyguard() {
+        if (mKeyguardLock != null) {
+            mKeyguardLock.reenableKeyguard();
+        }
+    }
+
+    /**
+     * Antigo poke-lock (IPowerManager/LocalPowerManager, API interna) não
+     * existe mais. O substituto público exigiria WRITE_SETTINGS concedida
+     * pelo usuário (Settings.canWrite()) pra mexer no
+     * Settings.System.SCREEN_OFF_TIMEOUT global do aparelho -- mexer no
+     * timeout do sistema inteiro por causa de uma tela de chamada é
+     * invasivo demais, então esta versão é no-op de propósito. Quem
+     * precisa manter a tela acesa (ex: durante uma chamada) deve usar
+     * FLAG_KEEP_SCREEN_ON na própria janela da Activity.
+     */
+    void setScreenTimeout(ScreenTimeoutDuration duration) {
+        // Intencionalmente no-op -- ver comentário acima.
+    }
+
     boolean isHeadsetPlugged() {
         // Detecção de fone com fio via broadcast ACTION_HEADSET_PLUG (API
         // pública) não religada nesta versão — assume "sem fone" por ora.

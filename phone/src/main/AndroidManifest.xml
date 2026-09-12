@@ -16,8 +16,6 @@
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
         package="com.android.phone"
-        android:sharedUserId="android.uid.phone"
-        android:sharedUserLabel="@string/dialerIconLabel"
 >
 
     <protected-broadcast android:name="android.intent.action.SERVICE_STATE" />
@@ -33,38 +31,36 @@
     <protected-broadcast android:name="android.intent.action.ACTION_MDN_STATE_CHANGED" />
     <protected-broadcast android:name="android.provider.Telephony.SPN_STRINGS_UPDATED" />
     
+    <!-- Permissões signature/system-only removidas nesta rodada, porque
+         nenhum app normal (nem assinado, sem sharedUserId de sistema)
+         chega a recebê-las de verdade: eram letra morta.
+         CALL_PRIVILEGED, WRITE_SECURE_SETTINGS, INTERNAL_SYSTEM_WINDOW,
+         ADD_SYSTEM_SERVICE, STATUS_BAR, MODIFY_PHONE_STATE, DEVICE_POWER,
+         REORDER_TASKS, CHANGE_CONFIGURATION, SET_TIME_ZONE,
+         WRITE_APN_SETTINGS, BROADCAST_SMS, BROADCAST_WAP_PUSH,
+         DISABLE_KEYGUARD (substituída pelo padrão moderno de janela, ver
+         PhoneApp.disableKeyguard()). SYSTEM_ALERT_WINDOW também saiu: não é
+         usada em nenhum lugar do código já migrado. -->
     <uses-permission android:name="android.permission.BROADCAST_STICKY" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.CALL_PRIVILEGED" />
+    <uses-permission android:name="android.permission.ANSWER_PHONE_CALLS" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.WRITE_CONTACTS" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="android.permission.INTERNAL_SYSTEM_WINDOW" />
-    <uses-permission android:name="android.permission.ADD_SYSTEM_SERVICE" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-    <uses-permission android:name="android.permission.REORDER_TASKS" />
-    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-    <uses-permission android:name="android.permission.STATUS_BAR" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.WRITE_SMS" />
-    <uses-permission android:name="android.permission.SET_TIME_ZONE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.MODIFY_PHONE_STATE" />
-    <uses-permission android:name="android.permission.DEVICE_POWER" />
-    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.WRITE_APN_SETTINGS" />
-    <uses-permission android:name="android.permission.BROADCAST_SMS"/>
-    <uses-permission android:name="android.permission.BROADCAST_WAP_PUSH"/>
     <!-- POST_NOTIFICATIONS: obrigatória em runtime a partir do Android 13
          (API 33) pra qualquer notificação aparecer, necessária agora que
          PhoneApp.onCreate() chama NotificationMgr.init() de verdade (a
@@ -89,6 +85,38 @@
                     <action android:name="android.telecom.InCallService" />
                 </intent-filter>
             </service>
+        <!-- Tela de discagem própria do Phone (nova nesta rodada). Junto
+             com o DonutInCallService (já registrado acima), é o que falta
+             pro Android considerar este app elegível como discador padrão
+             (RoleManager.ROLE_DIALER). Também vira o ícone que abre no
+             launcher, já que o app não tinha nenhuma Activity LAUNCHER até
+             agora. -->
+        <activity android:name="PhoneDialerActivity"
+            android:label="@string/phoneIconLabel"
+            android:theme="@style/Classic.Theme.NoTitleBar"
+            android:screenOrientation="nosensor"
+            android:launchMode="singleTop"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.DIAL" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.DIAL" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="tel" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="tel" />
+            </intent-filter>
+        </activity>
+
         <!-- Dialer UI that only allows emergency calls -->
         <activity android:name="EmergencyDialer"
             android:label="@string/emergencyDialerIconLabel"
