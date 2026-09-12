@@ -134,11 +134,11 @@ public final class ContactsListActivity extends ListActivity
     /** Unknown mode */
     static final int MODE_UNKNOWN = 0;
     /** Show members of the "Contacts" group */
-    static final int MODE_GROUP = 5;
+    static final int MODE_GROUP = 5 | MODE_MASK_SHOW_PHOTOS;
     /** Show all contacts sorted alphabetically */
-    static final int MODE_ALL_CONTACTS = 10;
+    static final int MODE_ALL_CONTACTS = 10 | MODE_MASK_SHOW_PHOTOS;
     /** Show all contacts with phone numbers, sorted alphabetically */
-    static final int MODE_WITH_PHONES = 15;
+    static final int MODE_WITH_PHONES = 15 | MODE_MASK_SHOW_PHOTOS;
     /** Show all starred contacts */
     static final int MODE_STARRED = 20;
     /** Show frequently contacted contacts */
@@ -207,7 +207,8 @@ public final class ContactsListActivity extends ListActivity
         Phone._ID, // 6 - id da linha de telefone (era PRIMARY_PHONE_ID)
         Phone.CONTACT_PRESENCE, // 7 - presença (era PRIMARY_EMAIL_ID, não usado)
         Phone.CONTACT_STATUS, // 8 - status/mensagem de presença (era SERVER_STATUS)
-        SORT_STRING, // 9
+        Phone.PHOTO_THUMBNAIL_URI, // 9 - capa do contato, igual à aba Favoritos
+        SORT_STRING, // 10
     };
 
     static final String[] SIMPLE_CONTACTS_PROJECTION = new String[] {
@@ -260,7 +261,7 @@ public final class ContactsListActivity extends ListActivity
     static final int PRIMARY_EMAIL_ID_COLUMN_INDEX = 7;
     static final int SERVER_STATUS_COLUMN_INDEX = 8;
     static final int PHOTO_COLUMN_INDEX = 9;
-    static final int SORT_STRING_INDEX = 9;
+    static final int SORT_STRING_INDEX = 10;
 
     static final int PHONES_PERSON_ID_INDEX = 6;
     static final int SIMPLE_CONTACTS_PERSON_ID_INDEX = 0;
