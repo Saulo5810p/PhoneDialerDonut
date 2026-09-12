@@ -184,6 +184,11 @@ public class DTMFTwelveKeyDialer implements
             return false;
         }
 
+        /**Return false since we are NOT consuming the input.*/
+        public boolean onGenericMotionEvent(TextView widget, Spannable buffer, MotionEvent event) {
+            return false;
+        }
+
         public void initialize(TextView widget, Spannable text) {
         }
 

@@ -68,7 +68,8 @@ class DTMFTwelveKeyDialerView extends LinearLayout {
             switch (keyCode) {
                 case KeyEvent.KEYCODE_BACK:
                 case KeyEvent.KEYCODE_CALL:
-                    return event.isDown() ? mDialer.onKeyDown(keyCode, event) : 
+                    return (event.getAction() == KeyEvent.ACTION_DOWN)
+                        ? mDialer.onKeyDown(keyCode, event) : 
                         mDialer.onKeyUp(keyCode, event); 
             }
         }

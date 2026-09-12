@@ -18,6 +18,7 @@ package com.android.phone;
 
 import android.app.Activity;
 import android.content.Intent;
+import com.android.phone.compat.TelephonyIntentsCompat;
 import android.os.Bundle;
 import android.telephony.PhoneNumberUtils;
 import android.util.Log;
@@ -75,9 +76,9 @@ public class OutgoingCallBroadcaster extends Activity {
         }
         
         /* Change CALL_PRIVILEGED into CALL or CALL_EMERGENCY as needed. */
-        if (Intent.ACTION_CALL_PRIVILEGED.equals(action)) {
+        if (TelephonyIntentsCompat.ACTION_CALL_PRIVILEGED.equals(action)) {
             action = emergencyNumber
-                    ? Intent.ACTION_CALL_EMERGENCY
+                    ? TelephonyIntentsCompat.ACTION_CALL_EMERGENCY
                     : Intent.ACTION_CALL;
             intent.setAction(action);
         }
@@ -90,7 +91,7 @@ public class OutgoingCallBroadcaster extends Activity {
                 return;
             }
             callNow = false;
-        } else if (Intent.ACTION_CALL_EMERGENCY.equals(action)) {
+        } else if (TelephonyIntentsCompat.ACTION_CALL_EMERGENCY.equals(action)) {
             if (!emergencyNumber) {
                 Log.w(TAG, "Cannot call non-emergency number " + number
                         + " with EMERGENCY_CALL Intent " + intent + ".");

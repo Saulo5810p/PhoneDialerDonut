@@ -75,6 +75,7 @@ import android.os.Message;
 import android.os.SystemClock;
 import android.telecom.Call;
 import android.telecom.CallAudioState;
+import com.android.phone.compat.TelephonyIntentsCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -513,7 +514,7 @@ public class InCallScreen extends Activity
             app.setRestoreMuteOnInCallResume(false);
             return InCallInitStatus.SUCCESS;
         } else if (action.equals(Intent.ACTION_CALL)
-                || action.equals(Intent.ACTION_CALL_EMERGENCY)) {
+                || action.equals(TelephonyIntentsCompat.ACTION_CALL_EMERGENCY)) {
             // Discar agora é responsabilidade do sistema/TwelveKeyDialer
             // (ACTION_CALL normal); a InCallScreen só precisa reagir ao
             // evento de chamada nova via DonutCallManager.Listener.
@@ -932,101 +933,84 @@ public class InCallScreen extends Activity
 
         Context context = getApplicationContext();
 
-        switch (id) {
-            case R.id.menuAnswerAndHold:
-                if (VDBG) log("onClick: AnswerAndHold...");
-                internalAnswerCall();
-                break;
+        if (id == R.id.menuAnswerAndHold) {
+            if (VDBG) log("onClick: AnswerAndHold...");
+            internalAnswerCall();
 
-            case R.id.menuAnswerAndEnd:
-                if (VDBG) log("onClick: AnswerAndEnd...");
-                internalAnswerAndEnd();
-                break;
+        } else if (id == R.id.menuAnswerAndEnd) {
+            if (VDBG) log("onClick: AnswerAndEnd...");
+            internalAnswerAndEnd();
 
-            case R.id.menuAnswer:
-                if (DBG) log("onClick: Answer...");
-                internalAnswerCall();
-                break;
+        } else if (id == R.id.menuAnswer) {
+            if (DBG) log("onClick: Answer...");
+            internalAnswerCall();
 
-            case R.id.menuIgnore:
-                if (DBG) log("onClick: Ignore...");
-                internalHangupRingingCall();
-                break;
+        } else if (id == R.id.menuIgnore) {
+            if (DBG) log("onClick: Ignore...");
+            internalHangupRingingCall();
 
-            case R.id.menuSwapCalls:
-                if (VDBG) log("onClick: SwapCalls...");
-                internalSwapCalls();
-                break;
+        } else if (id == R.id.menuSwapCalls) {
+            if (VDBG) log("onClick: SwapCalls...");
+            internalSwapCalls();
 
-            case R.id.menuMergeCalls:
-                if (VDBG) log("onClick: MergeCalls...");
-                PhoneUtils.mergeCalls();
-                break;
+        } else if (id == R.id.menuMergeCalls) {
+            if (VDBG) log("onClick: MergeCalls...");
+            PhoneUtils.mergeCalls();
 
-            case R.id.menuManageConference:
-                if (VDBG) log("onClick: ManageConference...");
-                setInCallScreenMode(InCallScreenMode.MANAGE_CONFERENCE);
-                break;
+        } else if (id == R.id.menuManageConference) {
+            if (VDBG) log("onClick: ManageConference...");
+            setInCallScreenMode(InCallScreenMode.MANAGE_CONFERENCE);
 
-            case R.id.menuShowDialpad:
-                if (VDBG) log("onClick: Show/hide dialpad...");
-                if (mDialer.isOpened()) {
-                    mDialer.closeDialer(true);
-                } else {
-                    mDialer.openDialer(true);
-                }
-                break;
+        } else if (id == R.id.menuShowDialpad) {
+            if (VDBG) log("onClick: Show/hide dialpad...");
+            if (mDialer.isOpened()) {
+                mDialer.closeDialer(true);
+            } else {
+                mDialer.openDialer(true);
+            }
 
-            case R.id.manage_done:
-                if (VDBG) log("onClick: mButtonManageConferenceDone...");
-                setInCallScreenMode(InCallScreenMode.NORMAL);
-                break;
+        } else if (id == R.id.manage_done) {
+            if (VDBG) log("onClick: mButtonManageConferenceDone...");
+            setInCallScreenMode(InCallScreenMode.NORMAL);
 
-            case R.id.menuSpeaker:
-                if (VDBG) log("onClick: Speaker...");
-                boolean newSpeakerState = !PhoneUtils.isSpeakerOn(context);
-                PhoneUtils.turnOnSpeaker(context, newSpeakerState, true);
+        } else if (id == R.id.menuSpeaker) {
+            if (VDBG) log("onClick: Speaker...");
+            boolean newSpeakerState = !PhoneUtils.isSpeakerOn(context);
+            PhoneUtils.turnOnSpeaker(context, newSpeakerState, true);
 
-                if (newSpeakerState) {
-                    enableTouchLock(false);
-                } else if (mDialer.isOpened() && !isTouchLocked()) {
-                    resetTouchLockTimer();
-                }
-                break;
+            if (newSpeakerState) {
+                enableTouchLock(false);
+            } else if (mDialer.isOpened() && !isTouchLocked()) {
+                resetTouchLockTimer();
+            }
 
-            case R.id.menuMute:
-                if (VDBG) log("onClick: Mute...");
-                PhoneUtils.setMute(!PhoneUtils.getMute());
-                break;
+        } else if (id == R.id.menuMute) {
+            if (VDBG) log("onClick: Mute...");
+            PhoneUtils.setMute(!PhoneUtils.getMute());
 
-            case R.id.menuHold:
-                if (VDBG) log("onClick: Hold...");
-                onHoldClick();
-                break;
+        } else if (id == R.id.menuHold) {
+            if (VDBG) log("onClick: Hold...");
+            onHoldClick();
 
-            case R.id.menuAddCall:
-                if (VDBG) log("onClick: AddCall...");
-                startActivity(new Intent(Intent.ACTION_DIAL));
-                break;
+        } else if (id == R.id.menuAddCall) {
+            if (VDBG) log("onClick: AddCall...");
+            startActivity(new Intent(Intent.ACTION_DIAL));
 
-            case R.id.menuEndCall:
-                if (VDBG) log("onClick: EndCall...");
-                PhoneUtils.hangupActiveCall();
-                break;
+        } else if (id == R.id.menuEndCall) {
+            if (VDBG) log("onClick: EndCall...");
+            PhoneUtils.hangupActiveCall();
 
-            case R.id.menuBluetooth:
-                // Alterna o roteamento de áudio pro Bluetooth via sistema
-                // (CallAudioState, API pública) -- ver PhoneUtils/
-                // DonutCallManager. O item só fica clicável quando o
-                // InCallMenu já detectou uma rota Bluetooth disponível.
-                if (VDBG) log("onClick: Bluetooth...");
-                PhoneUtils.setBluetoothOn(!PhoneUtils.isBluetoothAudioOn());
-                break;
+        } else if (id == R.id.menuBluetooth) {
+            // Alterna o roteamento de áudio pro Bluetooth via sistema
+            // (CallAudioState, API pública) -- ver PhoneUtils/
+            // DonutCallManager. O item só fica clicável quando o
+            // InCallMenu já detectou uma rota Bluetooth disponível.
+            if (VDBG) log("onClick: Bluetooth...");
+            PhoneUtils.setBluetoothOn(!PhoneUtils.isBluetoothAudioOn());
 
-            default:
-                Log.w(LOG_TAG,
-                      "Got click from unexpected View ID " + id + " (View = " + view + ")");
-                break;
+        } else {
+            Log.w(LOG_TAG,
+                  "Got click from unexpected View ID " + id + " (View = " + view + ")");
         }
 
         // Qualquer clique no grid conta como atividade explícita do usuário.

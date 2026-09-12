@@ -25,7 +25,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.os.SystemClock;
-import android.os.SystemProperties;
 import android.os.Vibrator;
 import android.util.Log;
 
@@ -35,7 +34,7 @@ import android.util.Log;
 public class Ringer {
     private static final String LOG_TAG = "Ringer";
     private static final boolean DBG =
-            (PhoneApp.DBG_LEVEL >= 1) && (SystemProperties.getInt("ro.debuggable", 0) == 1);
+            (PhoneApp.DBG_LEVEL >= 1) && android.os.Build.TYPE.equals("eng");
 
     private static final int PLAY_RING_ONCE = 1;
     private static final int STOP_RING = 3;
@@ -47,7 +46,7 @@ public class Ringer {
     Uri mCustomRingtoneUri;
 
     Ringtone mRingtone;
-    Vibrator mVibrator = new Vibrator();
+    Vibrator mVibrator;
     volatile boolean mContinueVibrating;
     VibratorThread mVibratorThread;
     Context mContext;
@@ -59,6 +58,7 @@ public class Ringer {
 
     Ringer(Context context) {
         mContext = context;
+        mVibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
     }
 
     /**

@@ -245,11 +245,14 @@ public class PhoneInterfaceManager {
     // Correio de voz
     // ------------------------------------------------------------------
 
-    /** Quantidade de mensagens de correio de voz não lidas (API pública). */
+    /**
+     * Quantidade de mensagens de correio de voz não lidas.
+     * TelephonyManager.getVoiceMessageCount() virou @SystemApi/@hide (não
+     * existe mais no android.jar público) -- sem substituto acessível a um
+     * app comum, retorna sempre 0.
+     */
     public static int getVoiceMessageCount(Context context) {
-        TelephonyManager tm =
-                (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-        return tm != null ? tm.getVoiceMessageCount() : 0;
+        return 0;
     }
 
     private static void log(String msg) {

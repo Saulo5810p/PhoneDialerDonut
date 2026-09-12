@@ -140,9 +140,14 @@ public class EditPhoneNumberPreference extends EditTextPreference {
         a.recycle();
 
         //get the summary settings, use CheckBoxPreference as the standard.
-        a = context.obtainStyledAttributes(attrs, android.R.styleable.CheckBoxPreference, 0, 0);
-        mSummaryOn = a.getString(android.R.styleable.CheckBoxPreference_summaryOn);
-        mSummaryOff = a.getString(android.R.styleable.CheckBoxPreference_summaryOff);
+        // android.R.styleable.CheckBoxPreference é @hide/interno no SDK
+        // público moderno -- os atributos summaryOn/summaryOff em si são
+        // públicos (android.R.attr), então pedimos o array diretamente por
+        // eles em vez do styleable interno inteiro.
+        int[] summaryAttrs = { android.R.attr.summaryOn, android.R.attr.summaryOff };
+        a = context.obtainStyledAttributes(attrs, summaryAttrs, 0, 0);
+        mSummaryOn = a.getString(0);
+        mSummaryOff = a.getString(1);
         a.recycle();
     }
     

@@ -238,105 +238,101 @@ public class PhoneDialerActivity extends Activity implements View.OnClickListene
     }
 
     public boolean onKey(View view, int keyCode, KeyEvent event) {
-        switch (view.getId()) {
-            case R.id.digits:
-                if (keyCode == KeyEvent.KEYCODE_ENTER) {
-                    placeCall();
-                    return true;
-                }
-                break;
+        int id = view.getId();
+        if (id == R.id.digits) {
+            if (keyCode == KeyEvent.KEYCODE_ENTER) {
+                placeCall();
+                return true;
+            }
         }
         return false;
     }
 
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.one: {
-                playTone(ToneGenerator.TONE_DTMF_1);
-                keyPressed(KeyEvent.KEYCODE_1);
-                return;
-            }
-            case R.id.two: {
-                playTone(ToneGenerator.TONE_DTMF_2);
-                keyPressed(KeyEvent.KEYCODE_2);
-                return;
-            }
-            case R.id.three: {
-                playTone(ToneGenerator.TONE_DTMF_3);
-                keyPressed(KeyEvent.KEYCODE_3);
-                return;
-            }
-            case R.id.four: {
-                playTone(ToneGenerator.TONE_DTMF_4);
-                keyPressed(KeyEvent.KEYCODE_4);
-                return;
-            }
-            case R.id.five: {
-                playTone(ToneGenerator.TONE_DTMF_5);
-                keyPressed(KeyEvent.KEYCODE_5);
-                return;
-            }
-            case R.id.six: {
-                playTone(ToneGenerator.TONE_DTMF_6);
-                keyPressed(KeyEvent.KEYCODE_6);
-                return;
-            }
-            case R.id.seven: {
-                playTone(ToneGenerator.TONE_DTMF_7);
-                keyPressed(KeyEvent.KEYCODE_7);
-                return;
-            }
-            case R.id.eight: {
-                playTone(ToneGenerator.TONE_DTMF_8);
-                keyPressed(KeyEvent.KEYCODE_8);
-                return;
-            }
-            case R.id.nine: {
-                playTone(ToneGenerator.TONE_DTMF_9);
-                keyPressed(KeyEvent.KEYCODE_9);
-                return;
-            }
-            case R.id.zero: {
-                playTone(ToneGenerator.TONE_DTMF_0);
-                keyPressed(KeyEvent.KEYCODE_0);
-                return;
-            }
-            case R.id.pound: {
-                playTone(ToneGenerator.TONE_DTMF_P);
-                keyPressed(KeyEvent.KEYCODE_POUND);
-                return;
-            }
-            case R.id.star: {
-                playTone(ToneGenerator.TONE_DTMF_S);
-                keyPressed(KeyEvent.KEYCODE_STAR);
-                return;
-            }
-            case R.id.digits: {
-                placeCall();
-                return;
-            }
-            case R.id.backspace: {
-                keyPressed(KeyEvent.KEYCODE_DEL);
-                return;
-            }
-            case R.id.callButton: {
-                placeCall();
-                return;
-            }
+        int id = view.getId();
+        if (id == R.id.one) {
+            playTone(ToneGenerator.TONE_DTMF_1);
+            keyPressed(KeyEvent.KEYCODE_1);
+            return;
+
+        } else if (id == R.id.two) {
+            playTone(ToneGenerator.TONE_DTMF_2);
+            keyPressed(KeyEvent.KEYCODE_2);
+            return;
+
+        } else if (id == R.id.three) {
+            playTone(ToneGenerator.TONE_DTMF_3);
+            keyPressed(KeyEvent.KEYCODE_3);
+            return;
+
+        } else if (id == R.id.four) {
+            playTone(ToneGenerator.TONE_DTMF_4);
+            keyPressed(KeyEvent.KEYCODE_4);
+            return;
+
+        } else if (id == R.id.five) {
+            playTone(ToneGenerator.TONE_DTMF_5);
+            keyPressed(KeyEvent.KEYCODE_5);
+            return;
+
+        } else if (id == R.id.six) {
+            playTone(ToneGenerator.TONE_DTMF_6);
+            keyPressed(KeyEvent.KEYCODE_6);
+            return;
+
+        } else if (id == R.id.seven) {
+            playTone(ToneGenerator.TONE_DTMF_7);
+            keyPressed(KeyEvent.KEYCODE_7);
+            return;
+
+        } else if (id == R.id.eight) {
+            playTone(ToneGenerator.TONE_DTMF_8);
+            keyPressed(KeyEvent.KEYCODE_8);
+            return;
+
+        } else if (id == R.id.nine) {
+            playTone(ToneGenerator.TONE_DTMF_9);
+            keyPressed(KeyEvent.KEYCODE_9);
+            return;
+
+        } else if (id == R.id.zero) {
+            playTone(ToneGenerator.TONE_DTMF_0);
+            keyPressed(KeyEvent.KEYCODE_0);
+            return;
+
+        } else if (id == R.id.pound) {
+            playTone(ToneGenerator.TONE_DTMF_P);
+            keyPressed(KeyEvent.KEYCODE_POUND);
+            return;
+
+        } else if (id == R.id.star) {
+            playTone(ToneGenerator.TONE_DTMF_S);
+            keyPressed(KeyEvent.KEYCODE_STAR);
+            return;
+
+        } else if (id == R.id.digits) {
+            placeCall();
+            return;
+
+        } else if (id == R.id.backspace) {
+            keyPressed(KeyEvent.KEYCODE_DEL);
+            return;
+
+        } else if (id == R.id.callButton) {
+            placeCall();
+            return;
         }
     }
 
     public boolean onLongClick(View view) {
         int id = view.getId();
-        switch (id) {
-            case R.id.backspace: {
-                mDigits.getText().delete(0, mDigits.getText().length());
-                return true;
-            }
-            case R.id.zero: {
-                keyPressed(KeyEvent.KEYCODE_PLUS);
-                return true;
-            }
+        if (id == R.id.backspace) {
+            mDigits.getText().delete(0, mDigits.getText().length());
+            return true;
+
+        } else if (id == R.id.zero) {
+            keyPressed(KeyEvent.KEYCODE_PLUS);
+            return true;
         }
         return false;
     }

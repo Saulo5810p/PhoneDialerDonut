@@ -17,6 +17,7 @@ package com.android.phone;
 
 import android.app.Activity;
 import android.content.Intent;
+import com.android.phone.compat.TelephonyIntentsCompat;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -33,7 +34,7 @@ import com.android.phone.compat.NotPortedYet;
  * NOTA: mPhone/PhoneFactory foram removidos -- a lógica de "sair do modo
  * callback de emergência" (Phone.exitEmergencyCallbackMode) já vinha
  * COMENTADA no código original de 2009 (nunca chegou a ser ligada). Os
- * botões Dial e OK já usavam só API pública (Intent.ACTION_CALL_EMERGENCY,
+ * botões Dial e OK já usavam só API pública (TelephonyIntentsCompat.ACTION_CALL_EMERGENCY,
  * NotificationMgr) e continuam funcionando; o botão Exit agora mostra a
  * mensagem de "não faço milagre" em vez de ficar mudo sem feedback nenhum.
  */
@@ -61,7 +62,7 @@ public class EmergencyCallbackMode extends Activity {
     {
         public void onClick(View v)
         {
-            Intent intent = new Intent(Intent.ACTION_CALL_EMERGENCY,  Uri.parse("tel:911"));
+            Intent intent = new Intent(TelephonyIntentsCompat.ACTION_CALL_EMERGENCY,  Uri.parse("tel:911"));
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
             //create Notification
@@ -101,7 +102,7 @@ public class EmergencyCallbackMode extends Activity {
         // suppress all key presses except of call key
         switch (keyCode) {
             case KeyEvent.KEYCODE_CALL: {
-                Intent intent = new Intent(Intent.ACTION_CALL_EMERGENCY,  Uri.parse("tel:911"));
+                Intent intent = new Intent(TelephonyIntentsCompat.ACTION_CALL_EMERGENCY,  Uri.parse("tel:911"));
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 finish();

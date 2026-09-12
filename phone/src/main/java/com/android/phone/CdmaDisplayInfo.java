@@ -18,7 +18,6 @@ package com.android.phone;
 
 import android.app.AlertDialog;
 import android.content.Context;
-import android.os.SystemProperties;
 import android.util.Log;
 import android.view.WindowManager;
 
@@ -27,7 +26,7 @@ import android.view.WindowManager;
  */
 public class CdmaDisplayInfo {
     private static final String LOG_TAG = "CdmaDisplayInfo";
-    private static final boolean DBG = (SystemProperties.getInt("ro.debuggable", 0) == 1);
+    private static final boolean DBG = android.os.Build.TYPE.equals("eng");
 
     /** CDMA DisplayInfo dialog */
     private static AlertDialog sDisplayInfoDialog = null;

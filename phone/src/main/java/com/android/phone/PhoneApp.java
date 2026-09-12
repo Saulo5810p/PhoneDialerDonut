@@ -73,6 +73,15 @@ public class PhoneApp extends Application {
     private KeyguardManager mKeyguardManager;
     private KeyguardManager.KeyguardLock mKeyguardLock;
 
+    // Estado fino usado pelas telas de chamada/DTMF pra pedir "não deixa a
+    // tela apagar agora" / "ignora toque do usuário pra fins de wake" --
+    // substitui o antigo mecanismo de poke-lock (IPowerManager interno).
+    // Não existe API pública equivalente a nível de sistema; isso é
+    // resolvido na própria Activity via FLAG_KEEP_SCREEN_ON (ver
+    // updateWakeState() abaixo), então aqui só guardamos a intenção.
+    private boolean mIgnoreTouchUserActivity = false;
+    private boolean mRestoreMuteOnInCallResume = false;
+
     public PhoneApp() {
         sMe = this;
     }
@@ -188,6 +197,56 @@ public class PhoneApp extends Application {
         if (mWakeLock != null && !mWakeLock.isHeld()) {
             mWakeLock.acquire(3000);
         }
+    }
+
+    /**
+     * Acorda a tela imediatamente. Chamado quando um evento externo (nova
+     * DisplayInfo da rede CDMA, broadcast de chamada de saída) precisa
+     * garantir que o usuário veja a tela na hora -- mesmo mecanismo de
+     * pokeUserActivity(), exposto com o nome que o código legado espera.
+     */
+    /* package */ void wakeUpScreen() {
+        pokeUserActivity();
+    }
+
+    /**
+     * Substitui o antigo poke-lock de "impede a tela de apagar" -- agora é
+     * só um wake pontual (ver pokeUserActivity()); a Activity de chamada é
+     * quem de fato mantém a tela acesa via FLAG_KEEP_SCREEN_ON enquanto
+     * estiver em primeiro plano. `screenOnImmediately` é ignorado de
+     * propósito (não há mais um "modo imediato" separado no PowerManager
+     * público).
+     */
+    /* package */ void preventScreenOn(boolean screenOnImmediately) {
+        if (screenOnImmediately) {
+            pokeUserActivity();
+        }
+    }
+
+    /**
+     * Reavalia o wake lock com base no estado atual de chamada. Sem o
+     * poke-lock interno, isso vira só "garante que a tela está acesa
+     * agora" -- quem quer manter acesa por mais tempo usa
+     * FLAG_KEEP_SCREEN_ON na própria janela.
+     */
+    /* package */ void updateWakeState() {
+        pokeUserActivity();
+    }
+
+    /* package */ boolean getIgnoreTouchUserActivity() {
+        return mIgnoreTouchUserActivity;
+    }
+
+    /* package */ void setIgnoreTouchUserActivity(boolean ignore) {
+        mIgnoreTouchUserActivity = ignore;
+    }
+
+    /* package */ boolean getRestoreMuteOnInCallResume() {
+        return mRestoreMuteOnInCallResume;
+    }
+
+    /* package */ void setRestoreMuteOnInCallResume(boolean restore) {
+        mRestoreMuteOnInCallResume = restore;
     }
 
     KeyguardManager getKeyguardManager() {

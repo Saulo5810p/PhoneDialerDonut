@@ -437,7 +437,10 @@ public class NotificationMgr implements DonutCallManager.Listener, OnQueryComple
         int vmCount = 0;
         try {
             vmNumber = tm.getVoiceMailNumber();
-            vmCount = tm.getVoiceMessageCount();
+            // TelephonyManager.getVoiceMessageCount() virou @SystemApi/@hide
+            // (não existe mais no android.jar público) -- não há substituto
+            // acessível a um app comum, então a contagem some da
+            // notificação (fica só o número do correio de voz).
         } catch (SecurityException e) {
             // sem READ_PHONE_STATE ainda -- segue com valores vazios
         }
