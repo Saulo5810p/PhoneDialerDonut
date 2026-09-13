@@ -34,6 +34,13 @@
  *    uma rota de áudio Bluetooth disponível (CallAudioState, API pública) --
  *    o antigo BluetoothHandsfree (stack de AT commands rodada pelo próprio
  *    app) foi excluído do build, ver PhoneUtils/DonutCallManager.
+ * 6. Barra com 3 linhas (pedido do Saulo, visual do Android 1.6): linha
+ *    de cima = Mostrar teclado / Trocar / Mesclar / Finalizar (+ variantes
+ *    de Atender/Ignorar quando há chamada tocando); linha de baixo = Em
+ *    espera / Mudo / Viva-voz / Bluetooth; linha extra = Gerenciar
+ *    conferência / Adicionar chamada, que só aparece quando pelo menos um
+ *    dos dois faz sentido no estado atual da ligação -- nenhum botão do
+ *    controle de chamada original ficou de fora.
  * ============================================================================
  */
 
@@ -181,25 +188,32 @@ class InCallMenu {
         mIgnore.setOnClickListener(mInCallScreen);
         mIgnore.setText(R.string.menu_ignore);
 
-        // Row 0: dialpad / manage conference
-        mInCallMenuView.addItemView(mShowDialpad, 0);
-        mInCallMenuView.addItemView(mManageConference, 0);
+        // Linha de cima: Mostrar teclado / Trocar / Mesclar / Finalizar.
+        // (mAnswerAndHold/mAnswerAndEnd/mAnswer/mIgnore entram na mesma
+        // linha só pros estados de chamada tocando/em espera chegando --
+        // nesses casos os botões normais ficam GONE e só os que fazem
+        // sentido aparecem, dividindo a linha entre si.)
+        mInCallMenuView.addItemView(mShowDialpad, InCallMenuView.ROW_TOP);
+        mInCallMenuView.addItemView(mSwapCalls, InCallMenuView.ROW_TOP);
+        mInCallMenuView.addItemView(mMergeCalls, InCallMenuView.ROW_TOP);
+        mInCallMenuView.addItemView(mEndCall, InCallMenuView.ROW_TOP);
+        mInCallMenuView.addItemView(mAnswerAndHold, InCallMenuView.ROW_TOP);
+        mInCallMenuView.addItemView(mAnswerAndEnd, InCallMenuView.ROW_TOP);
+        mInCallMenuView.addItemView(mAnswer, InCallMenuView.ROW_TOP);
+        mInCallMenuView.addItemView(mIgnore, InCallMenuView.ROW_TOP);
 
-        // Row 1: swap / merge / add / end
-        mInCallMenuView.addItemView(mSwapCalls, 1);
-        mInCallMenuView.addItemView(mMergeCalls, 1);
-        mInCallMenuView.addItemView(mAddCall, 1);
-        mInCallMenuView.addItemView(mEndCall, 1);
+        // Linha de baixo: Em espera / Mudo / Viva-voz / Bluetooth.
+        mInCallMenuView.addItemView(mHold, InCallMenuView.ROW_BOTTOM);
+        mInCallMenuView.addItemView(mMute, InCallMenuView.ROW_BOTTOM);
+        mInCallMenuView.addItemView(mSpeaker, InCallMenuView.ROW_BOTTOM);
+        mInCallMenuView.addItemView(mBluetooth, InCallMenuView.ROW_BOTTOM);
 
-        // Row 2: hold/answer variants + mute/speaker/bluetooth
-        mInCallMenuView.addItemView(mHold, 2);
-        mInCallMenuView.addItemView(mAnswerAndHold, 2);
-        mInCallMenuView.addItemView(mAnswerAndEnd, 2);
-        mInCallMenuView.addItemView(mAnswer, 2);
-        mInCallMenuView.addItemView(mIgnore, 2);
-        mInCallMenuView.addItemView(mMute, 2);
-        mInCallMenuView.addItemView(mSpeaker, 2);
-        mInCallMenuView.addItemView(mBluetooth, 2);
+        // Linha extra: Gerenciar conferência / Adicionar chamada -- ficam
+        // GONE na maior parte do tempo (só fazem sentido em conferência /
+        // quando dá pra adicionar outra chamada), então essa linha some
+        // sozinha quando nenhum dos dois se aplica.
+        mInCallMenuView.addItemView(mManageConference, InCallMenuView.ROW_EXTRA);
+        mInCallMenuView.addItemView(mAddCall, InCallMenuView.ROW_EXTRA);
 
         mInCallMenuView.dumpState();
     }

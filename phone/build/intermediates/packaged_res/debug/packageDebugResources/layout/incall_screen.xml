@@ -244,11 +244,22 @@
          original esses botões só apareciam com a tecla física MENU; sem
          essa tecla nos aparelhos modernos, o grid fica sempre visível
          aqui, ancorado embaixo. A InCallMenuView é inflada aqui via
-         Java (InCallScreen.initInCallScreen()), igual ao CallCard. -->
+         Java (InCallScreen.initInCallScreen()), igual ao CallCard.
+
+         CORREÇÃO: sem layout_marginBottom, este container ficava colado
+         em y=0 (borda absoluta da tela) -- exatamente onde o
+         SlidingDrawer do teclado numérico (dtmf_twelve_key_dialer.xml)
+         também ancora sua alça ("Teclado"), já que os dois usam
+         gravity/offset "bottom". As duas coisas ficavam sobrepostas, e
+         toques que caíam na "zona morta" do grid antigo eram engolidos
+         pela alça do teclado por baixo. A margem abaixo garante que a
+         barra de controle sempre fique visivelmente ACIMA da alça do
+         teclado, sem se tocarem. -->
     <FrameLayout android:id="@+id/inCallMenuContainer"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+        android:layout_marginBottom="40dip"
         />
 
 </FrameLayout>
