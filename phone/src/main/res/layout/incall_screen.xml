@@ -247,7 +247,7 @@
          Java (InCallScreen.initInCallScreen()), igual ao CallCard.
 
          CORREÇÃO: sem layout_marginBottom, este container ficava colado
-         em y=0 (borda absoluta da tela) -- exatamente onde o
+         em y=0 (borda absoluta da tela) - exatamente onde o
          SlidingDrawer do teclado numérico (dtmf_twelve_key_dialer.xml)
          também ancora sua alça ("Teclado"), já que os dois usam
          gravity/offset "bottom". As duas coisas ficavam sobrepostas, e
