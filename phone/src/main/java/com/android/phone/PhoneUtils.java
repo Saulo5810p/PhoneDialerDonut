@@ -78,8 +78,29 @@ public class PhoneUtils {
         return findCallInState(Call.STATE_RINGING);
     }
 
+    /**
+     * CORREÇÃO: antes esta função só reconhecia Call.STATE_ACTIVE, enquanto
+     * o resto do app (InCallMenu.updateItems(), InCallScreen.activeCall())
+     * já tratava STATE_DIALING/STATE_CONNECTING como "chamada ativa" pra
+     * decidir se os botões aparecem habilitados. Resultado: com a chamada
+     * ainda discando/conectando (antes do outro lado atender), os botões
+     * Encerrar/Mesclar/Trocar/Em espera apareciam habilitados mas o toque
+     * não fazia nada, porque aqui dentro getActiveCall() não encontrava
+     * nenhuma chamada em STATE_ACTIVE puro e os métodos abaixo desistiam
+     * silenciosamente (sem log, sem exceção). Unificado com a mesma
+     * definição usada na UI, então uma chamada discando agora conta como
+     * "ativa" pra hangupActiveCall()/mergeCalls()/switchHoldingAndActive().
+     */
     private static Call getActiveCall() {
-        return findCallInState(Call.STATE_ACTIVE);
+        for (Call c : DonutCallManager.getInstance().getCalls()) {
+            int state = c.getState();
+            if (state == Call.STATE_ACTIVE
+                    || state == Call.STATE_DIALING
+                    || state == Call.STATE_CONNECTING) {
+                return c;
+            }
+        }
+        return null;
     }
 
     private static Call getHoldingCall() {
