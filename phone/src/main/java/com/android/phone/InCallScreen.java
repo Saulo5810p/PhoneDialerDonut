@@ -271,6 +271,23 @@ public class InCallScreen extends Activity
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
 
+        // Faz a tela de chamada aparecer por cima da tela bloqueada e
+        // acender a tela, sem depender da permissão signature-only
+        // DISABLE_KEYGUARD (era o que causava o crash SecurityException ao
+        // discar/atender). setShowWhenLocked/setTurnScreenOn são a API
+        // pública equivalente a partir do Android 8.1 (API 27); nas
+        // versões anteriores (minSdk 23) o mesmo efeito é obtido com as
+        // flags de janela clássicas.
+        if (android.os.Build.VERSION.SDK_INT >= 27) {
+            setShowWhenLocked(true);
+            setTurnScreenOn(true);
+        } else {
+            getWindow().addFlags(
+                    WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
+                    | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON
+                    | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        }
+
         // Inflate everything in incall_screen.xml and add it to the screen.
         setContentView(R.layout.incall_screen);
         mDialerDrawer = (SlidingDrawer) findViewById(R.id.dialer_container);

@@ -277,14 +277,31 @@ public class PhoneApp extends Application {
      * Activity (API 27+), não algo que dá pra centralizar aqui.
      */
     void disableKeyguard() {
+        // KeyguardLock.disableKeyguard() exige a permissão signature/system
+        // DISABLE_KEYGUARD, que não é mais concedível a apps normais --
+        // chamar isso sem a permissão derruba o processo com
+        // SecurityException (era o crash ao atender/discar). O caminho que
+        // realmente funciona em app normal é
+        // Activity.setShowWhenLocked(true)/setTurnScreenOn(true) (ou as
+        // flags de janela equivalentes em API < 27), já aplicado em
+        // InCallScreen.onCreate(). Mantido como no-op protegido por
+        // try/catch só por segurança, caso algum fabricante ainda libere.
         if (mKeyguardLock != null) {
-            mKeyguardLock.disableKeyguard();
+            try {
+                mKeyguardLock.disableKeyguard();
+            } catch (SecurityException e) {
+                if (DBG) Log.d(LOG_TAG, "disableKeyguard: sem permissão, ignorando (esperado)");
+            }
         }
     }
 
     void reenableKeyguard() {
         if (mKeyguardLock != null) {
-            mKeyguardLock.reenableKeyguard();
+            try {
+                mKeyguardLock.reenableKeyguard();
+            } catch (SecurityException e) {
+                if (DBG) Log.d(LOG_TAG, "reenableKeyguard: sem permissão, ignorando (esperado)");
+            }
         }
     }
 
