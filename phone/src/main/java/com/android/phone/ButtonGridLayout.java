@@ -69,25 +69,72 @@ public class ButtonGridLayout extends ViewGroup {
     private int getRows() {
         return (getChildCount() + mColumns - 1) / mColumns; 
     }
-    
+
+    /*
+     * CORREÇÃO (layout "finger" comprimido em telas modernas):
+     *
+     * A versão original media cada botão com MeasureSpec.UNSPECIFIED nos
+     * dois eixos. Nesse modo, uma View comum IGNORA o android:layout_width/
+     * height declarado no XML (96dip x 76dip no dialpad.xml) e volta pro seu
+     * tamanho intrínseco mínimo (o do drawable de fundo) -- por isso os
+     * botões apareciam minúsculos/"comprimidos" dentro da célula do grid,
+     * em qualquer aparelho, independente da densidade de tela.
+     *
+     * A correção mede cada botão com MeasureSpec.EXACTLY, calculando o
+     * tamanho da célula a partir da largura REAL disponível na tela (em vez
+     * de um valor fixo pensado pra ~320dp do Donut original). Isso resolve
+     * os dois problemas de uma vez: honra o tamanho pretendido no XML E
+     * adapta o grid pra caber certinho em qualquer largura de tela (do
+     * Galaxy A35 a um tablet), mantendo a mesma grade de 3 colunas ("finger"
+     * grid) e a proporção original dos ícones (sem esticar/achatar).
+     */
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int width = getPaddingLeft() + getPaddingRight();
-        int height = getPaddingTop() + getPaddingBottom();
-        
-        // Measure the first child and get it's size
-        View child = getChildAt(0);
-        child.measure(MeasureSpec.UNSPECIFIED , MeasureSpec.UNSPECIFIED);
-        int childWidth = child.getMeasuredWidth();
-        int childHeight = child.getMeasuredHeight();
-        // Make sure the other children are measured as well, to initialize
-        for (int i = 1; i < getChildCount(); i++) {
-            getChildAt(0).measure(MeasureSpec.UNSPECIFIED , MeasureSpec.UNSPECIFIED);
+        final int rows = getRows();
+        final int paddingH = getPaddingLeft() + getPaddingRight();
+        final int paddingV = getPaddingTop() + getPaddingBottom();
+        final int widthMode = MeasureSpec.getMode(widthMeasureSpec);
+        final int widthSize = MeasureSpec.getSize(widthMeasureSpec);
+
+        final View child0 = getChildAt(0);
+        final ViewGroup.LayoutParams refLp = child0.getLayoutParams();
+
+        // Proporção original do botão (altura/largura), pra escalar sem
+        // distorcer os ícones do teclado.
+        final float aspect = (refLp != null && refLp.width > 0 && refLp.height > 0)
+                ? (float) refLp.height / (float) refLp.width
+                : (76f / 96f);
+
+        int columnWidth;
+        if (widthMode == MeasureSpec.EXACTLY || widthMode == MeasureSpec.AT_MOST) {
+            // Caso normal: divide a largura real disponível em 3 colunas.
+            columnWidth = (widthSize - paddingH) / mColumns;
+        } else if (refLp != null && refLp.width > 0) {
+            // Sem restrição de largura do pai: cai de volta pro tamanho
+            // declarado no XML de cada botão.
+            columnWidth = refLp.width;
+        } else {
+            // Último recurso: mede o botão livremente pra descobrir seu
+            // tamanho intrínseco.
+            child0.measure(MeasureSpec.UNSPECIFIED, MeasureSpec.UNSPECIFIED);
+            columnWidth = child0.getMeasuredWidth();
         }
-        // All cells are going to be the size of the first child
-        width += mColumns * childWidth;
-        height += getRows() * childHeight;
-        
+
+        // Pequena folga entre botões (mesma sensação "finger" do original).
+        final int hGap = Math.max(0, (int) (columnWidth * 0.08f));
+        final int childWidth = Math.max(1, columnWidth - hGap);
+        final int childHeight = Math.max(1, Math.round(childWidth * aspect));
+
+        final int childWidthSpec = MeasureSpec.makeMeasureSpec(childWidth, MeasureSpec.EXACTLY);
+        final int childHeightSpec = MeasureSpec.makeMeasureSpec(childHeight, MeasureSpec.EXACTLY);
+        for (int i = 0; i < getChildCount(); i++) {
+            getChildAt(i).measure(childWidthSpec, childHeightSpec);
+        }
+
+        final int vGap = Math.max(0, (int) (childHeight * 0.08f));
+        int width = paddingH + mColumns * columnWidth;
+        int height = paddingV + rows * (childHeight + vGap);
+
         width = resolveSize(width, widthMeasureSpec);
         height = resolveSize(height, heightMeasureSpec);
         setMeasuredDimension(width, height);

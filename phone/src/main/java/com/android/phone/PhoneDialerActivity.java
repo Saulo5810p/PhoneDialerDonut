@@ -72,6 +72,7 @@ public class PhoneDialerActivity extends Activity implements View.OnClickListene
     private static final int TONE_LENGTH_MS = 150;
     private static final int TONE_RELATIVE_VOLUME = 50;
     private static final int REQUEST_CODE_CALL_PHONE = 1;
+    private static final int REQUEST_CODE_READ_CONTACTS = 2;
 
     private EditText mDigits;
     private View mDelete;
@@ -129,6 +130,21 @@ public class PhoneDialerActivity extends Activity implements View.OnClickListene
         mDigits.setOnClickListener(this);
         mDigits.setOnKeyListener(this);
         mDigits.setLongClickable(false);
+
+        // CORREÇÃO: READ_CONTACTS já estava declarada no manifest, mas
+        // nunca era pedida em runtime (obrigatório desde API 23). Sem ela
+        // concedida, toda consulta a PhoneLookup (nome/foto do contato na
+        // tela de chamada) falhava silenciosamente com SecurityException e
+        // caía sempre no caso "número desconhecido, sem foto". Pedindo aqui,
+        // na tela principal do discador, o usuário já concede antes de
+        // discar, e a InCallScreen consegue mostrar nome e foto de contatos
+        // salvos normalmente.
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_CONTACTS)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                    new String[] { android.Manifest.permission.READ_CONTACTS },
+                    REQUEST_CODE_READ_CONTACTS);
+        }
 
         View view = findViewById(R.id.one);
         if (view != null) {

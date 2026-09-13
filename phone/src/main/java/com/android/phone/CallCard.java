@@ -334,6 +334,20 @@ public class CallCard extends FrameLayout implements CallerInfoAsyncQuery.OnQuer
         }
     }
 
+    /**
+     * Força uma nova consulta de CallerInfo pra chamada atual, ignorando o
+     * cache de "já consultei essa Call". Usado quando READ_CONTACTS acaba
+     * de ser concedida em runtime durante uma chamada já em andamento (ver
+     * InCallScreen.onRequestPermissionsResult) -- sem isso, nome e foto só
+     * apareceriam na próxima chamada, já que updateState() sozinho não
+     * repete a consulta pra uma Call que já foi consultada (mesmo que a
+     * primeira tentativa tenha falhado por falta de permissão).
+     */
+    void refreshCallerInfo() {
+        mCallerInfoQueryTarget = null;
+        mLastLoadedPhotoUri = null;
+    }
+
     /** Implementado para CallerInfoAsyncQuery.OnQueryCompleteListener. */
     @Override
     public void onQueryComplete(CallerInfo info, Object cookie) {

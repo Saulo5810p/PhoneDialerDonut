@@ -138,6 +138,9 @@ public class InCallScreen extends Activity
     // Código de requestPermissions() para POST_NOTIFICATIONS (API 33+).
     private static final int REQUEST_CODE_POST_NOTIFICATIONS = 1;
 
+    // Código de requestPermissions() para READ_CONTACTS.
+    private static final int REQUEST_CODE_READ_CONTACTS = 2;
+
     // Message codes; see mHandler below.
     private static final int EVENT_HEADSET_PLUG_STATE_CHANGED = 103;
     private static final int DELAYED_CLEANUP_AFTER_DISCONNECT = 108;
@@ -316,6 +319,22 @@ public class InCallScreen extends Activity
                     REQUEST_CODE_POST_NOTIFICATIONS);
         }
 
+        // CORREÇÃO: READ_CONTACTS já era declarada no manifest mas nunca
+        // pedida em runtime (API 23+) -- sem ela, compat/CallerInfo sempre
+        // caía no catch(SecurityException) e devolvia um CallerInfo vazio,
+        // por isso nome e foto do contato nunca apareciam na tela de
+        // chamada, mesmo com o número salvo na agenda. Já é pedida também
+        // na tela principal do discador (PhoneDialerActivity), mas uma
+        // chamada recebida pode abrir a InCallScreen direto sem passar por
+        // lá -- por isso o pedido é repetido aqui como rede de segurança.
+        if (ContextCompat.checkSelfPermission(this,
+                        android.Manifest.permission.READ_CONTACTS)
+                        != android.content.pm.PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                    new String[] { android.Manifest.permission.READ_CONTACTS },
+                    REQUEST_CODE_READ_CONTACTS);
+        }
+
         if (icicle == null) {
             if (DBG) log("onCreate(): this is our very first launch, checking intent...");
             mInCallInitialStatus = internalResolveIntent(getIntent());
@@ -333,6 +352,25 @@ public class InCallScreen extends Activity
         }
 
         Profiler.callScreenCreated();
+    }
+
+    /**
+     * Se READ_CONTACTS acabou de ser concedida (usuário respondeu ao
+     * pedido feito em onCreate() no meio de uma chamada já em andamento),
+     * força uma nova consulta de CallerInfo -- sem isso, nome/foto só
+     * apareceriam a partir da chamada seguinte.
+     */
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQUEST_CODE_READ_CONTACTS
+                && grantResults.length > 0
+                && grantResults[0] == android.content.pm.PackageManager.PERMISSION_GRANTED
+                && mCallCard != null) {
+            mCallCard.refreshCallerInfo();
+            updateScreen();
+        }
     }
 
     @Override
